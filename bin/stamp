@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+# Octopress helper script; rename a "draft" post
+# (denoted by being named DRAFT-foo) to the current date
+
+require 'date'
+
+post = ARGV[0]
+
+# require filename argument
+if !post or !File.file?(post) or !post.match( /DRAFT-/i )
+  puts "USAGE: stamp DRAFT-postname"
+  exit 1
+end
+
+# save our place so we can return
+current_directory = Dir.getwd
+Dir.chdir( File.dirname( post ))
+
+file = File.basename( post )
+
+# strip leading "DRAFT-" prefix 
+slug = file.match( /^DRAFT-(.*)$/i )[1]
+
+# generate date slug, avoid race condition
+d = Date.today
+date = [d.year, d.month, d.day, ""].join("-")
+
+File.rename( file, date + slug )
+
+# unwind
+Dir.chdir( current_directory )

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+dirs=`ls B`
+for d in $dirs
+do
+  echo $d
+  echo mv B/$d/* A/$d/*
+done
+mv B/* A/

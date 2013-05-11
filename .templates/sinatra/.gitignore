@@ -1,0 +1,10 @@
+*.swo
+*.swp
+*.psd
+*~
+.DS_Store
+.gems
+.bundled_gems
+TODO.txt
+vendor/ruby
+.DS_Store

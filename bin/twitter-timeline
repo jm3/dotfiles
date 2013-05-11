@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'twitter'
+
+user = ARGV[0] || "jm3"
+
+# query = /foo/i
+
+(1..16).each do |page|
+  Twitter.user_timeline(user, :page => page, :count => 200).each do |tweet|
+    puts tweet.id.to_s + ": " + tweet.text # if query.match(tweet.text)
+  end
+end
+

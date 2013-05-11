@@ -1,0 +1,39 @@
+# jm3 screenrc
+
+#configs
+autodetach        on
+shell             zsh
+defscrollback     10000
+vbell_msg         " *beep* "
+defutf8           on
+vbell             on
+startup_message   off
+#caption           always "%w"
+#caption always "%{-b ..}%-w%{+b ..}[%n%f*%t]%{-}%+w"
+caption always "%L=%-Lw%45>%{+b by}%n%f* %t%{-} %+Lw%-0<"
+
+nethack           on
+hardstatus        alwayslastline "%H                                                             (%C%a %M %d %Y)"
+
+# copy to mac clipboard on 'b':
+bind b            eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
+
+screen -t zsh  0
+
+screen -t mail  1
+stuff 'exec alpine -f "{imap.gmail.com/novalidate-cert/ssl/user=jm3@140proof.com}" -i'
+
+screen -t unicorn  2
+stuff "cd railsbe unicorn"
+
+screen -t rails 3
+stuff "cd railsclearls"
+
+screen -t sinatra 4
+stuff "cd salesbe rackup"
+
+screen -t sales 5
+stuff "cd salesclearls"
+
+screen -t db 6 ssh titanium
+stuff "clearmysql -ureadonly -pforcemein honeydew_production"

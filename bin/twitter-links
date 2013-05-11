@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+require "twitter"
+require "expander"
+
+user = "jm3"
+
+Twitter.configure do |config|
+  config.consumer_key       = ENV["CONSUMER_KEY"]
+  config.consumer_secret    = ENV["CONSUMER_SECRET"]
+  config.oauth_token        = ENV["OAUTH_TOKEN"]
+  config.oauth_token_secret = ENV["OAUTH_TOKEN_SECRET"]
+end
+
+client = Twitter::Client.new
+allowed_chars = /[^A-Za-z0-9_ #\@\$\.\-\/:]/
+
+has_url = /http/i
+
+(1..16).each do |page|
+  Twitter.user_timeline(user, :page => page, :count => 200).each do |tweet|
+    if has_url.match(tweet.text)
+      url = tweet.text.gsub( /^.*(http[^ !'"?]+).*/, '\1' ) # will likely mis-match on odd URLs
+      unpacked_url = url.expand_urls if url.match( /t\.co/ )
+      puts "#{tweet.text}, #{unpacked_url}"
+    end
+  end
+end
+

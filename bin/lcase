@@ -1,0 +1,16 @@
+#!/bin/bash
+
+orig=$1
+ 
+# make sure file exits for reading
+if [ ! -f "$orig" -a ! -d "$orig" ]; then
+  echo "Filename '$orig' does not exists"
+  exit 1
+fi
+ 
+# convert uppercase to lowercase using tr command
+lc=`echo $orig | tr '[A-Z]' '[a-z]'`
+mv "$orig" "$lc"
+ 
+# Bash version 4 user should use builtin 
+

@@ -1,0 +1,41 @@
+if [ "`uname`" = "Darwin" ]; then
+
+  # OS X hostname juju to override DHCP-set hostname
+  # machine=lunchcart
+  # sudo scutil --set HostName ${machine}.dyndns.org
+  # sudo scutil --set LocalHostName ${machine}
+  # sudo scutil --set ComputerName ${machine}
+
+  alias atop="htop"
+  alias be="bundle exec"
+  alias bems="be middleman server"
+  alias eject="sudo diskutil umount"
+  alias g="gvim"
+  alias gv="gvim"
+  alias htop="htop -u $USER --sort-key PERCENT_CPU"
+  alias ls="ls -FG"
+  alias mou="/Applications/Mou.app/Contents/MacOS/Mou"
+  alias truecrypt="/Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt"
+
+  if [ -d "~/Checkouts" ]; then
+    cd ~/Checkouts/
+  fi
+
+  # magical hfs+ friendly, finder metadata-preserving version of rsync
+  # install proper OS X/HFS+ rsync with: brew install https://github.com/adamv/homebrew-alt/raw/master/duplicates/rsync.rb
+  alias rsync="rsync -aNHAXx --fileflags --protect-decmpfs --force-change --verbose --progress --stats -t --delete-excluded --delete --ignore-errors"
+
+  # for snow leopard:
+  compctl -f sgi64
+
+  # clean up after messy apps
+  if [ -d "${HOME}/Documents" ]; then
+    cd $HOME/Documents/
+    if [ -d "eBooks" ]; then
+      rm -rf eBooks
+    fi
+    cd - &> /dev/null
+  fi
+
+fi
+# end os x customizations

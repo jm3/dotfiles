@@ -1,0 +1,37 @@
+# Editor temp files #
+####################
+*.swp
+*~
+.*.swo
+
+# Archives #
+############
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+._*
+Icon?
+Thumbs.db
+
+# Other shit #
+######################
+*.psd
+*.mp3
+*.mp4
+*.aac

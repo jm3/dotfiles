@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+# GET https://api.twitter.com/1/friends/ids.json?cursor=-1&screen_name=twitterapi
+
+require "twitter"
+
+Twitter.configure do |config|
+  config.consumer_key       = ENV["CONSUMER_KEY"]
+  config.consumer_secret    = ENV["CONSUMER_SECRET"]
+  config.oauth_token        = ENV["OAUTH_TOKEN"]
+  config.oauth_token_secret = ENV["OAUTH_TOKEN_SECRET"]
+end
+
+client = Twitter::Client.new
+
+allowed_chars = /[^A-Za-z0-9_ #\@\$\.\-\/:]/
+
+user = 63796828 # "@verified" user
+followers = []
+
+u = Twitter.user(user)
+slots = [:id, :description, :friends_count]
+obj = {}
+
+slots.each do |field|
+  obj[field] = u[field].to_s.gsub(allowed_chars, "")
+  puts obj[field]
+end
+
+followers << obj
+
+puts followers.to_yaml

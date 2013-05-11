@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+# cat a list of tweet URLS to me and I'll build you a block of HTML
+# with the tweets nicely embedded in it
+
+url_regex = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
+tweets_embedded = 0
+
+ARGF.each_with_index do |line, idx|
+  tweet_url = line.chomp.gsub(/^-/, '')
+  next unless tweet_url.match( url_regex )
+  tweet_url.gsub!(/http:/, "https:")
+  puts "<blockquote class='twitter-tweet'><p>Embedded Tweet <a href='http://t.co/J68woiVq' title='http://bit.ly/GCblcP'>www.140proof.com</a></p>&mdash; John Manoogian III (@jm3) <a href='#{tweet_url}' data-datetime='2012-03-21T18:45:03+00:00'>March 21, 2012</a></blockquote>"
+  tweets_embedded = idx
+end
+puts "<script src='//platform.twitter.com/widgets.js' charset='utf-8'></script>" unless tweets_embedded == 0

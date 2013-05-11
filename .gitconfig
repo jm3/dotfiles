@@ -1,0 +1,43 @@
+[alias]
+  br = branch
+  ci = commit -v
+  co = checkout
+  di = diff
+  l = log --color --graph --pretty=format:'%Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr %C(white)%an' --abbrev-commit
+  shorten = "!sh -c 'curl -i http://git.io -F url=$1' -"
+  st = status
+  undo-commit = reset --soft HEAD^
+  up = pull --rebase
+  wup = log -p origin..@{0}
+[branch]
+  autosetuprebase = always
+  autosetupmerge = always
+[color]
+  ui = true
+  branch = auto
+  diff = auto
+  status = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = cyan bold
+  frag = white
+  old = red
+  new = green
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[core]
+  quotepath = false
+  excludesfile = ~/.gitignore-global
+[github]
+  user = jm3
+  token = 38b1e4ba31dcdee8262e0f16f7fa30c7
+[help]
+  autocorrect = 1
+[user]
+  name = John Manoogian III
+  email = jm3@jm3.net

@@ -1,0 +1,6 @@
+alias list="dpkg --get-selections | awk '{print \$1}' | sort"
+upapt() {
+  sudo aptitude full-upgrade
+}
+alias ls="ls --color -F"
+alias mtop="mtop --dbuser=root --password=cbe05de7383387836856ed6f0e29f904"

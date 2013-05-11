@@ -1,0 +1,9 @@
+{
+	"color_scheme": "Packages/Color Scheme - Default/Cobalt.tmTheme",
+	"font_size": 16.0,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"trim_trailing_white_space_on_save": true
+}

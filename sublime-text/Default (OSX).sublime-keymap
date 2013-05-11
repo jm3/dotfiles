@@ -1,0 +1,4 @@
+[
+	{"keys": ["super+l"], "command": "filter_through_command"},
+	{ "keys": ["super+d"], "command": "expand_selection_to_paragraph" }
+]

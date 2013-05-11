@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+# Octopress helper script; rename a (presumably just-created) post
+# to DRAFT-foo instead of YYYY-MM-DD-foo, which is hard to find and
+# tab-complete, and also inaccurate if you take more than a day to
+# write the post.
+
+require 'date'
+
+post = ARGV[0]
+
+# require filename argument
+if !post or !File.file?(post) or !post.match( /\d{4}-\d\d?-\d\d?-/ )
+  puts "USAGE: stamp YYYY-MM-DD-postname"
+  exit 1
+end
+
+# save our place so we can return
+current_directory = Dir.getwd
+Dir.chdir( File.dirname( post ))
+
+file = File.basename( post )
+
+# strip leading date prefix 
+slug = file.match( /^\d{4}-\d\d?-\d\d?-(.*)$/ )[1]
+
+File.rename( file, "DRAFT-#{slug}" )
+
+# unwind
+Dir.chdir( current_directory )

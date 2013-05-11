@@ -1,0 +1,14 @@
+--type-add=css=.sass,.scss,.less
+--type-add=js=.json
+--type-add=ruby=Gemfile
+--type-add=ruby=Gemfile.lock
+--type-add=ruby=config.ru
+--type-set=html=.tmpl
+--type-set=markdown=.md
+--type-set=ruby=.haml
+
+--ignore-dir=.bundled_gems
+--ignore-dir=.gems
+--ignore-dir=staticcfg
+--ignore-dir=vendor
+--ignore-dir=tweets

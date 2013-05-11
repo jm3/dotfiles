@@ -1,0 +1,4 @@
+# only used by bash so who gives a fuck in a zsh world
+# set show-all-if-ambiguous on
+C-f: forward-word
+C-b: backward-word

@@ -1,0 +1,66 @@
+#!/bin/bash
+
+script=`basename $0`
+
+dot_home="$HOME/.dotfiles"
+black_hole="/tmp/"
+
+if [ ! -d "$dot_home" ]; then
+  echo "move the checked-out repo to ~/.dotfiles first, please."
+  exit 1
+fi
+
+cd
+
+if [ -f .bash_profile ]; then
+  # abomination
+  mv .bash_profile .bash_profile.old
+fi
+
+dots=`ls -a $dot_home`
+echo Linking dotfiles in place
+for dot in $dots
+do
+  # skip unrelated files
+  if [ $dot = ".DS_Store" \
+    -o $dot = $script \
+    -o $dot = "README.md" \
+    -o $dot = ".rvmrc.off" \
+    -o $dot = "sublime-text" \
+    -o $dot = ".git" ]; then
+    continue
+  fi
+
+  if [ ! -L $dot -a ! -d $dot ]; then
+    echo moving existing $dot out of the way
+    if [ -f $dot.old ]; then
+      mv $dot.old $black_hole
+    fi
+    mv $dot $dot.old
+    ln -s $dot_home/$dot $dot
+  fi
+done
+
+os=`uname`
+if [ $os = "Darwin" ]; then
+  subl_home="/Users/jm3/Library/Application Support/Sublime Text 2/Packages/"
+
+  if [ ! -d "$subl_home" ]; then
+    exit
+  fi
+
+  cd "$subl_home"
+  if [ "`readlink User`" = "$dot_home/sublime-text" ]; then
+    exit
+  fi
+
+  echo updating Sublime Text 2 configs
+  if [ -f "old-configs.tgz" ]; then
+    mv old-configs.tgz $black_hole
+  fi
+  tar cvz User > old-configs.tgz &> /dev/null
+  rm -rf User
+  ln -s $dot_home/sublime-text User
+fi
+
+exit 0

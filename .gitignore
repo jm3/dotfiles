@@ -1,0 +1,18 @@
+# never add these:
+
+/.mutt/cache
+/.mutt/account.*
+/.mutt/certificates
+/.rvm
+/.ssh/*sa
+/.ssh/*.off
+/.ssh/*.pub
+/.vim/.netrwhist
+/.vim/bundle
+/.vim/doc
+/.vim/plugin
+/.vim/ruby
+/bin/handbrake
+/bin/vagabond
+/sublime-text/Package Control.last-run
+/sublime-text/Package Control.sublime-settings

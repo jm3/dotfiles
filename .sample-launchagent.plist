@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <!-- s/whatever/NEWTHING/g done -->
+  <dict>
+    <key>KeepAlive</key>
+    <true/>
+    <key>Label</key>
+    <string>jm3.whatever</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/local/sbin/whatever</string>
+      <string>-D</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>UserName</key>
+    <string>jm3</string>
+    <key>WorkingDirectory</key>
+    <string>/usr/local/var</string>
+    <key>StandardErrorPath</key>
+    <string>/usr/local/var/log/whatever.log</string>
+    <key>StandardOutPath</key>
+    <string>/usr/local/var/log/whatever.log</string>
+  </dict>
+</plist>
