@@ -40,23 +40,10 @@ compctl -g '*(-/)' cd chdir dirs pushd
 # complete with active command names:
 compctl -c sudo type whence where man
 
-# build hostnames array from our ssh/config file, because we're fuckin clever:
-#if [ -f ~/.ssh/config ]; then
-#  hostnames=(`grep "^[Hh]ost" ~/.ssh/config | sed "s/[Hh]ost *//" | sed "s/\*//g" | xargs -n1 | sort | xargs`)
-#fi
-
-# TODO: make scp complete hostnames, but handle the : and the trailing filename
-
 # TODO: make git complete, just as it already does with compsys, but reduce the command set down to only:
 git_commands="(branch commit pull push status)"
 
-# TODO: gem with gem_command prefix and for update, uninstall: installed_gems, and for install: server_gems
 gem_commands="(build cleanup contents env install list sources tumble uninstall update)"
-
-# these new two are are a bit slow to run on shell init,
-# so leave them commented out until there's a cronjob that caches them nightly:
-# installed_gems="(`gem list | awk '{print $1}' | xargs`)"
-# remote_gems="(`lynx --dump http://gems.rubyforge.org/stats.html | awk '{print $1}' > ~/.remote_rubyforge_gems.txt && xargs < ~/.remote_rubyforge_gems.txt`)"
 
 # options:
 setopt AUTO_CD
@@ -85,7 +72,7 @@ function mcdir {
 }
 
 # source local profile
-box=`hostname | sed s/\.local// | sed s/\.dyndns\.org//`
+box=$(hostname | sed s/\.local// | sed s/\.dyndns\.org//)
 if [ -f ~/.profile-$box ]; then
   prompt="$box " # hostname + % 
   source ~/.profile-$box
@@ -117,11 +104,12 @@ export RPROMPT="%@"   # right-side prompt: time only
 alias right="export RPROMPT='%~ %@'"
 alias noright="export RPROMPT="
 
-# if we haven't already, load keys so all apps can find them
-ps aux | grep "ssh-agen[t]" &> /dev/null
-if [ $? = 1 ]; then
-  ls -l ~/.ssh/*sa &> /dev/null
-  if [ $? = 0 ]; then
+# if we haven't already, load any keys so all apps can find them
+num_keys_loaded=$(ssh-add -l | grep -v "no identities" | wc -l)
+if [ $num_keys_loaded -lt 1 ]; then
+  for key in $(find ~/.ssh/ -name '*sa'); do
     eval `ssh-agent` &> /dev/null && ssh-add ~/.ssh/*sa &> /dev/null
-  fi
+    break
+  done
 fi
+
