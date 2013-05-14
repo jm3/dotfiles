@@ -143,6 +143,7 @@ export VISUAL=$EDITOR
 export PATH=\
 $HOME/bin:\
 $HOME/.rvm/bin:\
+/usr/local/heroku/bin:\
 /usr/local/mysql/bin:\
 /usr/local/share/npm/bin:\
 /usr/local/sbin:\
