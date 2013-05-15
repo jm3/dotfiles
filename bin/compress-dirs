@@ -1,0 +1,13 @@
+#!/bin/sh
+
+for d in `ls -1`
+do
+  if [ -d $d ]; then
+    tar cvz $d > $d.tgz
+    if [ $? -eq 0 ]; then
+      echo tarred successfully\; deleting
+      mv $d /tmp/
+    fi
+  fi
+
+done
