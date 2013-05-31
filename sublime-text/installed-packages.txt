@@ -2,6 +2,10 @@
 	"installed_packages":
 	[
 		"Package Control",
+		"2PDF",
+		"Gist",
+		"Number Manipulation",
+		"Markdown Todo",
 		"SublimeExternalCommand"
 	]
 }
