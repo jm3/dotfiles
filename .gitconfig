@@ -19,6 +19,10 @@
   user = jm3
 [help]
   autocorrect = 1
+[merge]
+  tool = changes
+[mergetool "changes"]
+  cmd = ~/bin/changes --wait $BASE $LOCAL
 [user]
   name = John Manoogian III
   email = jm3@jm3.net

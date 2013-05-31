@@ -54,6 +54,8 @@ alias  last="git diff HEAD@{5.minutes.ago}"
 
 alias    gf="git fetch"
 
+alias    mt="git mergetool"
+
 alias    gp="git pull"
 alias   gpr="git pull --rebase"
 alias  gphm="git push heroku master"
