@@ -12,6 +12,18 @@
 [branch]
   autosetuprebase = always
   autosetupmerge = always
+[core]
+  quotepath = false
+  excludesfile = ~/.gitignore-global
+[github]
+  user = jm3
+  token = 38b1e4ba31dcdee8262e0f16f7fa30c7
+[help]
+  autocorrect = 1
+[user]
+  name = John Manoogian III
+  email = jm3@jm3.net
+
 [color]
   ui = true
   branch = auto
@@ -30,14 +42,3 @@
   added = yellow
   changed = green
   untracked = cyan
-[core]
-  quotepath = false
-  excludesfile = ~/.gitignore-global
-[github]
-  user = jm3
-  token = 38b1e4ba31dcdee8262e0f16f7fa30c7
-[help]
-  autocorrect = 1
-[user]
-  name = John Manoogian III
-  email = jm3@jm3.net

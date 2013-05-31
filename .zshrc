@@ -10,6 +10,10 @@ autoload zmv
 
 autoload -U colors && colors
 
+# for git stuff
+# TODO: integrate this as per http://linuxgazette.net/184/silva.html
+autoload -Uz vcs_info
+
 # ctl-shift-x, h to show completion context
 autoload -U compinit && compinit # rm -f ~/.zcompdump if rvm complains
 
