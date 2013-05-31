@@ -17,7 +17,6 @@
   excludesfile = ~/.gitignore-global
 [github]
   user = jm3
-  token = 38b1e4ba31dcdee8262e0f16f7fa30c7
 [help]
   autocorrect = 1
 [user]
