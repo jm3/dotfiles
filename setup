@@ -41,6 +41,10 @@ do
   fi
 done
 
+# set up vim
+cd ~/.vim/
+./update_bundles.rb
+
 os=`uname`
 if [ $os = "Darwin" ]; then
   subl_home="/Users/jm3/Library/Application Support/Sublime Text 2/Packages/"

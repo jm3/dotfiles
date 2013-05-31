@@ -40,11 +40,6 @@ compctl -g '*(-/)' cd chdir dirs pushd
 # complete with active command names:
 compctl -c sudo type whence where man
 
-# TODO: make git complete, just as it already does with compsys, but reduce the command set down to only:
-git_commands="(branch commit pull push status)"
-
-gem_commands="(build cleanup contents env install list sources tumble uninstall update)"
-
 # options:
 setopt AUTO_CD
 setopt APPEND_HISTORY
