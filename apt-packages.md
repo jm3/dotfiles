@@ -9,8 +9,11 @@ mysql-server
 redis-server
 screen
 tmux
+virtualbox-guest-additions-iso
 zsh
-virtualbox-ose-guest-dkms
-virtualbox-ose-guest-utils
-virtualbox-ose-guest-x11
+
+#ffmpeg
+#jpeginfo
+#mencoder
+#imagemagick
 
