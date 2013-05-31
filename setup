@@ -33,7 +33,7 @@ do
 
   if [ ! -L $dot -a ! -d $dot ]; then
     echo moving existing $dot out of the way
-    if [ -f $dot.old ]; then
+    if [ -e $dot.old ]; then
       mv $dot.old $black_hole
     fi
     mv $dot $dot.old
