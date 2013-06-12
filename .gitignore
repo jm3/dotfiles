@@ -1,7 +1,9 @@
-# never add these:
-
-/.mutt/cache
+# don't version these
+/.config/fish/fish_history
+/.config/fish/fishd.*
+/.config/mkvtoolnix/
 /.mutt/account.*
+/.mutt/cache
 /.mutt/certificates
 /.rvm
 /.ssh/*
@@ -11,8 +13,10 @@
 /.vim/doc
 /.vim/plugin
 /.vim/ruby
-/bin/handbrake
-/bin/vagabond
-/sublime-text/Package Control.last-run
-/sublime-text/Package Control.sublime-settings
-/sublime-text/Gist.sublime-settings
+/bin/unversioned/*
+/osx/st/Gist.sublime-settings
+
+# ignore compiled files
+/osx/st/*.tmTheme.cache
+/osx/st/*.pyc
+
