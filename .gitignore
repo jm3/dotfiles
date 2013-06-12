@@ -4,9 +4,8 @@
 /.mutt/account.*
 /.mutt/certificates
 /.rvm
-/.ssh/*sa
-/.ssh/*.off
-/.ssh/*.pub
+/.ssh/*
+!/.ssh/config
 /.vim/.netrwhist
 /.vim/bundle
 /.vim/doc
