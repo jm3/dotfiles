@@ -152,6 +152,7 @@ $HOME/.rvm/bin:\
 /usr/local/sbin:\
 /usr/local/bin:\
 /usr/bin:\
+/sbin:\
 /bin:
 
 if [ -d "/usr/local/lib/node" ]; then
