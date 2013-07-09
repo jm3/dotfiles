@@ -90,16 +90,15 @@ fi
 function git_branch() {
   git symbolic-ref HEAD | cut -d'/' -f3
 }
-#PROMPT="${prompt}[$fg[green]\$(git_branch)$reset_color]%# "
 PROMPT="${prompt}%# "
-
 precmd () { echo -n "\033]1;$USERNAME@$HOST\033]2;$PWD> " }
 parse_git_branch() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 export PROMPT='%m %B%3c%(#.#.)%b $(parse_git_branch) > '
-
 export RPROMPT="%@"   # right-side prompt: time only
+
+# toggle right-side prompt
 alias right="export RPROMPT='%~ %@'"
 alias noright="export RPROMPT="
 
