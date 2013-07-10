@@ -1,9 +1,8 @@
 {
 	"caret_style": "phase",
-	"color_scheme": "Packages/Color Scheme - Default/SpaceCadet.tmTheme",
-	"font_size": 16.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": false,
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
 	"ignored_packages":
 	[
 		"Vintage"

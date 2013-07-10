@@ -2,6 +2,7 @@
 
 git_bundles = [
   "git://github.com/altercation/vim-colors-solarized.git", # sane, modern colors
+  "git://github.com/digitaltoad/vim-jade.git",             # jade templating for node
   "git://github.com/ervandew/supertab.git",                # tab-complete anything
   "git://github.com/godlygeek/tabular.git",                # align assignments and arg lists
   "git://github.com/jelera/vim-gummybears-colorscheme",    # pretty colors

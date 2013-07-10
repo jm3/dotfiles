@@ -163,6 +163,7 @@ autocmd BufNewFile,BufRead *.less        set ft=css
 autocmd BufNewFile,BufRead /etc/nginx/*  set ft=nginx
 autocmd BufNewFile,BufRead *.json        set ft=javascript
 autocmd BufNewFile,BufRead *.ru          set ft=ruby
+autocmd BufNewFile,BufRead *.jade        set ft=jade
 
 " no trailing whitespace
 autocmd FileType rb,json,yml,css,js,html,haml autocmd BufWritePre <buffer> :%s/\s\+$//e
