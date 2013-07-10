@@ -1,10 +1,10 @@
-// by: jm3, [www.jm3.net](http://www.jm3.net), @[jm3](http://twitter.com/jm3).
+// by: [jm3](http://jm3.github.io) ([@jm3](http://twitter.com/jm3) on Twitter)
 
-// [View a screenshot](http://cl.ly/3H3K08311Q250d0e1M0M) to see what this code does.
+// [View a screenshot](http://git.io/mj8ZIg) to see what this code does.
 
-// [View the code](https://github.com/jm3/thunderous-configs/blob/master/.js/en.wikipedia.org.js)
+// [Fork the code](https://github.com/jm3/dotfiles/blob/master/.js/en.wikipedia.org.js)
 
-// [View the docs](http://jm3.github.com/thunderous-configs/en.wikipedia.org.html)
+// [View the docs](http://jm3.github.io/wikipedia-watchlist/)
 
 // # Setup
 
