@@ -2,9 +2,13 @@
 ;;  Custom jm3 Mods for Emacs 20  :  john manoogian III <jm3@monkey.org>  ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; some reminders: http://www.emacswiki.org/emacs/EmacsNewbieKeyReference
+
 (setq toggle-text-mode-auto-fill "y")
 
 (setq load-path (cons "/home/jm3/.lisp/" load-path))
+
+(setq ispell-program-name "/usr/local/bin/aspell")
 
 ;; replace y-e-s by y
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -87,6 +91,11 @@
 
 ;;;  Set a key to call compile command
 (global-set-key "\C-xc" 'compile)
+
+;;; Kill other buffers (vs. just closing their splits with ctl-x 1)
+(defun only-current-buffer ()
+  (interactive)
+    (mapc 'kill-buffer (cdr (buffer-list (current-buffer)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                      my big ugly font settings

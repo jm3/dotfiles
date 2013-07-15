@@ -30,11 +30,14 @@
   prompt = false
 [merge]
   tool = better-vimdiff
-[mergetool "changes"]
+[mergetool "ediff"]
   cmd = ~/bin/changes --wait $BASE $LOCAL
 [mergetool "better-vimdiff"]
   cmd = better-vimdiff vim $BASE $LOCAL $REMOTE $MERGED
   trustExitCode = true
+  keepBackup    = false
+[mergetool "ediff"]
+  cmd = ediff $BASE $LOCAL
   keepBackup    = false
 
 [color]
