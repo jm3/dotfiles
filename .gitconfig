@@ -20,9 +20,11 @@
 [help]
   autocorrect = 1
 [merge]
-  tool = changes
+  tool = better-vimdiff
 [mergetool "changes"]
   cmd = ~/bin/changes --wait $BASE $LOCAL
+[diff]
+  tool = vimdiff
 [user]
   name = John Manoogian III
   email = jm3@jm3.net
@@ -45,3 +47,10 @@
   added = yellow
   changed = green
   untracked = cyan
+[difftool]
+  prompt = false
+[mergetool "better-vimdiff"]
+  cmd = better-vimdiff vim $BASE $LOCAL $REMOTE $MERGED
+  trustExitCode = true
+  keepBackup = false
+

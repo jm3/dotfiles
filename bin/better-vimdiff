@@ -1,0 +1,75 @@
+#!/bin/bash
+# Instead of editing a file with  <<<< ==== >>> conflict markers, this opens
+# each "side" of the conflict markers in a two-way vimdiff window.
+#
+# Layout:
+#
+#   Tab1 is a two-way diff of the conflicts.
+#       +--------------------------------+
+#       |    LCONFL     |    RCONFL      |
+#       +--------------------------------+
+#   Tab2 is a three-way diff of the original files and the merge base.
+#       +--------------------------------+
+#       |  LOCAL   |   BASE   |  REMOTE  |
+#       +--------------------------------+
+#   Tab3 is the MERGED or 'result' file that contains the conflict markers.
+#       +--------------------------------+
+#       |       <<<<<<< HEAD             |
+#       |        LCONFL                  |
+#       |       =======                  |
+#       |        RCONFL                  |
+#       |       >>>>>>> someref          |
+#       +--------------------------------+
+#
+# Workflow:
+#
+# 1.    Save your changes to the LCONFL temporary file (the left window on the
+#       first tab; also the only file that isn't read-only).
+# 2.    The LOCAL, BASE, and REMOTE versions of the file are available in the
+#       second tabpage if you want to look at them.
+# 3.    When vimdiff exits cleanly, the file containing the conflict markers
+#       will be updated with the contents of your LCONFL file edits.
+#
+# NOTE: Use :cq to abort the merge and exit Vim with an error code.
+#
+# Add this mergetool to your ~/.gitconfig (you can substitute vim for gvim):
+#
+# git config --global merge.tool better-vimdiff
+# git config --global mergetool.better-vimdiff.cmd 'better-vimdiff vim $BASE $LOCAL $REMOTE $MERGED'
+# git config --global mergetool.better-vimdiff.trustExitCode true
+# git config --global mergetool.better-vimdiff.keepBackup false
+
+if [[ -z $@ || $# != "5" ]] ; then
+    echo -e "Usage: $0 \$BASE \$LOCAL \$REMOTE \$MERGED"
+    exit 1
+fi
+
+cmd=$1
+BASE=$2
+LOCAL=$3
+REMOTE=$4
+MERGED=$5
+LCONFL=$(dirname $5)/$$.left.tmp
+RCONFL=$(dirname $5)/$$.right.tmp
+
+# Remove the conflict markers for each 'side' and put each into a temp file
+sed -e '/^=======$/,/>>>>>>>/d' -e '/<<<<<<</d' $MERGED > $LCONFL
+sed -e '/<<<<<<</,/^=======$/d' -e '/>>>>>>>/d' $MERGED > $RCONFL
+
+# Fire up vimdiff
+$cmd -f -R -d $LCONFL $RCONFL \
+    -c ":set noro" \
+    -c ":tabe $LOCAL" -c ":vert diffs $BASE" -c ":vert diffs $REMOTE" \
+    -c ":winc t" -c ":tabe $MERGED" -c ":tabfir"
+
+EC=$?
+
+# Overwrite $MERGED only if vimdiff exits cleanly.
+if [[ $EC == "0" ]] ; then
+    cat $LCONFL > $MERGED
+fi
+
+# Always delete our temp files; Git will handle it's own temp files
+rm $LCONFL $RCONFL
+
+exit $EC
