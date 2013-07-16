@@ -1,4 +1,5 @@
 #!/bin/bash
+# John Manoogian III * jm3 * 2013
 
 script=`basename $0`
 
@@ -27,6 +28,7 @@ do
     -o $dot = "README.md" \
     -o $dot = ".rvmrc.off" \
     -o $dot = "sublime-text" \
+    -o $dot = "osx" \
     -o $dot = ".git" ]; then
     continue
   fi
@@ -47,7 +49,11 @@ cd ~/.vim/
 
 os=`uname`
 if [ $os = "Darwin" ]; then
-  subl_home="/Users/jm3/Library/Application Support/Sublime Text 2/Packages/"
+  # iTerm:
+  mv -f ~/Library/Preferences/net.sourceforge.iTerm.plist $black_hole
+  ln -s ~/.dotfiles/osx/net.sourceforge.iTerm.plist
+
+  subl_home="$dot_home/Library/Application Support/Sublime Text 2/Packages/"
 
   if [ ! -d "$subl_home" ]; then
     exit
