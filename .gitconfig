@@ -11,7 +11,6 @@
   wup  = log -p origin..@{0}
 [branch]
   autosetuprebase = always
-  autosetupmerge = always
 [core]
   quotepath = false
   excludesfile = ~/.gitignore-global
