@@ -73,7 +73,6 @@ function mcdir {
 # source local profile
 box=$(hostname | sed s/\.local// | sed s/\.dyndns\.org//)
 if [ -f ~/.profile-$box ]; then
-  prompt="$box " # hostname + % 
   source ~/.profile-$box
 else 
   if [ $(uname -s) = 'Darwin' ]; then
@@ -86,21 +85,31 @@ else
   fi
 fi
 
-# prompt hackery
-function git_branch() {
-  git symbolic-ref HEAD | cut -d'/' -f3
-}
-PROMPT="${prompt}%# "
-precmd () { echo -n "\033]1;$USERNAME@$HOST\033]2;$PWD> " }
-parse_git_branch() {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-export PROMPT='%m %B%3c%(#.#.)%b $(parse_git_branch) > '
-export RPROMPT="%@"   # right-side prompt: time only
+awesome_jm3_prompt() {
+  arrow="%{$fg[red]%}➜"
+  cwd="%{$fg[cyan]%}%B%3c%(#.#.)%b"
 
-# toggle right-side prompt
-alias right="export RPROMPT='%~ %@'"
-alias noright="export RPROMPT="
+  git_info() {
+    is_git_dirty() {
+      git status --porcelain | egrep "\sM|\sD|\?\?" &> /dev/null
+    }
+    branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //' `
+    if [ ! -z "${branch}" ];
+    then
+      is_git_dirty
+      if [ $? -eq 0 ];
+      then
+        git_filth=" %{$fg[yellow]%}✗%{$reset_color%}"
+      fi
+      git_branch=" (%{$fg[red]%}${branch}%{$reset_color%})"
+      echo -n "${git_branch}${git_filth}"
+    fi
+  }
+
+  echo -n "${arrow} ${cwd}$( git_info) > "
+}
+
+export PROMPT='$(awesome_jm3_prompt)'
 
 # if we haven't already, load any keys so all apps can find them
 num_keys_loaded=$(ssh-add -l | grep -v "no identities" | wc -l)
