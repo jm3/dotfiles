@@ -1,8 +1,9 @@
 {
 	"caret_style": "phase",
+	"color_scheme": "Packages/User/Solarized-Dark.tmTheme",
+	"font_size": 20.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": false,
-	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
 	"ignored_packages":
 	[
 		"Vintage"
@@ -10,7 +11,9 @@
 	"indent_to_bracket": true,
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
+	"soda_folder_icons": true,
 	"tab_size": 2,
+	"theme": "Soda Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"wide_caret": true

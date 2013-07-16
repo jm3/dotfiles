@@ -27,7 +27,6 @@ do
     -o $dot = $script \
     -o $dot = "README.md" \
     -o $dot = ".rvmrc.off" \
-    -o $dot = "sublime-text" \
     -o $dot = "osx" \
     -o $dot = ".git" ]; then
     continue
@@ -53,6 +52,10 @@ if [ $os = "Darwin" ]; then
   mv -f ~/Library/Preferences/net.sourceforge.iTerm.plist $black_hole
   ln -s ~/.dotfiles/osx/net.sourceforge.iTerm.plist
 
+  # Sublime Text (2)
+  # note that HTML2Haml needs manual install on ST2:
+  # cd ~/Library/Application Support/SublimeText2/Packages/
+  # git clone -b SublimeText2 https://github.com/pavelpachkovskij/sublime-html-to-haml.git "HTML2Haml"
   subl_home="$dot_home/Library/Application Support/Sublime Text 2/Packages/"
 
   if [ ! -d "$subl_home" ]; then
@@ -60,7 +63,7 @@ if [ $os = "Darwin" ]; then
   fi
 
   cd "$subl_home"
-  if [ "`readlink User`" = "$dot_home/sublime-text" ]; then
+  if [ "`readlink User`" = "$dot_home/osx/st" ]; then
     exit
   fi
 
@@ -70,7 +73,7 @@ if [ $os = "Darwin" ]; then
   fi
   tar cvz User > old-configs.tgz &> /dev/null
   rm -rf User
-  ln -s $dot_home/sublime-text User
+  ln -s $dot_home/osx/st User
 fi
 
 exit 0

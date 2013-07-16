@@ -21,4 +21,3 @@
 # ignore compiled files
 /osx/st/*.tmTheme.cache
 /osx/st/*.pyc
-
