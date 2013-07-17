@@ -4,10 +4,11 @@
 script=`basename $0`
 
 dot_home="$HOME/.dotfiles"
+library="$HOME/Library"
 black_hole="/tmp/"
 
 if [ ! -d "$dot_home" ]; then
-  echo "move the checked-out repo to ~/.dotfiles first, please."
+  echo "move the dotfiles repo to $dot_home first, please."
   exit 1
 fi
 
@@ -45,35 +46,51 @@ done
 # set up vim
 cd ~/.vim/
 ./update_bundles.rb
+cd $dot_home
 
 os=`uname`
 if [ $os = "Darwin" ]; then
-  # iTerm:
-  mv -f ~/Library/Preferences/net.sourceforge.iTerm.plist $black_hole
-  ln -s ~/.dotfiles/osx/net.sourceforge.iTerm.plist
 
-  # Sublime Text (2)
-  # note that HTML2Haml needs manual install on ST2:
-  # cd ~/Library/Application Support/SublimeText2/Packages/
-  # git clone -b SublimeText2 https://github.com/pavelpachkovskij/sublime-html-to-haml.git "HTML2Haml"
-  subl_home="$dot_home/Library/Application Support/Sublime Text 2/Packages/"
+  function setup_iterm() {
+    # iTerm:
+    mv -f "$library/Preferences/net.sourceforge.iTerm.plist" "$black_hole"
+    ln -s "$dot_home/osx/iterm/net.sourceforge.iTerm.plist" "$library/Preferences/net.sourceforge.iTerm.plist"
+  }
 
-  if [ ! -d "$subl_home" ]; then
-    exit
-  fi
+  function setup_sublime_text() {
 
-  cd "$subl_home"
-  if [ "`readlink User`" = "$dot_home/osx/st" ]; then
-    exit
-  fi
+    # Sublime Text (2)
+    # note that the HTML2Haml st plugin needs to be manuallly installed
+    # from branch "SublimeText2" when running on ST2:
+    #
+    # cd $library/Application Support/SublimeText2/Packages/
+    # git clone -b SublimeText2 https://github.com/pavelpachkovskij/sublime-html-to-haml.git "HTML2Haml"
+    subl_home="$library/Application Support/Sublime Text 2/Packages/"
 
-  echo updating Sublime Text 2 configs
-  if [ -f "old-configs.tgz" ]; then
-    mv old-configs.tgz $black_hole
-  fi
-  tar cvz User > old-configs.tgz &> /dev/null
-  rm -rf User
-  ln -s $dot_home/osx/st User
+    if [ ! -d "$subl_home" ]; then
+      echo "No Sublime Text package directory found (looked in $subl_home)"
+      return
+    fi
+
+    cd "$subl_home"
+    if [ "`readlink User`" = "$dot_home/osx/st" ]; then
+      # if setup's been run before and we have a symlink to our configs, we're done
+      return
+    fi
+
+    echo updating Sublime Text 2 configs
+    if [ -f "old-configs.tgz" ]; then
+      mv old-configs.tgz $black_hole
+    fi
+    tar cvz User > old-configs.tgz &> /dev/null
+    rm -rf User
+    ln -s $dot_home/osx/st User
+  }
+
+  setup_iterm
+  setup_sublime_text
+
+# /osx
 fi
 
 exit 0
