@@ -3,6 +3,7 @@
   ci   = commit -v
   co   = checkout
   di   = diff
+  diw  = diff --word-diff
   l    = log --color --graph --pretty=format:'%Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr %C(white)%an' --abbrev-commit
   st   = status
   undo = reset --soft HEAD^

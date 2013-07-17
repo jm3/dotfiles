@@ -39,6 +39,7 @@ alias z="vim $HOME/.zshrc"
 alias     d="git diff"
 alias    di="git diff"
 alias   dic="git diff --cached"
+alias   diw="git diw"
 
 alias    ga="git add"
 alias   gap="git add -p"
