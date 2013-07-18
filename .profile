@@ -144,6 +144,7 @@ export VISUAL=$EDITOR
 # search paths generic to ALL unices go here:
 export PATH=\
 $HOME/bin:\
+$HOME/bin/unversioned:\
 $HOME/.rvm/bin:\
 /usr/local/heroku/bin:\
 /usr/local/mysql/bin:\

@@ -1,13 +1,11 @@
 # don't version these
 /.config/fish/fish_history
 /.config/fish/fishd.*
-/.config/mkvtoolnix/
+/.config/mkvtoolnix
 /.mutt/account.*
 /.mutt/cache
 /.mutt/certificates
 /.rvm
-/.ssh/*
-!/.ssh/config
 /.vim/.netrwhist
 /.vim/bundle
 /.vim/doc
@@ -15,6 +13,11 @@
 /.vim/ruby
 /bin/unversioned/*
 /osx/st/Gist.sublime-settings
+/osx/st/Package Control.last-run
+
+# ignore everything in ssh but config
+/.ssh/*
+!/.ssh/config
 
 # ignore compiled files
 /osx/st/*.tmTheme.cache
