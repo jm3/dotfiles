@@ -1,7 +1,0 @@
-#!/bin/sh
-# for chrome extension hacking:
-
-pushd .
-cd ~/Checkouts
-find chrome-relic -type f | grep -v git | grep -v header | grep -v README | zip -@ chrome-relic.zip
-popd
