@@ -1,16 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env ruby
 
-orig=$1
- 
-# make sure file exits for reading
-if [ ! -f "$orig" -a ! -d "$orig" ]; then
-  echo "Filename '$orig' does not exists"
-  exit 1
-fi
- 
-# convert uppercase to lowercase using tr command
-lc=`echo $orig | tr '[A-Z]' '[a-z]'`
-mv "$orig" "$lc"
- 
-# Bash version 4 user should use builtin 
+require 'fileutils'
+
+# since os x and windows are case-preserving but not case
+# sensitive, we need to use an intermediate temp file to complete
+# the move successfully, otherwise the OS reports to ruby that
+# "FOO" and "foo" are the same file
+
+ARGV.each do |f|
+  if File.file?(f)
+    puts "moving #{f} to #{f.downcase}"
+
+    temp_slug = (rand*10000).to_i
+    FileUtils.mv f, "#{f.downcase}.#{temp_slug}"
+    FileUtils.mv "#{f.downcase}.#{temp_slug}", f.downcase
+  end
+end
 
