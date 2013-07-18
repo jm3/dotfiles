@@ -21,6 +21,8 @@
   autocorrect = 1
 [push]
   default = simple
+[rerere]
+	enabled = 1
 [user]
   name = John Manoogian III
   email = jm3@jm3.net
@@ -59,3 +61,4 @@
   added = yellow
   changed = green
   untracked = cyan
+
