@@ -169,6 +169,9 @@ autocmd BufNewFile,BufRead *.jade        set ft=jade
 " no trailing whitespace
 autocmd FileType rb,json,yml,css,js,html,haml autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+" move vim net housekeeping crud to tmp
+let g:netrw_home="/tmp/"
+
 " notes:
 " :MRU for recently used files
 " gU => to Uppercase
@@ -177,27 +180,3 @@ autocmd FileType rb,json,yml,css,js,html,haml autocmd BufWritePre <buffer> :%s/\
 " args file/selector-path*/*
 " argdo %s/foo/bar/gec        # (note no colon, e=suppress errors, c=confirm)
 :setlocal ff=unix
-
-" Disable one diff window during a three-way diff allowing you to cut out the
-" noise of a three-way diff and focus on just the changes between two versions
-" at a time. Inspired by Steve Losh's Splice
-" via: http://vim.wikia.com/wiki/A_better_Vimdiff_Git_mergetool
-function! DiffToggle(window)
-  " Save cursor position and turn on diff for all windows
-  let l:save_cursor = getpos('.')
-  windo :diffthis
-  " Turn off diff for the specified window (but keep scrollbind) and move
-  " the cursor to the left-most diff window
-  exe a:window . "wincmd w"
-  diffoff
-  set scrollbind
-  set cursorbind
-  exe a:window . "wincmd " . (a:window == 1 ? "l" : "h")
-  " Update the diff and restore the cursor position
-  diffupdate
-  call setpos('.', l:save_cursor)
-endfunction
-" Toggle diff view on the left, center, or right windows
-nmap <silent> <leader>dl :call DiffToggle(1)<cr>
-nmap <silent> <leader>dc :call DiffToggle(2)<cr>
-nmap <silent> <leader>dr :call DiffToggle(3)<cr>
