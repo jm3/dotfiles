@@ -1,0 +1,22 @@
+{
+	"auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"2pdf",
+		"AngularJS",
+		"AngularJS Attributes Completion",
+		"AngularJS Snippets",
+		"Clay Schubiner Color Schemes",
+		"Enhanced-R",
+		"Function Name Display",
+		"Gem Browser",
+		"Gist",
+		"Highlight",
+		"HtmlTidy",
+		"JsFormat",
+		"Package Control",
+		"SublimeExternalCommand",
+		"Theme - Soda",
+		"Twitter Bootstrap ClassNames Completions"
+	]
+}
