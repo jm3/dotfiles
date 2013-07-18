@@ -45,7 +45,7 @@ done
 
 # set up vim
 cd ~/.vim/
-./update_bundles.rb
+update-vim-bundles
 cd $dot_home
 
 os=`uname`
