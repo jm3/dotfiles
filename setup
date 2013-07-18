@@ -20,7 +20,6 @@ if [ -f .bash_profile ]; then
 fi
 
 dots=`ls -a $dot_home`
-echo Linking dotfiles in place
 for dot in $dots
 do
   # skip unrelated files
@@ -36,7 +35,7 @@ do
   if [ ! -L $dot -a ! -d $dot ]; then
     echo moving existing $dot out of the way
     if [ -e $dot.old ]; then
-      mv $dot.old $black_hole
+      mv $dot.old `mktemp $black_hole/$dot.XXX`
     fi
     mv $dot $dot.old
     ln -s $dot_home/$dot $dot
@@ -52,19 +51,25 @@ os=`uname`
 if [ $os = "Darwin" ]; then
 
   function setup_iterm() {
-    # iTerm:
-    mv -f "$library/Preferences/net.sourceforge.iTerm.plist" "$black_hole"
+    echo "iTerm configs linked"
+    iterm_cfg="$library/Preferences/net.sourceforge.iTerm.plist"
+    if [ -f "$iterm_cfg" -a ! -L "$iterm_cfg" ]; then
+      mv $iterm_cfg `mktemp $black_hole/net.sourceforge.iTerm.plist.XXX`
+    fi
+    if [ -L "$iterm_cfg" ]; then
+      rm $iterm_cfg
+    fi
     ln -s "$dot_home/osx/iterm/net.sourceforge.iTerm.plist" "$library/Preferences/net.sourceforge.iTerm.plist"
   }
 
   function setup_sublime_text() {
 
-    # Sublime Text (2)
     # note that the HTML2Haml st plugin needs to be manuallly installed
     # from branch "SublimeText2" when running on ST2:
     #
     # cd $library/Application Support/SublimeText2/Packages/
     # git clone -b SublimeText2 https://github.com/pavelpachkovskij/sublime-html-to-haml.git "HTML2Haml"
+
     subl_home="$library/Application Support/Sublime Text 2/Packages/"
 
     if [ ! -d "$subl_home" ]; then
@@ -75,12 +80,13 @@ if [ $os = "Darwin" ]; then
     cd "$subl_home"
     if [ "`readlink User`" = "$dot_home/osx/st" ]; then
       # if setup's been run before and we have a symlink to our configs, we're done
+      echo "Sublime Text configs linked"
       return
     fi
 
     echo updating Sublime Text 2 configs
     if [ -f "old-configs.tgz" ]; then
-      mv old-configs.tgz $black_hole
+      mv old-configs.tgz `mktemp $black_hole/old-configs.tgz.XXX`
     fi
     tar cvz User > old-configs.tgz &> /dev/null
     rm -rf User
