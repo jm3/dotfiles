@@ -36,6 +36,7 @@ alias vi="vim"
 alias z="vim $HOME/.zshrc"
 
 # git shortcuts
+alias   sha="git log | head -n1 | awk '{print \$2}'"
 alias     d="git diff"
 alias    di="git diff"
 alias   dic="git diff --cached"
@@ -46,11 +47,6 @@ alias   gap="git add -p"
 
 alias    gb="git branch"
 
-alias    gc="git commit -v"
-alias   gca="git commit --amend"
-
-alias    gd="git diff --color-words"
-alias   gdw="git diff --no-ext-diff --word-diff"
 alias  last="git diff HEAD@{5.minutes.ago}"
 
 alias    gf="git fetch"
@@ -58,18 +54,17 @@ alias    gf="git fetch"
 alias    mt="git mergetool"
 
 alias    gp="git pull"
-alias   gpr="git pull --rebase"
 alias  gphm="git push heroku master"
 
-alias   grc="git rebase --continue"
 alias   gra="git rebase --abort"
+alias   grc="git rebase --continue"
+alias   gri="git rebase -i"
 alias   grs="git rebase --skip"
 
 alias   gsl="git stash list"
 alias   gss="git stash save"
 
 alias     l="git l"
-alias    lc="git log | head -n1 | awk '{print \$2}' | pbcopy"
 
 alias     s=st
 alias    st="git status"
