@@ -1,4 +1,5 @@
 # don't version these
+.vim/.netrwhist
 /.config/fish/fish_history
 /.config/fish/fishd.*
 /.config/mkvtoolnix/
@@ -13,6 +14,7 @@
 /bin/unversioned/*
 /osx/st/Gist.sublime-settings
 /osx/st/Package Control.last-run
+/osx/st/Side Bar.sublime-settings
 
 # ignore everything in ssh but config
 /.ssh/*
