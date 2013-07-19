@@ -170,7 +170,7 @@ def setup_vim
 end
 
 def install_osx_goodies
-  return unless @cfg[:os] == "macos"
+  return unless @cfg[:os] == :macosx
 
   def install_goodies
     setup_iterm
