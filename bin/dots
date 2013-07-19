@@ -196,7 +196,7 @@ def install_osx_goodies
   end
 
   def setup_subl #-ime text
-    return unless File.directory? @cfg[:subl] or File.symlink? @cfg[:subl]
+    return unless File.directory? "/Applications/Sublime Text 2.app"
 
     # note that the HTML2Haml st plugin needs to be manuallly installed
     # from branch "SublimeText2" when running on ST2:
