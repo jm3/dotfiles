@@ -162,14 +162,15 @@ map f !} fmt<CR>
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif 
 
-" colorize nginx, .erb, .json, .ru, etc
+" colorize file type with slightly odd formats for their file
+" extension. syntax highlights nginx, .erb, .json, config.ru, etc
 autocmd BufNewFile,BufRead *.erb         set ft=html
-autocmd BufNewFile,BufRead */css/*.erb   set ft=css
-autocmd BufNewFile,BufRead *.less        set ft=css
-autocmd BufNewFile,BufRead /etc/nginx/*  set ft=nginx
-autocmd BufNewFile,BufRead *.json        set ft=javascript
-autocmd BufNewFile,BufRead *.ru          set ft=ruby
 autocmd BufNewFile,BufRead *.jade        set ft=jade
+autocmd BufNewFile,BufRead *.json        set ft=javascript
+autocmd BufNewFile,BufRead *.less        set ft=css
+autocmd BufNewFile,BufRead *.ru          set ft=ruby
+autocmd BufNewFile,BufRead */css/*.erb   set ft=css
+autocmd BufNewFile,BufRead /etc/nginx/*  set ft=nginx
 
 " no trailing whitespace
 autocmd FileType rb,json,yml,css,js,html,haml autocmd BufWritePre <buffer> :%s/\s\+$//e
