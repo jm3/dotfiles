@@ -142,8 +142,6 @@ if exists(":Tabularize")
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
 
-:map 2 v}:Tabularize /: \zs<CR>
-
 " comment out blocks in any language with ,c
 map <Leader>c gcip<CR>
 
