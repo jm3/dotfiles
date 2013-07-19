@@ -33,7 +33,7 @@ do
   fi
 
   if [ ! -L $dot -a ! -d $dot ]; then
-    echo moving existing $dot out of the way
+    echo "Moving existing $dot out of the way"
     if [ -e $dot.old ]; then
       mv $dot.old `mktemp $black_hole/$dot.XXX`
     fi
@@ -41,6 +41,16 @@ do
     ln -s $dot_home/$dot $dot
   fi
 done
+
+
+# set up git-friendly
+type pull &> /dev/null
+rc=$?
+pull=`type pull | cut -d \  -f3`
+if [ "$rc" = 1 -o "$pull" != "/usr/local/bin/pull" ]; then
+  echo "Installing git-friendly"
+  bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
+fi
 
 # set up vim
 cd ~/.vim/
@@ -84,7 +94,7 @@ if [ $os = "Darwin" ]; then
       return
     fi
 
-    echo updating Sublime Text 2 configs
+    echo "Updating Sublime Text 2 configs"
     if [ -f "old-configs.tgz" ]; then
       mv old-configs.tgz `mktemp $black_hole/old-configs.tgz.XXX`
     fi
