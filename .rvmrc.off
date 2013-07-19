@@ -1,7 +1,0 @@
-export rvm_gemset_create_on_use_flag=1
-
-if [ -d "/usr/local/rvm/" ]; then
-  export rvm_path="/usr/local/rvm/"
-else
-  export rvm_path="/Users/jm3/.rvm"
-fi
