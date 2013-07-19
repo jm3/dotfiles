@@ -81,7 +81,10 @@ def clone_repo
     exit
   end
 
-  unless File.directory? "#{@cfg[:dots]}/.git"
+  if File.directory? "#{@cfg[:dots]}/.git"
+    FileUtils.cd @cfg[:dots]
+    `git pull`
+  else
     FileUtils.cd @cfg[:home]
     puts 'Fetching most recent dotfiles'
     puts `git clone "https://github.com/jm3/dotfiles.git" .dotfiles`
@@ -178,21 +181,31 @@ def install_osx_goodies
   end
 
   def setup_iterm
-    plist     = 'net.sourceforge.iTerm.plist'
+    plist     = 'com.googlecode.iterm2.plist'
     iterm_cfg = "#{@cfg[:home]}/Library/Preferences/#{plist}"
 
     return unless File.directory? "/Applications/iTerm.app"
+    FileUtils.cd "#{@cfg[:dots]}/osx/iterm"
 
-    return if File.symlink? iterm_cfg and
-      File.readlink(iterm_cfg) == "#{@cfg[:dots]}/osx/iterm/#{plist}"
-
-    if File.file? iterm_cfg and (! File.symlink? iterm_cfg)
+    if File.file? iterm_cfg
       bup iterm_cfg
     end
-    puts 'Linking iTerm preferences'
-    puts iterm_cfg
+
     FileUtils.rm_rf iterm_cfg
-    FileUtils.symlink "#{@cfg[:dots]}/osx/iterm/#{plist}", iterm_cfg
+
+    # get a clean copy from source
+    `git checkout #{plist}`
+
+    # iterm auto-converts the xml to apple's binary plist format on save
+    FileUtils.cp "#{@cfg[:dots]}/osx/iterm/#{plist}", "#{@cfg[:dots]}/osx/iterm/#{plist}.orig"
+
+    puts 'Personalizing your iTerm preferences file'
+    `plutil -convert xml1 -o /dev/stdout #{plist}.orig | sed 's/jm3/#{ENV["USER"]}/g' | plutil -convert binary1 -o #{@cfg[:dots]}/osx/iterm/#{plist} -`
+    FileUtils.rm_rf "#{@cfg[:dots]}/osx/iterm/#{plist}.orig"
+
+    puts 'Linking iTerm preferences'
+    # note that we do a HARD link; iTerm doesn't play nice with symlinks
+    `ln #{@cfg[:dots]}/osx/iterm/#{plist} #{iterm_cfg}`
   end
 
   def setup_subl #-ime text
