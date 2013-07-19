@@ -3,6 +3,7 @@
 	"installed_packages":
 	[
 		"2pdf",
+		"Alignment",
 		"AngularJS",
 		"AngularJS Attributes Completion",
 		"AngularJS Snippets",
@@ -11,12 +12,18 @@
 		"Function Name Display",
 		"Gem Browser",
 		"Gist",
+		"Git Config",
 		"Highlight",
 		"HtmlTidy",
 		"JsFormat",
+		"Markdown Todo",
 		"Package Control",
+		"SFTP",
+		"SideBarEnhancements",
+		"SideBarGit",
 		"SublimeExternalCommand",
 		"Theme - Soda",
-		"Twitter Bootstrap ClassNames Completions"
+		"Twitter Bootstrap ClassNames Completions",
+		"WordCount"
 	]
 }
