@@ -117,7 +117,7 @@ def install_dotfiles
       when 'install.rb'
       when 'README.md'
       when 'osx'
-      when /\.(old|swp)$/
+      when /\.(old|swo|swp)$/
         # noop; skip unrelated files
 
       else
