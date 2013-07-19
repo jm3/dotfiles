@@ -21,14 +21,6 @@ if has("gui_running")
   "au GUIEnter * set fullscreen
 endif
 
-"sane pasting
-" 8 + 9 on number keypad
-map  Ox :set paste<CR>
-map  Oy :set nopaste<CR>
-imap Ox <C-O>:set paste<CR>
-imap Oy <nop>
-set pastetoggle=Oy
-
 " sane search highlighting
 set hlsearch
 set incsearch
