@@ -11,6 +11,7 @@
 /.vim/doc
 /.vim/plugin
 /.vim/ruby
+/.vim/spell/*.spl
 /bin/unversioned/*
 /osx/st/Gist.sublime-settings
 /osx/st/Package Control.last-run

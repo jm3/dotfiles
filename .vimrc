@@ -47,6 +47,21 @@ set backspace=indent,eol,start
 set dictionary=~/.dict
 setlocal spell spelllang=en_us
 set nospell
+set spellcapcheck=
+
+" can we disable spellcheck on certain files?
+"
+" hilarious.
+autocmd BufEnter .txt set spell
+autocmd BufEnter .md set spell
+
+" " while typing a word in insert mode (edit mode)
+" ctl-x s to bring up vim's list of spelling suggestions for the current
+" word...
+"
+" tho oddly, it has WAY too many suggestions, always, even on
+" correctly spelled words, eg. on the word "awesome", there a over
+" a page of spelling suggestions.
 
 " set tabs correctly
 set autoindent
