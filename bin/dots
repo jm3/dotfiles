@@ -1,0 +1,227 @@
+#!/usr/bin/env ruby
+# The art of correct configuration.
+#
+# John Manoogian III * jm3 * 2013
+
+@cfg = {
+  # add urls to the source of any vim plugin you'd like to use
+  :vim_bundle_repos => [
+    # colors
+    "git://github.com/jelera/vim-gummybears-colorscheme", # fun colors
+    "git://github.com/altercation/vim-colors-solarized",  # sane, modern colors
+    "git://github.com/tpope/vim-vividchalk",              # more colors
+    # highlighting
+    "git://github.com/digitaltoad/vim-jade",              # jade templating for node
+    "git://github.com/tpope/vim-haml",
+    "git://github.com/kchmck/vim-coffee-script",          # syntax highlighting for coffeescript
+    "git://github.com/pangloss/vim-javascript",           # highlighting + syntax for JS
+    "git://github.com/tpope/vim-markdown",
+    # functions
+    "git://github.com/ervandew/supertab",                 # tab-complete anything
+    "git://github.com/godlygeek/tabular",                 # align assignments and arg lists
+    "git://github.com/mattn/gist-vim",
+    "git://github.com/tomtom/tcomment_vim",               # comment any language
+    "git://github.com/tpope/vim-endwise",                 # complete simple code structues
+    "git://github.com/tpope/vim-repeat",                  # make . repeat the last whole plugin command
+    "git://github.com/tsaleh/vim-matchit",
+    "git://github.com/vim-scripts/mru.vim",               # navigate most-recently used files
+    "git://github.com/mattn/webapi-vim"                   # required by Gist
+  ]
+}
+
+# any dotiles added to the root are automatically installed
+# the fancy stuff:
+# * install the git-friendly wrapper scripts
+# * install customized iTerm + Sublime Text setings (OS X only)
+# * install rad vim plugins and keep them updated from git
+#
+# runs from anywhere, requires no additional gems like rake or tho
+
+def setup
+  clone_repo
+  install_git_friendly
+  install_dotfiles
+  install_osx_goodies
+  setup_vim
+end
+
+require 'fileutils'
+require 'open-uri'
+require 'rbconfig'
+
+@cfg[:home]    = "~"
+@cfg[:dots]    = "~/.dotfiles"
+@cfg[:subl]    = "~/Library/Application Support/Sublime Text 2/Packages/"
+@cfg[:os]      = (
+  case RbConfig::CONFIG['host_os']
+    when /darwin|mac os/
+      :macosx
+    when /linux|solaris|bsd/
+      :unix
+    end
+)
+@cfg = @cfg.each{ |_,str| @cfg[_] = File.expand_path(str) if @cfg[_].class == String }
+
+def bup( file )
+  return unless File.file? file
+  if File.file? "#{file}.old"
+    FileUtils.rm_rf "/tmp/#{file}"
+    FileUtils.mv "#{file}.old", "/tmp/"
+  end
+  puts "Moving existing #{file} out of the way"
+  FileUtils.mv file, "#{file}.old"
+end
+
+def clone_repo
+  # do we have git?
+  `which git`
+  git_missing = ($?.to_i == 256) ? true : false
+  if git_missing
+    puts "yo dawg! install git first!"
+    exit
+  end
+
+  unless File.directory? "#{@cfg[:dots]}/.git"
+    FileUtils.cd @cfg[:home]
+    puts 'Fetching most recent dotfiles'
+    puts `git clone "git@github.com:jm3/dotfiles.git" .dotfiles`
+  end
+end
+
+def install_git_friendly
+  # is git-friendly installed?
+  `which pull &> /dev/null`
+  pull_missing = ($?.to_i == 256) ? true : false
+  pull_path = `which pull`.chomp
+
+  if pull_missing or pull_path != '/usr/local/bin/pull'
+    puts 'Installing git-friendly'
+    `curl -L https://raw.github.com/jamiew/git-friendly/master/install.sh | bash`
+  end
+end
+
+def install_dotfiles
+  FileUtils.cd @cfg[:home]
+  bup '.bash_profile' if File.file? '.bash_profile'
+
+  FileUtils.cd @cfg[:dots]
+  dots = Dir[".*"]
+  FileUtils.cd @cfg[:home]
+
+  dots.each do |dot|
+    case dot
+      when '.'
+      when '..'
+      when '.git'
+      when '.DS_Store'
+      when 'install.rb'
+      when 'README.md'
+      when 'osx'
+      when /\.(old|swp)$/
+        # noop; skip unrelated files
+
+      else
+        # all set!
+        next if File.symlink?(dot)and File.readlink(dot) == ".dotfiles/#{dot}"
+
+        # remove anything blocking us from installing the new configs
+        bup dot if File.file?(dot) and !File.symlink?(dot)
+        FileUtils.rm dot if File.symlink?(dot) and File.readlink(dot) != ".dotfiles/#{dot}"
+        FileUtils.mv dot, "/tmp/" if File.directory?(dot)
+
+        puts "Linking #{dot}"
+        FileUtils.symlink ".dotfiles/#{dot}", dot
+      end
+  end
+end
+
+def setup_vim
+  # freshen existing plugins
+  # clone new plugins from remote git repos
+  # uninstall any plugins on disk no longer requested
+
+  FileUtils.cd "#{@cfg[:home]}/.vim/bundle"
+  repos = @cfg[:vim_bundle_repos]
+
+  repos.each do |url|
+    dir = url.split('/').last.sub(/\.git$/, '')
+    if File.directory?(dir)
+      FileUtils.cd(dir)
+      puts "Freshening vim plugin #{dir}"
+      `git pull`
+      FileUtils.cd("..")
+    else
+      puts "Cloning new vim plugin #{dir}"
+      `git clone #{url} #{dir}`
+    end
+  end
+
+  # extract just the bundle name
+  repos.each{|d| d.gsub!(/git:\/\/\w+.com\/[\w-]+\/([\w\.-]+)$/, "\\1")}
+
+  Dir["*"].each do |dir|
+    unless repos.include?( dir )
+      puts "Removing unused vim plugin #{dir}"
+      FileUtils.rm_rf dir
+    end
+  end
+
+  FileUtils.cd @cfg[:home]
+end
+
+def install_osx_goodies
+  return unless @cfg[:os] == "macos"
+
+  def install_goodies
+    setup_iterm
+    setup_subl
+  end
+
+  def setup_iterm
+    plist     = 'net.sourceforge.iTerm.plist'
+    iterm_cfg = "#{@cfg[:home]}/Library/Preferences/#{plist}"
+
+    return unless File.directory? "/Applications/iTerm.app"
+
+    return if File.symlink? iterm_cfg and
+      File.readlink(iterm_cfg) == "#{@cfg[:dots]}/osx/iterm/#{plist}"
+
+    if File.file? iterm_cfg and (! File.symlink? iterm_cfg)
+      bup iterm_cfg
+    end
+    puts 'Linking iTerm preferences'
+    puts iterm_cfg
+    FileUtils.rm_rf iterm_cfg
+    FileUtils.symlink "#{@cfg[:dots]}/osx/iterm/#{plist}", iterm_cfg
+  end
+
+  def setup_subl #-ime text
+    return unless File.directory? @cfg[:subl] or File.symlink? @cfg[:subl]
+
+    # note that the HTML2Haml st plugin needs to be manuallly installed
+    # from branch "SublimeText2" when running on ST2:
+    #
+    # cd ~/Library/Application Support/SublimeText2/Packages/
+    # git clone -b SublimeText2 https://github.com/pavelpachkovskij/sublime-html-to-haml.git "HTML2Haml"
+
+    FileUtils.cd @cfg[:subl]
+    link_point = "User"
+    return if File.symlink?(link_point) and File.readlink(link_point) == "#{@cfg[:dots]}/osx/st"
+
+    if File.directory? link_point
+      FileUtils.mv 'old-configs.tgz', '/tmp/' if File.file? 'old-configs.tgz'
+      puts "Archiving old Sublime Text configs"
+      `tar cvz #{link_point} > old-configs.tgz &> /dev/null`
+    end
+    FileUtils.rm_rf link_point
+    puts "Linking Sublime Text configs"
+    FileUtils.symlink "#{@cfg[:dots]}/osx/st", link_point
+
+  end
+  install_goodies
+
+end
+
+restore_dir = Dir.getwd
+setup
+FileUtils.cd restore_dir
