@@ -84,7 +84,7 @@ def clone_repo
   unless File.directory? "#{@cfg[:dots]}/.git"
     FileUtils.cd @cfg[:home]
     puts 'Fetching most recent dotfiles'
-    puts `git clone "git@github.com:jm3/dotfiles.git" .dotfiles`
+    puts `git clone "https://github.com/jm3/dotfiles.git" .dotfiles`
   end
 end
 
@@ -105,7 +105,7 @@ def install_dotfiles
   bup '.bash_profile' if File.file? '.bash_profile'
 
   FileUtils.cd @cfg[:dots]
-  dots = Dir[".*"]
+  dots = Dir["*"]
   FileUtils.cd @cfg[:home]
 
   dots.each do |dot|
@@ -127,7 +127,7 @@ def install_dotfiles
         # remove anything blocking us from installing the new configs
         bup dot if File.file?(dot) and !File.symlink?(dot)
         FileUtils.rm dot if File.symlink?(dot) and File.readlink(dot) != ".dotfiles/#{dot}"
-        FileUtils.mv dot, "/tmp/" if File.directory?(dot)
+        FileUtils.mv dot, "/tmp/#{ENV['USER']}" if File.directory?(dot)
 
         puts "Linking #{dot}"
         FileUtils.symlink ".dotfiles/#{dot}", dot
