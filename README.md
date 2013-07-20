@@ -19,6 +19,7 @@ will commence. Enjoy the jealous looks of your friends!
 * Bonus configs included for Sublime Text + iTerm
 * Zero gems required for operation (no rake, no thor, etc)
 * Install with one line of code and you're off to the races
+* Re-run bin/dots at any time idempotently to retrieve recent changes
 
 *No warranty given, express or implied. Have fun and stay safe.
 Copycenter license: think xerox machine; give it to everyone. All
