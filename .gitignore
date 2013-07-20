@@ -1,26 +1,25 @@
 # don't version these
-/.config/fish/fish_history
-/.config/fish/fishd.*
-/.config/mkvtoolnix/
-/.mutt/account.*
-/.mutt/cache
-/.mutt/certificates
-/.muttrc
-/.rvm
-/.vim/.netrwhist
-/.vim/bundle
-/.vim/doc
-/.vim/plugin
-/.vim/ruby
-/.vim/spell/*.spl
 /bin/unversioned/*
+/dots/.config/fish/fish_history
+/dots/.config/fish/fishd.*
+/dots/.config/mkvtoolnix/
+/dots/.mutt/account.*
+/dots/.mutt/cache
+/dots/.mutt/certificates
+/dots/.rvm
+/dots/.vim/.netrwhist
+/dots/.vim/bundle
+/dots/.vim/doc
+/dots/.vim/plugin
+/dots/.vim/ruby
+/dots/.vim/spell/*.spl
 /osx/st/Gist.sublime-settings
 /osx/st/Package Control.last-run
 /osx/st/Side Bar.sublime-settings
 
 # ignore everything in ssh but config
-/.ssh/*
-!/.ssh/config
+/dots/.ssh/*
+!/dots/.ssh/config
 
 # ignore compiled files
 /osx/st/*.pyc

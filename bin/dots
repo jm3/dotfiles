@@ -86,7 +86,7 @@ def clone_repo
     exit
   end
 
-  if File.directory? "#{@cfg[:dots]}/.git"
+  if File.directory? File.expand_path("~/.dotfiles/.git")
     FileUtils.cd @cfg[:dots]
     `git pull` unless ENV["USER"] == "jm3"
   else
@@ -112,7 +112,7 @@ def install_dotfiles
   FileUtils.cd @cfg[:home]
   bup '.bash_profile' if File.file? '.bash_profile'
 
-  FileUtils.cd @cfg[:dots]
+  FileUtils.cd "#{@cfg[:dots]}/dots"
   dots = Dir["*"].concat Dir[".*"]
   FileUtils.cd @cfg[:home]
 
@@ -128,18 +128,26 @@ def install_dotfiles
 
       else
         # all set!
-        unless File.symlink?(dot) and File.readlink(dot) == ".dotfiles/#{dot}"
+        unless File.symlink?(dot) and File.readlink(dot) == ".dotfiles/dots/#{dot}"
 
           # remove anything blocking us from installing the new configs
           bup dot if( File.file?(dot) or File.directory?(dot)) and !File.symlink?(dot)
-          FileUtils.rm dot if File.symlink?(dot) and File.readlink(dot) != ".dotfiles/#{dot}"
-          FileUtils.mv dot, "/tmp/#{ENV['USER']}" if File.directory?(dot)
+          FileUtils.rm dot if File.symlink?(dot) and File.readlink(dot) != ".dotfiles/dots/#{dot}"
 
           puts "Linking #{dot}"
-          FileUtils.symlink ".dotfiles/#{dot}", dot
+          FileUtils.symlink ".dotfiles/dots/#{dot}", dot
         end
       end
   end
+
+  # bin/ doesn't live in dots; link it separately
+  if File.symlink?("bin") and File.readlink("bin") == ".dotfiles/bin"
+    return
+  end
+  bup "bin" if File.directory?("bin")
+  FileUtils.rm "bin" if File.symlink?("bin") and File.readlink("bin") != ".dotfiles/bin"
+  FileUtils.symlink ".dotfiles/bin", "bin"
+
 end
 
 def setup_vim
