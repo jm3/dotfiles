@@ -64,11 +64,11 @@ require 'rbconfig'
 
 def bup( file )
   return unless File.file? file
+  puts "Moving existing #{file} out of the way"
   if File.file? "#{file}.old"
     FileUtils.rm_rf "/tmp/#{file}"
-    FileUtils.mv "#{file}.old", "/tmp/"
+    return
   end
-  puts "Moving existing #{file} out of the way"
   FileUtils.mv file, "#{file}.old"
 end
 
