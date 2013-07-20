@@ -3,6 +3,9 @@
 #
 # John Manoogian III * jm3 * 2013
 
+# TODO:
+# back up dirs to .old, not to /tmp/
+
 @cfg = {
   # add urls to the source of any vim plugin you'd like to use
   :vim_bundle_repos => [
@@ -64,7 +67,8 @@ require 'date'
 @cfg = @cfg.each{ |_,str| @cfg[_] = File.expand_path(str) if @cfg[_].class == String }
 
 def bup( file )
-  return unless File.file? file
+  return unless File.file? file or File.directory? file
+
   puts "Moving existing #{file} out of the way"
   if File.file? "#{file}.old"
     FileUtils.rm_rf "/tmp/#{file}"
@@ -127,7 +131,7 @@ def install_dotfiles
         unless File.symlink?(dot) and File.readlink(dot) == ".dotfiles/#{dot}"
 
           # remove anything blocking us from installing the new configs
-          bup dot if File.file?(dot) and !File.symlink?(dot)
+          bup dot if( File.file?(dot) or File.directory?(dot)) and !File.symlink?(dot)
           FileUtils.rm dot if File.symlink?(dot) and File.readlink(dot) != ".dotfiles/#{dot}"
           FileUtils.mv dot, "/tmp/#{ENV['USER']}" if File.directory?(dot)
 
