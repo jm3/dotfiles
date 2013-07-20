@@ -108,7 +108,7 @@ def install_dotfiles
   bup '.bash_profile' if File.file? '.bash_profile'
 
   FileUtils.cd @cfg[:dots]
-  dots = Dir["*"]
+  dots = Dir["*"].concat Dir[".*"]
   FileUtils.cd @cfg[:home]
 
   dots.each do |dot|
@@ -123,15 +123,16 @@ def install_dotfiles
 
       else
         # all set!
-        next if File.symlink?(dot)and File.readlink(dot) == ".dotfiles/#{dot}"
+        unless File.symlink?(dot) and File.readlink(dot) == ".dotfiles/#{dot}"
 
-        # remove anything blocking us from installing the new configs
-        bup dot if File.file?(dot) and !File.symlink?(dot)
-        FileUtils.rm dot if File.symlink?(dot) and File.readlink(dot) != ".dotfiles/#{dot}"
-        FileUtils.mv dot, "/tmp/#{ENV['USER']}" if File.directory?(dot)
+          # remove anything blocking us from installing the new configs
+          bup dot if File.file?(dot) and !File.symlink?(dot)
+          FileUtils.rm dot if File.symlink?(dot) and File.readlink(dot) != ".dotfiles/#{dot}"
+          FileUtils.mv dot, "/tmp/#{ENV['USER']}" if File.directory?(dot)
 
-        puts "Linking #{dot}"
-        FileUtils.symlink ".dotfiles/#{dot}", dot
+          puts "Linking #{dot}"
+          FileUtils.symlink ".dotfiles/#{dot}", dot
+        end
       end
   end
 end
