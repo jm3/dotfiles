@@ -146,6 +146,23 @@ def setup_vim
   FileUtils.cd "#{@cfg[:home]}/.vim/bundle"
   repos = @cfg[:vim_bundle_repos]
 
+  # check out how much time has passed since the last freshen
+  last_freshened = "last_freshened"
+  days_ago = 0
+  if File.file? last_freshened
+    days_ago = (Date.today - Date.parse(File.ctime(last_freshened).to_s)).to_i
+  end
+
+  if !File.file? last_freshened or days_ago > 7
+    puts "Vim bundles last freshened #{last_freshened} days ago; freshening"
+  else
+    puts "Vim plugins last checked about #{days_ago} days ago; no need to re-check today"
+    # no need to freshed
+    return
+  end
+
+  `touch #{last_freshened}`
+
   repos.each do |url|
     dir = url.split('/').last.sub(/\.git$/, '')
     if File.directory?(dir)
@@ -181,11 +198,18 @@ def install_osx_goodies
   end
 
   def setup_iterm
+    return unless File.directory? "/Applications/iTerm.app"
     plist     = 'com.googlecode.iterm2.plist'
     iterm_cfg = "#{@cfg[:home]}/Library/Preferences/#{plist}"
 
-    return unless File.directory? "/Applications/iTerm.app"
     FileUtils.cd "#{@cfg[:dots]}/osx/iterm"
+
+    %x[diff #{iterm_cfg} #{plist}]
+    response = $?
+
+    # if the installed iterm cfg is identical from what we have in
+    # the repo, we're up to date:
+    return if response.exitstatus == 0
 
     if File.file? iterm_cfg
       bup iterm_cfg
