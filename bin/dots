@@ -179,10 +179,10 @@ def setup_vim
   # extract just the bundle name
   repos.each{|d| d.gsub!(/git:\/\/\w+.com\/[\w-]+\/([\w\.-]+)$/, "\\1")}
 
-  Dir["*"].each do |dir|
-    unless repos.include?( dir )
-      puts "Removing unused vim plugin #{dir}"
-      FileUtils.rm_rf dir
+  Dir["*"].each do |file_item|
+    unless repos.include?( file_item ) or File.file? file_item
+      puts "Removing unused vim plugin #{file_item}"
+      FileUtils.rm_rf file_item
     end
   end
 
