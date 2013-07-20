@@ -72,10 +72,6 @@ alias    st="git status"
 alias    up="git up"  # pull
 alias   wup="git wup" # what will be pushed
 
-# these are set by our ~/.gitconfig
-# git config --global user.name "John Manoogian III"
-# git config --global user.email jm3@jm3.net
-
 frep() {
   find=$1
   replace=$2

@@ -30,7 +30,7 @@ compctl -g "/tmp/uscreens/S-${USER}/*(p:t)" screen
 
 # complete on hostnames:
 h=140proof.com
-myhosts=($h 280.$h web1.$h api1.$h neo4j1.$h graphite1.$h jm3.net google.com)
+myhosts=($h 280.$h web1.$h api1.$h neo4j1.$h graphite1.$h google.com)
 compctl -k myhosts ping lynx whois ssh telnet ftp host nslookup
 
 # complete common bundle commands

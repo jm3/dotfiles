@@ -2,7 +2,7 @@
 
 require 'twitter'
 
-user = ARGV[0] || "jm3"
+user = ARGV[0] || ENV["USER"]
 
 # query = /foo/i
 

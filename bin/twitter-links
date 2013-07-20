@@ -3,7 +3,7 @@
 require "twitter"
 require "expander"
 
-user = "jm3"
+user = ENV["USER"]
 
 Twitter.configure do |config|
   config.consumer_key       = ENV["CONSUMER_KEY"]

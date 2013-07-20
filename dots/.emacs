@@ -1,5 +1,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;  Custom jm3 Mods for Emacs 20  :  john manoogian III <jm3@monkey.org>  ;;
+;; Custom Configs for Emacs 20-ish                                        ;;
+;; John Manoogian III <jm3@{jm3.net, umich.edu, organic.com, monkey.org}> ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; some reminders: http://www.emacswiki.org/emacs/EmacsNewbieKeyReference
@@ -56,7 +57,7 @@
 ;; i hate --
 (setq message-signature-separator nil)
 
-;; mah shit.  -jm3
+;; custom stuff
 (custom-set-variables
  '(sentence-end-double-space nil)
  '(tab-stop-list (quote (2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32)))
@@ -68,7 +69,7 @@
 ;; because you don't have to release the CTRL key.
 (define-key global-map "\C-x\C-u" 'undo)
 
-;; This makes M-h consistant with M-<Del>.  (WRONG! -jm3, see below)
+;; This makes M-h consistant with M-<Del>.  (WRONG! see below)
 (global-unset-key "\M-\C-h")
 (global-set-key "\M-\C-h" 'backward-kill-word)   
 
