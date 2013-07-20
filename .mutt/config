@@ -1,34 +1,37 @@
 # A basic .muttrc for use with Gmail
 
-# Change the following six lines to match your Gmail account details
-set imap_user = "jm3@140proof.com"
-set imap_pass = "NOT.REAL" # app-specific password
-set smtp_url = "smtp://jm3@smtp.gmail.com:587/"
-set smtp_pass = "PASS.GOES.HERE" # app-specific password
-set from = "jm3@140proof.com"
-set realname = "John Manoogian III (jm3)"
+# create a ~/.muttrc with your email, password, and server details:
+#
+# set imap_user = "you@igloo.com"
+# set imap_pass = "NOT.REAL" # app-specific password
+# set smtp_url  = "smtp://you@smtp.gmail.com:587/"
+# set smtp_pass = "PASS.GOES.HERE" # app-specific password
+# set from      = "you@wigwam.com"
+# set realname  = "Moe Howard"
+#
+# and include this file from your ~/.muttrc
+# include ~/.mutt/config
 
-# Change the following line to a different editor you prefer.
 set editor = "vim"
 
 # Basic config, you can leave this as is
-set folder = "imaps://imap.gmail.com:993"
-set spoolfile = "+INBOX"
+set auto_tag         = yes
+set certificate_file = ~/.mutt/certificates/bongs
+set folder           = "imaps://imap.gmail.com:993"
+set header_cache     = ~/.mutt/cache/headers
+set hostname         = gmail.com
 set imap_check_subscribed
-set hostname = gmail.com
-set mail_check = 120
-set timeout = 300
-set imap_keepalive = 300
-set postponed = "+[GMail]/Drafts"
-set record = "+[GMail]/Sent Mail"
-set header_cache=~/.mutt/cache/headers
-set message_cachedir=~/.mutt/cache/bodies
-set certificate_file=~/.mutt/certificates/bongs
-set move = no
+set imap_keepalive   = 300
 set include
-set sort = 'threads'
-set sort_aux = 'reverse-last-date-received'
-set auto_tag = yes
+set mail_check       = 120
+set message_cachedir = ~/.mutt/cache/bodies
+set move             = no
+set postponed        = "+[GMail]/Drafts"
+set record           = "+[GMail]/Sent Mail"
+set sort             = 'threads'
+set sort_aux         = 'reverse-last-date-received'
+set spoolfile        = "+INBOX"
+set timeout          = 300
 
 # headers
 ignore *    # weed out all headers
@@ -39,7 +42,7 @@ alternative_order text/plain text/html *
 auto_view text/html
 bind editor <Tab> complete-query
 bind editor ^T complete
-bind editor <space> noop 
+bind editor <space> noop
 
 Read more at http://www.devshed.com/c/a/Administration/A-Man-And-His-Mutt/5/#BITIT1ELYYe2bfGV.99
 
@@ -70,3 +73,4 @@ macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 
 # load colors
 source .mutt/solarized-theme
+

@@ -1,12 +1,13 @@
 # don't version these
-.vim/.netrwhist
 /.config/fish/fish_history
 /.config/fish/fishd.*
 /.config/mkvtoolnix/
 /.mutt/account.*
 /.mutt/cache
 /.mutt/certificates
+/.muttrc
 /.rvm
+/.vim/.netrwhist
 /.vim/bundle
 /.vim/doc
 /.vim/plugin
