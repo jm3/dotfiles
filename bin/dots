@@ -141,7 +141,7 @@ def setup_vim
   # clone new plugins from remote git repos
   # uninstall any plugins on disk no longer requested
 
-  Dir.mkdir "#{@cfg[:home]}/.vim/bundle" unless File.directory? "#{@cfg[:home]}/.vim/bundle"
+  FileUtils.mkdir_p "#{@cfg[:home]}/.vim/bundle" unless File.directory? "#{@cfg[:home]}/.vim/bundle"
   FileUtils.cd "#{@cfg[:home]}/.vim/bundle"
   repos = @cfg[:vim_bundle_repos]
 
@@ -215,6 +215,7 @@ def install_osx_goodies
     #
     # cd ~/Library/Application Support/SublimeText2/Packages/
     # git clone -b SublimeText2 https://github.com/pavelpachkovskij/sublime-html-to-haml.git "HTML2Haml"
+    FileUtils.mkdir_p @cfg[:subl] unless File.directory? @cfg[:subl]
 
     FileUtils.cd @cfg[:subl]
     link_point = "User"
