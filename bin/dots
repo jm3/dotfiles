@@ -117,10 +117,8 @@ def install_dotfiles
       when '..'
       when '.git'
       when '.DS_Store'
-      when 'install.rb'
-      when 'README.md'
       when 'osx'
-      when /\.(old|swo|swp)$/
+      when /\.(md|gif|old|swo|swp)$/
         # noop; skip unrelated files
 
       else
