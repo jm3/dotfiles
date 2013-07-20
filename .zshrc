@@ -15,7 +15,7 @@ autoload -U colors && colors
 autoload -Uz vcs_info
 
 # ctl-shift-x, h to show completion context
-autoload -U compinit && compinit # rm -f ~/.zcompdump if rvm complains
+autoload -U compinit && compinit -u # rm -f ~/.zcompdump if rvm complains
 
 # keyboard commands:
 bindkey -e   # use emacs keybindings
