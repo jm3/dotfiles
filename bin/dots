@@ -143,6 +143,7 @@ def setup_vim
   # clone new plugins from remote git repos
   # uninstall any plugins on disk no longer requested
 
+  Dir.mkdir "#{@cfg[:home]}/.vim/bundle" unless File.directory? "#{@cfg[:home]}/.vim/bundle"
   FileUtils.cd "#{@cfg[:home]}/.vim/bundle"
   repos = @cfg[:vim_bundle_repos]
 
