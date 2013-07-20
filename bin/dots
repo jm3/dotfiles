@@ -83,7 +83,7 @@ def clone_repo
 
   if File.directory? "#{@cfg[:dots]}/.git"
     FileUtils.cd @cfg[:dots]
-    `git pull`
+    `git pull` unless ENV["USER"] == "jm3"
   else
     FileUtils.cd @cfg[:home]
     puts 'Fetching most recent dotfiles'
