@@ -3,7 +3,7 @@
 " modular configs are loaded from ~/.vim/
 
 " enable special features that aren't in vi
-set nocompatible 
+set nocompatible
 
 " plugin loader; reads installed plugins from ~/.vim/bundle.
 " add/remove plugins by modifying ~/.vim/plugins.vim
