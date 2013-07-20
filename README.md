@@ -2,7 +2,7 @@
 
 ### The perfect setup for js / vim / ruby / mac / zsh hackers
 
-![](https://github.com/jm3/dotfiles/raw/master/dotfiles-prompt.gif)
+![](https://github.com/jm3/dotfiles/raw/master/prompt.gif)
 
 ### New one-step setup(!)
 
