@@ -23,7 +23,7 @@ bindkey "^R" history-incremental-search-backward
 bindkey "^f" forward-word
 bindkey "^b" backward-word
 bindkey "^w" backward-delete-word
-bindkey "[3~" delete-char   # allow reverse deletes
+#bindkey "[3~" delete-char   # allow reverse deletes
 
 # complete active screens:
 compctl -g "/tmp/uscreens/S-${USER}/*(p:t)" screen
