@@ -24,13 +24,16 @@ bindkey "^R" history-incremental-search-backward
 bindkey "^f" forward-word
 bindkey "^b" backward-word
 bindkey "^w" backward-delete-word
-#bindkey "[3~" delete-char   # allow reverse deletes
+bindkey "[3~" delete-char   # allow reverse deletes
 
 # allow slashes to delimit words
 export WORDCHARS=${WORDCHARS//\/}
 
 # source universal profile
 source ~/.profile
+
+# override alias in .profile with zsh-specific color option
+alias ls="ls -FG"
 
 function mcdir {
   mkdir $1        
