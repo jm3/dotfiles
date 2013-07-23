@@ -25,7 +25,8 @@ setopt auto_param_keys
 # Correct spelling of commands (set CORRECT_ALL to correct args too)
 setopt correct
 
-# When i type *.foo<tab>, expand that into the literal string of all matching foo
+# When i type *.foo<tab>, expand that into the literal string of
+# all matching foo while remaining in the command editor
 setopt glob
 setopt glob_dots
 
