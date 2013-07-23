@@ -10,8 +10,10 @@ setlocal spell spelllang=en_us
 set nospell
 
 " force enable spell-checking on markdown and text files
-autocmd BufEnter *.txt set spell
-autocmd BufEnter *.md set spell
+" some people do this on BufEnter, which fires ever time the buffer
+" gains focus. YMMV.
+autocmd BufRead *.txt set spell
+autocmd BufRead *.md set spell
 
 " correct some common typos
 abbrev <A <a
