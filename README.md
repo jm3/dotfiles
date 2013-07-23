@@ -12,13 +12,13 @@ will commence. Enjoy the jealous looks of your friends!
 
 ### `curl -L http://proof.ly/gimme-dotfiles | ruby`
 
-### Featured awesomeness:
+### Featured Awesomeness:
 * Modular design; add/remove features at will. Down with 500-line config files!
 * Zero gems required for operation (no rake, no thor, etc)
 * Install with one line of code and you're off to the races
 * Re-run `dots` at any time idempotently to retrieve recent changes
 
-#### Vim awesomeness
+#### Vim Awesomeness
 * Accidentally edit a file that needs to be edited with sudo? just hit `\s`!
 * Align any code structure with [Tabular][tabular]
 * Highlight syntax for [jade][jade] templates, [coffeescript][coffeescript], javascript, haml, and markdown
@@ -37,7 +37,7 @@ will commence. Enjoy the jealous looks of your friends!
 [smartcase][smartcase],
 [wildmenu][wildmenu]
 
-#### Zsh awesomeness
+#### Zsh Awesomeness
 * Prompt: concise to save real estate, with git-awareness (branch/rebase) and git "dirty" status; no more typing git status
 * Complete screen sessions, hostnames, git branches, git tags, and host name
 * Options: [auto_cd][auto_cd],
@@ -56,13 +56,13 @@ will commence. Enjoy the jealous looks of your friends!
 [prompt_subst][prompt_subst]
 * [extended_glob][extended_glob] is disabled; it confounds commands like `git reset HEAD^3`
 
-#### Emacs awesomeness
+#### Emacs Awesomeness
 * Improved keybindings for navigation and buffer compilation
 * If I have text selected and I start typing, replace the selection - `pending-delete-mode`
 * When Emacs says "type yes", and i type "y", do what I mean - `(fset 'yes-or-no-p 'y-or-n-p)`
 * Pleasing default colors + fonts
 
-#### Mac awesomeness
+#### Mac Awesomeness
 * Bonus configs + solarized color theme included for *Sublime Text 2* + *iTerm 2*
 
 *No warranty given, express or implied. Have fun and stay safe.
