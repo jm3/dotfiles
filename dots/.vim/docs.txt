@@ -1,0 +1,26 @@
+" vim notes + reminders:
+" :MRU to load selector of recently used files
+" ctl-w v to split window vertically  into two windows
+" ctl-w s to split window horizontally into two windows 
+" ctl-w x to swap the two buffers (left/right or up/down)
+" ctl-w (hjkl) navigate left down up right through the windows"
+" :ls! list open buffers
+" :bN (b1, b2, etc) to load buffer #N into the active window
+" :bo to "only" the active window; rude solo it and rm the other windows(viewports)
+" :bd buffer delete (close currently active buffer)
+
+" wait, bd + q BOTH kill the window along with the buffer? that *sucks*
+
+" TODO
+" can we modify that MRU list to remove files in history that we don't care about?
+
+" gU => to Uppercase
+" gu => to Lowercase
+" :qall to close all buffers (append ! for nosave)
+" args file/selector-path*/*
+" argdo %s/foo/bar/gec        # (note no colon, e=suppress errors, c=confirm)
+
+" :mksession sesh
+
+:setlocal ff=unix
+

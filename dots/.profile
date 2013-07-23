@@ -144,8 +144,9 @@ $HOME/.rvm/bin:\
 /usr/local/sbin:\
 /usr/local/bin:\
 /usr/bin:\
-/sbin:\
-/bin:
+/bin:\
+/usr/sbin:\
+/sbin
 
 if [ -d "/usr/local/lib/node" ]; then
   export NODE_PATH="/usr/local/lib/node"

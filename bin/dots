@@ -6,31 +6,15 @@
 # TODO:
 # back up dirs to .old, not to /tmp/
 
-@cfg = {
-  # add urls to the source of any vim plugin you'd like to use
-  :vim_bundle_repos => [
-    # colors
-    "git://github.com/jelera/vim-gummybears-colorscheme", # fun colors
-    "git://github.com/altercation/vim-colors-solarized",  # sane, modern colors
-    "git://github.com/tpope/vim-vividchalk",              # more colors
-    # highlighting
-    "git://github.com/digitaltoad/vim-jade",              # jade templating for node
-    "git://github.com/tpope/vim-haml",
-    "git://github.com/kchmck/vim-coffee-script",          # syntax highlighting for coffeescript
-    "git://github.com/pangloss/vim-javascript",           # highlighting + syntax for JS
-    "git://github.com/tpope/vim-markdown",
-    # functions
-    "git://github.com/ervandew/supertab",                 # tab-complete anything
-    "git://github.com/godlygeek/tabular",                 # align assignments and arg lists
-    "git://github.com/mattn/gist-vim",
-    "git://github.com/tomtom/tcomment_vim",               # comment any language
-    "git://github.com/tpope/vim-endwise",                 # complete simple code structues
-    "git://github.com/tpope/vim-repeat",                  # make . repeat the last whole plugin command
-    "git://github.com/tsaleh/vim-matchit",
-    "git://github.com/vim-scripts/mru.vim",               # navigate most-recently used files
-    "git://github.com/mattn/webapi-vim"                   # required by Gist
-  ]
-}
+@cfg = { :vim_bundle_repos => [] }
+
+File.open( File.expand_path("~/.vim/plugins.vim"), "r") do |f|
+  f.each_line do |line|
+    line.chomp!
+    next if line.match( /^\s*(#|")/ ) or line.match( /^\s*$/ )
+    @cfg[:vim_bundle_repos].push line if line.match( /git:\/\// )
+  end
+end
 
 # any dotiles added to the root are automatically installed
 # the fancy stuff:
