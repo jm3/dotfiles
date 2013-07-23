@@ -18,6 +18,15 @@ will commence. Enjoy the jealous looks of your friends!
 * Install with one line of code and you're off to the races
 * Re-run `dots` at any time idempotently to retrieve recent changes
 
+#### Git Awesomeness
+* A preference for rebase (`autosetuprebase = always` is your friend)
+* Concise log format (`git `) fits more info on screen in a legible fashion
+* Git mergetool pre-configured for emacs ediff, vimdiff, and Changes.app
+* Rapid-fire aliases for convenience + speed:
+`ci` (check-in), `co` (check-out), `st` (status), `di` (diff),
+`dic` (diff "cached", aka diff the staging area), `l` (log)
+* Visually pleasing color scheme; no more "[angry fruit salad][salad]"
+
 #### Vim Awesomeness
 * Accidentally edit a file that needs to be edited with sudo? just hit `\s`!
 * Align any code structure with [Tabular][tabular]
@@ -26,6 +35,7 @@ will commence. Enjoy the jealous looks of your friends!
 * Manage vim plugins with ease + grace; plugins refreshed from git no more than once weekly
 * Navigate most recently used files with `:MRU`
 * Pretty-print minified (or otherwise ugly) HTML + JSON with `\h` or `\j`
+* Small spell-check dictionary of some common developer terms
 * Save useful code snippets directly to Github Gists from Vim
 * Tab-complete anything you've typed once with [Supertab][supertab]
 * Three cool color schemes: *solarized*, *gummybears*, and *vividchalk*
@@ -38,8 +48,9 @@ will commence. Enjoy the jealous looks of your friends!
 [wildmenu][wildmenu]
 
 #### Zsh Awesomeness
-* Prompt: concise to save real estate, with git-awareness (branch/rebase) and git "dirty" status; no more typing git status
-* Complete screen sessions, hostnames, git branches, git tags, and host name
+* The best prompt: concise to save real estate, with git-awareness (branch/rebase) and git "dirty" status; no more typing git status
+* Complete bundler commands, screen session names, git branches, git tags, and hostnames
+* Custom profiles loaded for each OS you use + host-name you want custom settings for. Override anything OS-level here.
 * Options: [auto_cd][auto_cd],
 [auto_param_keys][auto_param_keys],
 [auto_pushd][auto_pushd],
@@ -70,6 +81,8 @@ Copycenter license: think xerox machine; give it to everyone. All
 rights reserved, all wrongs reversed, no punches pulled.*
 
 ### Hand-crafted, updated, and carefully tuned by [@jm3](http://www.jm3.net).
+
+[salad]: http://www.urbandictionary.com/define.php?term=angry%20fruit%20salad
 
 [supertab]:     https://github.com/ervandew/supertab
 [plugins.vim]:  https://github.com/jm3/dotfiles/blob/master/dots/.vim/plugins.vim
