@@ -1,22 +1,21 @@
-# John Manoogian III’s Dotfiles
+# A collection of dotfiles.
 
-### The perfect setup for js / vim / ruby / mac / zsh hackers
+### My setup for js / css / vim / ruby / zsh hacking, and possibly yours.
 
 ![](https://github.com/jm3/dotfiles/raw/master/prompt.gif)
 
-### New one-step setup(!)
-
-Paste this one line into your terminal to install. Your existing
+### One Line Install
+Paste this one liner into your terminal to install. Your existing
 dotfiles will be backed up safely and your new life of unix luxury
 will commence. Enjoy the jealous looks of your friends!
 
 ### `curl -L http://proof.ly/gimme-dotfiles | ruby`
 
-### Featured Awesomeness:
+### Featured Awesomeness
 * Modular design; add/remove features at will. Down with 500-line config files!
 * Zero gems required for operation (no rake, no thor, etc)
 * Install with one line of code and you're off to the races
-* Re-run `dots` at any time idempotently to retrieve recent changes
+* Re-run `dots` at any time to retrieve recent changes + plugin updates
 
 #### Git Awesomeness
 * A preference for rebase (`autosetuprebase = always` is your friend)
@@ -25,7 +24,7 @@ will commence. Enjoy the jealous looks of your friends!
 * Rapid-fire aliases for convenience + speed:
 `ci` (check-in), `co` (check-out), `st` (status), `di` (diff),
 `dic` (diff "cached", aka diff the staging area), `l` (log)
-* Visually pleasing color scheme; no more "[angry fruit salad][salad]"
+* Visually pleasing color scheme; eliminate "[angry fruit salad][salad]"
 
 #### Vim Awesomeness
 * Accidentally edit a file that needs to be edited with sudo? just hit `\s`!
@@ -48,8 +47,10 @@ will commence. Enjoy the jealous looks of your friends!
 [wildmenu][wildmenu]
 
 #### Zsh Awesomeness
-* The best prompt: concise to save real estate, with git-awareness (branch/rebase) and git "dirty" status; no more typing git status
-* Complete bundler commands, screen session names, git branches, git tags, and hostnames
+* A really great prompt: concise to save real estate, with git-awareness (branch/rebase) and git "dirty" status; no more typing git status
+* Tab-complete bundler commands, screen session names, git branches, git tags, and hostnames
+* Git aliases defined to shorten every common git command
+* Aliases for navigation acceleration written to be back-compatible with bash
 * Custom profiles loaded for each OS you use + host-name you want custom settings for. Override anything OS-level here.
 * Options: [auto_cd][auto_cd],
 [auto_param_keys][auto_param_keys],
