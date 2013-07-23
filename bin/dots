@@ -3,26 +3,10 @@
 #
 # John Manoogian III * jm3 * 2013
 
-# TODO:
-# back up dirs to .old, not to /tmp/
-
-@cfg = { :vim_bundle_repos => [] }
-
-File.open( File.expand_path("~/.vim/plugins.vim"), "r") do |f|
-  f.each_line do |line|
-    line.chomp!
-    next if line.match( /^\s*(#|")/ ) or line.match( /^\s*$/ )
-    @cfg[:vim_bundle_repos].push line if line.match( /git:\/\// )
-  end
-end
-
-# any dotiles added to the root are automatically installed
-# the fancy stuff:
-# * install the git-friendly wrapper scripts
-# * install customized iTerm + Sublime Text setings (OS X only)
-# * install rad vim plugins and keep them updated from git
-#
-# runs from anywhere, requires no additional gems like rake or tho
+require 'fileutils'
+require 'open-uri'
+require 'rbconfig'
+require 'date'
 
 def setup
   clone_repo
@@ -32,11 +16,7 @@ def setup
   setup_vim
 end
 
-require 'fileutils'
-require 'open-uri'
-require 'rbconfig'
-require 'date'
-
+@cfg = {}
 @cfg[:home]    = "~"
 @cfg[:dots]    = "~/.dotfiles"
 @cfg[:subl]    = "~/Library/Application Support/Sublime Text 2/Packages/"
@@ -139,9 +119,17 @@ def setup_vim
   # clone new plugins from remote git repos
   # uninstall any plugins on disk no longer requested
 
+  @vim_bundle_repos = []
+  File.open( File.expand_path("~/.vim/plugins.vim"), "r") do |f|
+    f.each_line do |line|
+      line.chomp!
+      next if line.match( /^\s*(#|")/ ) or line.match( /^\s*$/ )
+      @vim_bundle_repos.push line if line.match( /git:\/\// )
+    end
+  end
+
   FileUtils.mkdir_p "#{@cfg[:home]}/.vim/bundle" unless File.directory? "#{@cfg[:home]}/.vim/bundle"
   FileUtils.cd "#{@cfg[:home]}/.vim/bundle"
-  repos = @cfg[:vim_bundle_repos]
 
   # check out how much time has passed since the last freshen
   last_freshened = "last_freshened"
@@ -160,7 +148,7 @@ def setup_vim
 
   `touch #{last_freshened}`
 
-  repos.each do |url|
+  @vim_bundle_repos.each do |url|
     dir = url.split('/').last.sub(/\.git$/, '')
     if File.directory?(dir)
       FileUtils.cd(dir)
@@ -174,10 +162,10 @@ def setup_vim
   end
 
   # extract just the bundle name
-  repos.each{|d| d.gsub!(/git:\/\/\w+.com\/[\w-]+\/([\w\.-]+)$/, "\\1")}
+  @vim_bundle_repos.each{|d| d.gsub!(/git:\/\/\w+.com\/[\w-]+\/([\w\.-]+)$/, "\\1")}
 
   Dir["*"].each do |file_item|
-    unless repos.include?( file_item ) or File.file? file_item
+    unless @vim_bundle_repos.include?( file_item ) or File.file? file_item
       puts "Removing unused vim plugin #{file_item}"
       FileUtils.rm_rf file_item
     end
