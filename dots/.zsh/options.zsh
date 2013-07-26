@@ -1,6 +1,6 @@
 # zsh options:
 
-# If a string is isn't a command, but it is a directory name, cd to it
+# If a string isn't a command, but it is a directory name, cd to it
 setopt auto_cd
 
 # Auto-append slashes to completed directory names
