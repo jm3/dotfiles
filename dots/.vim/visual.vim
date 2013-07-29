@@ -16,9 +16,10 @@ let &t_ti = &t_ti . "\e[22;0t"
 let &t_te = "\e[23;0t" . &t_te
 
 set background=dark
-colorscheme elflord 
-" alternate schemes that aren't horrible: blue solarized delek evening gummybears vividchalk
+colorscheme elflord
 
+" alternate non-horrible color schemes:
+" [blue solarized delek evening gummybears vividchalk]
 
 " when i open files, vim should know from the file extension
 " what mode + syntax highlighting to use:
@@ -31,17 +32,17 @@ autocmd BufNewFile,BufRead *.ru          set ft=ruby
 autocmd BufNewFile,BufRead */css/*.erb   set ft=css
 autocmd BufNewFile,BufRead /etc/nginx/*  set ft=nginx
 
-" rm default angry fruit salad colors to make diff'ing legible
-highlight clear DiffDelete
-" was: term=bold ctermfg=12 ctermbg=6 gui=bold guifg=Blue guibg=DarkCyan
-highlight DiffDelete ctermfg=9 guifg=Red ctermbg=0 guibg=Black
+" replace Angry Fruit Salad colors to make diff'ing legible
+highlight! DiffAdded   term=none      ctermfg=4  ctermbg=0
+highlight! DiffRemoved term=none      ctermfg=1  ctermbg=0
+highlight! DiffText    term=reverse   ctermfg=1  ctermbg=3
 
-highlight clear DiffAdd " was: term=bold ctermbg=4 guibg=DarkBlue
-highlight DiffAdd term=bold ctermfg=6 guifg=#80a0ff
+highlight! link DiffAdd DiffAdded
+highlight! link DiffDelete DiffRemoved
 
-highlight clear DiffChange " was: term=bold ctermbg=5 guibg=DarkMagenta
-highlight DiffChange term=underline ctermfg=13 guifg=Magenta
-
-highlight clear DiffText " was: term=reverse cterm=bold ctermbg=9 gui=bold guibg=Red
-highlight DiffChange term=underline ctermfg=13 guifg=Magenta
+" HiGH-C0nTrAsT version (owch!)
+"highlight! DiffAdd    term=none      ctermfg=8  ctermbg=4
+"highlight! DiffChange term=underline ctermfg=13 ctermbg=black
+"highlight! DiffDelete term=none      ctermfg=8  ctermbg=1
+"highlight! DiffText   term=reverse   ctermfg=1  ctermbg=3
 

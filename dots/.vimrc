@@ -1,14 +1,12 @@
 " jm3@{monkey.org, umich.edu, jm3.net, 140proof.com}
 "
-" what follows is distilled from roughly 17 years of vim usage.
-" you're welcome. :)
+" modular configs are loaded from ~/.vim/
 
 " enable special features that aren't in vi
 set nocompatible 
 
-
-" load plugins from ~/.vim/bundle.
-" manage plugins by modifying ~/.vim/plugins.vim
+" plugin loader; reads installed plugins from ~/.vim/bundle.
+" add/remove plugins by modifying ~/.vim/plugins.vim
 call pathogen#infect()
 
 source ~/.vim/keys.vim
@@ -27,7 +25,7 @@ set wildmenu       " when i hit tab, vim should try to complete whatever i'm typ
 set wildmode=longest:full,list:full,list:longest
 set wildchar=<TAB>
 
-" when moving at the edge of a line, cursor should wrap to the
+" when moving at the edge of a line, cursor should wrap to
 " previous line, and vice versa
 set whichwrap=b,<,>,h,l
 
