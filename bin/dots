@@ -12,11 +12,15 @@ def setup
   clone_repo
   install_git_friendly
   install_dotfiles
+  personalize_git_env
   install_osx_goodies
   setup_vim
+  ensure_zsh
+  display_instructions
 end
 
 @cfg = {}
+@cfg[:bootstrap] = ($PROGRAM_NAME == "-") ? true : false
 @cfg[:home]    = "~"
 @cfg[:dots]    = "~/.dotfiles"
 @cfg[:subl]    = "~/Library/Application Support/Sublime Text 2/Packages/"
@@ -46,7 +50,7 @@ def clone_repo
   `which git`
   git_missing = ($?.to_i == 256) ? true : false
   if git_missing
-    puts "yo dawg! install git first!"
+    puts "Yo dawg! Please install git first!"
     exit
   end
 
@@ -62,7 +66,7 @@ end
 
 def install_git_friendly
   # is git-friendly installed?
-  `which pull &> /dev/null`
+  `which pull`
   pull_missing = ($?.to_i == 256) ? true : false
   pull_path = `which pull`.chomp
 
@@ -87,7 +91,7 @@ def install_dotfiles
       when '.git'
       when '.DS_Store'
       when 'osx'
-      when /\.(md|gif|old|swo|swp)$/
+      when /\.(md|gif|old|swo|swp|tmpl)$/
         # noop; skip unrelated files
 
       else
@@ -112,6 +116,68 @@ def install_dotfiles
   FileUtils.rm "bin" if File.symlink?("bin") and File.readlink("bin") != ".dotfiles/bin"
   FileUtils.symlink ".dotfiles/bin", "bin"
 
+end
+
+def personalize_git_env
+  vars_file = "#{@cfg[:home]}/.git-vars"
+  if @cfg[:bootstrap]
+    # create the empty file so shells can source it without error;
+    # we'll populate the file below, when `dots` is first run
+    `touch #{vars_file}`
+    return
+  end
+
+  git_name    = ENV["GIT_AUTHOR_NAME"]
+  git_email   = ENV["GIT_AUTHOR_EMAIL"]
+  github_user = ENV["GITHUB_USER"] # prolly could just use $USER, but why presume?
+
+  return if git_name and git_email and github_user
+
+  prompt =
+  %Q[
+I'm going to set up your .dotfiles for git. We'll prompt you for
+a few quick things. No info will be sent anywhere; these are local
+variables stored in your dotfiles so that git knows who you are
+when it needs to work with your commits. Skip any prompt with <enter>
+if you don't want to specify it.
+  ]
+  puts prompt
+
+  unless git_name
+    print "Your full name: "
+    git_name = gets
+    git_name = git_name.chomp
+  end
+
+  unless git_email
+    print "Your email: "
+    git_email = gets.chomp
+  end
+
+  unless github_user
+    print "Your github username: "
+    github_user = gets.chomp
+  end
+
+  FileUtils.cd @cfg[:home]
+  FileUtils.cp "#{@cfg[:dots]}/dots/.git-vars.tmpl", vars_file
+  `cat ~/.git-vars \
+  | sed "s/__GIT_NAME__/#{git_name}/" \
+  | sed "s/__GIT_EMAIL__/#{git_email}/" \
+  | sed "s/__GITHUB_USER__/#{github_user}/" \
+  > ~/.git-vars.tmp`
+  FileUtils.mv ".git-vars.tmp", ".git-vars"
+
+  puts %Q[
+If anything below looks out of place, just edit ~/.git-vars.
+Your changes won't conflict with anything in git.]
+  puts `cat ~/.git-vars`
+  puts %Q[
+
+All set!
+
+To finish, please run: source ~/.git-vars 
+  ]
 end
 
 def setup_vim
@@ -243,6 +309,34 @@ def install_osx_goodies
   end
   install_goodies
 
+end
+
+def ensure_zsh
+  shell = ENV["SHELL"]
+  zsh_installed  = `which zsh`.chomp
+  brew_installed = `which brew`.chomp
+
+  unless shell.match( /zsh/ )
+    puts "Your shell isn't Zsh which means you're missing some cool features."
+
+    if zsh_installed
+      puts "To correct your shell settings, just run: chsh"
+      puts "and at the prompt, enter #{zsh_installed}"
+    else
+      puts "Zsh is easy to install"
+      if brew_installed
+        puts "Just run: brew install zsh"
+      else
+        puts "The easiest way to install Zsh on a mac is Homebrew: http://brew.sh/"
+      end
+    end
+  end
+end
+
+def display_instructions
+  if @cfg[:bootstrap]
+    puts 'Run this command to complete setup: "~/bin/dots" (no quotes)'
+  end
 end
 
 restore_dir = Dir.getwd

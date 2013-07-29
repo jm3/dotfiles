@@ -3,6 +3,7 @@
 /dots/.config/fish/fish_history
 /dots/.config/fish/fishd.*
 /dots/.config/mkvtoolnix/
+/dots/.git-vars
 /dots/.mutt/account.*
 /dots/.mutt/cache
 /dots/.mutt/certificates

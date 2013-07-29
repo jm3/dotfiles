@@ -15,9 +15,6 @@ source ~/.zsh/load-host-specific-profiles.zsh
 source ~/.zsh/load-ssh-keys.zsh
 source ~/.zsh/options.zsh
 
-# git stuff for prompts; not used
-autoload -Uz vcs_info
-
 # keyboard commands:
 bindkey -e   # use emacs keybindings
 bindkey "^R" history-incremental-search-backward
@@ -32,7 +29,10 @@ export WORDCHARS=${WORDCHARS//\/}
 # source universal profile
 source ~/.profile
 
-# override alias in .profile with zsh-specific color option
+# source git profile variables
+source ~/.git-vars
+
+# override bash-friendly alias in .profile with zsh-specific color opts
 alias ls="ls -FG"
 
 function mcdir {

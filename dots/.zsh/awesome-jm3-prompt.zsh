@@ -1,4 +1,4 @@
-# screenshot:
+# screenshot of the finished product:
 #
 # https://raw.github.com/jm3/dotfiles/master/prompt.gif
 
@@ -28,3 +28,6 @@ awesome_jm3_prompt() {
 
 export PROMPT='$(awesome_jm3_prompt)'
 
+# git stuff for building custom prompts;
+# not currently used
+# autoload -Uz vcs_info

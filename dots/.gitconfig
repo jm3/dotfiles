@@ -13,10 +13,8 @@
 [branch]
   autosetuprebase = always
 [core]
-  quotepath = false
+  quotepath    = false
   excludesfile = ~/.gitignore-global
-[github]
-  user = jm3
 [help]
   autocorrect = 1
 [push]
@@ -24,41 +22,37 @@
 [rerere]
 	enabled = 1
 [user]
-  name = John Manoogian III
-  email = jm3@jm3.net
 
 [diff]
   tool = better-vimdiff
 [difftool]
   prompt = false
 [merge]
-  tool = better-vimdiff
-[mergetool "ediff"]
-  cmd = ~/bin/changes --wait $BASE $LOCAL
+  tool          = better-vimdiff
 [mergetool "better-vimdiff"]
-  cmd = better-vimdiff vim $BASE $LOCAL $REMOTE $MERGED
+  cmd           = better-vimdiff vim $BASE $LOCAL $REMOTE $MERGED
   trustExitCode = true
   keepBackup    = false
 [mergetool "ediff"]
-  cmd = ediff $BASE $LOCAL
+  cmd           = ediff $BASE $LOCAL
   keepBackup    = false
 
 [color]
-  ui = true
-  branch = auto
-  diff = auto
-  status = auto
+  branch    = auto
+  diff      = auto
+  status    = auto
+  ui        = true
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+  current   = yellow reverse
+  local     = yellow
+  remote    = green
 [color "diff"]
-  meta = cyan bold
-  frag = white
-  old = red
-  new = green
+  meta      = cyan bold
+  frag      = white
+  old       = red
+  new       = green
 [color "status"]
-  added = yellow
-  changed = green
+  added     = yellow
+  changed   = green
   untracked = cyan
 
