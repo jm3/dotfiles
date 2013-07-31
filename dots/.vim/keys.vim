@@ -14,6 +14,9 @@ nmap :Q!  :q!
 nmap :Wq! :wq!
 nmap :WQ! :wq!
 
+" save and re-run grunt
+nmap <F1> :w<CR>:!clear;grunt<CR><CR>
+
 " clear any visually selected searches with ctl-l
 noremap <silent> <c-l> :nohls<cr><c-l>
 
