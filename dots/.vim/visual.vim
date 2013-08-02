@@ -24,13 +24,14 @@ colorscheme elflord
 " when i open files, vim should know from the file extension
 " what mode + syntax highlighting to use:
 syntax enable
-autocmd BufNewFile,BufRead *.erb         set ft=html
-autocmd BufNewFile,BufRead *.jade        set ft=jade
-autocmd BufNewFile,BufRead *.json        set ft=javascript
-autocmd BufNewFile,BufRead *.less        set ft=css
-autocmd BufNewFile,BufRead *.ru          set ft=ruby
-autocmd BufNewFile,BufRead */css/*.erb   set ft=css
-autocmd BufNewFile,BufRead /etc/nginx/*  set ft=nginx
+autocmd BufNewFile,BufRead *.erb              set ft=html
+autocmd BufNewFile,BufRead *.jade             set ft=jade
+autocmd BufNewFile,BufRead *.json             set ft=javascript
+autocmd BufNewFile,BufRead *.sublime-settings set ft=javascript
+autocmd BufNewFile,BufRead *.less             set ft=css
+autocmd BufNewFile,BufRead *.ru               set ft=ruby
+autocmd BufNewFile,BufRead */css/*.erb        set ft=css
+autocmd BufNewFile,BufRead /etc/nginx/*       set ft=nginx
 
 " replace Angry Fruit Salad colors to make diff'ing legible
 highlight! DiffAdded   term=none      ctermfg=4  ctermbg=0
