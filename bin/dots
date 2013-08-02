@@ -23,7 +23,6 @@ end
 @cfg[:bootstrap] = ($PROGRAM_NAME == "-") ? true : false
 @cfg[:home]    = "~"
 @cfg[:dots]    = "~/.dotfiles"
-@cfg[:subl]    = "~/Library/Application Support/Sublime Text 2/Packages/"
 @cfg[:os]      = (
   case RbConfig::CONFIG['host_os']
     when /darwin|mac os/
@@ -245,7 +244,8 @@ def install_osx_goodies
 
   def install_goodies
     setup_iterm
-    setup_subl
+    setup_sublime_text(2)
+    setup_sublime_text(3)
   end
 
   def setup_iterm
@@ -283,30 +283,24 @@ def install_osx_goodies
     `ln #{@cfg[:dots]}/osx/iterm/#{plist} #{iterm_cfg}`
   end
 
-  def setup_subl #-ime text
-    return unless File.directory? "/Applications/Sublime Text 2.app"
+  def setup_sublime_text(version)
+    return unless version and File.directory? "/Applications/Sublime Text #{version}.app"
 
-    # note that the HTML2Haml st plugin needs to be manuallly installed
-    # from branch "SublimeText2" when running on ST2:
-    #
-    # cd ~/Library/Application Support/SublimeText2/Packages/
-    # git clone -b SublimeText2 https://github.com/pavelpachkovskij/sublime-html-to-haml.git "HTML2Haml"
-    FileUtils.mkdir_p @cfg[:subl] unless File.directory? @cfg[:subl]
-
-    FileUtils.cd @cfg[:subl]
+    subl_settings_dir = "~/Library/Application Support/Sublime Text #{version}/Packages/"
+    FileUtils.cd File.expand_path subl_settings_dir
     link_point = "User"
-    return if File.symlink?(link_point) and File.readlink(link_point) == "#{@cfg[:dots]}/osx/st2"
+    return if File.symlink?(link_point) and File.readlink(link_point) == "#{@cfg[:dots]}/osx/st#{version}"
 
     if File.directory? link_point
       FileUtils.mv 'old-configs.tgz', '/tmp/' if File.file? 'old-configs.tgz'
       puts "Archiving old Sublime Text configs"
-      `tar cvz #{link_point} > old-configs.tgz &> /dev/null`
+      puts `tar cvz #{link_point} > old-configs.tgz`
     end
     FileUtils.rm_rf link_point
     puts "Linking Sublime Text configs"
-    FileUtils.symlink "#{@cfg[:dots]}/osx/st2", link_point
-
+    FileUtils.symlink "#{@cfg[:dots]}/osx/st#{version}", link_point
   end
+
   install_goodies
 
 end
