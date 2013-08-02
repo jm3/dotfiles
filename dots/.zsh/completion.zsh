@@ -35,6 +35,10 @@ done
 all_hosts=(`echo $ssh_hosts $explicit_hosts $expando_hosts`)
 zstyle ':completion:*' hosts $all_hosts
 
+# complete common homebrew commands
+brew_cmds=(doctor info install home list update upgrade)
+compctl -k brew_cmds brew
+
 # complete common bundle operations
 bundles=(exec install outdated package show update)
 compctl -k bundles bundle
