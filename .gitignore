@@ -20,10 +20,9 @@
 /osx/st2/Package Control.last-run
 /osx/st2/Side Bar.sublime-settings
 
-Package Control.last-run
 Package Control.cache
-
-/osx/st3/Package Control.system-ca-bundle
+Package Control.last-run
+Package Control.system-ca-bundle
 
 # ignore everything in ssh but config
 /dots/.ssh/*
