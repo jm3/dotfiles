@@ -12,15 +12,30 @@ compctl -g "/tmp/uscreens/S-${USER}/*(p:t)" screen
 zstyle ':completion:*' users $USER root ubuntu
 
 # complete hostnames sanely.
-# by default, ssh completes hostnames found in ssh/known_hosts.
-# here we add a few to that, while excluding IP addresses.
-h=140proof.com
-known_hosts=`cat ~/.ssh/known_hosts | cut -f1 -d \ | sed "s/,.*//" | egrep -v "\d+\.\d+\.\d+\.\d+"`
-echo $known_hosts
-explicit_hosts=($known_hosts $h 280.$h web1.$h api1.$h neo4j1.$h graphite1.$h google.com pubapi1.$h)
-zstyle ':completion:*' hosts $known_hosts
+# first, add any hostnames from our ssh/known_hosts, but exclude IP addresses
+ssh_hosts=`cat ~/.ssh/known_hosts | cut -f1 -d \ | sed "s/,.*//" | egrep -v "\d+\.\d+\.\d+\.\d+" | tr '\n\' ' '`
 
-# complete common bundle commands
+# add these literal hostnames explicitly
+h=140proof.com
+explicit_hosts=($h 280.$h google.com)
+
+# expand these hostname templates into foo1, foo2, foo3, etc.
+expando_host_templates=(webX.$h api1.$h neo4jX.$h graphiteX.$h pubapiX.$h)
+for h in $expando_host_templates; do
+  echo $h | grep -q "X"
+  if [ $? -eq 0 ]; then
+    for n in 1 2 3; do
+      x=`echo $h | sed s/X/$n/`
+      expando_hosts+=($x)
+    done
+  fi
+done
+
+# now make 'em all available to network commands like ping, ssh, etc.
+all_hosts=(`echo $ssh_hosts $explicit_hosts $expando_hosts`)
+zstyle ':completion:*' hosts $all_hosts
+
+# complete common bundle operations
 bundles=(exec install outdated package show update)
 compctl -k bundles bundle
 
