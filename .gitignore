@@ -14,14 +14,14 @@
 /dots/.vim/plugin
 /dots/.vim/ruby
 /dots/.vim/spell/*.spl
-/osx/st/Gist.sublime-settings
-/osx/st/Package Control.last-run
-/osx/st/Side Bar.sublime-settings
+/osx/st2/Gist.sublime-settings
+/osx/st2/Package Control.last-run
+/osx/st2/Side Bar.sublime-settings
 
 # ignore everything in ssh but config
 /dots/.ssh/*
 !/dots/.ssh/config
 
 # ignore compiled files
-/osx/st/*.pyc
-/osx/st/*.cache
+/osx/st2/*.pyc
+/osx/st2/*.cache

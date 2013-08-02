@@ -295,7 +295,7 @@ def install_osx_goodies
 
     FileUtils.cd @cfg[:subl]
     link_point = "User"
-    return if File.symlink?(link_point) and File.readlink(link_point) == "#{@cfg[:dots]}/osx/st"
+    return if File.symlink?(link_point) and File.readlink(link_point) == "#{@cfg[:dots]}/osx/st2"
 
     if File.directory? link_point
       FileUtils.mv 'old-configs.tgz', '/tmp/' if File.file? 'old-configs.tgz'
@@ -304,7 +304,7 @@ def install_osx_goodies
     end
     FileUtils.rm_rf link_point
     puts "Linking Sublime Text configs"
-    FileUtils.symlink "#{@cfg[:dots]}/osx/st", link_point
+    FileUtils.symlink "#{@cfg[:dots]}/osx/st2", link_point
 
   end
   install_goodies
