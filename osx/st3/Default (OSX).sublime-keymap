@@ -1,0 +1,5 @@
+[
+    {
+        "keys": ["super+ctrl+a"], "command": "abacus"
+    }
+]
