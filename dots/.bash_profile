@@ -13,7 +13,8 @@ source ~/.git-vars
 
 source ~/.profile
 if [ "$SHELL" = "/bin/bash" ]; then
-  export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+  # good colors: 31m, 32m, 34m, 35m, 36m
+  PS1="\[\033[31m\]➜\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")>\[\033[00m\] "
 fi
 
 export PATH=$PATH:$HOME/.rvm/bin:/usr/local/rvm/bin:\

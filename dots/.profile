@@ -157,12 +157,4 @@ if [ -f ~/.rvm/scripts/rvm ]; then
   source ~/.rvm/scripts/rvm
 fi
 
-shell=`ps | grep $$ | grep -v grep | awk '{print $4}'`
-
-if [ "$shell" = "bash" ]; then
-  # good colors: 31m, 32m, 34m, 35m, 36m
-  PS1="\[\033[31m\]➜\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")>\[\033[00m\] "
-
-fi
-
 # end general configs
