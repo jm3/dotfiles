@@ -24,6 +24,7 @@ foursquare
 github
 google
 grep
+heroku
 hostnames
 HTTP
 http
@@ -36,9 +37,11 @@ ip
 iphone
 IPO
 javascript
+javascripts
 jm3
 licensor
 linux
+livereload
 Lucene
 manoogian
 memcached
@@ -58,10 +61,13 @@ regexes
 Resque
 SEM
 SEO
+sinatra
 smartphone
 solarized
 spam
 sql
+stylesheet
+stylesheets
 techcrunch
 timeline
 tumblr
