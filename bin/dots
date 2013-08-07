@@ -176,7 +176,7 @@ Your changes won't conflict with anything in git.]
 
 All set!
 
-To finish, please run: source ~/.git-vars 
+To finish, please run: source ~/.git-vars
   ]
 end
 
@@ -285,10 +285,12 @@ def install_osx_goodies
   end
 
   def setup_sublime_text(version)
-    return unless version and File.directory? "/Applications/Sublime Text #{version}.app"
+    return unless version and
+      File.directory? "/Applications/Sublime Text #{version}.app"
 
-    subl_settings_dir = "~/Library/Application Support/Sublime Text #{version}/Packages/"
-    FileUtils.cd File.expand_path subl_settings_dir
+    subl_settings_dir = File.expand_path "~/Library/Application Support/Sublime Text #{version}/Packages/"
+    FileUtils.mkdir_p subl_settings_dir unless File.directory? subl_settings_dir
+    FileUtils.cd subl_settings_dir
     link_point = "User"
     return if File.symlink?(link_point) and File.readlink(link_point) == "#{@cfg[:dots]}/osx/st#{version}"
 
