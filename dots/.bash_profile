@@ -21,7 +21,7 @@ export PATH=$PATH:$HOME/.rvm/bin:/usr/local/rvm/bin:\
 /usr/local/sbin:\
 /usr/local/share/npm/bin:\
 /usr/local/sbin:\
-/Users/jm3/bin:\
+/Users/$USER/bin:\
 /usr/local/bin:\
 /usr/bin:\
 /bin:\
