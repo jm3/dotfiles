@@ -79,7 +79,6 @@ end
 
 def install_dotfiles
   FileUtils.cd @cfg[:home]
-  bup '.bash_profile' if File.file? '.bash_profile'
 
   FileUtils.cd "#{@cfg[:dots]}/dots"
   dots = Dir["*"].concat Dir[".*"]
