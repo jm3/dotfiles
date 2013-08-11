@@ -11,9 +11,10 @@
 /dots/.vim/.netrwhist
 /dots/.vim/bundle
 /dots/.vim/doc
-/dots/.vim/recent-files.vim
 /dots/.vim/plugin
+/dots/.vim/recent-files.vim
 /dots/.vim/ruby
+/dots/.vim/saved-state.vim
 /dots/.vim/spell/*.spl
 /osx/st2/Base File.sublime-settings
 /osx/st2/Gist.sublime-settings

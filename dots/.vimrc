@@ -25,12 +25,13 @@ set wildmenu       " when i hit tab, vim should try to complete whatever i'm typ
 set wildmode=longest:full,list:full,list:longest
 set wildchar=<TAB>
 
-let MRU_File=$HOME . "/.vim/recent-files.vim"
-
 " when moving at the edge of a line, cursor should wrap to
 " previous line, and vice versa
 set whichwrap=b,<,>,h,l
 
-" move vim net housekeeping crud to tmp
-let g:netrw_home="/tmp/"
+" move .vim housekeeping files into ~/.vim/
+let MRU_File=$HOME . "/.vim/recent-files.vim"
+set viminfo=%,'50,\"100,n~/.vim/saved-state.vim
 
+" move vim network housekeeping crud file
+let g:netrw_home="/tmp/"
