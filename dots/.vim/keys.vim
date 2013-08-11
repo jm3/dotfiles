@@ -42,13 +42,3 @@ map [B j
 map [C l
 map [D h
 
-" align text with the Tabularize plugin: ,a= ,a:
-let mapleader=','
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a# :Tabularize /#<CR>
-  vmap <Leader>a# :Tabularize /#<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-endif
