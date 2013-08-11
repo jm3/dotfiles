@@ -8,6 +8,7 @@
 /dots/.mutt/cache
 /dots/.mutt/certificates
 /dots/.rvm
+/dots/.*.profile
 /dots/.vim/.netrwhist
 /dots/.vim/bundle
 /dots/.vim/doc

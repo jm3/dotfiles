@@ -1,5 +1,0 @@
-# load mac configs:
-source ~/.profile-osx
-
-alias pine="alpine -f "{imap.gmail.com/novalidate-cert/ssl/user=jm3@140proof.com}" -i"
-alias watchcorns='ps auxf | egrep "[u]nicorn|USER" | grep -v egrep'

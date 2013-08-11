@@ -1,7 +1,7 @@
 # source local profiles
 box=$(hostname | sed s/\.local// | sed s/\.dyndns\.org//)
-if [ -f ~/.profile-$box ]; then
-  source ~/.profile-$box
+if [ -f ~/.$box.profile ]; then
+  source ~/.$box.profile
 else 
   if [ $(uname -s) = 'Darwin' ]; then
     echo 'hmm, looks like you got a new box (or your DNS got blown out). loading mac configs.'

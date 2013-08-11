@@ -1,7 +1,7 @@
 if [ "`uname`" = "Darwin" ]; then
 
   # OS X hostname juju to override DHCP-set hostname
-  # machine=lunchcart
+  # machine=yourcoolhostname
   # sudo scutil --set HostName ${machine}.dyndns.org
   # sudo scutil --set LocalHostName ${machine}
   # sudo scutil --set ComputerName ${machine}
@@ -9,13 +9,14 @@ if [ "`uname`" = "Darwin" ]; then
   alias atop="htop"
   alias be="bundle exec"
   alias bems="be middleman server"
+  alias db="mysql -u $USER -p"
   alias eject="sudo diskutil umount"
-  alias g="gvim"
-  alias gv="gvim"
   alias htop="htop -u $USER --sort-key PERCENT_CPU"
   alias ls="ls -FG"
   alias mou="/Applications/Mou.app/Contents/MacOS/Mou"
+  alias pine="alpine -f "{imap.gmail.com/novalidate-cert/ssl/user=$USER@140proof.com}" -i"
   alias truecrypt="/Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt"
+  alias watchcorns='ps auxf | egrep "[u]nicorn|USER" | grep -v egrep'
 
   if [ -d "~/Checkouts" ]; then
     cd ~/Checkouts/
@@ -30,9 +31,10 @@ if [ "`uname`" = "Darwin" ]; then
 
   # clean up after messy apps
   if [ -d "${HOME}/Documents" ]; then
+    # some horrible app keeps re-creating this directory
     cd $HOME/Documents/
     if [ -d "eBooks" ]; then
-      rm -rf eBooks
+      mv eBooks /tmp/
     fi
     cd - &> /dev/null
   fi

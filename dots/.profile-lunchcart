@@ -1,5 +1,0 @@
-# load mac configs:
-source ~/.profile-osx
-
-alias db="mysql -u $USER -p"
-alias root="mysql -u root -pinsecurepass"
