@@ -121,6 +121,12 @@ def uninstall_dotfiles
       FileUtils.rm dot
     end
   end
+  [".git-vars", ".zcompdump"].each do |unversioned_junk|
+    if File.file?(unversioned_junk)
+      puts "rm'ing #{unversioned_junk}"
+      FileUtils.rm_f unversioned_junk
+    end
+  end
 
 end
 
