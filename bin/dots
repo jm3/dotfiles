@@ -38,7 +38,7 @@ end
 def bup( file )
   return unless File.file? file or File.directory? file
 
-  puts "Moving existing #{file} out of the way" unless file == ".ssh/config" # no output on ssh edge-case
+  puts "Moving existing #{file} out of the way"
   if File.file? "#{file}.old"
     FileUtils.rm_rf "/tmp/#{file}"
     return
@@ -84,7 +84,7 @@ def installable_dots
   FileUtils.cd breadcrumb
 
   # skip non-installable stuff
-  dots.select { |dot| !dot.match( /(\.$|\.git$|.git-vars.tmpl|.ssh_config|^osx$|\.DS_Store|\.swp)/)  }
+  dots.select { |dot| !dot.match( /(\.$|\.git|^osx$|\.DS_Store)/)  }
 end
 
 def install_dotfiles
@@ -103,21 +103,14 @@ def install_dotfiles
     end
   end
 
-  # bin dir doesn't live inside dots; link it separately
-  unless File.symlink?("bin") and File.readlink("bin") == ".dotfiles/bin"
-    bup "bin" if File.directory?("bin")
-    FileUtils.rm "bin" if File.symlink?("bin") and File.readlink("bin") != ".dotfiles/bin"
-    FileUtils.symlink ".dotfiles/bin", "bin"
+  # bin/ doesn't live in dots; link it separately
+  if File.symlink?("bin") and File.readlink("bin") == ".dotfiles/bin"
+    return
   end
+  bup "bin" if File.directory?("bin")
+  FileUtils.rm "bin" if File.symlink?("bin") and File.readlink("bin") != ".dotfiles/bin"
+  FileUtils.symlink ".dotfiles/bin", "bin"
 
-  # .ssh/config is another special case. the simple thing to do
-  # would be to just version ~/.ssh/, but moving someone's .ssh
-  # directory causes such a frightening series of errors that I'd
-  # really rather not go there.
-  FileUtils.mkdir_p ".ssh" unless File.directory?(".ssh")
-  bup ".ssh/config"
-  FileUtils.cd ".ssh"
-  FileUtils.symlink( File.expand_path("~/.dotfiles/dots/.ssh_config"), "config") unless File.symlink?("config")
 end
 
 def uninstall_dotfiles
@@ -128,13 +121,7 @@ def uninstall_dotfiles
       FileUtils.rm dot
     end
   end
-  [".git-vars", ".zcompdump"].each do |unversioned_junk|
-    if File.file?(unversioned_junk)
-      puts "rm'ing #{unversioned_junk}"
-      FileUtils.mv unversioned_junk, "/tmp/"
-    end
-  end
-  FileUtils.rm ".ssh/config" if File.symlink?(".ssh/config")
+
 end
 
 def personalize_git_env
