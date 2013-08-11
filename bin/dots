@@ -84,7 +84,7 @@ def installable_dots
   FileUtils.cd breadcrumb
 
   # skip non-installable stuff
-  dots.select { |dot| !dot.match( /(\.$|\.git|^osx$|\.DS_Store)/)  }
+  dots.select { |dot| !dot.match( /(\.$|\.git$|.git-vars.tmpl|^osx$|\.DS_Store|\.swp)/)  }
 end
 
 def install_dotfiles
