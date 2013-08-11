@@ -123,7 +123,6 @@ br() {
 # awk '{s+=$1} END {print s}'
 
 export EDITOR=vim
-export HISTFILE=~/.command_history
 export HISTSIZE=4096
 export LANG=en_US.UTF-8 
 export LC_ALL=en_US.UTF-8
@@ -131,6 +130,10 @@ export SAVEHIST=2048
 export SVN_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export WWW_HOME=http://duckduckgo.com
+
+if [ "$SHELL" = "/bin/zsh" -o "$SHELL" = "/usr/local/bin/zsh" ]; then
+  export HISTFILE=$HOME/.zsh/history.zsh
+fi
 
 # default OS X path:    /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 # default Ubuntu path:  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

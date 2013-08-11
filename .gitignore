@@ -17,6 +17,7 @@
 /dots/.vim/ruby
 /dots/.vim/saved-state.vim
 /dots/.vim/spell/*.spl
+/dots/.zsh/history.zsh
 /osx/st2/Base File.sublime-settings
 /osx/st2/Gist.sublime-settings
 /osx/st2/Global.sublime-settings
