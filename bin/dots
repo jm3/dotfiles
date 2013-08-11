@@ -77,35 +77,30 @@ def install_git_friendly
   end
 end
 
-def install_dotfiles
-  FileUtils.cd @cfg[:home]
-
+def installable_dots
+  breadcrumb = Dir.pwd
   FileUtils.cd "#{@cfg[:dots]}/dots"
   dots = Dir["*"].concat Dir[".*"]
+  FileUtils.cd breadcrumb
+
+  # skip non-installable stuff
+  dots.select { |dot| !dot.match( /(\.$|\.git|^osx$|\.DS_Store)/)  }
+end
+
+def install_dotfiles
+  dots = installable_dots
   FileUtils.cd @cfg[:home]
 
   dots.each do |dot|
-    case dot
-      when '.'
-      when '..'
-      when '.git'
-      when '.DS_Store'
-      when 'osx'
-      when /\.(md|gif|old|swo|swp|tmpl)$/
-        # noop; skip unrelated files
+    unless File.symlink?(dot) and File.readlink(dot) == ".dotfiles/dots/#{dot}"
 
-      else
-        # all set!
-        unless File.symlink?(dot) and File.readlink(dot) == ".dotfiles/dots/#{dot}"
+      # remove anything blocking us from installing the new configs
+      bup dot if( File.file?(dot) or File.directory?(dot)) and !File.symlink?(dot)
+      FileUtils.rm dot if File.symlink?(dot) and File.readlink(dot) != ".dotfiles/dots/#{dot}"
 
-          # remove anything blocking us from installing the new configs
-          bup dot if( File.file?(dot) or File.directory?(dot)) and !File.symlink?(dot)
-          FileUtils.rm dot if File.symlink?(dot) and File.readlink(dot) != ".dotfiles/dots/#{dot}"
-
-          puts "Linking #{dot}"
-          FileUtils.symlink ".dotfiles/dots/#{dot}", dot
-        end
-      end
+      puts "Linking #{dot}"
+      FileUtils.symlink ".dotfiles/dots/#{dot}", dot
+    end
   end
 
   # bin/ doesn't live in dots; link it separately
@@ -115,6 +110,17 @@ def install_dotfiles
   bup "bin" if File.directory?("bin")
   FileUtils.rm "bin" if File.symlink?("bin") and File.readlink("bin") != ".dotfiles/bin"
   FileUtils.symlink ".dotfiles/bin", "bin"
+
+end
+
+def uninstall_dotfiles
+  FileUtils.cd @cfg[:home]
+  installable_dots.each do |dot|
+    if File.symlink?(dot) and File.readlink(dot) == ".dotfiles/dots/#{dot}"
+      puts "rm'ing #{dot}"
+      FileUtils.rm dot
+    end
+  end
 
 end
 
@@ -336,6 +342,11 @@ def display_instructions
   end
 end
 
-restore_dir = Dir.getwd
-setup
-FileUtils.cd restore_dir
+if ARGV[0] == "remove"
+  puts "uninstalling"
+  uninstall_dotfiles
+else
+  restore_dir = Dir.getwd
+  setup
+  FileUtils.cd restore_dir
+end
