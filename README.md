@@ -11,6 +11,10 @@ will commence. Enjoy the jealous looks of your friends!
 
 ### `curl -L http://proof.ly/gimme-dotfiles | ruby`
 
+### Installation Screencast
+
+[See exactly what will be installed, and how to safely uninstall](https://www.youtube.com/watch?v=J5zt9JfGI8I)
+
 ### Featured Awesomeness
 * Modular design; add/remove features at will. Down with 500-line config files!
 * Zero gems required for operation (no rake, no thor, etc)
