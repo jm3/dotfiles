@@ -17,11 +17,8 @@
   excludesfile = ~/.gitignore-global
 [help]
   autocorrect = 1
-[push]
-  default = simple
 [rerere]
-	enabled = 1
-[user]
+  enabled = 1
 
 [diff]
   tool = better-vimdiff
