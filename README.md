@@ -13,7 +13,7 @@ will commence. Enjoy the jealous looks of your friends!
 
 ### Installation Screencast
 
-[![screencast](http://public.jm3.net.s3.amazonaws.com/github-embeds/dotfiles-youtube-embed-poster.jpg)](https://www.youtube.com/watch?v=J5zt9JfGI8I&hl=en&hd=1)
+[![screencast](http://public.jm3.net.s3.amazonaws.com/github-embeds/dotfiles-youtube-embed.jpg)](https://www.youtube.com/watch?v=J5zt9JfGI8I&hl=en&hd=1)
 
 ### Featured Awesomeness
 * Modular design; add/remove features at will. Down with 500-line config files!
