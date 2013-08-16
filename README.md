@@ -1,6 +1,6 @@
-# A collection of dotfiles.
+# Dotfiles, by [@jm3](http://twitter.com/jm3)
 
-### My setup for js / css / vim / ruby / zsh hacking, and possibly yours.
+### My setup for ruby / js / vim / css / zsh hacking, and possibly yours.
 
 ![](https://github.com/jm3/dotfiles/raw/master/prompt.gif)
 
