@@ -1,3 +1,12 @@
+" since vim uses almost all the regular key commands,
+" allow prefixing with
+let mapleader=','
+
+" in css mode, from any selector, attempt to move up to the head
+" of the block move to the beginning of the block, and sort the
+" selectors:
+nmap <Leader>s [<CR><CR>!}sort<CR>v}:Tabularize /:\zs<CR>
+
 " accelerator keys; work around common typos
 nmap :E :e
 nmap R :redo<CR>
