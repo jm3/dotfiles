@@ -14,6 +14,7 @@ source ~/.zsh/completion.zsh
 source ~/.zsh/load-host-specific-profiles.zsh
 source ~/.zsh/load-ssh-keys.zsh
 source ~/.zsh/options.zsh
+source ~/.zsh/rvm.zsh
 
 # keyboard commands:
 bindkey -e   # use emacs keybindings
