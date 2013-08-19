@@ -20,11 +20,11 @@ nmap <F1> :w<CR>:!clear;grunt<CR><CR>
 " clear any visually selected searches with ctl-l
 noremap <silent> <c-l> :nohls<cr><c-l>
 
-" holy shit, i am a god-damned genius. in-/undent with space/backspace
+" type less by indenting/un-indenting with space/backspace
 noremap <space> >>
 noremap <backspace> <<
 
-" allow backspacing "over" anything in case of brainmelt
+" allow backspacing through anything in case of brainmelt
 set backspace=indent,eol,start
 
 " toggle spell-check mode
