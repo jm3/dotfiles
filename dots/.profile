@@ -46,6 +46,7 @@ alias    ga="git add"
 alias   gap="git add -p"
 
 alias    gb="git branch"
+alias   git="git-achievements"
 
 alias  last="git diff HEAD@{5.minutes.ago}"
 
@@ -140,6 +141,7 @@ fi
 # search paths generic to ALL unices go here:
 export PATH=\
 $HOME/bin:\
+$HOME/Checkouts/git-achievements:\
 $HOME/bin/unversioned:\
 $HOME/.rvm/bin:\
 /usr/local/heroku/bin:\

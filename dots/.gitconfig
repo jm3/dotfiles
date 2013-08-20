@@ -11,6 +11,8 @@
   up     = pull --rebase
   wup    = log -p origin..@{0}
 
+[achievement]
+  upload = true
 [branch]
   autosetuprebase = always
 [core]
