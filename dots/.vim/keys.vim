@@ -5,17 +5,20 @@ let mapleader=','
 " in css mode, from any selector, attempt to move up to the head
 " of the block move to the beginning of the block, and sort the
 " selectors:
-nmap <Leader>s [<CR><CR>!}sort<CR>v}:Tabularize /:\zs<CR>
+nmap <Leader>s [<CR><CR>!}sort<CR>v}:s/:\([^ ]\)/: \1/<CR>
+
+" if you use Tabularize, this will also indent all your selectors
+" nmap <Leader>s [<CR><CR>!}sort<CR>v}:Tabularize /:\zs<CR>
 
 " accelerator keys; work around common typos
-nmap :E :e
-nmap R :redo<CR>
-nmap [ {
-nmap ] }
-nmap V :e ~/.vimrc<CR>
-nmap W :w
-nmap q :q
-nmap Q :q
+nmap :E   :e
+nmap R    :redo<CR>
+nmap [    {
+nmap ]    }
+nmap V    :e ~/.vimrc<CR>
+nmap W    :w
+nmap q    :q
+nmap Q    :q
 nmap :W   :w
 nmap :W!  :w!
 nmap :Q   :q
