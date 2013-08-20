@@ -1,15 +1,16 @@
 [alias]
-  br   = branch
-  ci   = commit -v
-  co   = checkout
-  di   = diff
-  diw  = diff --word-diff
-  l    = log --color --graph --pretty=format:'%Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr %C(white)%an' --abbrev-commit
-  st   = status
-  undo = reset --soft HEAD^
-  up   = pull --rebase
-  url  = "!sh -c 'curl -i http://git.io -F url = $1' -"
-  wup  = log -p origin..@{0}
+  br     = branch
+  ci     = commit -v
+  co     = checkout
+  di     = diff
+  diw    = diff --word-diff
+  l      = log --graph --abbrev-commit --pretty=tight
+  recent = log --graph @{1}.. --pretty=tight
+  st     = status
+  undo   = reset --soft HEAD^
+  up     = pull --rebase
+  wup    = log -p origin..@{0}
+
 [branch]
   autosetuprebase = always
 [core]
@@ -52,4 +53,7 @@
   added     = yellow
   changed   = green
   untracked = cyan
+
+[pretty]
+  tight = %Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr %C(white)%an
 
