@@ -72,8 +72,12 @@ def install_git_friendly
   pull_path = `which pull`.chomp
 
   if pull_missing or pull_path != '/usr/local/bin/pull'
-    puts 'Installing git-friendly'
-    `curl -L https://raw.github.com/jamiew/git-friendly/master/install.sh | bash`
+    if File.directory?('/usr/local') and File.writable?('/usr/local')
+      puts 'Installing git-friendly'
+      `curl -L https://raw.github.com/jamiew/git-friendly/master/install.sh | bash`
+    else
+      puts 'your system\'s /usr/local isn\'t writable by you; recommend you re-run this as sudo.'
+    end
   end
 end
 
