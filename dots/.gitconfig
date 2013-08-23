@@ -1,15 +1,15 @@
 [alias]
-  br     = branch
-  ci     = commit -v
-  co     = checkout
-  di     = diff
-  diw    = diff --word-diff
-  l      = log --graph --abbrev-commit --pretty=tight
-  recent = log --graph @{1}.. --pretty=tight
-  st     = status
-  undo   = reset --soft HEAD^
-  up     = pull --rebase
-  wup    = log -p origin..@{0}
+  br    = branch
+  ci    = commit -v
+  co    = checkout
+  di    = diff
+  diw   = diff --word-diff
+  hist  = log --reverse --format=old --date=short
+  l     = log --graph --abbrev-commit --pretty=tight
+  st    = status
+  undo  = reset --soft HEAD^
+  up    = pull --rebase
+  wup   = log -p origin..@{0}
 
 [achievement]
   upload = true
@@ -57,5 +57,5 @@
   untracked = cyan
 
 [pretty]
+  old = %Cgreen%ad %C(white)%aN%C(yellow)%d%Creset %s %Cblue%h
   tight = %Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr %C(white)%an
-
