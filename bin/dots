@@ -208,6 +208,7 @@ def setup_vim
   # clone new plugins from remote git repos
   # uninstall any plugins on disk no longer requested
 
+  # build plugin name array
   @vim_bundle_repos = []
   File.open( File.expand_path("~/.vim/plugins.vim"), "r") do |f|
     f.each_line do |line|
@@ -227,11 +228,11 @@ def setup_vim
     days_ago = (Date.today - Date.parse(File.ctime(last_freshened).to_s)).to_i
   end
 
+  # bail if we've recently refreshed plugins
   if !File.file? last_freshened or days_ago > 7
     puts "Vim bundles last freshened #{last_freshened} days ago; freshening"
   else
     puts "Vim plugins last checked about #{days_ago} days ago; no need to re-check today"
-    # no need to freshed
     return
   end
 
@@ -253,6 +254,7 @@ def setup_vim
   # extract just the bundle name
   @vim_bundle_repos.each{|d| d.gsub!(/git:\/\/\w+.com\/[\w-]+\/([\w\.-]+)$/, "\\1")}
 
+  # rm unused plugins
   Dir["*"].each do |file_item|
     unless @vim_bundle_repos.include?( file_item ) or File.file? file_item
       puts "Removing unused vim plugin #{file_item}"
