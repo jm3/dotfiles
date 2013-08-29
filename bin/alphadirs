@@ -1,0 +1,17 @@
+#!/bin/sh
+# create A-Z dirs and move any files down into them
+
+# comment this to stop mv from warning about clobbering existing files
+mv_flags="-i"
+
+letters="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z #"
+for l in $letters
+do
+  echo $l
+  mkdir -p $l
+  mv $mv_flags $l* $l/
+  mv $mv_flags `echo $l | tr "[:upper:]" "[:lower:]"`* $l/
+done
+
+mv -i 0* 1* 2* 3* 4* 5* 6* 7* 8* 9* #/
+
