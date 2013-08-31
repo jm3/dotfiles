@@ -10,21 +10,34 @@ nmap <Leader>s [<CR><CR>!}sort<CR>v}:s/:\([^ ]\)/: \1/<CR>
 " if you use Tabularize, this will also indent all your selectors
 " nmap <Leader>s [<CR><CR>!}sort<CR>v}:Tabularize /:\zs<CR>
 
-" accelerator keys; work around common typos
+" auto-correct some easy-to-accidentally-capitalize commands
 nmap :E   :e
-nmap R    :redo<CR>
-nmap [    {
-nmap ]    }
 nmap V    :e ~/.vimrc<CR>
-nmap W    :w
+
+" ugh <shift> key should die
 nmap q    :q
 nmap Q    :q
+nmap W    :w
 nmap :W   :w
 nmap :W!  :w!
 nmap :Q   :q
 nmap :Q!  :q!
 nmap :Wq! :wq!
 nmap :WQ! :wq!
+
+" more fluid block navigation keys; why press shift? you should be
+" block-navigating all day.
+nmap [    {
+nmap ]    }
+
+" much faster than :redo
+nmap R    :redo<CR>
+
+" weird jm3-specific file noodling thing 
+:nmap T 1G:0r!echo %<CR>0i2013-$bbbDa- 
+
+" insert current date + time with "dts"
+:iab <expr> dts strftime("%Y-%m-%d - %A, %B %d")
 
 " save and re-run grunt
 nmap <F1> :w<CR>:!clear;grunt<CR><CR>
