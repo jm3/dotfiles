@@ -24,15 +24,17 @@ autocmd BufRead *.md set spell
 
 " Correct some common typos
 abbrev <A <a
-abbrev teh the
-abbrev yuo you
-abbrev hte the
-abbrev nad and
-abbrev frmo from
 abbrev buig bug
-abbrev jsut just
-abbrev tempalte template
-abbrev teamplate template
 abbrev flase false
+abbrev frmo from
+abbrev hte the
+abbrev jsut just
 abbrev manogoian manoogian
+abbrev nad and
+abbrev ot to
+abbrev pate paste
+abbrev teamplate template
+abbrev teh the
+abbrev tempalte template
+abbrev yuo you
 
