@@ -27,9 +27,9 @@ Package Control.cache
 Package Control.last-run
 Package Control.system-ca-bundle
 
-# ignore everything in ssh but config
-/dots/.ssh/*
-!/dots/.ssh/config
+# ignore ssh dir; we only place a new config into into it without
+# touching existing keys
+/dots/.ssh
 
 # ignore compiled files
 /osx/st2/*.pyc
