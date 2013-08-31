@@ -23,8 +23,11 @@ if [ "`uname`" = "Darwin" ]; then
   fi
 
   # magical hfs+ friendly, finder metadata-preserving version of rsync
-  # install proper OS X/HFS+ rsync with: brew install https://github.com/adamv/homebrew-alt/raw/master/duplicates/rsync.rb
-  alias rsync="rsync -aNHAXx --fileflags --protect-decmpfs --force-change --verbose --progress --stats -t --delete-excluded --delete --ignore-errors"
+  # install proper OS X/HFS+ rsync with:
+  # brew install https://github.com/adamv/homebrew-alt/raw/master/duplicates/rsync.rb
+  alias rsync="rsync -aNHAXx --fileflags --protect-decmpfs --force-change --verbose --progress --stats -t --ignore-errors"
+  # ambititious rsync'ers may prefer to add:
+  # --delete-excluded --delete --ignore-errors"
 
   # for snow leopard:
   compctl -f sgi64
