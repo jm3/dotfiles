@@ -10,10 +10,18 @@ setopt auto_param_slash
 setopt auto_pushd
 
 # History should accrete over time; that's the nature of history
-setopt append_history
+# setopt append_history
 
 # Those who repeat history are doomed to have a lot of useless history entries
 setopt hist_ignore_dups
+
+# Appends every command to the history file once it is executed
+# this enables multiple shell windows to all share a common command
+# history..!
+setopt inc_append_history
+
+# Reloads the history whenever you use it
+setopt share_history
 
 # When I type an ambiguous completion, show me matching options
 setopt auto_list
