@@ -15,15 +15,17 @@ source ~/.vim/bad-speller.vim
 source ~/.vim/spacing.vim
 source ~/.vim/super-powers.vim
 
+
+set backupdir=~/.vim-backups/
 set hidden         " allow free switching between buffers even w/unsaved changes
 set history=100000 " why limit the reach of history?
 set hlsearch       " visually highlight searches; clear with ctl-l (see keys.vim)
+set ignorecase     " lowercase searches are case insensitive...
 set incsearch      " search incrementally as we type
-set ignorecase     " any lowercase search is case insensitive...
-set smartcase      " ...while searches in mixed/uppercase will be case-sensitive
+set smartcase      " mixed/uppercase searches are case-sensitive
+set wildchar=<TAB>
 set wildmenu       " when i hit tab, vim should try to complete whatever i'm typing
 set wildmode=longest:full,list:full,list:longest
-set wildchar=<TAB>
 
 " when moving at the edge of a line, cursor should wrap to
 " previous line, and vice versa
@@ -35,3 +37,6 @@ set viminfo=%,'50,\"100,n~/.vim/saved-state.vim
 
 " move vim network housekeeping crud file
 let g:netrw_home="/tmp/"
+
+" start editing at the of log files
+:au BufNewFile,BufRead /Volumes/Travel/*.md :normal Gz.
