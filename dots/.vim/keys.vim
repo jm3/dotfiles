@@ -33,9 +33,6 @@ nmap ]    }
 " much faster than :redo
 nmap R    :redo<CR>
 
-" weird jm3-specific file noodling thing 
-:nmap T 1G:0r!echo %<CR>0i2013-$bbbDa- 
-
 " insert current date + time with "dts"
 :iab <expr> dts strftime("%Y-%m-%d - %A, %B %d")
 
