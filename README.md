@@ -4,6 +4,10 @@
 
 ![](https://github.com/jm3/dotfiles/raw/master/prompt.gif)
 
+### Design Goals
+Dotfiles should be able to be installed on a new mac or ubuntu
+server install; NO additional dependencies should be required.
+
 ### One Line Install
 Paste this one liner into your terminal to install. Your existing
 dotfiles will be backed up safely and your new life of unix luxury
