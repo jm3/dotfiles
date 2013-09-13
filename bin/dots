@@ -262,6 +262,11 @@ def setup_vim
     end
   end
 
+  # keep vim backup files in a single locaiton, not sprayed everywhere
+  # if the directory is deleted, backups will be saved in vim's
+  # standard backup savepath
+  FileUtils.mkdir_p "#{@cfg[:home]}/.vim/backups"
+
   FileUtils.cd @cfg[:home]
 end
 
