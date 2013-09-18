@@ -160,6 +160,8 @@ fi
 
 if [ -f ~/.rvm/scripts/rvm ]; then
   source ~/.rvm/scripts/rvm
+elif [ -f /usr/local/rvm/scripts/rvm ]; then
+  source /usr/local/rvm/scripts/rvm
 fi
 
 # end general configs
