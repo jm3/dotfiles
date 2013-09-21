@@ -6,6 +6,7 @@ AWS
 blog
 BlueRun
 config
+configs
 css
 CTO
 darwinian
@@ -47,6 +48,7 @@ livereload
 Lucene
 manoogian
 memcached
+metadata
 mysql
 neo4j
 neuroscience
