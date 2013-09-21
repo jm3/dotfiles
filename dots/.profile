@@ -14,7 +14,6 @@ alias cut3="cut -f3 -d\ "
 alias cut4="cut -f4 -d\ "
 alias cut5="cut -f5 -d\ "
 alias cut6="cut -f6 -d\ "
-alias d='head -n1 *md | sort -n | uniq | grep -v ">"'
 alias dc="cd"
 alias deps="gem list | awk \"{print $1}\" | xargs -n1 gem dependency"
 alias keys="ssh-add ~/.ssh/*sa"
