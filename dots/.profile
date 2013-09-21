@@ -144,11 +144,12 @@ export PATH=\
 $HOME/bin:\
 $HOME/bin/unversioned:\
 $HOME/.rvm/bin:\
+/usr/local/bin:\
 /usr/local/heroku/bin:\
 /usr/local/mysql/bin:\
-/usr/local/share/npm/bin:\
+/usr/local/rvm/bin:\
 /usr/local/sbin:\
-/usr/local/bin:\
+/usr/local/share/npm/bin:\
 /usr/bin:\
 /bin:\
 /usr/sbin:\
