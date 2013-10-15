@@ -9,20 +9,9 @@
 
 --ignore-dir=.bundled_gems
 --ignore-dir=.gems
---ignore-dir=.tmp-build
---ignore-dir=.tmp-serve
 --ignore-dir=staticcfg
---ignore-dir=tweets
 --ignore-dir=vendor
+--ignore-dir=tweets
+--ignore-dir=.tmp-serve
 
 --ignore-file=is:jquery.min.map
---ignore-file=match:.gitignore
---ignore-file=match:.powrc
---ignore-file=match:.rbenv-version
---ignore-file=match:.rbfu-version
---ignore-file=match:.rspec
---ignore-file=match:.rvmrc
---ignore-file=match:jquery-1.8.3.min.js
---ignore-file=match:jquery-ui.js
---ignore-file=match:jquery.js
---ignore-file=match:pie.js
