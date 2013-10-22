@@ -16,7 +16,8 @@ let &t_ti = &t_ti . "\e[22;0t"
 let &t_te = "\e[23;0t" . &t_te
 
 set background=dark
-colorscheme elflord
+colorscheme solarized
+set guifont=Menlo\ Bold:h18
 
 " alternate non-horrible color schemes:
 " [blue solarized delek evening gummybears vividchalk]
