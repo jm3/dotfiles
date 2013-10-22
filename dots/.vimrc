@@ -37,5 +37,5 @@ set viminfo=%,'50,\"100,n~/.vim/saved-state.vim
 " move vim network housekeeping crud file
 let g:netrw_home="/tmp/"
 
-" start editing at the of log files
-:au BufNewFile,BufRead /Volumes/Travel/*.md :normal Gz.
+" start editing at the end of log files
+:au BufNewFile,BufRead /Volumes/Travel/2013/*.md :normal Gz.
