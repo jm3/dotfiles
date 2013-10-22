@@ -7,6 +7,13 @@ map \s :w !sudo tee %<CR>
 "make the line an HTML list item:
 map L ^i<li>$a</li>
 
+"make the line a HTML link
+map A 0i<a href="<Esc>$a"></a><Esc>hhhi
+
+"insert row of ='s or -'s
+map - o<Esc>24i-<Esc>
+map = o<Esc>24i=<Esc>
+
 " comment out blocks in any language with ,c
 map <Leader>c gcip<CR>
 
