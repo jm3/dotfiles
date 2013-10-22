@@ -5,6 +5,8 @@ apps
 AWS
 blog
 BlueRun
+checkbox
+checkboxes
 config
 configs
 css
@@ -19,6 +21,8 @@ EC2
 Echofon
 etc
 facebook
+favorited
+favoriting
 filesystem
 firefox
 ForzaBlitz
@@ -75,6 +79,7 @@ stylesheet
 stylesheets
 techcrunch
 timeline
+timelines
 tumblr
 tweetbot
 tweetcaster
@@ -86,4 +91,5 @@ whiteboard
 wikipedia
 wireframe
 www
+Zipcar
 zsh
