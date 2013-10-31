@@ -1,0 +1,61 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'fosl/parser'
+require 'colorize'
+
+class ListOpenWebConnections
+
+  port = ARGV[0] || 80
+  lsof = FOSL::Parser.new
+  results = lsof.lsof("-i :#{port}")
+
+  local_ip = Socket.ip_address_list[4].ip_address
+  servers_seen = []
+  output_buf = []
+
+  results.each do |pid, process|
+    process.files.each do |file|
+      server = file[:name].gsub(/:http/, '').gsub( /#{local_ip}:/, '' ).gsub( /->/, " ")
+      server = server.split
+      outbound_port = server[0]
+      server_name = server[1]
+
+      next if servers_seen.size > 0 and servers_seen.include?(server_name)
+      servers_seen.push( server_name)
+
+      proto = file[:type].to_s.downcase
+      #outbound_port.green + '➜ '
+      output_buf.push( server_name )
+    end
+
+  end
+
+  sort_by_domain = ->(a,b){ [a.split('.')[-2],a.split('.')[-1]].join('.') <=> [b.split('.')[-2],b.split('.')[-1]].join('.') }
+  output_buf.sort( &sort_by_domain ).uniq.each do |server|
+
+    if server.match( /^[0-9\.]*$/ ) or server.split('.').size == 2
+      # bare IP or domain name with 2 segments: color red
+      server = server.red
+    else
+      # domain name with more than 2 segments: color all but the first segment red
+      #
+      # name_bits = server.split('.')
+      # generally_useless_prefix = name_bits.shift
+      # basename = name_bits.join('.')
+      # server = [generally_useless_prefix, basename.yellow].join('.')
+
+      name_bits = server.split('.')
+      tld = name_bits.pop
+      basename = name_bits.pop
+      generally_useless_prefix = name_bits.shift
+      rest_of_name = name_bits[0..-1].join('.')
+      generally_useless_prefix = generally_useless_prefix + (rest_of_name.size > 0 ? '.' + rest_of_name.yellow : "")
+
+      server = [generally_useless_prefix, basename.red, tld.red].join('.')
+    end
+
+    puts server
+  end
+
+end
