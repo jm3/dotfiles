@@ -4,5 +4,10 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
 elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
  source "/usr/local/rvm/scripts/rvm"
 fi
-rvm --default use 2.0.0-p0 &> /dev/null
+
+`which rvm > /dev/null`
+rvm_missing=$?
+if [ "$rvm_missing" = 0 ]; then
+  rvm --default use 2.0.0-p0 &> /dev/null
+fi
 
