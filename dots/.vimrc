@@ -34,8 +34,8 @@ set whichwrap=b,<,>,h,l
 let MRU_File=$HOME . "/.vim/recent-files.vim"
 
 " if saved-state file exceeds 100,000 lines or so, exiting vim can hang :(
-set viminfo=%,'50,\"100,n~/.vim/saved-state.vim
-" alternate: set viminfo='10,\"100,:20,%,n~/.viminfo
+" set viminfo=%,'50,\"100,n~/.vim/saved-state.vim
+set viminfo='10,\"100,:20,%,n~/.viminfo
 
 " move vim network housekeeping crud file
 let g:netrw_home="/tmp/"
