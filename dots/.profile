@@ -53,8 +53,6 @@ alias  last="git diff HEAD@{5.minutes.ago}"
 
 alias    gf="git fetch"
 
-alias    mt="git mergetool"
-
 alias    gp="git pull"
 alias  gphm="git push heroku master"
 
@@ -121,9 +119,6 @@ br() {
   git branch --track ${branch} origin/${branch}
 }
 
-# calculate sum:
-# awk '{s+=$1} END {print s}'
-
 export EDITOR=vim
 export HISTSIZE=4096
 export LANG=en_US.UTF-8 
@@ -157,6 +152,10 @@ $HOME/.rvm/bin:\
 
 if [ -d "/usr/local/lib/node" ]; then
   export NODE_PATH="/usr/local/lib/node"
+fi
+
+if [ -f "$HOME/profile.local" ]; then
+  source $HOME/profile.local
 fi
 
 if [ -f ~/.rvm/scripts/rvm ]; then
