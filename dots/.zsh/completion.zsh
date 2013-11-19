@@ -13,7 +13,7 @@ zstyle ':completion:*' users $USER root ubuntu
 
 # complete hostnames sanely.
 # first, add any hostnames from our ssh/known_hosts, but exclude IP addresses
-ssh_hosts=`cat ~/.ssh/known_hosts | cut -f1 -d \ | sed "s/,.*//" | egrep -v "\d+\.\d+\.\d+\.\d+" | tr '\n\' ' '`
+ssh_hosts=`cat ~/.ssh/known_hosts | cut -f1 -d \ | sed "s/,.*//" | egrep -v "\d+\.\d+\.\d+\.\d+" | tr '\n' ' '`
 
 # add these literal hostnames explicitly
 h=140proof.com
