@@ -12,7 +12,7 @@ nmap <Leader>s [<CR><CR>!}sort<CR>v}:s/:\([^ ]\)/: \1/<CR>
 
 " auto-correct some easy-to-accidentally-capitalize commands
 nmap :E   :e
-nmap <Leader>V    :e ~/.vimrc<CR>
+nmap <Leader>v    :e ~/.vimrc<CR>
 
 " ugh <shift> key should die
 nmap q    :q
