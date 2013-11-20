@@ -2,7 +2,7 @@
 
 " If we edited a file we don't have permissions to save without
 " using sudo, reload the file as sudo with \s
-map \s :w !sudo tee %<CR>
+map <Leader>s :w !sudo tee %<CR>
 
 "make the line an HTML list item:
 map L ^i<li>$a</li>
