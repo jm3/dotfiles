@@ -139,11 +139,9 @@ fi
 export PATH=\
 $HOME/bin:\
 $HOME/bin/unversioned:\
-$HOME/.rvm/bin:\
 /usr/local/bin:\
 /usr/local/heroku/bin:\
 /usr/local/mysql/bin:\
-/usr/local/rvm/bin:\
 /usr/local/sbin:\
 /usr/local/share/npm/bin:\
 /usr/bin:\
@@ -161,8 +159,10 @@ fi
 
 if [ -f ~/.rvm/scripts/rvm ]; then
   source ~/.rvm/scripts/rvm
+  export PATH=$PATH:/usr/local/rvm/bin:$HOME/.rvm/bin
 elif [ -f /usr/local/rvm/scripts/rvm ]; then
   source /usr/local/rvm/scripts/rvm
+  export PATH=$PATH:/usr/local/rvm/bin:$HOME/.rvm/bin
 fi
 
 # end general configs
