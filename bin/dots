@@ -25,6 +25,7 @@ end
 @cfg[:bootstrap] = ($PROGRAM_NAME == "-") ? true : false
 @cfg[:home]    = "~"
 @cfg[:dots]    = "~/.dotfiles"
+@cfg[:personalize]    = true
 @cfg[:os]      = (
   case RbConfig::CONFIG['host_os']
     when /darwin|mac os/
@@ -142,6 +143,7 @@ def uninstall_dotfiles
 end
 
 def personalize_git_env
+  return unless @cfg[:personalize]
   vars_file = "#{@cfg[:home]}/.git-vars"
   if @cfg[:bootstrap]
     # create the empty file so shells can source it without error;
@@ -369,6 +371,8 @@ end
 if ARGV[0] == "remove"
   puts "uninstalling"
   uninstall_dotfiles
+elsif ARGV[0] == "skip-personalization"
+  @cfg[:personalize] = false
 else
   restore_dir = Dir.getwd
   setup
