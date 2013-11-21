@@ -6,6 +6,11 @@ else
     eval `ssh-agent -s`
 fi
 
-ssh-add ~/.ssh/*pem &> /dev/null
-ssh-add ~/.ssh/*sa &> /dev/null
+keys_to_add=`find ~/.ssh -name \*pem -o -name \*sa`
+for once in $keys_to_add
+do
+  ssh-add ~/.ssh/*pem &> /dev/null
+  ssh-add ~/.ssh/*sa &> /dev/null
+  return
+done
 
