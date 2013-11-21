@@ -1,18 +1,19 @@
-# historic machines
-# host vanadium v xenon xe yttrium y zinc zn 140proof.com *.140proof.com topfans.com betyourfollowers.com bubblefusionlabs.com waroftherosesapp.com sayplus1.com
-
 Host github.com
-  user                  git
+  user git
 
 # override default policy for connections that shouldn't be auto-trusted
-host *.amazonaws.com github.com monkey.org *.heroku.com
+host github.com monkey.org
   strictHostKeyChecking yes
+
+host *.amazonaws.com *.jm3.net
+  identityfile ~/.ssh/cloud.pem
+  user ubuntu
 
 # general policy
 host *
-  forwardAgent          yes
-  serverAliveCountMax   5
-  serverAliveInterval   15
+  forwardAgent yes
+  serverAliveCountMax 5
+  serverAliveInterval 15
   strictHostKeyChecking no
-  tcpKeepAlive          yes
+  tcpKeepAlive yes
 
