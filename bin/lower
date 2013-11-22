@@ -7,11 +7,20 @@ require 'fileutils'
 # the move successfully, otherwise the OS reports to ruby that
 # "FOO" and "foo" are the same file
 
+class String
+  def titlecase
+    lowercase_words = %w(in at on the for w with)
+    self.split(/ /).collect { |word| lowercase_words.include?(word.downcase) ? word.downcase : word.capitalize }.join(" ")
+  end
+end
+
 case File.basename($0)
 when "lower"
   method = "downcase"
 when "upper"
   method = "upcase"
+when "title"
+  method = "titlecase"
 else
   puts "called in some weird way; call with upcase or lcase"
 end
