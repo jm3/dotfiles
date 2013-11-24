@@ -15,6 +15,7 @@
 /dots/.vim/plugin
 /dots/.vim/recent-files.vim
 /dots/.vim/ruby
+/dots/.vim/spell
 /dots/.vim/saved-state.vim
 /dots/.vim/spell/*.spl
 /dots/.zsh/history.zsh
