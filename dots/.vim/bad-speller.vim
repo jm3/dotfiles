@@ -8,8 +8,8 @@ set spellcapcheck=
 " localize as needed
 setlocal spell spelllang=en_us
 
-:highlight clear SpellBad
-:highlight SpellBad term=bold ctermfg=5
+":highlight clear SpellBad
+":highlight SpellBad term=bold ctermfg=5
 
 " configure spelling, but leave it off by default since most of
 " what we edit is code, not prose. note that this option must come
