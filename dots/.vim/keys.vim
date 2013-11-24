@@ -1,11 +1,13 @@
+"
+"
+"
 " since vim uses almost all the regular key commands,
 " allow prefixing with
 let mapleader=','
 
 " in css mode, from any selector, attempt to move up to the head
-" of the block move to the beginning of the block, and sort the
-" selectors:
-nmap <Leader>s [<CR><CR>!}sort<CR>v}:s/:\([^ ]\)/: \1/<CR>
+" of the block move to the beginning of the block, and sort selectors:
+" nmap <Leader>s [<CR><CR>!}sort<CR>v}:s/:\([^ ]\)/: \1/<CR>
 
 " if you use Tabularize, this will also indent all your selectors
 " nmap <Leader>s [<CR><CR>!}sort<CR>v}:Tabularize /:\zs<CR>
@@ -25,10 +27,13 @@ nmap :Q!  :q!
 nmap :Wq! :wq!
 nmap :WQ! :wq!
 
+" wacky remap test from stackoverflow
+inoremap {<cr> {<cr>}<c-o>O<tab>
+
 " more fluid block navigation keys; why press shift? you should be
 " block-navigating all day.
-nmap [    {
-nmap ]    }
+" nmap [    {
+" nmap ]    }
 
 " much faster than :redo
 nmap R    :redo<CR>
@@ -50,8 +55,8 @@ noremap <backspace> <<
 set backspace=indent,eol,start
 
 " toggle spell-check mode
-map s :set nospell<CR>
-map S :set spell<CR>
+" map s :set nospell<CR>
+" map S :set spell<CR>
 
 " toggle line numbers
 map N :set number<CR>
