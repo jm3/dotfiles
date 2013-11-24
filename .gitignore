@@ -36,3 +36,5 @@ Package Control.system-ca-bundle
 /osx/st2/*.pyc
 /osx/st2/*.cache
 
+# ignore to be here installer
+installer
