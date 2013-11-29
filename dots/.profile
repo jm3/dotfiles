@@ -45,27 +45,16 @@ alias    di="git diff"
 alias   dic="git diff --cached"
 alias   diw="git diw"
 
-alias    ga="git add"
-alias   gap="git add -p"
+alias  recent="git diff HEAD@{5.minutes.ago}"
 
-alias    gb="git branch"
-
-alias  last="git diff HEAD@{5.minutes.ago}"
-
-alias    gf="git fetch"
-
-alias    gp="git pull"
 alias  gphm="git push heroku master"
 
 alias   gra="git rebase --abort"
 alias   grc="git rebase --continue"
-alias   gri="git rebase -i"
 alias   grs="git rebase --skip"
 
 alias   gsl="git stash list"
 alias   gss="git stash save"
-
-alias     l="git l"
 
 alias     s=st
 alias    st="git status"
