@@ -97,6 +97,10 @@ dumpgems() {
   gem list | egrep -v "bundler|rake" | cut1 | xargs -n1 gem uninstall
 }
 
+turl(){
+  curl --socks5-hostname localhost:9050 $@ ;
+}
+
 br() {
   if [ -z $1 ]; then
     echo STDERR "Usage: $0 [branchname]"
