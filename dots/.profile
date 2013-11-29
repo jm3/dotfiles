@@ -100,6 +100,7 @@ dumpgems() {
 turl(){
   curl --socks5-hostname localhost:9050 $@ ;
 }
+alias check="turl -s https://check.torproject.org/ | egrep \"Sorry|Congratulations\""
 
 br() {
   if [ -z $1 ]; then
