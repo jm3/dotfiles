@@ -19,6 +19,7 @@ redis
 rsync
 sqlite
 tig
+tor
 vim
 watch
 wget
