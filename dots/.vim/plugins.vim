@@ -1,3 +1,6 @@
+" file browser
+git://github.com/scrooloose/nerdtree
+
 " color themes
 git://github.com/altercation/vim-colors-solarized
 git://github.com/jelera/vim-gummybears-colorscheme

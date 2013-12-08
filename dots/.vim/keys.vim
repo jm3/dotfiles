@@ -1,9 +1,8 @@
-"
-"
-"
 " since vim uses almost all the regular key commands,
 " allow prefixing with
 let mapleader=','
+
+map <Leader>n :NERDTreeToggle<CR>
 
 " in css mode, from any selector, attempt to move up to the head
 " of the block move to the beginning of the block, and sort selectors:
