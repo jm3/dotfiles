@@ -1,6 +1,21 @@
 #!/bin/sh
 # create A-Z dirs and move any files down into them
 
+/bin/echo -n "Are you sure you want to move all these files into alphabetized directories? (Yn)"
+read confirm
+if [ "$confirm" != "y" -a "$confirm" != "Y" ]; then
+  exit 1
+fi
+
+cwd=`pwd`
+if [ "$cwd" = "$HOME" ]; then
+  /bin/echo -n "You're in your home dir. You REALLY probably don't want to run this here. Are you ABSOLUTELY sure? (Yn)"
+  read confirm
+  if [ "$confirm" != "y" -a "$confirm" != "Y" ]; then
+    exit 1
+  fi
+fi
+
 # comment this to stop mv from warning about clobbering existing files
 mv_flags="-i"
 
