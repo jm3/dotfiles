@@ -32,8 +32,9 @@ map C 1GyG:1,$!pbcopy<CR>PGdd1G
 
 " if saved-state file exceeds 100,000 lines or so, exiting vim can hang :(
 " save cursor position in buffers across sessions
-"
+
 set viminfo=%,'50,\"100,n~/.vim/saved-state.vim
+" this next causes vim to hang on exit: FIXME
 "set viminfo='10,\"100,:20,%,n~/.viminfo
 
 "au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif 
