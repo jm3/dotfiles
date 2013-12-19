@@ -39,4 +39,5 @@ let g:netrw_home="/tmp/"
 :au BufNewFile,BufRead /Volumes/Travel/2013/*.md :normal Gz.
 
 " start up in nerdtree file browser mode unless a file is specified
-autocmd vimenter * if !argc() | NERDTree | endif
+autocmd vimenter * if !argc() | NERDTree ~/Checkouts | endif
+
