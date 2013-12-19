@@ -1,5 +1,5 @@
 # don't version these
-/bin/unversioned/*
+/bin/unversioned
 /dots/.config/fish/fish_history
 /dots/.config/fish/fishd.*
 /dots/.config/mkvtoolnix/
