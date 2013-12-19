@@ -3,8 +3,6 @@ git://github.com/scrooloose/nerdtree
 
 " color themes
 git://github.com/altercation/vim-colors-solarized
-git://github.com/jelera/vim-gummybears-colorscheme
-git://github.com/tpope/vim-vividchalk
 
 " syntax highlighting
 git://github.com/digitaltoad/vim-jade
