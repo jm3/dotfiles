@@ -30,8 +30,16 @@ map <Leader>h !tidy -q --show-warnings no<CR><CR>
 " FIXME: need a good key to map this to. suggestions?
 map C 1GyG:1,$!pbcopy<CR>PGdd1G
 
-" save cursor position in buffers across sessions:
-set viminfo=%,'50,\"100,n~/.vim/saved-state.vim
-" FIXME: if saved-state file exceeds 100k-ish lines,
-" vim can be slow to exit
+set viminfo=%,'100,/100,:999,@100,f0
+"           | |    |    |    |    + whether to store global marks
+"           | |    |    |    + input line history (what is this?)
+"           | |    |    |
+"           | |    |    +command-line history saved
+"           | |    +search history saved
+"           | |
+"           | + save marks for N files (required to restore cursor/line pos)
+"           +save/restore buffer list (what is this?)
+
+" required to restore cursor position using the above viminfo file
+:au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 

@@ -16,11 +16,14 @@ let &t_ti = &t_ti . "\e[22;0t"
 let &t_te = "\e[23;0t" . &t_te
 
 set background=dark
-colorscheme solarized
-set guifont=PT Mono:h18 " also good: Menlo:h18
+colorscheme solarized " delek 
+set guifont=PT\ Mono:h14 " also good: Menlo:h18
 
 " alternate non-horrible color schemes:
 " [blue solarized delek evening gummybears vividchalk]
+
+" highlight the current line but only in the active window
+set cursorline
 
 " when i open files, vim should know from the file extension
 " what mode + syntax highlighting to use:
