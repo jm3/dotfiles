@@ -16,6 +16,9 @@ setlocal spell spelllang=en_us
 " AFTER the above spelling configurations.
 set nospell
 
+" spell check with aspell with: ,s
+map <Leader>s :w!<CR>:!aspell check %<CR>:e! %<CR>
+
 " force enable spell-checking on markdown and text files
 " some people do this on BufEnter, which fires ever time the buffer
 " gains focus. YMMV.
