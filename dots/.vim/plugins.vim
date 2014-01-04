@@ -37,3 +37,6 @@ git://github.com/tsaleh/vim-matchit
 " navigate most-recently used files
 git://github.com/vim-scripts/mru.vim
 
+" enable distributed editing w/floobits
+git://github.com/Floobits/floobits-vim
+
