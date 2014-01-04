@@ -17,6 +17,9 @@ map = o<Esc>24i=<Esc>
 " comment out blocks in any language with ,c
 map <Leader>c gcip<CR>
 
+" disable auto comment-next-line shit
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " (re-)wrap the current block
 map f !} fmt<CR>
 

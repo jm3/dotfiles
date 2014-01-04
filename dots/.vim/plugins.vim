@@ -34,7 +34,7 @@ git://github.com/tpope/vim-repeat
 " when i press % to balance a ] or a }, make that work on if .. end blocks too
 git://github.com/tsaleh/vim-matchit
 
-" navigate most-recently used files
+" navigate most-recently used files (like :browse oldfiles)
 git://github.com/vim-scripts/mru.vim
 
 " enable distributed editing w/floobits
