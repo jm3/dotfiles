@@ -9,7 +9,7 @@
 map L ^i<li>$a</li>
 
 "make the line a HTML link
-map A 0i<a href="<Esc>$a"></a><Esc>hhhi
+map <Leader>a 0i<a href="<Esc>$a"></a><Esc>hhhi
 
 "insert row of ='s or -'s
 map - o<Esc>24i-<Esc>

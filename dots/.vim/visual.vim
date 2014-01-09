@@ -1,6 +1,9 @@
 " always indicate the current mode.
 set showmode
 
+" use 256 colors
+set t_Co=256
+
 " show the current command and selection size / line #
 set showcmd
 

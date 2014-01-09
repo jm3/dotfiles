@@ -1,3 +1,6 @@
+" don't mess with my window layout just because i closed a buffer
+git://github.com/moll/vim-bbye
+
 " file browser
 git://github.com/scrooloose/nerdtree
 
@@ -14,18 +17,18 @@ git://github.com/tpope/vim-markdown
 " tab-complete anything
 git://github.com/ervandew/supertab
 
-" align assignments and arg lists
+" helps to align assignments and argument lists
 git://github.com/godlygeek/tabular
 
-" work with github gists
+" what do you think work with github gists
+" (second one is required by Gist)
 git://github.com/mattn/gist-vim
-" required by Gist
 git://github.com/mattn/webapi-vim
 
 " comment blocks in any language
 git://github.com/tomtom/tcomment_vim
 
-" complete simple code structues like if .. end without being annoying
+" complete simple code structures like if .. end without being annoying
 git://github.com/tpope/vim-endwise
 
 " when i type . in command mode, repeat the *entire* last command
