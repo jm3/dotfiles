@@ -1,15 +1,14 @@
+inoremap jj <Esc>
+
 " since vim uses almost all the regular key commands,
 " allow prefixing with
 let mapleader=','
 
 map <Leader>n :NERDTreeToggle<CR>
 
-" in css mode, from any selector, attempt to move up to the head
-" of the block move to the beginning of the block, and sort selectors:
-" nmap <Leader>s [<CR><CR>!}sort<CR>v}:s/:\([^ ]\)/: \1/<CR>
-
-" if you use Tabularize, this will also indent all your selectors
-" nmap <Leader>s [<CR><CR>!}sort<CR>v}:Tabularize /:\zs<CR>
+" for the completely awesome bbye plugin that closes buffers without
+" closing WINDOWS, thus preserving your window layout as you had it.
+nmap <Leader>k :Bdelete<CR>
 
 " auto-correct some easy-to-accidentally-capitalize commands
 nmap :E   :e
@@ -68,3 +67,9 @@ map [B j
 map [C l
 map [D h
 
+" in css mode, from any selector, attempt to move up to the head
+" of the block move to the beginning of the block, and sort selectors:
+" nmap <Leader>s [<CR><CR>!}sort<CR>v}:s/:\([^ ]\)/: \1/<CR>
+
+" if you use Tabularize, this will also indent all your selectors
+" nmap <Leader>s [<CR><CR>!}sort<CR>v}:Tabularize /:\zs<CR>
