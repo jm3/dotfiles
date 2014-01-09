@@ -22,8 +22,9 @@ map <Leader>s :w!<CR>:!aspell check %<CR>:e! %<CR>
 " force enable spell-checking on markdown and text files
 " some people do this on BufEnter, which fires ever time the buffer
 " gains focus. YMMV.
-autocmd BufRead *.txt set spell
-autocmd BufRead *.md set spell
+autocmd BufRead  *.txt set spell
+autocmd BufRead  *.md set spell
+autocmd BufEnter *.md set spell
 
 " Correct some common typos
 abbrev <A <a
