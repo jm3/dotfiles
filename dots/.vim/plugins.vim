@@ -20,9 +20,11 @@ git://github.com/ervandew/supertab
 " helps to align assignments and argument lists
 git://github.com/godlygeek/tabular
 
-" what do you think work with github gists
-" (second one is required by Gist)
+" use git
+git://github.com/tpope/vim-fugitive
+" + github gists
 git://github.com/mattn/gist-vim
+" (required for gists)
 git://github.com/mattn/webapi-vim
 
 " comment blocks in any language

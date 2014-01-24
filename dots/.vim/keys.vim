@@ -14,7 +14,7 @@ nmap <Leader>k :Bdelete<CR>
 nmap :E   :e
 nmap <Leader>v    :e ~/.vimrc<CR>
 
-" ugh <shift> key should die
+" fix some common typos i make
 nmap q    :q
 nmap Q    :q
 nmap W    :w
@@ -24,12 +24,12 @@ nmap :Q   :q
 nmap :Q!  :q!
 nmap :Wq! :wq!
 nmap :WQ! :wq!
+nmap K    J
 
-" wacky remap test from stackoverflow
-inoremap {<cr> {<cr>}<c-o>O<tab>
-
-" more fluid block navigation keys; why press shift? you should be
-" block-navigating all day.
+" i disabled these once I realized that ][ are both used to
+" run the jump-to-[next,prev]-misspelled-word commands.
+" FIXME: make these take effect in code buffers but not in text/markdown/yaml
+" block-navigate without the shift key
 " nmap [    {
 " nmap ]    }
 

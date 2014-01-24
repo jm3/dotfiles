@@ -11,6 +11,9 @@ set showcmd
 set ruler
 set number
 
+" wrap at word boundaries, not in the middle of words
+set linebreak
+
 " allow vim to set the terminal title, but restore it on exit
 " this fixes vim permanently clobbering your terminal title
 " with the string "Thanks for flying vim!"
