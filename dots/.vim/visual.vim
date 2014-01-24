@@ -53,6 +53,10 @@ highlight! DiffText    term=reverse   ctermfg=1  ctermbg=3
 highlight! link DiffAdd DiffAdded
 highlight! link DiffDelete DiffRemoved
 
+highlight! link markdownItalic htmlTagName
+highlight! link markdownBold   Todo
+highlight! link markdownH1   texRefLabel
+
 " HiGH-C0nTrAsT version (owch!)
 "highlight! DiffAdd    term=none      ctermfg=8  ctermbg=4
 "highlight! DiffChange term=underline ctermfg=13 ctermbg=black
