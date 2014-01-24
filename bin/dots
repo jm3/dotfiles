@@ -235,7 +235,7 @@ def setup_vim
     puts "Vim bundles last freshened #{last_freshened} days ago; freshening"
   else
     puts "Vim plugins last checked about #{days_ago} days ago; no need to re-check today"
-    puts "(rm ~/.vim/bundle/last_freshened to force an update)"
+    puts "\nrm ~/.vim/bundle/last_freshened && dots\n\nto force an update"
     return
   end
 
