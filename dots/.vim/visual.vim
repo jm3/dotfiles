@@ -23,7 +23,11 @@ let &t_te = "\e[23;0t" . &t_te
 
 set background=dark
 colorscheme solarized " delek 
-set guifont=PT\ Mono:h14 " also good: Menlo:h18
+set guifont=Menlo:h18
+set guifont=PT\ Mono:h18 " also good: Menlo:h18
+"set guifont=monofur:h24
+"Monofur ItalicMonofur Italic
+
 
 " alternate non-horrible color schemes:
 " [blue solarized delek evening gummybears vividchalk]
