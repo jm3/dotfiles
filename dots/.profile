@@ -87,6 +87,10 @@ mine() {
   fi
 }
 
+function tweet {
+  twurl -q -d "status=$1" /1/statuses/update.xml
+}
+
 # update gems
 upgems() { 
   sudo gem update
