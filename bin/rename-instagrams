@@ -10,6 +10,14 @@ require 'fileutils'
 # script renames the files according to a sane naming schema and
 # it handles both your photos + your likes.
 
+# your photos will be named like this:
+# February_09__2014_at_0547PM_instagram.jm3.Backgammoning.jpg
+# => 2014-02-09 05.47pm instagram - Backgammoning.jpg
+
+# your likes will be named like this
+# February_09__2014_at_0547PM_instagramfave.sv4.Backgammoning.jpg
+# => instagram fave 2014-02-09 05.47pm - sv4 - Backgammoning.jpg
+
 # add whatever directories you want to process here. 
 dirs = [
     "~/Dropbox/Photos/Instagrams",
@@ -44,11 +52,14 @@ dirs.each do |dir|
         desc    = tokens[8].gsub(/_+/, ' ')
         ext     = tokens[9]
 
-        # Likes get a special prefix of "instagram fave" 
-        prefix  = (user == "fave") ? "instagram fave " : ""
-        network = (user == running_user) ? "instagram" : ""
+        p tokens
 
-        after  = prefix + [year, month, day].join( "-" ) + " #{time}pm #{network} - #{desc}.#{ext}"
+        # Likes get a special prefix of "instagram fave" 
+        prefix  = (network == "instagramfave") ? "instagram fave " : ""
+        network = (user == running_user) ? "instagram" : ""
+        user =    (user == running_user) ? "" : "#{user} - "
+
+        after  = prefix + [year, month, day].join( "-" ) + " #{time}pm #{network} - #{user}#{desc}.#{ext}"
 
         # IFTT suppresses a lot of the possible filename characters
         # (#, ', etc.), which means you'll often end up with filenames
