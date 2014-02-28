@@ -19,7 +19,7 @@ source ~/.vim/super-powers.vim
 set backupdir=~/.vim/backups/,~/.backups,.,/tmp/
 set hidden         " allow free switching between buffers even w/unsaved changes
 set history=10000  " why limit the reach of history?
-set ic hlsearch    " incrementally execute + visually highlight searches; clear with ctl-l (see keys.vim)
+set ic hlsearch    " incrementally execute + highlight searches; clear with ctl-l
 set ignorecase     " lowercase searches are case insensitive...
 set incsearch      " true search incrementally as we type
 set smartcase      " mixed/uppercase searches are case-sensitive
