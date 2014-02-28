@@ -34,7 +34,7 @@ nmap K    J
 " nmap ]    }
 
 " much faster than :redo
-nmap R    :redo<CR>
+nmap R :redo<CR>
 
 " insert current date + time with "dts"
 :iab <expr> dts strftime("%Y-%m-%d - %A, %B %d")
