@@ -67,6 +67,9 @@ map [B j
 map [C l
 map [D h
 
+" the titlecase plugin i use adds mappings for gt and gT to title-case
+" text + selection, respectively
+
 " in css mode, from any selector, attempt to move up to the head
 " of the block move to the beginning of the block, and sort selectors:
 " nmap <Leader>s [<CR><CR>!}sort<CR>v}:s/:\([^ ]\)/: \1/<CR>

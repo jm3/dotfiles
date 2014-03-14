@@ -1,3 +1,6 @@
+# title-case text
+git://github.com/christoomey/vim-titlecase
+
 " don't mess with my window layout just because i closed a buffer
 git://github.com/moll/vim-bbye
 
