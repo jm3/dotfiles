@@ -4,41 +4,47 @@
 # if you keep your checkouts elsewhere, update this line:
 checkouts_dir = File.expand_path( '~/Checkouts/')
 
+# dumb logger
+def d(s)
+  return
+  puts s
+end
+
 Dir.chdir( checkouts_dir )
 Dir.new( checkouts_dir ).each do |checkout|
   next if (checkout =~ /^\./ or File.symlink?( checkout ))
 
   if File.directory?( File.join( checkout, 'CVS' ))
-    puts "#{checkout} is versioned with CVS" 
+    d "#{checkout} is versioned with CVS"
     Dir.chdir( checkout )
     system( "cvs up -dP" )
     Dir.chdir( checkouts_dir )
   end
 
   if File.directory?( File.join( checkout, 'darcs' ))
-    puts "#{checkout} is versioned with darcs" 
+    d "#{checkout} is versioned with darcs"
     Dir.chdir( checkout )
     system( "darcs pull --all" )
     Dir.chdir( checkouts_dir )
   end
 
   if File.directory?( File.join( checkout, '.svn' ))
-    puts "#{checkout} is versioned with svn" 
+    d "#{checkout} is versioned with svn"
     system( "svn up #{checkout}" )
   end
 
   if File.directory?( File.join( checkout, '.git' ))
-    puts "#{checkout} is versioned with git" 
+    d "#{checkout} is versioned with git"
     Dir.chdir( checkout )
     system( "pull | egrep -v 'Current branch .+ is up to date.' | grep -v 'Fetching origin' | egrep -v '^$'" )
     Dir.chdir( checkouts_dir )
   end
 
   if File.file?( File.join( checkout, 'Gemfile.lock' ))
-    puts "#{checkout} uses bundler" 
+    d "#{checkout} uses bundler"
     Dir.chdir( checkout )
     system( "bundle install | grep -v 'Using '" )
     Dir.chdir( checkouts_dir )
   end
-  puts
+  # puts
 end
