@@ -19,10 +19,10 @@ let jshint2_command = '/usr/local/bin/jshint'
 " don't warn about linting non-JS files (e.g. JSON)
 let jshint2_confirm = 0
 
-" auto-hint on open (doesn't work)
+" auto-hint on file OPEN (needs monkeypatch to jshint2.vim to work on json files)
 let jshint2_read = 1
 
-" auto-hint on save (also doesn't work wtf)
+" auto-hint on file SAVE (needs monkeypatch to jshint2.vim to work on json files)
 let jshint2_save = 1
 
 " hide the numeric error codes, e.g. trailing comma == 94; not relevant)
