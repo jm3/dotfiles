@@ -14,5 +14,17 @@ autocmd BufNewFile,BufRead *.ru               set ft=ruby
 autocmd BufNewFile,BufRead *.sublime-settings set ft=javascript
 
 " js hinting
+let jshint2_command = '/usr/local/bin/jshint'
+
+" don't warn about linting non-JS files (e.g. JSON)
+let jshint2_confirm = 0
+
+" auto-hint on open (doesn't work)
 let jshint2_read = 1
+
+" auto-hint on save (also doesn't work wtf)
+let jshint2_save = 1
+
+" hide the numeric error codes, e.g. trailing comma == 94; not relevant)
+let jshint2_error = 0
 
