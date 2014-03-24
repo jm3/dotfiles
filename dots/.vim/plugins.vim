@@ -1,4 +1,7 @@
-# title-case text
+" find js errors
+git://github.com/Shutnik/jshint2.vim
+
+" title-case text
 git://github.com/christoomey/vim-titlecase
 
 " don't mess with my window layout just because i closed a buffer
@@ -12,6 +15,7 @@ git://github.com/altercation/vim-colors-solarized
 
 " syntax highlighting
 git://github.com/digitaltoad/vim-jade
+git://github.com/elzr/vim-json
 git://github.com/kchmck/vim-coffee-script
 git://github.com/pangloss/vim-javascript
 git://github.com/tpope/vim-haml
@@ -40,7 +44,7 @@ git://github.com/tpope/vim-endwise
 git://github.com/tpope/vim-repeat
 
 " when i press % to balance a ] or a }, make that work on if .. end blocks too
-git://github.com/tsaleh/vim-matchit
+git://github.com/tmhedberg/matchit
 
 " navigate most-recently used files (like :browse oldfiles)
 git://github.com/vim-scripts/mru.vim

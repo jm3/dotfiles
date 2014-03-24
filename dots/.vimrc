@@ -12,6 +12,7 @@ call pathogen#infect()
 " and press gf  (go to file)
 source ~/.vim/keys.vim
 source ~/.vim/visual.vim
+source ~/.vim/code.vim
 source ~/.vim/bad-speller.vim
 source ~/.vim/spacing.vim
 source ~/.vim/super-powers.vim
