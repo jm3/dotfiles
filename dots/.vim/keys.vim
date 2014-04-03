@@ -76,3 +76,7 @@ map [D h
 
 " if you use Tabularize, this will also indent all your selectors
 " nmap <Leader>s [<CR><CR>!}sort<CR>v}:Tabularize /:\zs<CR>
+
+" more rational folding mode key commands
+map zO zR
+map zC zM

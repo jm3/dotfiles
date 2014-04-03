@@ -1,3 +1,6 @@
+" collapse + expanc markdown outlines
+git://github.com/nelstrom/vim-markdown-folding
+
 " find js errors
 git://github.com/Shutnik/jshint2.vim
 

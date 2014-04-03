@@ -1,5 +1,7 @@
 # don't version these
 /bin/unversioned
+/dots/.*.profile
+/dots/.config/configstore/
 /dots/.config/fish/fish_history
 /dots/.config/fish/fishd.*
 /dots/.config/mkvtoolnix/
@@ -8,15 +10,14 @@
 /dots/.mutt/cache
 /dots/.mutt/certificates
 /dots/.rvm
-/dots/.*.profile
 /dots/.vim/.netrwhist
 /dots/.vim/bundle
 /dots/.vim/doc
 /dots/.vim/plugin
 /dots/.vim/recent-files.vim
 /dots/.vim/ruby
-/dots/.vim/spell
 /dots/.vim/saved-state.vim
+/dots/.vim/spell
 /dots/.vim/spell/*.spl
 /dots/.zsh/history.zsh
 /osx/st2/Gist.sublime-settings
@@ -36,5 +37,6 @@ Package Control.system-ca-bundle
 /osx/st2/*.pyc
 /osx/st2/*.cache
 
-# ignore to be here installer
+# ignore soon-to-be-here installer
 installer
+
