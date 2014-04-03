@@ -156,7 +156,3 @@ fi
 
 # end general configs
 
-if [ -d ~/Checkouts ]; then
-  cd ~/Checkouts
-fi
-

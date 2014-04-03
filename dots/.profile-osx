@@ -18,10 +18,6 @@ if [ "`uname`" = "Darwin" ]; then
   alias truecrypt="/Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt"
   alias watchcorns='ps auxf | egrep "[u]nicorn|USER" | grep -v egrep'
 
-  if [ -d "~/Checkouts" ]; then
-    cd ~/Checkouts/
-  fi
-
   # magical hfs+ friendly, finder metadata-preserving version of rsync
   # install proper OS X/HFS+ rsync with:
   # brew install https://github.com/adamv/homebrew-alt/raw/master/duplicates/rsync.rb
