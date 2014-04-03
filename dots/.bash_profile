@@ -17,7 +17,7 @@ if [ "$SHELL" = "/bin/bash" ]; then
   PS1="\[\033[31m\]➜\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")>\[\033[00m\] "
 fi
 
-export PATH=$PATH:$HOME/.rvm/bin:/usr/local/rvm/bin:\
+export PATH=$PATH:\
 /usr/local/sbin:\
 /usr/local/share/npm/bin:\
 /usr/local/sbin:\

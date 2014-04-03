@@ -28,7 +28,6 @@ alias ls="ls -F"
 alias lsr="ls -R"
 alias lynx="lynx -accept_all_cookies -cookie_file=$HOME/.cookies -cookie_save_file=$HOME/.cookies"
 alias mmv="noglob zmv -W"
-alias rmv="rvm"
 alias shotgun="bundle exec shotgun -p 9292"
 alias sls="screen -ls"
 alias sz="source $HOME/.zshrc"
@@ -153,14 +152,6 @@ fi
 
 if [ -f "$HOME/profile.local" ]; then
   source $HOME/profile.local
-fi
-
-if [ -f ~/.rvm/scripts/rvm ]; then
-  source ~/.rvm/scripts/rvm
-  export PATH=$PATH:/usr/local/rvm/bin:$HOME/.rvm/bin
-elif [ -f /usr/local/rvm/scripts/rvm ]; then
-  source /usr/local/rvm/scripts/rvm
-  export PATH=$PATH:/usr/local/rvm/bin:$HOME/.rvm/bin
 fi
 
 # end general configs
