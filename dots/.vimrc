@@ -36,7 +36,7 @@ set whichwrap=b,<,>,h,l
 
 " move .vim housekeeping files into ~/.vim/
 let MRU_File=$HOME . "/.vim/recent-files.vim"
-let MRU_Max_Entries = 25
+let MRU_Max_Entries = 100
 
 " move vim network housekeeping crud file
 let g:netrw_home="/tmp/"

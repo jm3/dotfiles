@@ -1,5 +1,7 @@
 " Make vim do cool stuff it can't normally do
 
+let g:gist_clip_command = 'pbcopy'
+
 " If we edited a file we don't have permissions to save without
 " using sudo, reload the file as sudo with: ,s
 nmap <Leader>s :w !sudo tee %<CR>

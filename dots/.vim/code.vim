@@ -13,18 +13,9 @@ autocmd BufNewFile,BufRead *.less             set ft=css
 autocmd BufNewFile,BufRead *.ru               set ft=ruby
 autocmd BufNewFile,BufRead *.sublime-settings set ft=javascript
 
-" js hinting
-let jshint2_command = '/usr/local/bin/jshint'
-
-" don't warn about linting non-JS files (e.g. JSON)
-let jshint2_confirm = 0
-
-" auto-hint on file OPEN (needs monkeypatch to jshint2.vim to work on json files)
-let jshint2_read = 1
-
-" auto-hint on file SAVE (needs monkeypatch to jshint2.vim to work on json files)
-let jshint2_save = 1
-
-" hide the numeric error codes, e.g. trailing comma == 94; not relevant)
-let jshint2_error = 0
+let jshint2_command = '/usr/local/bin/jshint' " js hinting
+let jshint2_confirm = 0 " don't warn about linting non-JS files (e.g. JSON)
+let jshint2_read    = 1 " auto-hint on file OPEN (needs monkeypatch to work on JSON)
+let jshint2_save    = 1 " auto-hint on file SAVE (needs)
+let jshint2_error   = 0 " hide the numeric error codes, e.g. trailing comma == 94; irrelevant)
 

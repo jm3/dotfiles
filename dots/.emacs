@@ -126,3 +126,9 @@
  '(secondary-selection ((t (:foreground "orange2" :background "gray20"))))
  '(text-cursor ((t (:foreground "black" :background "green"))) t))
 (custom-set-faces)
+
+(add-to-list 'load-path "~/.emacs.d/jshint")
+(require 'flymake-jshint)
+(add-hook 'javascript-mode-hook
+    (lambda () (flymake-mode t)))
+(add-hook 'find-file-hook 'flymake-find-file-hook)

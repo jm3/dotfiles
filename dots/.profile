@@ -164,3 +164,8 @@ elif [ -f /usr/local/rvm/scripts/rvm ]; then
 fi
 
 # end general configs
+
+if [ -d ~/Checkouts ]; then
+  cd ~/Checkouts
+fi
+

@@ -1,14 +1,13 @@
 {
 	"caret_style": "phase",
-	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme",
 	"default_font_size": 16,
 	"font_size": 14.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": false,
 	"ignored_packages":
 	[
-		"Vintage",
-		"Gist"
+		"Gist",
+		"Vintage"
 	],
 	"indent_to_bracket": true,
 	"line_padding_bottom": 1,

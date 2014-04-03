@@ -67,6 +67,15 @@ map [B j
 map [C l
 map [D h
 
+" folding mode
+map zC zM
+map zO zR
+
+# most recently used files list
+map <Leader>m :MRU<CR>
+map <Leader>, :MRU<CR>
+
+
 " the titlecase plugin i use adds mappings for gt and gT to title-case
 " text + selection, respectively
 

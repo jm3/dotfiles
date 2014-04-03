@@ -1,5 +1,5 @@
 ﻿<?xml version ="1.0" encoding="UTF-8"?>
-<photoshop-keyboard-shortcuts version="4" filename="$$$/FileName/Presets/KeyboardCustomization/jm3photoshopshortcuts=jm3-photoshop-shortcuts" modified="0">
+<photoshop-keyboard-shortcuts version="4" filename="$$$/FileName/Presets/KeyboardCustomization/jm3photoshopshortcuts=jm3-photoshop-shortcuts" modified="1">
 	<command kind="dynamic" name="Vanishing Point">
 		<shortcut>Opt+Cmd+V</shortcut>
 	</command>
@@ -76,7 +76,7 @@
 		<shortcut>Shift+Cmd+I</shortcut>
 		<shortcut>Shift+F7</shortcut>
 	</command>
-	<command kind="static" id="1019" name="Gaussian Blur">
+	<command kind="static" id="1019" name="Last Filter">
 		<shortcut>Cmd+F</shortcut>
 	</command>
 	<command kind="static" id="1025" name="Brush">
@@ -127,10 +127,10 @@
 	<command kind="static" id="1139" name="Merge Visible">
 		<shortcut>Shift+Cmd+E</shortcut>
 	</command>
-	<command kind="static" id="1154" name="Fade Gaussian Blur...">
+	<command kind="static" id="1154" name="Fade...">
 		<shortcut>Shift+Cmd+F</shortcut>
 	</command>
-	<command kind="static" id="1166" name="Merge Down">
+	<command kind="static" id="1166" name="Merge Layers">
 		<shortcut>Cmd+E</shortcut>
 	</command>
 	<command kind="static" id="1170" name="Actions">
@@ -274,12 +274,6 @@
 	<command kind="static" id="5982" name="Menus...">
 		<shortcut>Opt+Shift+Cmd+M</shortcut>
 	</command>
-	<command kind="static" id="6303" name="Levels...">
-		<shortcut>Cmd+L</shortcut>
-	</command>
-	<command kind="static" id="6304" name="Curves...">
-		<shortcut>Cmd+M</shortcut>
-	</command>
 	<command kind="static" id="6384" name="Within Selection">
 		<shortcut>Opt+Cmd+X</shortcut>
 	</command>
@@ -380,6 +374,10 @@
 	<tool name="Clean Mixer Brush" type="18"></tool>
 	<tool name="Toggle Mixer Brush Auto-Load" type="19"></tool>
 	<tool name="Toggle Mixer Brush Auto-Clean" type="20"></tool>
+	<tool name="Toggle Mixer Brush Sample All Layers" type="21"></tool>
+	<tool name="Sharpen Erodible Tips" type="22"></tool>
+</photoshop-keyboard-shortcuts>
+le Mixer Brush Auto-Clean" type="20"></tool>
 	<tool name="Toggle Mixer Brush Sample All Layers" type="21"></tool>
 	<tool name="Sharpen Erodible Tips" type="22"></tool>
 </photoshop-keyboard-shortcuts>

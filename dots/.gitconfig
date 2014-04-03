@@ -61,3 +61,9 @@
 
 [push]
 	default = simple
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[github]
+	user = jm3
+	token = 2e86185533f23e2c9e2c19f86d5db27c627853bf
