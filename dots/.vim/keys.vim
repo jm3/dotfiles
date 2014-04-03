@@ -71,7 +71,7 @@ map [D h
 map zC zM
 map zO zR
 
-# most recently used files list
+" most recently used files list
 map <Leader>m :MRU<CR>
 map <Leader>, :MRU<CR>
 
