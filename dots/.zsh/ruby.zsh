@@ -1,4 +1,9 @@
-eval "$(rbenv init -)"
+# ugh i hate shell scripting
+`which rbenv > /dev/null`
+rbenv_missing=$?
+if [ "$rbenv_missing" = 0 ]; then
+  eval "$(rbenv init -)"
+fi
 
 # temp disable rvm in favor of rbenv
 
