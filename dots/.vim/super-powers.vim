@@ -48,3 +48,5 @@ set viminfo=%,'100,/100,:999,@100,f0
 " required to restore cursor position using the above viminfo file
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
+" trigger listing
+map <Leader>d :!~/bin/unversioned/d<CR>
