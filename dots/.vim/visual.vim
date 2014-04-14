@@ -49,3 +49,10 @@ highlight! link markdownItalic htmlTagName
 highlight! link markdownBold   Todo
 highlight! link markdownH1   texRefLabel
 
+" highlight Folded guibg=242 ctermfg=210
+
+" folding shiz
+set foldminlines=4
+
+:set fillchars="vert:|,fold:."
+
