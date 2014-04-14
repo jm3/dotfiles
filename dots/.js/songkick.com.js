@@ -1,0 +1,1 @@
+$("#friends-plans").hide();
