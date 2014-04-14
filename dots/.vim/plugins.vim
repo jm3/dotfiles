@@ -1,3 +1,6 @@
+" vim itunes
+git://github.com:ryutorion/vim-itunes.git
+
 " collapse + expand markdown outlines
 git://github.com/nelstrom/vim-markdown-folding
 
