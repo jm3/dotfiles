@@ -136,7 +136,6 @@ fi
 export PATH=\
 $HOME/bin:\
 $HOME/bin/unversioned:\
-$HOME/.rbenv/shims:\
 /usr/local/var/rbenv/shims:\
 /usr/local/bin:\
 /usr/local/heroku/bin:\
