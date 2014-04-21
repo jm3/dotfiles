@@ -6,6 +6,7 @@ set nocompatible
 " loads from from ~/.vim/bundle.
 " add/remove features by modifying ~/.vim/plugins.vim
 call pathogen#infect()
+Helptags
 
 " all settings are organized into groups for easy modularity
 " tip: to open any of the files, just navivgate to one of the files
