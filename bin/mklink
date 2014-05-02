@@ -1,0 +1,15 @@
+#!/bin/sh
+# link mount point
+
+if [ `uname` != "Darwin" ]; then
+  echo usage: run this on a mac, maybe
+  exit 1
+fi
+
+mnt=/Volumes/Secure-XFER
+
+if [ -s $mnt ]; then
+  rm $mnt
+fi
+
+ln -s /Volumes/`date +%b` /Volumes/Secure-XFER
