@@ -142,6 +142,7 @@ $HOME/bin/unversioned:\
 /usr/local/var/rbenv/shims:\
 /usr/local/bin:\
 /usr/local/heroku/bin:\
+/usr/local/ec2/bin:\
 /usr/local/mysql/bin:\
 /usr/local/sbin:\
 /usr/local/share/npm/bin:\
