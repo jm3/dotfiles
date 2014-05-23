@@ -1,9 +1,0 @@
-#!/bin/sh
-
-name=`basename $0`
-opts=
-
-case "$name" in m*|g*)    opts="$opts -g"  ;; esac # GUI mode, implies forking
-case "$name" in *vimdiff) opts="$opts -dO" ;; esac
-
-exec /Applications/MacVim.app/Contents/MacOS/Vim $opts ${1:+"$@"}
