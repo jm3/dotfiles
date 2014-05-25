@@ -1,7 +1,7 @@
 --- 
-gem: --no-rdoc --no-ri
+gem: --no-rdoc --no-ri --bindir /usr/local/bin
 :benchmark: false
-gemcutter_key: 7baf88d59687e6b2b8fef026ca4db6dc
+:gemcutter_key: $GEMCUTTER_KEY
 :backtrace: false
 :update_sources: true
 :verbose: true
