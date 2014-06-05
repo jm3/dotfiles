@@ -17,8 +17,6 @@ alias cut6="cut -f6 -d\ "
 alias dc="cd"
 alias dd="cd /Volumes/Travel/`date +%Y`"
 alias deps="gem list | awk \"{print $1}\" | xargs -n1 gem dependency"
-alias gvim="mvim"
-alias keys="ssh-add ~/.ssh/*pem ~/.ssh/*sa"
 alias ip="ifconfig | grep inet | grep -v inet6"
 alias killall="killall -9 -m -v"
 alias l1="ls -1"
@@ -87,6 +85,10 @@ mine() {
   else
     echo "usage: mine FILENAME"
   fi
+}
+
+function keys {
+  source ~/.zsh/load-ssh-keys.zsh
 }
 
 function tweet {

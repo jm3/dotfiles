@@ -56,4 +56,4 @@ git://github.com/tmhedberg/matchit
 git://github.com/vim-scripts/mru.vim
 
 " enable distributed editing w/floobits
-git://github.com/Floobits/floobits-vim
+"git://github.com/Floobits/floobits-vim
