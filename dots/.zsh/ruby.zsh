@@ -1,6 +1,7 @@
 `which rbenv > /dev/null`
 rbenv_missing=$?
 if [ "$rbenv_missing" = 0 ]; then
+  export PATH=$PATH:/usr/local/var/rbenv/shims
   export RBENV_ROOT=/usr/local/var/rbenv
   eval "$(rbenv init -)"
 fi
