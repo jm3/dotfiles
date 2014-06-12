@@ -33,10 +33,9 @@ alias sls="screen -ls"
 alias sz="source $HOME/.zshrc"
 alias u="pull"
 alias up="pull"
-alias v="mvim"
+alias v="vim"
 alias vf="cd"
-alias vi="mvim"
-alias vim="mvim"
+alias vi="vim"
 alias z="vim $HOME/.zshrc"
 
 # git shortcuts
