@@ -135,6 +135,8 @@ if [ "$SHELL" = "/bin/zsh" -o "$SHELL" = "/usr/local/bin/zsh" ]; then
   export HISTFILE=$HOME/.zsh/history.zsh
 fi
 
+export RBENV_ROOT=/usr/local/var/rbenv
+
 # default OS X path:    /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 # default Ubuntu path:  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # search paths generic to ALL unices go here:
@@ -163,3 +165,6 @@ fi
 
 # end general configs
 
+if [ -d ~/Checkouts ]; then
+  cd ~/Checkouts
+fi

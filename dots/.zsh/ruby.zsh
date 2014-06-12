@@ -1,11 +1,9 @@
-# ugh i hate shell scripting
 `which rbenv > /dev/null`
 rbenv_missing=$?
 if [ "$rbenv_missing" = 0 ]; then
+  export RBENV_ROOT=/usr/local/var/rbenv
   eval "$(rbenv init -)"
 fi
-
-# temp disable rvm in favor of rbenv
 
 # # Load RVM into a shell session *as a function*
 # if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
