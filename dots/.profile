@@ -142,14 +142,15 @@ export RBENV_ROOT=/usr/local/var/rbenv
 # search paths generic to ALL unices go here:
 export PATH=\
 $HOME/bin:\
-$HOME/bin/unversioned:\
-/usr/local/var/rbenv/shims:\
+$HOME/secure/bin:\
+$HOME/local/bin:\
 /usr/local/bin:\
 /usr/local/heroku/bin:\
 /usr/local/ec2/bin:\
 /usr/local/mysql/bin:\
 /usr/local/sbin:\
 /usr/local/share/npm/bin:\
+/usr/local/var/rbenv/shims:\
 /usr/bin:\
 /bin:\
 /usr/sbin:\

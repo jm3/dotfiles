@@ -1,5 +1,4 @@
 # don't version these
-/bin/unversioned
 /dots/.*.profile
 /dots/.config/configstore/
 /dots/.config/fish/fish_history
