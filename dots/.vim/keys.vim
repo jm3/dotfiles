@@ -38,7 +38,7 @@ nmap R :redo<CR>
 
 " insert current date + time with "dts"
 :iabbr <expr> dts strftime("%Y-%m-%d - %A, %B %d")
-
+:iabbr <expr> ttt strftime("%H:%M %p")
 " save and re-run grunt
 nmap <F1> :w<CR>:!clear;grunt<CR><CR>
 
