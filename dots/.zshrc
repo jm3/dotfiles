@@ -9,6 +9,12 @@
 autoload zmv
 autoload -U colors && colors
 
+# source universal profile
+source ~/.profile
+
+# source git profile variables
+source ~/.git-vars
+
 source ~/.zsh/awesome-jm3-prompt.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/load-host-specific-profiles.zsh
@@ -27,12 +33,6 @@ bindkey "[3~" delete-char   # allow reverse deletes
 
 # allow slashes to delimit words
 export WORDCHARS=${WORDCHARS//\/}
-
-# source universal profile
-source ~/.profile
-
-# source git profile variables
-source ~/.git-vars
 
 # override bash-friendly alias in .profile with zsh-specific color opts
 alias ls="ls -FG"
