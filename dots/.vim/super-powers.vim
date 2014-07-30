@@ -50,3 +50,9 @@ set viminfo=%,'100,/100,:999,@100,f0
 
 " trigger listing
 map <Leader>d :!~/bin/unversioned/d<CR>
+
+" commify list (e.g. to build a SQL query in(...) list
+map ,C :%s/ /,/g<CR>
+
+" copy the path of the current filename
+map <Leader>r :let @" = expand("%")<CR>
