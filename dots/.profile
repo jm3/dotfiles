@@ -121,6 +121,7 @@ br() {
   git branch --track ${branch} origin/${branch}
 }
 
+export DEFAULT_HOME=$HOME/Checkouts
 export EDITOR=vim
 export HISTSIZE=4096
 export LANG=en_US.UTF-8 
@@ -162,6 +163,8 @@ fi
 
 # end general configs
 
-if [ -d ~/Checkouts ]; then
-  cd ~/Checkouts
+if [ $PWD = $HOME ]; then
+  if [ -d $DEFAULT_HOME ]; then
+    cd $DEFAULT_HOME
+  fi
 fi
