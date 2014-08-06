@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 # rename all mp3s in a directory to ARTIST - TRACK.mp3 and scrub the filenames
+# SEE ALSO: https://github.com/jm3/dotfiles/blob/master/bin/lower + title
 
 require 'mp3info'
 require 'fileutils'
