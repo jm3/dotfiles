@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby
+# rename all mp3s in a directory to ARTIST - TRACK.mp3 and scrub the filenames
 
 require 'mp3info'
 require 'fileutils'
 
 dir = ARGV[0]
 unless dir
-  puts "artist-album DIRECTORY"
+  puts "artist-track DIRECTORY"
   exit 1
 end
 FileUtils.cd dir
