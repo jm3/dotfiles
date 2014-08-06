@@ -14,7 +14,9 @@ Dir.entries(dir).each do |file|
    next if file !~ /.mp3$/ # skip files not ending with .mp3
    f = dir + "/" + file
    Mp3Info.open(f) do |mp3|      
-     new_name = "#{mp3.tag.artist} - #{mp3.tag.title}.mp3"
+
+     # strip out unix-hostile chars like colons, slashes, non-ASCII funtimes, etc.
+     new_name = "#{mp3.tag.artist} - #{mp3.tag.title}.mp3".gsub(/[^a-zA-Z0-9_\.+ '-]/, '')
      if file != new_name
        puts new_name
        begin
