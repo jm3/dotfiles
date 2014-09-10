@@ -15,6 +15,7 @@ on run argv
 		set msg to msg & "  forward N          - Jump N seconds forwards\n"
 		set msg to msg & "  rewind N           - Jump N seconds backwards\n"
 		set msg to msg & "  shuffle            - Toggle shuffle\n"
+		set msg to msg & "  short              - Print short track info\n"
 		set msg to msg & "  repeat             - Toggle repeat\n"
 		set msg to msg & "  volume N           - Set Volume to N (0...100)\n"
 		return msg
@@ -138,6 +139,14 @@ on run argv
 				set info to info & "\n Volume:   " & sound volume
 				if shuffling then set info to info & "\n Shuffle is on."
 				if repeating then set info to info & "\n Repeat is on."
+			end tell
+			return info
+
+		else if command is equal to "short" then
+			tell application "Spotify"
+				set myTrack to name of current track
+				set myArtist to artist of current track
+				set info to myTrack & " by " & myArtist
 			end tell
 			return info
 		end if
