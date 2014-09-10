@@ -38,6 +38,7 @@ alias vf="cd"
 alias vi="vim"
 alias z="vim $HOME/.zshrc"
 
+
 # git shortcuts
 alias   sha="git log | head -n1 | awk '{print \$2}'"
 alias    di="git diff"

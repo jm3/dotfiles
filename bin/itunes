@@ -1,0 +1,11 @@
+#!/usr/bin/env osascript
+
+# jm3, 2014-09-10
+
+tell application "iTunes"
+  if player state is playing then
+    -- who cares about albums?
+    -- (get album of current track)
+    (get name of current track) & " by " & (get artist of current track)
+  end if
+end tell
