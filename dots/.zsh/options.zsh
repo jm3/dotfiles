@@ -10,7 +10,7 @@ setopt auto_param_slash
 setopt auto_pushd
 
 # History should accrete over time; that's the nature of history
-# setopt append_history
+setopt append_history
 
 # Those who repeat history are doomed to have a lot of useless history entries
 setopt hist_ignore_dups
