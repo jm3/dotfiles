@@ -27,9 +27,19 @@ set incsearch      " true search incrementally as we type
 set smartcase      " mixed/uppercase searches are case-sensitive
 set wildchar=<TAB>
 set wildmenu       " when i hit tab, vim should try to complete whatever i'm typing
-set wildmode=longest:full,list:full,list:longest
+set wildmode=list:longest " anaologous to show-all-if-ambiguous in [ba,z]sh shells
 
-" cool new thing
+" this makes reloading the file idempotent/reentrant. if you don't know what
+" that means, don't worry about it :)
+set wildignore=
+
+" ignore these files when completing paths:
+" ...binaries
+set wildignore+=*alias,*.alfredworkflow,*.gem,*.gif,*.jpg,*.mov,*.mp4,*.pdf,*.png,*.psd,*.ttf,*.webloc
+" ...archive files
+set wildignore+=*.zip,*.gz
+" ...web temp junk
+set wildignore+=.git,*/.bundle/*,*.swp,*~,._*,tmp,vendor,log
 
 " when moving at the edge of a line, cursor should wrap to
 " previous line, and vice versa
