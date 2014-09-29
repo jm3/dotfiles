@@ -12,9 +12,44 @@
 source ~/.git-vars
 
 source ~/.profile
-if [ "$SHELL" = "/bin/bash" ]; then
-  # good colors: 31m, 32m, 34m, 35m, 36m
-  PS1="\[\033[31m\]➜\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")>\[\033[00m\] "
+
+if [[ "$0" == *bash* ]]; then
+  PS1="bash_profile_crashed_while_setting_prompt (\w) "
+
+  red='\[\e[31m\]'
+  green='\[\e[32m\]'
+  cyan='\[\e[1;34m\]'
+  reset_color='\[\e[0m\]'
+
+  function is_git_dirty() {
+    git status --porcelain | egrep "\sM|\sD|\?\?" &> /dev/null
+  }
+
+  function awesome_jm3_prompt {
+    arrow="$red ➜"
+    cwd="$cyan\w$reset_color"
+
+    function git_info() {
+      is_git_dirty() {
+        git status --porcelain | egrep "\sM|\sD|\?\?" &> /dev/null
+      }
+      branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //' `
+      if [ ! -z "${branch}" ];
+      then
+        is_git_dirty
+        if [ $? -eq 0 ];
+        then
+          git_filth=" $green ✗ $reset_color"
+        fi
+        git_branch=" ($red${branch}$reset_color)"
+        echo -n "${git_branch}${git_filth}"
+      fi
+    }
+
+    echo -n "${arrow} ${cwd}$( git_info)> "
+  }
+
+  export PS1="$(awesome_jm3_prompt) $ "
 fi
 
 export PATH=$PATH:\
