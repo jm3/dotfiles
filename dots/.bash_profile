@@ -16,15 +16,21 @@ RED="\[\033[31m\]"
 GRAY="\[\033[32m\]"
 RESET="\[\033[0m\]"
 BOLD="\[\033[1;36m\]"
-GREEN="\[\033[0;32m\]"
-XXXX="\[\033[1;33\]"
+BROWN="\[\033[0;33m\]"
 
-function jm3_git_ps1() {
+function git_branch_slug() {
   clean_git_branch_name=`__git_ps1|sed -E 's/ |\(|\)//g'`
   if [ -z "$clean_git_branch_name" ]; then
     /bin/echo -n "" # don't muck up the prompt if we're not inside a git repo
   else
     /bin/echo -n "(RED${clean_git_branch_name}RESET)"
+  fi
+}
+
+function git_dirty_slug() {
+  dirty_status=`git status --porcelain 2> /dev/null | egrep "\sM|\sD|\?\?" &> /dev/null`
+  if [ $? -eq 0 ]; then
+    /bin/echo -n "BROWN ✗ RESET"
   fi
 }
 
@@ -34,8 +40,11 @@ if [[ "$0" == *bash* ]]; then
     git_prompt_code="/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh"
     if [ -f "$git_prompt_code" ]; then
       source $git_prompt_code
-      export PS1="\w$RESET \$(jm3_git_ps1 | sed 's/RED/$RED/g' | sed 's/RESET/$RESET/g') \n\
-$BOLD\h$RED ➜ $RESET "
+      # so gross; necessary because you can't concatenate strings together to make a PS1 if any of the strings have color escapes in them... FML
+      git_branch_slug_str="\$(git_branch_slug | sed 's/RED/$RED/g' | sed 's/RESET/$RESET/g')"
+      git_dirty_slug_str="\$(git_dirty_slug | sed 's/BROWN/$BROWN/g' | sed 's/RESET/$RESET/g')"
+      export PS1="\w$RESET $git_branch_slug_str \n\
+$BOLD\h$RED ➜ ${RESET}${git_dirty_slug_str}> "
     fi
   fi
 fi
