@@ -13,5 +13,10 @@
 --ignore-dir=vendor
 --ignore-dir=tweets
 --ignore-dir=.tmp-serve
+--ignore-dir=libs
+--ignore-dir=build
+--ignore-dir=.tmp-build
 
 --ignore-file=is:jquery.min.map
+--ignore-file=is:modernizr.js
+--ignore-file=is:ender.js
