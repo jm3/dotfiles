@@ -10,46 +10,34 @@
 # prompt as consolation :)
 
 source ~/.git-vars
-
 source ~/.profile
 
+RED="\[\033[31m\]"
+GRAY="\[\033[32m\]"
+RESET="\[\033[0m\]"
+BOLD="\[\033[1;36m\]"
+GREEN="\[\033[0;32m\]"
+XXXX="\[\033[1;33\]"
+
+function jm3_git_ps1() {
+  clean_git_branch_name=`__git_ps1|sed -E 's/ |\(|\)//g'`
+  if [ -z "$clean_git_branch_name" ]; then
+    /bin/echo -n "" # don't muck up the prompt if we're not inside a git repo
+  else
+    /bin/echo -n "(RED${clean_git_branch_name}RESET)"
+  fi
+}
+
 if [[ "$0" == *bash* ]]; then
-  PS1="bash_profile_crashed_while_setting_prompt (\w) "
-
-  red='\[\e[31m\]'
-  green='\[\e[32m\]'
-  cyan='\[\e[1;34m\]'
-  reset_color='\[\e[0m\]'
-
-  function is_git_dirty() {
-    git status --porcelain | egrep "\sM|\sD|\?\?" &> /dev/null
-  }
-
-  function awesome_jm3_prompt {
-    arrow="$red ➜"
-    cwd="$cyan\w$reset_color"
-
-    function git_info() {
-      is_git_dirty() {
-        git status --porcelain | egrep "\sM|\sD|\?\?" &> /dev/null
-      }
-      branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //' `
-      if [ ! -z "${branch}" ];
-      then
-        is_git_dirty
-        if [ $? -eq 0 ];
-        then
-          git_filth=" $green ✗ $reset_color"
-        fi
-        git_branch=" ($red${branch}$reset_color)"
-        echo -n "${git_branch}${git_filth}"
-      fi
-    }
-
-    echo -n "${arrow} ${cwd}$( git_info)> "
-  }
-
-  export PS1="$(awesome_jm3_prompt) $ "
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    # FIXME: os-x only; find paths for linux, etc.
+    git_prompt_code="/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh"
+    if [ -f "$git_prompt_code" ]; then
+      source $git_prompt_code
+      export PS1="\w$RESET \$(jm3_git_ps1 | sed 's/RED/$RED/g' | sed 's/RESET/$RESET/g') \n\
+$BOLD\h$RED ➜ $RESET "
+    fi
+  fi
 fi
 
 export PATH=$PATH:\
