@@ -1,0 +1,64 @@
+#!/bin/sh
+# install recommended mac CLI + GUI apps as fast as possible
+
+ruby -e "$(curl -fsSL http://proof.ly/install-homebrew)"
+brew update
+
+cli="
+
+ack
+dos2unix
+figlet
+git
+gnupg
+openssl
+redis
+watch
+wget
+youtube-dl
+
+"
+
+for app in $cli
+do
+  brew install $app
+done
+
+brew install caskroom/cask/brew-cask
+brew cask update
+
+gui="
+
+adium
+airfoil alfred
+bartender
+github
+google-chrome
+google-earth
+google-refine
+grabbox
+handbrake
+hipchat
+iterm2
+macscale
+macvim
+namechanger
+onepassword
+plex-home-theater
+rowmote-helper
+rstudio
+sabnzbd
+screenflow
+sequel-pro
+sizeup
+transmit
+virtualbox
+vlc
+
+"
+
+for app in $gui
+do
+  brew cask install $app
+done
+
