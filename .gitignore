@@ -3,6 +3,7 @@
 /dots/.config/configstore/
 /dots/.config/fish/fish_history
 /dots/.config/fish/fishd.*
+/dots/.config/*
 /dots/.config/mkvtoolnix/
 /dots/.git-vars
 /dots/.mutt/account.*
@@ -35,7 +36,4 @@ Package Control.system-ca-bundle
 # ignore compiled files
 /osx/st2/*.pyc
 /osx/st2/*.cache
-
-# ignore soon-to-be-here installer
-installer
 
