@@ -128,6 +128,8 @@
 (custom-set-faces)
 
 (add-to-list 'load-path "~/.emacs.d/jshint")
+
+; curl https://codeload.github.com/daleharvey/jshint-mode/zip/master > ~/.emacs.d/jshint.zip
 (require 'flymake-jshint)
 (add-hook 'javascript-mode-hook
     (lambda () (flymake-mode t)))
