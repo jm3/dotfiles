@@ -9,6 +9,7 @@
 
 --ignore-dir=.bundled_gems
 --ignore-dir=.gems
+--ignore-dir=.bundle
 --ignore-dir=staticcfg
 --ignore-dir=vendor
 --ignore-dir=tweets
@@ -20,3 +21,4 @@
 --ignore-file=is:jquery.min.map
 --ignore-file=is:modernizr.js
 --ignore-file=is:ender.js
+--ignore-file=is:Gemfile.lock
