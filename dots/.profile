@@ -143,12 +143,14 @@ export PATH=\
 $HOME/bin:\
 $HOME/secure/bin:\
 $HOME/local/bin:\
+$HOME/.rvm/bin:\
 /usr/local/bin:\
 /usr/local/heroku/bin:\
 /usr/local/ec2/bin:\
 /usr/local/mysql/bin:\
 /usr/local/sbin:\
 /usr/local/share/npm/bin:\
+/usr/local/phabricator/arcanist/bin:\
 /usr/bin:\
 /bin:\
 /usr/sbin:\
@@ -169,3 +171,4 @@ if [ $PWD = $HOME ]; then
     cd $DEFAULT_HOME
   fi
 fi
+
