@@ -45,5 +45,3 @@ function mcdir {
 function brew_history {
   open "https://github.com/Homebrew/homebrew/commits/master/Library/Formula/$1.rb"
 }
-
-
