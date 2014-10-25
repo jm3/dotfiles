@@ -1,5 +1,6 @@
 # press ctl-shift-x, h when debugging to view completion "context"
-autoload -U compinit && compinit -u # rm -f ~/.zcompdump if rvm complains
+# hanging on yosemite - 2014-10-25
+# autoload -U compinit && compinit -u # rm -f ~/.zcompdump if rvm complains
 
 # complete active screens:
 compctl -g "/tmp/uscreens/S-${USER}/*(p:t)" screen
