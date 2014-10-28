@@ -30,7 +30,10 @@
 Icon?
 Thumbs.db
 
-# Other shit #
+# regeneratable caches
+.sass-cache
+
+# binary jonks
 ######################
 *.aac
 *.mp3
