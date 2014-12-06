@@ -18,7 +18,7 @@ source ~/.git-vars
 source ~/.zsh/awesome-jm3-prompt.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/load-host-specific-profiles.zsh
-source ~/.zsh/load-ssh-keys.zsh
+~/.zsh/load-ssh-keys.zsh
 source ~/.zsh/options.zsh
 source ~/.zsh/ruby.zsh
 source ~/.zsh/password-gen.zsh

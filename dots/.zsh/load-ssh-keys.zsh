@@ -11,6 +11,5 @@ keys_to_add=`find ~/.ssh -name \*pem -o -name \*sa`
 for key in $keys_to_add
 do
   ssh-add $key &> /dev/null
-  return
 done
 
