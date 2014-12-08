@@ -63,6 +63,10 @@ alias    st="git status"
 alias    up="git up"  # pull
 alias   wup="git wup" # what will be pushed
 
+docker-ip() {
+  boot2docker ip 2> /dev/null
+}
+
 frep() {
   find=$1
   replace=$2
