@@ -5,6 +5,8 @@
 # reminder of how to redirect both stdout + stderr:
 # (echo your_cmd args 2>&1 > /dev/null ) > out
 
+# reminder that aliases are defined in ~/.profile
+
 # enable smart renaming:
 autoload zmv
 autoload -U colors && colors

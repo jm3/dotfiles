@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+movie = ARGV[0]
+
+# require a movie filename argument
+if !movie or !File.file?(movie) or !movie.match( /mkv|avi/i )
+  puts "USAGE: rewrap movie.mkv"
+  exit 1
+end
+
+slug = movie.gsub( /\.mkv$/, '')
+output = `time ffmpeg -i '#{movie}' -c:v copy -c:a copy '#{slug}.m4v'`
+puts output
+
