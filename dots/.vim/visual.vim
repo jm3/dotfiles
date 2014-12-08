@@ -2,7 +2,7 @@
 set showmode
 
 " use 256 colors
-set t_Co=256
+"set t_Co=256
 
 " show the current command and selection size / line #
 set showcmd
@@ -24,15 +24,15 @@ set title
 let &t_ti = &t_ti . "\e[22;0t"
 let &t_te = "\e[23;0t" . &t_te
 
-set background=dark
-colorscheme solarized " delek 
+"set background=dark
+"colorscheme delek
+" alternate non-horrible color schemes: blue solarized delek evening
+
 set guifont=Menlo:h18
 set guifont=PT\ Mono:h18 " also good: Menlo:h18
 "set guifont=monofur:h24
 "Monofur ItalicMonofur Italic
 
-" alternate non-horrible color schemes:
-" [blue solarized delek evening gummybears vividchalk]
 
 " highlight the current line but only in the active window
 set cursorline

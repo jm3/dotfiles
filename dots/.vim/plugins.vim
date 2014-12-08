@@ -1,5 +1,14 @@
-" vim itunes
-git://github.com:ryutorion/vim-itunes.git
+" highlight Dockerfile syntax
+git://github.com/honza/dockerfile.vim
+
+" auto-switch to file's project root dir upon open
+git://github.com/airblade/vim-rooter
+
+" ala emacs's organization / todo / outlining mode
+git://github.com/jceb/vim-orgmode
+
+" prettify css + js; FIXME: needs: submodule update --init --recursive
+git://github.com/maksimr/vim-jsbeautify
 
 " collapse + expand markdown outlines
 git://github.com/nelstrom/vim-markdown-folding
