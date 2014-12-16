@@ -24,15 +24,15 @@ set title
 let &t_ti = &t_ti . "\e[22;0t"
 let &t_te = "\e[23;0t" . &t_te
 
-"set background=dark
-"colorscheme delek
-" alternate non-horrible color schemes: blue solarized delek evening
+if has("gui_running")
+  set background=dark
+  set guifont=Menlo:h18
+  set guifont=PT\ Mono:h18 " also good: Menlo:h18
+  "set guifont=monofur:h24
+  "Monofur ItalicMonofur Italic
+endif
 
-set guifont=Menlo:h18
-set guifont=PT\ Mono:h18 " also good: Menlo:h18
-"set guifont=monofur:h24
-"Monofur ItalicMonofur Italic
-
+" color scheme options: blue solarized delek evening
 
 " highlight the current line but only in the active window
 set cursorline
