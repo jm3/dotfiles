@@ -1,3 +1,6 @@
+" magical file-finding, via tom stuart
+git://github.com/kien/ctrlp.vim
+
 " highlight Dockerfile syntax
 git://github.com/honza/dockerfile.vim
 
