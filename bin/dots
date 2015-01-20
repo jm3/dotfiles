@@ -232,7 +232,7 @@ def setup_vim
 
   # bail if we've recently refreshed plugins
   if !File.file? last_freshened or days_ago > 7
-    puts "Vim bundles last freshened #{last_freshened} days ago; freshening"
+    puts "Vim bundles last freshened #{days_ago} days ago; freshening"
   else
     puts "Vim plugins last checked about #{days_ago} days ago; no need to re-check today"
     puts "\nrm ~/.vim/bundle/last_freshened && dots\n\nto force an update"
