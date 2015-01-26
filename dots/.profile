@@ -150,6 +150,7 @@ $HOME/bin:\
 $HOME/secure/bin:\
 $HOME/local/bin:\
 $HOME/.rvm/bin:\
+$HOME/Checkouts/go/bin:\
 /usr/local/bin:\
 /usr/local/heroku/bin:\
 /usr/local/ec2/bin:\
@@ -161,6 +162,8 @@ $HOME/.rvm/bin:\
 /bin:\
 /usr/sbin:\
 /sbin
+
+export GOPATH=$HOME/Checkouts/go
 
 if [ -d "/usr/local/lib/node" ]; then
   export NODE_PATH="/usr/local/lib/node"

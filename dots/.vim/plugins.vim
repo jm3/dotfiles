@@ -4,8 +4,11 @@ git://github.com/kien/ctrlp.vim
 " highlight Dockerfile syntax
 git://github.com/honza/dockerfile.vim
 
+" Go time
+git@github.com:fatih/vim-go.git
+
 " auto-switch to file's project root dir upon open
-git://github.com/airblade/vim-rooter
+" git://github.com/airblade/vim-rooter
 
 " ala emacs's organization / todo / outlining mode
 git://github.com/jceb/vim-orgmode
