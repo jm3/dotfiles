@@ -17,6 +17,7 @@ alias cut6="cut -f6 -d\ "
 alias dc="cd"
 alias dd="cd ~/travel/`date +%Y`"
 alias deps="gem list | awk \"{print $1}\" | xargs -n1 gem dependency"
+alias dots-dev="cd ~/.dotfiles/dots"
 alias frank="gshuf -n 1 ~/.frank | tr '[:lower:]' '[:upper:]'" # gshuf is part of the gnu coreutils pkg : brew install coreutils
 alias ip="ifconfig | grep inet | grep -v inet6"
 alias killall="killall -9 -m -v"
@@ -38,7 +39,7 @@ alias up="pull"
 alias v="vim"
 alias vf="cd"
 alias vi="vim"
-alias z="vim $HOME/.zshrc"
+alias z="vim $HOME/.profile"
 
 
 # git shortcuts
