@@ -5,10 +5,10 @@ git://github.com/kien/ctrlp.vim
 git://github.com/honza/dockerfile.vim
 
 " Go time
-git@github.com:fatih/vim-go.git
+git://github.com/fatih/vim-go
 
 " auto-switch to file's project root dir upon open
-" git://github.com/airblade/vim-rooter
+git://github.com/airblade/vim-rooter
 
 " prettify css + js; FIXME: needs: submodule update --init --recursive
 git://github.com/maksimr/vim-jsbeautify
