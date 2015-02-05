@@ -9,24 +9,22 @@ require 'fileutils'
 require 'open-uri'
 require 'rbconfig'
 require 'date'
+require 'getoptlong'
+require 'pry'
 
-def setup
-  clone_repo
-  install_git_friendly
-  install_dotfiles
-  personalize_git_env
-  install_osx_goodies
-  setup_vim
-  ensure_zsh
-  display_instructions
-end
+opts = GetoptLong.new(
+  [ '--force',            '-f', GetoptLong::NO_ARGUMENT ],
+  [ '--uninstall',        '-u', GetoptLong::NO_ARGUMENT ],
+  [ '--no-personalize  ', '-n', GetoptLong::NO_ARGUMENT ]
+)
 
-@cfg = {}
-@cfg[:bootstrap] = ($PROGRAM_NAME == "-") ? true : false
-@cfg[:home]    = "~"
-@cfg[:dots]    = "~/.dotfiles"
-@cfg[:personalize]    = true
-@cfg[:os]      = (
+# defaults
+@cfg               = {}
+@cfg[:bootstrap]   = ($PROGRAM_NAME == "-") ? true : false
+@cfg[:home]        = "~"
+@cfg[:dots]        = "~/.dotfiles"
+@cfg[:personalize] = true
+@cfg[:os]          = (
   case RbConfig::CONFIG['host_os']
     when /darwin|mac os/
       :macosx
@@ -36,6 +34,33 @@ end
 )
 @cfg = @cfg.each{ |_,str| @cfg[_] = File.expand_path(str) if @cfg[_].class == String }
 
+opts.each do |opt, arg|
+  case opt
+    when '--force'
+      @cfg[:force] = true
+    when '--no-personalize'
+      @cfg[:personalize] = false
+    when '--remove'
+      puts "uninstalling"
+      uninstall_dotfiles
+    else
+    end
+end
+
+def main
+  restore_dir = Dir.getwd
+  clone_repo
+  install_git_friendly
+  install_dotfiles
+  personalize_git_env
+  install_osx_goodies
+  setup_vim
+  ensure_zsh
+  display_instructions
+  FileUtils.cd restore_dir
+end
+
+# quick backup utility
 def bup( file )
   return unless File.file? file or File.directory? file
 
@@ -231,11 +256,11 @@ def setup_vim
   end
 
   # bail if we've recently refreshed plugins
-  if !File.file? last_freshened or days_ago > 7
+  if @cfg[:force] or !File.file? last_freshened or days_ago > 7
     puts "Vim bundles last freshened #{days_ago} days ago; freshening"
   else
-    puts "Vim plugins last checked about #{days_ago} days ago; no need to re-check today"
-    puts "\nrm ~/.vim/bundle/last_freshened && dots\n\nto force an update"
+    puts "Vim plugins last checked about #{days_ago} days ago; no need to re-check today."
+    puts "\ndots --force to force an update"
     return
   end
 
@@ -369,13 +394,4 @@ def display_instructions
   end
 end
 
-if ARGV[0] == "remove"
-  puts "uninstalling"
-  uninstall_dotfiles
-elsif ARGV[0] == "skip-personalization"
-  @cfg[:personalize] = false
-else
-  restore_dir = Dir.getwd
-  setup
-  FileUtils.cd restore_dir
-end
+main
