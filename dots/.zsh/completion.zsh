@@ -2,6 +2,13 @@
 # hanging on yosemite - 2014-10-25
 # autoload -U compinit && compinit -u # rm -f ~/.zcompdump if rvm complains
 
+# The following lines were added by compinstall
+zstyle :compinstall filename '/Users/jm3/.zsh/completion.zsh'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
 # complete active screens:
 compctl -g "/tmp/uscreens/S-${USER}/*(p:t)" screen
 
