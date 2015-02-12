@@ -32,7 +32,7 @@ if has("gui_running")
   "Monofur ItalicMonofur Italic
 endif
 
-" color scheme options: blue solarized delek evening
+colorscheme solarized " blue delek evening
 
 " highlight the current line but only in the active window
 set cursorline
