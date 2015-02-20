@@ -10,7 +10,6 @@ require 'open-uri'
 require 'rbconfig'
 require 'date'
 require 'getoptlong'
-require 'pry'
 
 opts = GetoptLong.new(
   [ '--force',            '-f', GetoptLong::NO_ARGUMENT ],
