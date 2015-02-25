@@ -6,7 +6,6 @@ set nocompatible
 " loads from from ~/.vim/bundle.
 " add/remove features by modifying ~/.vim/plugins.vim
 call pathogen#infect()
-Helptags
 
 " all settings are organized into groups for easy modularity
 " tip: to open any of the files, just navivgate to one of the files
@@ -25,6 +24,7 @@ set ic hlsearch    " incrementally execute + highlight searches; clear with ctl-
 set ignorecase     " lowercase searches are case insensitive...
 set incsearch      " true search incrementally as we type
 set smartcase      " mixed/uppercase searches are case-sensitive
+set timeout timeoutlen=1000 ttimeoutlen=10  " i don't have time to wait
 set wildchar=<TAB>
 set wildmenu       " when i hit tab, vim should try to complete whatever i'm typing
 set wildmode=list:longest " anaologous to show-all-if-ambiguous in [ba,z]sh shells
