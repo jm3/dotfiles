@@ -31,6 +31,7 @@ alias lsr="ls -R"
 alias lynx="lynx -accept_all_cookies -cookie_file=$HOME/.cookies -cookie_save_file=$HOME/.cookies"
 alias mmv="noglob zmv -W"
 alias mvim="open -a MacVim.app"
+alias p="vim $HOME/.profile"
 alias shotgun="bundle exec shotgun -p 9292"
 alias sls="screen -ls"
 alias sz="source $HOME/.zshrc"
@@ -143,6 +144,8 @@ if [ "$SHELL" = "/bin/zsh" -o "$SHELL" = "/usr/local/bin/zsh" ]; then
   export HISTFILE=$HOME/.zsh/history.zsh
 fi
 
+export GOPATH=$HOME/Checkouts/go/
+
 # default OS X path:    /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 # default Ubuntu path:  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # search paths generic to ALL unices go here:
@@ -150,6 +153,7 @@ export PATH=\
 $HOME/bin:\
 $HOME/secure/bin:\
 $HOME/local/bin:\
+$HOME/Checkouts/go/bin:\
 $HOME/.rvm/bin:\
 $HOME/Checkouts/go/bin:\
 /usr/local/bin:\
