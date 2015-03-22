@@ -1,3 +1,6 @@
+" swap two splits
+git://github.com/wesQ3/vim-windowswap
+
 " magical file-finding, via tom stuart
 git://github.com/kien/ctrlp.vim
 
