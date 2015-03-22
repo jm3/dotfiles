@@ -2,7 +2,7 @@
 git://github.com/wesQ3/vim-windowswap
 
 " magical file-finding, via tom stuart
-git://github.com/kien/ctrlp.vim
+" git://github.com/kien/ctrlp.vim
 
 " highlight Dockerfile syntax
 git://github.com/honza/dockerfile.vim
@@ -11,9 +11,9 @@ git://github.com/honza/dockerfile.vim
 git://github.com/fatih/vim-go
 
 " auto-switch to file's project root dir upon open
-git://github.com/airblade/vim-rooter
+" git://github.com/airblade/vim-rooter
 
-" prettify css + js; FIXME: needs: submodule update --init --recursive
+" prettify css + js; FIXME: needs: git submodule update --init --recursive to be run inside vim-jsbeautify
 git://github.com/maksimr/vim-jsbeautify
 
 " collapse + expand markdown outlines
