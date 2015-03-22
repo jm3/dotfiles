@@ -151,8 +151,7 @@ export GOPATH=$HOME/Checkouts/go/
 # search paths generic to ALL unices go here:
 export PATH=\
 $HOME/bin:\
-$HOME/secure/bin:\
-$HOME/local/bin:\
+$HOME/bin/dropbox:\
 $HOME/Checkouts/go/bin:\
 $HOME/.rvm/bin:\
 $HOME/Checkouts/go/bin:\
