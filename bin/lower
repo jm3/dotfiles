@@ -9,7 +9,7 @@ require 'fileutils'
 
 class String
   def titlecase
-    lowercase_words = %w(an and at for in of on the w with)
+    lowercase_words = %w(an and at for in of on the vs w with)
     self.split(/ /).collect { |word| lowercase_words.include?(word.downcase) ? word.downcase : word.capitalize }.join(" ")
   end
 end
