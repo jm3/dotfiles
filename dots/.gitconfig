@@ -60,4 +60,4 @@
   tight = %Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr %C(white)%an
 
 [push]
-	default = simple
+  default = simple
