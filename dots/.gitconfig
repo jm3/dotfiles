@@ -23,10 +23,6 @@
 [rerere]
   enabled = 1
 
-[diff]
-  tool = better-vimdiff
-[difftool]
-  prompt = false
 [merge]
   tool          = better-vimdiff
 [mergetool "better-vimdiff"]
