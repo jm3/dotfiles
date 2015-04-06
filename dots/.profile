@@ -40,7 +40,7 @@ alias up="pull"
 alias v="vim"
 alias vf="cd"
 alias vi="vim"
-alias z="vim $HOME/.profile"
+alias z="vim $HOME/.zshrc"
 
 
 # git shortcuts
