@@ -30,6 +30,7 @@ alias ks="ls -FG"
 alias lsr="ls -R"
 alias lynx="lynx -accept_all_cookies -cookie_file=$HOME/.cookies -cookie_save_file=$HOME/.cookies"
 alias mmv="noglob zmv -W"
+alias more="less"
 alias mvim="open -a MacVim.app"
 alias p="vim $HOME/.profile"
 alias shotgun="bundle exec shotgun -p 9292"
@@ -140,7 +141,17 @@ export SVN_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export WWW_HOME=http://duckduckgo.com
 
-if [ "$SHELL" = "/bin/zsh" -o "$SHELL" = "/usr/local/bin/zsh" ]; then
+# requires https://www.gnu.org/software/src-highlite/;
+# {apt-get | brew} install source-highlight
+which "source-highlight" &> /dev/null
+if [ $? = 0 ]; then
+  LESSPIPE=`which src-hilite-lesspipe.sh`
+  export LESSOPEN="| ${LESSPIPE} %s"
+  export LESS=' -R -X -F '
+fi
+
+if [ "$SHELL" = "/bin/zsh" -o "$SHELL" = "/usr/local/bin/zsh" ];
+then
   export HISTFILE=$HOME/.zsh/history.zsh
 fi
 

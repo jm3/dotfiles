@@ -1,0 +1,22 @@
+extension "txt"
+
+styletemplate "[38;05;$stylem$text"
+styleseparator ";"
+
+# TODO: Make these work
+bold "01$style"
+underline "04$style"
+italics "$style"
+color "$style"
+
+colormap
+"yellow" "136"
+"orange" "166"
+"red" "160"
+"darkred" "125"
+"purple" "61"
+"blue" "33"
+"cyan" "37"
+"green" "64"
+default "241"
+end
