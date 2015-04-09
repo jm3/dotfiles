@@ -146,8 +146,7 @@ export WWW_HOME=http://duckduckgo.com
 
 # requires https://www.gnu.org/software/src-highlite/;
 # {apt-get | brew} install source-highlight
-which "source-highlight" &> /dev/null
-if [ $? = 0 ]; then
+if type "source-highlight" > /dev/null; then
   LESSPIPE=`which src-hilite-lesspipe.sh`
   export LESSOPEN="| ${LESSPIPE} %s"
   export LESS=' -R -X -F '
