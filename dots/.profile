@@ -43,6 +43,9 @@ alias vf="cd"
 alias vi="vim"
 alias z="vim $HOME/.zshrc"
 
+if type "safe-rm" > /dev/null; then
+  alias rm="safe-rm"
+fi
 
 # git shortcuts
 alias   sha="git log | head -n1 | awk '{print \$2}'"

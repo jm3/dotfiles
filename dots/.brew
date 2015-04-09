@@ -17,6 +17,7 @@ optipng
 readline
 redis
 rsync
+safe-rm
 sqlite
 tig
 tor
