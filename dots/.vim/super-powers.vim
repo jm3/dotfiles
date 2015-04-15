@@ -56,3 +56,6 @@ map ,C :%s/ /,/g<CR>
 
 " copy the path of the current filename
 map <Leader>r :let @" = expand("%")<CR>
+
+" cd to directory of the current file
+map ,g :cd %:p:h<CR>
