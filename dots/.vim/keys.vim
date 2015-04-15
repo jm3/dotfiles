@@ -75,7 +75,6 @@ map zO zR
 map <Leader>m :MRU<CR>
 map <Leader>, :MRU<CR>
 
-
 " the titlecase plugin i use adds mappings for gt and gT to title-case
 " text + selection, respectively
 
@@ -86,6 +85,6 @@ map <Leader>, :MRU<CR>
 " if you use Tabularize, this will also indent all your selectors
 " nmap <Leader>s [<CR><CR>!}sort<CR>v}:Tabularize /:\zs<CR>
 
-" more rational folding mode key commands
+" more rational folding mode shortcuts:
 map zO zR
 map zC zM
