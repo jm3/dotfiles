@@ -67,7 +67,7 @@ brew 'source-highlight'
 brew 'sqlite'
 brew 'tig'
 brew 'tor'
-brew 'vim' , args: [ 'with-compiledby=homebrew-jm3-brewdle', 'enable-clientserver', 'enable-clipboard', 'enable-conceal', 'enable-fontset', 'enable-hangul_input', 'enable-lua', 'enable-multibyte', 'enable-ruby', 'without-arabic', 'without-farsi']
+brew 'vim' , args: [ 'with-compiledby=THIS-GETS-OVERRIDEN-BY-BREW-FORMULA', 'enable-clientserver', 'enable-clipboard', 'enable-conceal', 'enable-cscope', 'enable-iconv', 'enable-lua', 'enable-multibyte', 'enable-ruby', 'enable-rubyinterp', 'without-arabic', 'without-farsi']
 brew 'watch'
 brew 'wget'
 brew 'whereami'
@@ -77,6 +77,7 @@ brew 'xvid'
 brew 'xz'
 brew 'youtube-dl'
 brew 'zsh'
+
 cask 'adium'
 cask 'airfoil'
 cask 'alfred'
