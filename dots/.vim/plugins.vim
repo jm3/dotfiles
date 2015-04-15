@@ -1,74 +1,36 @@
-" swap two splits
-git://github.com/wesQ3/vim-windowswap
+" edit the list below to choose plugins; run PlugInstall to install
 
-" magical file-finding, via tom stuart
-" git://github.com/kien/ctrlp.vim
+call plug#begin('~/.vim/plugged')
+" note: must use single quotes
 
-" highlight Dockerfile syntax
-git://github.com/honza/dockerfile.vim
+Plug 'junegunn/vim-easy-align'        " replaces godlygeek's tabular plugin
+Plug 'fatih/vim-go'                   " go language
+Plug 'nelstrom/vim-markdown-folding'  " collapse + expand markdown outlines
+Plug 'vim-scripts/mru.vim'            " most-recently used files (like :browse oldfiles)
+Plug 'tmhedberg/matchit'              " when i press % to balance a ] or a }, make that work on if .. end blocks too
+Plug 'Shutnik/jshint2.vim'            " find js errors
+Plug 'christoomey/vim-titlecase'      " title-case text
+Plug 'ervandew/supertab'              " tab-complete anything
+Plug 'moll/vim-bbye'                  " don't mess with my window layout just because i closed a buffer
+Plug 'scrooloose/nerdtree'            " file browser
+Plug 'tomtom/tcomment_vim'            " comment blocks in any language
+Plug 'tpope/vim-endwise'              " complete simple code structures like if .. end without being annoying
+Plug 'tpope/vim-repeat'               " when i type . in command mode, repeat the *entire* last command
 
-" Go time
-git://github.com/fatih/vim-go
+Plug 'maksimr/vim-jsbeautify', { 'dir': '~/.vim/plugged/vim-jsbeautify', 'do': 'git submodule update --init --recursive' } " prettify css + js
 
-" auto-switch to file's project root dir upon open
-" git://github.com/airblade/vim-rooter
+" color schemes
+Plug 'altercation/vim-colors-solarized' 
+Plug 'junegunn/seoul256.vim'
 
-" prettify css + js; FIXME: needs: git submodule update --init --recursive to be run inside vim-jsbeautify
-git://github.com/maksimr/vim-jsbeautify
+" languages + syntaxes
+Plug 'digitaltoad/vim-jade'
+Plug 'elzr/vim-json'
+Plug 'kchmck/vim-coffee-script'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'honza/dockerfile.vim'
 
-" collapse + expand markdown outlines
-git://github.com/nelstrom/vim-markdown-folding
+call plug#end()
 
-" find js errors
-git://github.com/Shutnik/jshint2.vim
-
-" title-case text
-git://github.com/christoomey/vim-titlecase
-
-" don't mess with my window layout just because i closed a buffer
-git://github.com/moll/vim-bbye
-
-" file browser
-git://github.com/scrooloose/nerdtree
-
-" color themes
-git://github.com/altercation/vim-colors-solarized
-
-" syntax highlighting
-git://github.com/digitaltoad/vim-jade
-git://github.com/elzr/vim-json
-git://github.com/kchmck/vim-coffee-script
-git://github.com/pangloss/vim-javascript
-git://github.com/tpope/vim-haml
-git://github.com/tpope/vim-markdown
-
-" tab-complete anything
-git://github.com/ervandew/supertab
-
-" helps to align assignments and argument lists
-git://github.com/godlygeek/tabular
-
-" use git
-git://github.com/tpope/vim-fugitive
-" + github gists
-git://github.com/mattn/gist-vim
-" (required for gists)
-git://github.com/mattn/webapi-vim
-
-" comment blocks in any language
-git://github.com/tomtom/tcomment_vim
-
-" complete simple code structures like if .. end without being annoying
-git://github.com/tpope/vim-endwise
-
-" when i type . in command mode, repeat the *entire* last command
-git://github.com/tpope/vim-repeat
-
-" when i press % to balance a ] or a }, make that work on if .. end blocks too
-git://github.com/tmhedberg/matchit
-
-" navigate most-recently used files (like :browse oldfiles)
-git://github.com/vim-scripts/mru.vim
-
-" enable distributed editing w/floobits
-"git://github.com/Floobits/floobits-vim

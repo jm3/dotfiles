@@ -82,8 +82,8 @@ map <Leader>, :MRU<CR>
 " of the block move to the beginning of the block, and sort selectors:
 " nmap <Leader>s [<CR><CR>!}sort<CR>v}:s/:\([^ ]\)/: \1/<CR>
 
-" if you use Tabularize, this will also indent all your selectors
-" nmap <Leader>s [<CR><CR>!}sort<CR>v}:Tabularize /:\zs<CR>
+" for junegunn's vim-easy-align:
+vmap <Enter> <Plug>(EasyAlign)
 
 " more rational folding mode shortcuts:
 map zO zR

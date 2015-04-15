@@ -3,13 +3,10 @@
 " enable special features that aren't in vi
 set nocompatible
 
-" loads from from ~/.vim/bundle.
-" add/remove features by modifying ~/.vim/plugins.vim
-call pathogen#infect()
-
 " all settings are organized into groups for easy modularity
 " tip: to open any of the files, just navivgate to one of the files
 " and press gf  (go to file)
+source ~/.vim/plugins.vim
 source ~/.vim/keys.vim
 source ~/.vim/visual.vim
 source ~/.vim/code.vim
