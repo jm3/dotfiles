@@ -1,3 +1,5 @@
+source ~/.vim/color-cycle.vim
+
 " always indicate the current mode.
 set showmode
 
@@ -32,6 +34,7 @@ if has("gui_running")
   "Monofur ItalicMonofur Italic
 endif
 
+set background=dark
 colorscheme solarized " blue delek evening
 
 " highlight the current line but only in the active window

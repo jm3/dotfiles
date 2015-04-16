@@ -21,7 +21,9 @@ Plug 'maksimr/vim-jsbeautify', { 'dir': '~/.vim/plugged/vim-jsbeautify', 'do': '
 
 " color schemes
 Plug 'altercation/vim-colors-solarized' 
-Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/seoul256.vim', { 'dir': '~/.vim/plugged/seoul256.vim', 'do': 'rm colors/seoul256-light.vim' }
+Plug 'tomasr/molokai'
+Plug 'chriskempson/vim-tomorrow-theme', { 'dir': '~/.vim/plugged/vim-tomorrow-theme', 'do': 'rm colors/Tomorrow-Night-Blue.vim  colors/Tomorrow-Night.vim colors/Tomorrow.vim' }
 
 " languages + syntaxes
 Plug 'digitaltoad/vim-jade'
