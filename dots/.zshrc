@@ -47,3 +47,4 @@ function mcdir {
 function brew_history {
   open "https://github.com/Homebrew/homebrew/commits/master/Library/Formula/$1.rb"
 }
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
