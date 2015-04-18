@@ -6,6 +6,7 @@ tap 'homebrew/brewdler'
 tap 'homebrew/versions'
 tap 'homebrew/x11'
 tap 'leapmotion/leapmotion'
+tap 'telemachus/homebrew-desc'
 
 brew 'ack'
 brew 'afl-fuzz'
@@ -67,7 +68,7 @@ brew 'source-highlight'
 brew 'sqlite'
 brew 'tig'
 brew 'tor'
-brew 'vim' , args: [ 'with-compiledby=THIS-GETS-OVERRIDEN-BY-BREW-FORMULA', 'enable-clientserver', 'enable-clipboard', 'enable-conceal', 'enable-cscope', 'enable-iconv', 'enable-lua', 'enable-multibyte', 'enable-ruby', 'enable-rubyinterp', 'without-arabic', 'without-farsi']
+brew 'vim' , args: ['enable-clipboard', 'enable-conceal', 'enable-cscope', 'enable-iconv', 'enable-lua', 'enable-multibyte', 'enable-ruby', 'enable-rubyinterp', 'without-arabic', 'without-farsi']
 brew 'watch'
 brew 'wget'
 brew 'whereami'
