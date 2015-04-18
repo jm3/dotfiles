@@ -59,3 +59,7 @@ map <Leader>r :let @" = expand("%")<CR>
 
 " cd to directory of the current file
 map ,g :cd %:p:h<CR>
+
+let g:startify_custom_header =
+\ map(split(system('fortune /Users/jm3/.dotfiles/fortunes'), '\n'), '"   ". v:val') + ['','']
+

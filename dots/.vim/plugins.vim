@@ -4,7 +4,9 @@ call plug#begin('~/.vim/plugged')
 " note: must use single quotes
 
 Plug 'junegunn/vim-easy-align'        " replaces godlygeek's tabular plugin
-Plug 'junegunn/limelight.vim'             " dim all paragraphs but current one
+Plug 'mhinz/vim-startify'             " cool startup screen
+Plug 'junegunn/fzf'                   " amazing fuzzy search
+Plug 'junegunn/limelight.vim'         " dim all paragraphs but current one
 Plug 'fatih/vim-go'                   " go language
 Plug 'nelstrom/vim-markdown-folding'  " collapse + expand markdown outlines
 Plug 'vim-scripts/mru.vim'            " most-recently used files (like :browse oldfiles)
