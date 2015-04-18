@@ -17,6 +17,7 @@
 --ignore-dir=libs
 --ignore-dir=build
 --ignore-dir=.tmp-build
+--ignore-dir=plugged
 
 --ignore-file=is:jquery.min.map
 --ignore-file=is:modernizr.js
