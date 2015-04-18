@@ -16,6 +16,11 @@ set number
 " always show current file in status line
 set laststatus=2
 
+" enable junegunn's background-dimming 'Limelight' mode for markdown;
+" limelight is installed with PlugInstall in ~/.vim/plugins.vim
+autocmd BufNewFile,BufRead  *.md Limelight
+autocmd BufLeave			      *.md Limelight!
+
 " wrap at word boundaries, not in the middle of words
 set linebreak
 

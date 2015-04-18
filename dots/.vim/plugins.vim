@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 " note: must use single quotes
 
 Plug 'junegunn/vim-easy-align'        " replaces godlygeek's tabular plugin
+Plug 'junegunn/limelight.vim'             " dim all paragraphs but current one
 Plug 'fatih/vim-go'                   " go language
 Plug 'nelstrom/vim-markdown-folding'  " collapse + expand markdown outlines
 Plug 'vim-scripts/mru.vim'            " most-recently used files (like :browse oldfiles)
@@ -16,6 +17,7 @@ Plug 'scrooloose/nerdtree'            " file browser
 Plug 'tomtom/tcomment_vim'            " comment blocks in any language
 Plug 'tpope/vim-endwise'              " complete simple code structures like if .. end without being annoying
 Plug 'tpope/vim-repeat'               " when i type . in command mode, repeat the *entire* last command
+Plug 'junegunn/vim-emoji'             " OH FUCK YES THANK YOU JUNEGUNN 🙏
 
 Plug 'maksimr/vim-jsbeautify', { 'dir': '~/.vim/plugged/vim-jsbeautify', 'do': 'git submodule update --init --recursive' } " prettify css + js
 
@@ -26,6 +28,7 @@ Plug 'tomasr/molokai'
 Plug 'chriskempson/vim-tomorrow-theme', { 'dir': '~/.vim/plugged/vim-tomorrow-theme', 'do': 'rm colors/Tomorrow-Night-Blue.vim  colors/Tomorrow-Night.vim colors/Tomorrow.vim' }
 
 " languages + syntaxes
+Plug 'tpope/vim-rails'
 Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
 Plug 'kchmck/vim-coffee-script'
