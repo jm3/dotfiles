@@ -1,25 +1,24 @@
-" edit the list below to choose plugins; run PlugInstall to install
+" edit the list below to choose plugins; run PlugInstall to install'
 
 call plug#begin('~/.vim/plugged')
 " note: must use single quotes
 
-Plug 'junegunn/vim-easy-align'        " replaces godlygeek's tabular plugin
-Plug 'mhinz/vim-startify'             " cool startup screen
-Plug 'junegunn/fzf'                   " amazing fuzzy search
+Plug 'airblade/vim-gitgutter'         " show git diff status in sidebar
+Plug 'ervandew/supertab'              " <tab> to complete words based on buffer contents
+Plug 'junegunn/fzf'                   " amazing fuzzy search. also enhances zsh
 Plug 'junegunn/limelight.vim'         " dim all paragraphs but current one
-Plug 'fatih/vim-go'                   " go language
-Plug 'nelstrom/vim-markdown-folding'  " collapse + expand markdown outlines
-Plug 'vim-scripts/mru.vim'            " most-recently used files (like :browse oldfiles)
-Plug 'tmhedberg/matchit'              " when i press % to balance a ] or a }, make that work on if .. end blocks too
-Plug 'Shutnik/jshint2.vim'            " find js errors
-Plug 'christoomey/vim-titlecase'      " title-case text
-Plug 'ervandew/supertab'              " tab-complete anything
-Plug 'moll/vim-bbye'                  " don't mess with my window layout just because i closed a buffer
+Plug 'junegunn/vim-easy-align'        " <Enter> to align assignments, blocks, etc.
+Plug 'junegunn/vim-emoji'             " ha ha fuck yes
+Plug 'mhinz/vim-startify'             " awesome startup screen, uses my fortunes file
+Plug 'moll/vim-bbye'                  " don't mess with my window layout just because I closed a buffer
+Plug 'nelstrom/vim-markdown-folding'  " zO + zC to open + close markdown outlines
 Plug 'scrooloose/nerdtree'            " file browser
-Plug 'tomtom/tcomment_vim'            " comment blocks in any language
-Plug 'tpope/vim-endwise'              " complete simple code structures like if .. end without being annoying
+Plug 'tmhedberg/matchit'              " % to match open/close <html> tags + if/else blocks, not just [] {} ()
+Plug 'tpope/vim-endwise'              " auto-complete simple code structures like if .. end without being annoying
+Plug 'vim-scripts/mru.vim'            " ,m to open most-recently used files (like :browse oldfiles)
 Plug 'tpope/vim-repeat'               " when i type . in command mode, repeat the *entire* last command
-Plug 'junegunn/vim-emoji'             " OH FUCK YES THANK YOU JUNEGUNN 🙏
+Plug 'tomtom/tcomment_vim'            " ,c to comment blocks in any language
+Plug 'christoomey/vim-titlecase'      " :gt to title-case text
 
 Plug 'maksimr/vim-jsbeautify', { 'dir': '~/.vim/plugged/vim-jsbeautify', 'do': 'git submodule update --init --recursive' } " prettify css + js
 
@@ -30,14 +29,16 @@ Plug 'tomasr/molokai'
 Plug 'chriskempson/vim-tomorrow-theme', { 'dir': '~/.vim/plugged/vim-tomorrow-theme', 'do': 'rm colors/Tomorrow-Night-Blue.vim  colors/Tomorrow-Night.vim colors/Tomorrow.vim' }
 
 " languages + syntaxes
-Plug 'tpope/vim-rails'
 Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
+Plug 'honza/dockerfile.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
+Plug 'Shutnik/jshint2.vim'          
+Plug 'fatih/vim-go'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
-Plug 'honza/dockerfile.vim'
+Plug 'tpope/vim-rails'
 
 call plug#end()
 
