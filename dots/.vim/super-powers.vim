@@ -63,3 +63,8 @@ map ,g :cd %:p:h<CR>
 let g:startify_custom_header =
 \ map(split(system('fortune /Users/jm3/.dotfiles/fortunes'), '\n'), '"   ". v:val') + ['','']
 
+" hide these files from the "recent files" list in Startify's startup screen
+let g:startify_skiplist = [
+  \ 'COMMIT_EDITMSG',
+  \ $HOME . '/.dotfiles/dots/.vim/plugged/.*/doc'
+\ ]
