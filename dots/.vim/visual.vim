@@ -33,6 +33,7 @@ if has("gui_running")
   " set guifont    = Menlo:h18
   " set guifont    = PT\ Mono:h18 " also good: Menlo:h18
 else
+  " elaborate, emoji-rich status bar lifted shamelessly from junegunn's dotfiles
   set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
   silent! if emoji#available()
     let s:ft_emoji = map({
@@ -59,8 +60,7 @@ else
       \ 'text':       'books',
       \ 'vim':        'poop',
       \ 'vim-plug':   'electric_plug',
-      \ 'yaml':       'yum',
-      \ 'yaml.jinja': 'yum'
+      \ 'yaml':       'tongue'
     \ }, 'emoji#for(v:val)')
 
     function! S_filetype()
@@ -72,10 +72,13 @@ else
     endfunction
 
     function! S_modified()
+
       if &modified
         return emoji#for('kiss').' '
+
+      " locked files or non-editable buffers
       elseif !&modifiable
-        return emoji#for('construction').' '
+        return emoji#for('rotating_light').' '
       else
         return ''
       endif
@@ -107,7 +110,7 @@ else
     endfunction
 
     hi def link User1 TablineFill
-    let s:cherry = emoji#for('cherry_blossom')
+    let s:cherry = emoji#for('skull') " s/🌸 /💀 /g
     function! MyStatusLine()
       let mod = '%{S_modified()}'
       let ro  = "%{&readonly ? emoji#for('lock') . ' ' : ''}"
@@ -127,7 +130,6 @@ else
     set statusline=%!MyStatusLine()
     set completefunc=emoji#complete
   endif
-
 
 endif
 
@@ -157,3 +159,5 @@ set fillchars="vert:|,fold:."
 :let g:goyo_margin_top    = 0
 :let g:goyo_margin_bottom = 0
 
+" json plugin uses this to hide extraneous syntax 
+:set conceallevel=2

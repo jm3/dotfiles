@@ -58,8 +58,11 @@ map ,C :%s/ /,/g<CR>
 map <Leader>r :let @" = expand("%")<CR>
 
 " cd to directory of the current file
-map ,g :cd %:p:h<CR>
+map <Leader>g :cd %:p:h<CR>
 
+" display a fortune from our fortunes file
+" N.b.: after adding fortunes to ~/.dotfiles/fortunes,
+" be sure to run 'strfile fortunes' to regenerate fortunes.dat
 let g:startify_custom_header =
 \ map(split(system('fortune /Users/jm3/.dotfiles/fortunes'), '\n'), '"   ". v:val') + ['','']
 
