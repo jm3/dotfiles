@@ -2,6 +2,9 @@
 #
 # https://raw.github.com/jm3/dotfiles/master/prompt.gif
 
+# enable logically named ANSI color escape sequences in prompts
+autoload -U colors && colors
+
 awesome_jm3_prompt() {
   if [ "$TERM" = "dumb" ]; then
     echo -n "# > "

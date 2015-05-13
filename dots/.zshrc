@@ -9,7 +9,6 @@
 
 # enable smart renaming:
 autoload zmv
-autoload -U colors && colors
 
 # source universal profile
 source ~/.profile
