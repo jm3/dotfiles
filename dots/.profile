@@ -41,6 +41,7 @@ alias up="pull"
 alias v="vim"
 alias vf="cd"
 alias vi="vim"
+alias x="cd ~/xfer/"
 alias z="vim $HOME/.zshrc"
 
 if type "safe-rm" > /dev/null; then
