@@ -19,6 +19,7 @@ set laststatus=2
 if has("gui_running")
 " autocmd BufNewFile,BufRead  *.md Limelight
 " autocmd BufLeave			      *.md Limelight!
+endif
 
 " wrap at word boundaries, not in the middle of words
 set linebreak
