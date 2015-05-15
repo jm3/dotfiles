@@ -144,6 +144,7 @@ export SAVEHIST=2048
 export SVN_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export WWW_HOME=http://duckduckgo.com
+export HOMEBREW_CASK_OPTS="--caskroom=/usr/local/Caskroom"
 
 # requires https://www.gnu.org/software/src-highlite/;
 # {apt-get | brew} install source-highlight
