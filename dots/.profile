@@ -3,6 +3,7 @@
 alias ..="cd .."
 alias .="clear && ls"
 alias 1="l1"
+alias a="alias"
 alias bi="bundle install --local --path vendor"
 alias bzip="bzip2"
 alias c="cd"
