@@ -50,27 +50,20 @@ if type "safe-rm" > /dev/null; then
 fi
 
 # git shortcuts
-alias   sha="git log | head -n1 | awk '{print \$2}'"
-alias    di="git diff"
-alias   dic="git diff --cached"
-alias   diw="git diw"
-
-alias  recent="git diff HEAD@{5.minutes.ago}"
-
-alias  gphm="git push heroku master"
-
-alias   gra="git rebase --abort"
-alias   grc="git rebase --continue"
-alias   grs="git rebase --skip"
-
-alias   gsl="git stash list"
-alias   gss="git stash save"
-
-alias     s=st
-alias    st="git status"
-
-alias    up="git up"  # pull
-alias   wup="git wup" # what will be pushed
+alias      s = st
+alias     di = "git diff"
+alias     ga = "git add"
+alias     st = "git status"
+alias     up = "git up"  # pull
+alias    dic = "git diff --cached"
+alias    diw = "git diw"
+alias    gra = "git rebase --abort"
+alias    grc = "git rebase --continue"
+alias    grs = "git rebase --skip"
+alias    sha = "git log | head -n1 | awk '{print \$2}'"
+alias    wup = "git wup" # what will be pushed
+alias   gphm = "git push heroku master"
+alias recent = "git diff HEAD@{5.minutes.ago}"
 
 docker-ip() {
   boot2docker ip 2> /dev/null
