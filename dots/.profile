@@ -45,7 +45,7 @@ alias vi="vim"
 alias x="cd ~/xfer/"
 alias z="vim $HOME/.zshrc"
 
-if type "safe-rm" > /dev/null; then
+if type "safe-rm" &> /dev/null; then
   alias rm="safe-rm"
 fi
 
@@ -142,7 +142,7 @@ export HOMEBREW_CASK_OPTS="--caskroom=/usr/local/Caskroom"
 
 # requires https://www.gnu.org/software/src-highlite/;
 # {apt-get | brew} install source-highlight
-if type "source-highlight" > /dev/null; then
+if type "source-highlight" &> /dev/null; then
   LESSPIPE=`which src-hilite-lesspipe.sh`
   export LESSOPEN="| ${LESSPIPE} %s"
   export LESS=' -R -X -F '
