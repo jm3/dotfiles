@@ -1,13 +1,22 @@
 #!/usr/bin/env ruby
 # by @jm3 / john manoogian III / www.jm3.net
 
+begin
+  gem 'colorize'
+rescue Gem::LoadError
+  puts "error: please run 'gem install colorize' first"
+  exit 1
+end
+
+require 'colorize'
+
 # if you keep your checkouts elsewhere, update this line:
 checkouts_dir = File.expand_path( '~/Checkouts/')
 
 # dumb logger
-def d(s)
-  return
-  puts s
+def d(proj, mesg)
+  # return
+  puts proj.green + " is " + mesg.blue
 end
 
 Dir.chdir( checkouts_dir )
@@ -15,36 +24,43 @@ Dir.new( checkouts_dir ).each do |checkout|
   next if (checkout =~ /^\./ or File.symlink?( checkout ))
 
   if File.directory?( File.join( checkout, 'CVS' ))
-    d "#{checkout} is versioned with CVS"
+    d checkout, "versioned with CVS"
     Dir.chdir( checkout )
     system( "cvs up -dP" )
     Dir.chdir( checkouts_dir )
   end
 
   if File.directory?( File.join( checkout, 'darcs' ))
-    d "#{checkout} is versioned with darcs"
+    d checkout, "versioned with Darcs"
     Dir.chdir( checkout )
     system( "darcs pull --all" )
     Dir.chdir( checkouts_dir )
   end
 
   if File.directory?( File.join( checkout, '.svn' ))
-    d "#{checkout} is versioned with svn"
+    d checkout, "versioned with Subversion"
     system( "svn up #{checkout}" )
   end
 
   if File.directory?( File.join( checkout, '.git' ))
-    d "#{checkout} is versioned with git"
+    d checkout, "versioned with Git"
     Dir.chdir( checkout )
     system( "pull | egrep -v 'Current branch .+ is up to date.' | grep -v 'Fetching origin' | egrep -v '^$'" )
     Dir.chdir( checkouts_dir )
   end
 
   if File.file?( File.join( checkout, 'Gemfile.lock' ))
-    d "#{checkout} uses bundler"
+    d checkout, "packaged with Bundler"
     Dir.chdir( checkout )
     system( "bundle install | grep -v 'Using '" )
     Dir.chdir( checkouts_dir )
   end
-  # puts
+
+  if File.directory?( File.join( checkout, 'Godeps' ))
+    d checkout,  "using Godeps"
+    Dir.chdir( checkout )
+    system( "go get" )
+    Dir.chdir( checkouts_dir )
+  end
+
 end
