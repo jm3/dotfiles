@@ -24,6 +24,8 @@ nmap :Q   :q
 nmap :Q!  :q!
 nmap :Wq! :wq!
 nmap :WQ! :wq!
+
+" steal the 'lookup word under cursor' key
 nmap K    J
 
 " i disabled these once I realized that ][ are both used to

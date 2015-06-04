@@ -14,6 +14,8 @@ autocmd BufNewFile,BufRead *.less             set ft=css
 autocmd BufNewFile,BufRead *.ru               set ft=ruby
 autocmd BufNewFile,BufRead *.sublime-settings set ft=javascript
 
+autocmd BufNewFile,BufRead *vim setlocal keywordprg=:help
+
 let jshint2_command = '/usr/local/bin/jshint' " js hinting
 let jshint2_confirm = 0 " don't warn about linting non-JS files (e.g. JSON)
 let jshint2_read    = 1 " auto-hint on file OPEN (needs monkeypatch to work on JSON)
