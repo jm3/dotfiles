@@ -29,10 +29,12 @@
 ._*
 Icon?
 Thumbs.db
+*alias
 
 # regeneratable caches
 .sass-cache
 node_modules
+.Rhistory
 
 # binary jonks
 ######################
@@ -41,3 +43,4 @@ node_modules
 *.mp4
 *.psd
 *.numbers
+*.RData
