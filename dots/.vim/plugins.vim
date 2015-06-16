@@ -41,6 +41,7 @@ Plug 'fatih/vim-go'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
+Plug 'keith/swift.vim'
 
 call plug#end()
 
