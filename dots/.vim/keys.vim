@@ -25,9 +25,6 @@ nmap :Q!  :q!
 nmap :Wq! :wq!
 nmap :WQ! :wq!
 
-" steal the 'lookup word under cursor' key
-nmap K    J
-
 " i disabled these once I realized that ][ are both used to
 " run the jump-to-[next,prev]-misspelled-word commands.
 " FIXME: make these take effect in code buffers but not in text/markdown/yaml
