@@ -2,9 +2,11 @@
 
 let g:gist_clip_command = 'pbcopy'
 
-" If we edited a file we don't have permissions to save without
-" using sudo, reload the file as sudo with: ,s
-nmap <Leader>s :w !sudo tee %<CR>
+" reload an edit session where we forgot to use sudo:
+" this stopped working; error re: ask_pass:
+" nmap <Leader>s :w !sudo tee %<CR>
+
+map <Leader>s !}sort -f<CR>
 
 "make the line an HTML list item:
 map L ^i<li>$a</li>
