@@ -30,6 +30,9 @@ set wildmode=list:longest " anaologous to show-all-if-ambiguous in [ba,z]sh shel
 " that means, don't worry about it :)
 set wildignore=
 
+" search these paths when using gf (goto file)
+set path=.,~,~/Desktop,~/xfer/
+
 " ignore these files when completing paths:
 " ...binaries
 set wildignore+=*alias,*.alfredworkflow,*.gem,*.gif,*.jpg,*.mov,*.mp4,*.pdf,*.png,*.psd,*.ttf,*.webloc
