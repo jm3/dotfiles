@@ -1,1 +1,1 @@
-include .mutt/*
+source ~/.mutt/*

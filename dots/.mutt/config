@@ -44,7 +44,7 @@ bind editor <Tab> complete-query
 bind editor ^T complete
 bind editor <space> noop
 
-Read more at http://www.devshed.com/c/a/Administration/A-Man-And-His-Mutt/5/#BITIT1ELYYe2bfGV.99
+# Read more at http://www.devshed.com/c/a/Administration/A-Man-And-His-Mutt/5/#BITIT1ELYYe2bfGV.99
 
 # these suck, let's fix + also color internal diff than external
 color normal      white         black
