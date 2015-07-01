@@ -17,8 +17,8 @@ set laststatus=2
 " enable junegunn's background-dimming 'Limelight' mode for markdown;
 " limelight is installed with PlugInstall in ~/.vim/plugins.vim
 if has("gui_running")
-  autocmd BufNewFile,BufRead  *.md Limelight
-  autocmd BufLeave			      *.md Limelight!
+" autocmd BufNewFile,BufRead  *.md Limelight
+" autocmd BufLeave			      *.md Limelight!
 endif
 
 " wrap at word boundaries, not in the middle of words
