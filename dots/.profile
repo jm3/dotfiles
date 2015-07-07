@@ -21,6 +21,7 @@ alias deps="gem list | awk \"{print $1}\" | xargs -n1 gem dependency"
 alias dots-dev="cd ~/.dotfiles/dots"
 alias frank="gshuf -n 1 ~/.frank | tr '[:lower:]' '[:upper:]'" # gshuf is part of the gnu coreutils pkg : brew install coreutils
 alias ip="ifconfig | grep inet | grep -v inet6"
+alias json="python -m json.tool"
 alias killall="killall -9 -m -v"
 alias l1="ls -1"
 alias l="ls"
