@@ -37,6 +37,7 @@ abbrev manogoian manoogian
 abbrev nad and
 abbrev ot to
 abbrev pate paste
+abbrev prolly probably
 abbrev teamplate template
 abbrev teh the
 abbrev tempalte template
