@@ -230,66 +230,7 @@ To finish, please run: source ~/.git-vars
 end
 
 def setup_vim
-  # freshen existing plugins
-  # clone new plugins from remote git repos
-  # uninstall any plugins on disk no longer requested
-
-  # build plugin name array
-  @vim_bundle_repos = []
-  File.open( File.expand_path("~/.vim/plugins.vim"), "r") do |f|
-    f.each_line do |line|
-      line.chomp!
-      next if line.match( /^\s*(#|")/ ) or line.match( /^\s*$/ )
-      @vim_bundle_repos.push line if line.match( /git:\/\// )
-    end
-  end
-
-  FileUtils.mkdir_p "#{@cfg[:home]}/.vim/bundle" unless File.directory? "#{@cfg[:home]}/.vim/bundle"
-  FileUtils.cd "#{@cfg[:home]}/.vim/bundle"
-
-  # check out how much time has passed since the last freshen
-  last_freshened = "last_freshened"
-  days_ago = 0
-  if File.file? last_freshened
-    days_ago = (Date.today - Date.parse(File.ctime(last_freshened).to_s)).to_i
-  end
-
-  # bail if we've recently refreshed plugins
-  if @cfg[:force] or !File.file? last_freshened or days_ago > 7
-    puts "Vim bundles last freshened #{days_ago} days ago; freshening"
-  else
-    puts "Vim plugins last checked about #{days_ago} days ago; no need to re-check today."
-    puts "\ndots --force to force an update"
-    return
-  end
-
-  `touch #{last_freshened}`
-
-  @vim_bundle_repos.each do |url|
-    dir = url.split('/').last.sub(/\.git$/, '')
-    if File.directory?(dir)
-      FileUtils.cd(dir)
-      puts "Freshening vim plugin #{dir}"
-      `git pull`
-      FileUtils.cd("..")
-    else
-      puts "Cloning new vim plugin #{dir}"
-      `git clone #{url} #{dir}`
-    end
-  end
-
-  # extract just the bundle name
-  @vim_bundle_repos.each{|d| d.gsub!(/git:\/\/\w+.com\/[\w-]+\/([\w\.-]+)$/, "\\1")}
-
-  # rm unused plugins
-  Dir["*"].each do |file_item|
-    unless @vim_bundle_repos.include?( file_item ) or File.file? file_item
-      puts "Removing unused vim plugin #{file_item}"
-      FileUtils.rm_rf file_item
-    end
-  end
-
-  # keep vim backup files in a single locaiton, not sprayed everywhere
+  # keep vim backup files in a single location, not sprayed everywhere
   # if the directory is deleted, backups will be saved in vim's
   # standard backup savepath
   FileUtils.mkdir_p "#{@cfg[:home]}/.vim/backups"
