@@ -25,7 +25,7 @@ map <Leader>c gcip<CR>
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " (re-)wrap the current block
-map f !} fmt<CR>
+map f !} fmt -w 72<CR>
 
 " pretty-print a block of JSON; requires Python
 map <Leader>j ggVG!python -m json.tool<CR><CR>
