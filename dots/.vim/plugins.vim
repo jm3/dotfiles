@@ -31,6 +31,7 @@ Plug 'tomasr/molokai'
 Plug 'chriskempson/vim-tomorrow-theme', { 'dir': '~/.vim/plugged/vim-tomorrow-theme', 'do': 'rm colors/Tomorrow-Night-Blue.vim  colors/Tomorrow-Night.vim colors/Tomorrow.vim' }
 
 " languages + syntaxes
+Plug 'leafo/moonscript-vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
 Plug 'honza/dockerfile.vim'
