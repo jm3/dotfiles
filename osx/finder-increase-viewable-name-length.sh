@@ -1,2 +1,2 @@
 # show more chars
-defaults write com.apple.finder FXDesktopLayoutGridCharCount 50; killall Finder
+defaults write com.apple.finder FXDesktopLayoutGridCharCount 80; killall Finder
