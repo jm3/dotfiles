@@ -8,15 +8,17 @@
 --type-set=ruby=.haml
 
 --ignore-dir=.bundled_gems
+--ignore-dir=bower_components
 --ignore-dir=.gems
 --ignore-dir=.bundle
 --ignore-dir=staticcfg
 --ignore-dir=vendor
 --ignore-dir=tweets
---ignore-dir=.tmp-serve
 --ignore-dir=libs
 --ignore-dir=build
 --ignore-dir=.tmp-build
+--ignore-dir=.tmp-serve
+--ignore-dir=tmp
 --ignore-dir=plugged
 
 --ignore-file=is:jquery.min.map
