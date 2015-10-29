@@ -1,3 +1,5 @@
 {
-  "laxcomma" : true
+  "laxcomma" : true,
+  "debug": true,
+  "return": true
 }
