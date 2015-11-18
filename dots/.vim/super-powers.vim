@@ -71,5 +71,6 @@ let g:startify_custom_header =
 " hide these files from the "recent files" list in Startify's startup screen
 let g:startify_skiplist = [
   \ 'COMMIT_EDITMSG',
+  \ $HOME . '/Not Backed Up/*',
   \ $HOME . '/.dotfiles/dots/.vim/plugged/.*/doc'
 \ ]
