@@ -8,7 +8,7 @@ Plug 'airblade/vim-gitgutter'         " show git diff status in sidebar
 Plug 'ervandew/supertab'              " <tab> to complete words in buffer
 Plug 'junegunn/fzf'                   " amazing fuzzy search. also enhances zsh
 Plug 'junegunn/goyo.vim'              " minimalist editing
-" Plug 'junegunn/limelight.vim'         " dim all paragraphs but current one
+Plug 'junegunn/limelight.vim'         " dim all paragraphs but current one
 Plug 'junegunn/vim-easy-align'        " <Enter> to align assignments, blocks, etc.
 Plug 'junegunn/vim-emoji'             " ha ha fuck yes
 Plug 'mhinz/vim-startify'             " awesome startup screen, uses my fortunes file

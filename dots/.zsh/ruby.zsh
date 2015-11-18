@@ -21,6 +21,9 @@ if [ "$rvm_missing" = 0 ]; then
   rvm --default use 2.0.0-p0 &> /dev/null
 fi
 
+# current preferred version, silence output
+rvm use 2.2.3 &> /dev/null
+
 # if [ -f ~/.rvm/scripts/rvm ]; then
 #   source ~/.rvm/scripts/rvm
 #   export PATH=$PATH:/usr/local/rvm/bin:$HOME/.rvm/bin
