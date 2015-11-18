@@ -60,7 +60,7 @@ map ,C :%s/ /,/g<CR>
 map <Leader>r :let @" = expand("%")<CR>
 
 " cd to directory of the current file
-map <Leader>g :cd %:p:h<CR>
+map <silent> <Leader>g :cd %:p:h<CR>
 
 " display a fortune from our fortunes file
 " N.b.: after adding fortunes to ~/.dotfiles/fortunes,
