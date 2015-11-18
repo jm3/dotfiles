@@ -13,6 +13,7 @@ autocmd BufNewFile,BufRead *.jade             set ft=jade
 autocmd BufNewFile,BufRead *.less             set ft=css
 autocmd BufNewFile,BufRead *.ru               set ft=ruby
 autocmd BufNewFile,BufRead *.sublime-settings set ft=javascript
+autocmd BufNewFile,BufRead Vagrantfile        set ft=ruby
 
 autocmd BufNewFile,BufRead *vim setlocal keywordprg=:help
 
