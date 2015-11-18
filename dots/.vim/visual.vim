@@ -16,10 +16,10 @@ set laststatus=2
 
 " enable junegunn's background-dimming 'Limelight' mode for markdown;
 " limelight is installed with PlugInstall in ~/.vim/plugins.vim
-if has("gui_running")
-" autocmd BufNewFile,BufRead  *.md Limelight
-" autocmd BufLeave			      *.md Limelight!
-endif
+autocmd BufNewFile,BufRead  *.md Limelight
+autocmd BufLeave			      *.md Limelight!
+" terminal mode vim needs this for some reason:
+let g:limelight_conceal_ctermfg = 238
 
 " wrap at word boundaries, not in the middle of words
 set linebreak
