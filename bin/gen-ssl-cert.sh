@@ -17,3 +17,13 @@ openssl req -new -x509 \
   -days 3650 \
   -subj "/C=US/ST=CA/L=Los Angeles/O=CHROMALUME/CN=${name}" \
   -key "v1/${name}-key.txt" -out "${name}.crt" 
+
+# alternatively:
+# # generate a self-signed SSL cert
+# touch example-cert.conf
+# openssl req -new -x509 -days 365 -nodes -out example.crt -keyout example.key -config example.conf
+# openssl genrsa -des3 -passout pass:x -out server.pass.key 2048
+# openssl rsa -passin pass:x -in server.pass.key -out server.key
+# rm server.pass.key
+# openssl req -new -key server.key -out server.csr
+# openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
