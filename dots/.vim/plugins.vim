@@ -3,6 +3,7 @@
 call plug#begin('~/.vim/plugged')
 " note: must use single quotes
 
+Plug 'gabesoft/vim-ags'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'         " show git diff status in sidebar
 Plug 'ervandew/supertab'              " <tab> to complete words in buffer
