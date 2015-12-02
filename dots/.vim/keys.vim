@@ -4,6 +4,12 @@ inoremap jj <Esc>
 " allow prefixing with
 let mapleader=','
 
+" moving around in 'command mode' aka the stupid tiny prompt when you save/browse
+" reminder that ctl-f will invoke history search, which is nice
+cnoremap <c-a> <c-b> " why no readline - ctl-a SHOULD BE beginnging of line
+cnoremap <c-k> <c-u> " why doesn't ctl-k work??
+
+
 map <Leader>n :NERDTreeToggle<CR>
 
 " for the completely awesome bbye plugin that closes buffers without

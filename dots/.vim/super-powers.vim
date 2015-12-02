@@ -74,3 +74,7 @@ let g:startify_skiplist = [
   \ $HOME . '/Not Backed Up/*',
   \ $HOME . '/.dotfiles/dots/.vim/plugged/.*/doc'
 \ ]
+
+map <Leader>S :Startify<CR>
+
+map <leader>ef :tabe <cfile><CR>

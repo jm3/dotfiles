@@ -13,6 +13,7 @@ source ~/.vim/code.vim
 source ~/.vim/bad-speller.vim
 source ~/.vim/spacing.vim
 source ~/.vim/super-powers.vim
+source ~/.vim/personal.vim
 
 set backupdir=~/.vim/backups/,~/.backups,.,/tmp/
 set hidden         " allow free switching between buffers even w/unsaved changes
@@ -30,9 +31,6 @@ set wildmode=list:longest " anaologous to show-all-if-ambiguous in [ba,z]sh shel
 " that means, don't worry about it :)
 set wildignore=
 
-" search these paths when using gf (goto file)
-set path=.,~,~/Desktop,~/xfer/
-
 " ignore these files when completing paths:
 " ...binaries
 set wildignore+=*alias,*.alfredworkflow,*.gem,*.gif,*.jpg,*.mov,*.mp4,*.pdf,*.png,*.psd,*.ttf,*.webloc
@@ -45,13 +43,13 @@ set wildignore+=.git,*/.bundle/*,*.swp,*~,._*,tmp,vendor,log
 " previous line, and vice versa
 set whichwrap=b,<,>,h,l
 
+" allow editing crontab files on OSX without errors
+autocmd filetype crontab setlocal nobackup nowritebackup
+
 " move .vim housekeeping files into ~/.vim/
 let MRU_File=$HOME . "/.vim/recent-files.vim"
 let MRU_Max_Entries = 100
 
 " move vim network housekeeping crud file
 let g:netrw_home="/tmp/"
-
-" start editing at the end of log files
-:au BufNewFile,BufRead /Volumes/Travel/2014/*.md :normal Gz.
 
