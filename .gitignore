@@ -11,11 +11,11 @@
 /dots/.mutt/certificates
 /dots/.rvm
 /dots/.vim/.netrwhist
+/dots/.vim/personal.vim
 /dots/.vim/plugged
 /dots/.vim/doc
 /dots/.vim/recent-files.vim
 /dots/.vim/ruby
-/dots/.vim/saved-state.vim
 /dots/.vim/spell
 /dots/.vim/spell/*.spl
 /dots/.zsh/history.zsh
