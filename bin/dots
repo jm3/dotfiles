@@ -314,12 +314,12 @@ def ensure_zsh
   unless shell.match( /zsh/ )
     puts "Your shell isn't Zsh which means you're missing some cool features."
 
-    if zsh_installed
+    unless zsh_installed.empty?
       puts "To correct your shell settings, just run: chsh"
       puts "and at the prompt, enter #{zsh_installed}"
     else
       puts "Zsh is easy to install"
-      if brew_installed
+      unless brew_installed.empty?
         puts "Just run: brew install zsh"
       else
         puts "The easiest way to install Zsh on a mac is Homebrew: http://brew.sh/"
