@@ -3,6 +3,8 @@ require 'rubygems'
 
 print "ruby version: ", `/usr/bin/env ruby --version`
 
+@o = Object.methods
+
 # mess the default return val which can be annoying
 # conf.return_format = ""
 # conf.return_format = "=> %s\n"
