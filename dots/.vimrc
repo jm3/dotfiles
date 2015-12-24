@@ -15,7 +15,7 @@ source ~/.vim/spacing.vim
 source ~/.vim/super-powers.vim
 source ~/.vim/personal.vim
 
-set backupdir=~/.vim/backups/,~/.backups,.,/tmp/
+set directory=~/.vim/backups//,~/.tmp/,~/tmp/,.tmp/
 set hidden         " allow free switching between buffers even w/unsaved changes
 set history=10000  " why limit the reach of history?
 set ic hlsearch    " incrementally execute + highlight searches; clear with ctl-l
