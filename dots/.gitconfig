@@ -23,16 +23,6 @@
 [rerere]
   enabled = 1
 
-[merge]
-  tool          = better-vimdiff
-[mergetool "better-vimdiff"]
-  cmd           = better-vimdiff vim $BASE $LOCAL $REMOTE $MERGED
-  trustExitCode = true
-  keepBackup    = false
-[mergetool "ediff"]
-  cmd           = ediff $BASE $LOCAL
-  keepBackup    = false
-
 [push]
   default = simple
 [credential]
