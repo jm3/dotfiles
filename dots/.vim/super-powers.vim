@@ -47,8 +47,9 @@ set viminfo=%,'100,/100,:999,@100,f0
 "           | + save marks for N files (required to restore cursor/line pos)
 "           +save/restore buffer list (what is this?)
 
-" required to restore cursor position using the above viminfo file
-:au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+" restores cursor position (using above viminfo file), but excludes
+" git commit messages so that we always begin on the first line there
+autocmd BufReadPost * if !(bufname("%") =~ '\(COMMIT_EDITMSG\)') && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " trigger listing
 map <Leader>d :!~/bin/unversioned/d<CR>
