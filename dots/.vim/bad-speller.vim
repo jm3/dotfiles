@@ -5,6 +5,11 @@
 " i don't regularly capitalize, so don't flag lower-case words as typos
 set spellcapcheck=
 
+" don't flag URLs as misspelled
+syn match UrlNoSpell "\w\+:\/\/[^[:space:]]\+" contains=@NoSpell
+
+" not working: syn match ThousandsDollarAmountNoSpell "\$\d\+k" contains=@NoSpell
+
 " localize as needed
 setlocal spell spelllang=en_us
 
