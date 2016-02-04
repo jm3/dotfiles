@@ -20,6 +20,7 @@
 --ignore-dir=.tmp-serve
 --ignore-dir=tmp
 --ignore-dir=plugged
+--ignore-dir=_site
 
 --ignore-file=is:jquery.min.map
 --ignore-file=is:modernizr.js
