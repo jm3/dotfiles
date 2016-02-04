@@ -18,6 +18,7 @@ alias cut6="cut -f6 -d\ "
 alias dc="cd"
 alias dd="cd ~/travel/`date +%Y`"
 alias deps="gem list | awk \"{print $1}\" | xargs -n1 gem dependency"
+alias docker-ip='docker inspect --format "{{ .NetworkSettings.IPAddress }}" $(docker ps -q)'
 alias dots-dev="cd ~/.dotfiles/dots"
 alias frank="gshuf -n 1 ~/.frank | tr '[:lower:]' '[:upper:]'" # gshuf is part of the gnu coreutils pkg : brew install coreutils
 alias ip="ifconfig | grep inet | grep -v inet6"
@@ -67,10 +68,6 @@ alias sha="git log | head -n1 | awk '{print \$2}'"
 alias wup="git wup" # what will be pushed
 alias gphm="git push heroku master"
 alias recent="git diff HEAD@{5.minutes.ago}"
-
-docker-ip() {
-  boot2docker ip 2> /dev/null
-}
 
 frep() {
   find=$1
