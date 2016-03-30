@@ -79,3 +79,6 @@ let g:startify_skiplist = [
 map <Leader>S :Startify<CR>
 
 map <leader>ef :tabe <cfile><CR>
+
+" Crazy Macro That Makes Selected Text Title-Case
+map <silent> <leader>tc :s/\<\(\w\)\(\w*\)\>/\u\1\L\2/g<CR>:nohlsearch<CR>
