@@ -170,11 +170,11 @@ $HOME/Checkouts/go/bin:\
 /usr/local/mysql/bin:\
 /usr/local/sbin:\
 /usr/local/share/npm/bin:\
-/usr/local/phabricator/arcanist/bin:\
 /usr/bin:\
 /bin:\
 /usr/sbin:\
-/sbin
+/sbin:\
+./bin
 
 export GOPATH=$HOME/Checkouts/go
 
