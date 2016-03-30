@@ -50,8 +50,8 @@ brew_cmds=(doctor info install home list update upgrade)
 compctl -k brew_cmds brew
 
 # complete common bundle operations
-bundles=(exec install outdated package show update)
-compctl -k bundles bundle
+bundle_cmds=(exec install outdated package show update)
+compctl -k bundle_cmds -f bundle
 
 # only do directory things with directories:
 compctl -g '*(/)' rmdir dircmp
