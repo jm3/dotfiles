@@ -1,6 +1,11 @@
 " rotate color schemes with <F8>
 " via github.com/junegunn/dotfiles/blob/master/vimrc
 function! s:rotate_colors()
+
+  if !exists('g:colors_name')
+    silent! execute 'colorscheme' 'dracula'
+  endif
+
   if !exists('s:colors_list')
     let s:colors_list =
     \ sort(map(

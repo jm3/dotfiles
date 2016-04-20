@@ -139,6 +139,9 @@ endif
 "
 " endif
 
+" i now set the colorscheme upstream in the OS X terminal emulator (iTerm2) - YMMV
+" press F8 (fn-F8) to cycle through schemes and preview them: solarized moon etc
+" colorscheme dracula
 
 " highlight current line (but only in the active window)
 set cursorline
