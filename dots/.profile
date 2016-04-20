@@ -164,6 +164,7 @@ $HOME/bin/dropbox:\
 $HOME/Checkouts/go/bin:\
 $HOME/.rvm/bin:\
 $HOME/Checkouts/go/bin:\
+/opt/java/Home/bin:\
 /usr/local/bin:\
 /usr/local/heroku/bin:\
 /usr/local/ec2/bin:\
