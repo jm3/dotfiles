@@ -107,3 +107,12 @@ inoremap <C-k> <ESC>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
+" PLUGIN MAPPINGS
+" show undo tree
+nnoremap <Leader>u :UndotreeToggle<CR>
+
+" title-case text
+nmap <leader>gt <Plug>Titlecase
+vmap <leader>gt <Plug>Titlecase
+nmap <leader>gT <Plug>TitlecaseLine
+
