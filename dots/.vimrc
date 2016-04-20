@@ -6,6 +6,7 @@ set nocompatible
 " all settings are organized into groups for easy modularity
 " tip: to open any of the files, just navivgate to one of the files
 " and press gf  (go to file)
+
 source ~/.vim/plugins.vim
 source ~/.vim/keys.vim
 source ~/.vim/visual.vim
