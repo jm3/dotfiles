@@ -14,7 +14,7 @@ source ~/.vim/code.vim
 source ~/.vim/bad-speller.vim
 source ~/.vim/spacing.vim
 source ~/.vim/super-powers.vim
-source ~/.vim/personal.vim
+silent! source ~/.vim/personal.vim
 
 set directory=~/.vim/backups//,~/.tmp/,~/tmp/,.tmp/
 set hidden         " allow free switching between buffers even w/unsaved changes
