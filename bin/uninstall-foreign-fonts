@@ -1,0 +1,200 @@
+#!/usr/bin/env ruby
+
+system_font_dirs = ["/Library/Fonts", "/System/Library/Fonts"]
+uninstall_dir = File.expand_path( '~/Desktop/uninstalled-fonts' )
+
+fonts = <<-END_OF_FONTS
+Al Nile.ttc
+Al Tarikh.ttc
+AlBayan.ttc
+AppleMyungjo.ttf
+AppleSDGothicNeo-ExtraBold.otf
+AppleSDGothicNeo-Heavy.otf
+AppleSDGothicNeo-Light.otf
+AppleSDGothicNeo-Medium.otf
+AppleSDGothicNeo-SemiBold.otf
+AppleSDGothicNeo-Thin.otf
+AppleSDGothicNeo-UltraLight.otf
+Ayuthaya.ttf
+Baghdad.ttc
+Bangla MN.ttc
+Bangla Sangam MN.ttc
+Baoli.ttc
+Beirut.ttc
+Bodoni 72 OS.ttc
+Bodoni 72 Smallcaps Book.ttf
+Bodoni 72.ttc
+Bodoni Ornaments.ttf
+Damascus.ttc
+DecoTypeNaskh.ttc
+Devanagari Sangam MN.ttc
+DevanagariMT.ttc
+Diwan Kufi.ttc
+Diwan Thuluth.ttf
+EuphemiaCAS.ttc
+Farah.ttc
+Farisi.ttf
+Gujarati Sangam MN.ttc
+GujaratiMT.ttf
+GujaratiMTBold.ttf
+Gungseouche.ttf
+Gurmukhi MN.ttc
+Gurmukhi Sangam MN.ttc
+Gurmukhi.ttf
+Hannotate.ttc
+Hanzipen.ttc
+HiraKakuInterface-W1.otf
+HiraKakuInterface-W2.otf
+Hiragino Sans GB W3.otf
+Hiragino Sans GB W6.otf
+ITFDevanagari.ttc
+InaiMathi.ttf
+Iowan Old Style.ttc
+Kailasa.ttf
+Kaiti.ttc
+Kannada MN.ttc
+Kannada Sangam MN.ttc
+Kefa.ttc
+Khmer MN.ttc
+Khmer Sangam MN.ttf
+Kohinoor.ttc
+Kokonor.ttf
+Krungthep.ttf
+KufiStandardGK.ttc
+Lantinghei.ttc
+Lao MN.ttc
+Lao Sangam MN.ttf
+Libian.ttc
+Luminari.ttf
+Malayalam MN.ttc
+Malayalam Sangam MN.ttc
+Microsoft Sans Serif.ttf
+Mishafi Gold.ttf
+Mishafi.ttf
+MshtakanBold.ttf
+MshtakanBoldOblique.ttf
+MshtakanOblique.ttf
+MshtakanRegular.ttf
+Muna.ttc
+Myanmar MN.ttc
+Myanmar Sangam MN.ttf
+NISC18030.ttf
+Nadeem.ttc
+NanumGothic.ttc
+NanumMyeongjo.ttc
+NanumScript.ttc
+NewPeninimMT.ttc
+Oriya MN.ttc
+Oriya Sangam MN.ttc
+Osaka.ttf
+OsakaMono.ttf
+PCmyoungjo.ttf
+Pilgiche.ttf
+PlantagenetCherokee.ttf
+Raanana.ttc
+STHeiti Light.ttc
+STHeiti Medium.ttc
+STHeiti Thin.ttc
+STHeiti UltraLight.ttc
+STIXGeneral.otf
+STIXGeneralBol.otf
+STIXGeneralBolIta.otf
+STIXGeneralItalic.otf
+STIXIntDBol.otf
+STIXIntDReg.otf
+STIXIntSmBol.otf
+STIXIntSmReg.otf
+STIXIntUpBol.otf
+STIXIntUpDBol.otf
+STIXIntUpDReg.otf
+STIXIntUpReg.otf
+STIXIntUpSmBol.otf
+STIXIntUpSmReg.otf
+STIXNonUni.otf
+STIXNonUniBol.otf
+STIXNonUniBolIta.otf
+STIXNonUniIta.otf
+STIXSizFiveSymReg.otf
+STIXSizFourSymBol.otf
+STIXSizFourSymReg.otf
+STIXSizOneSymBol.otf
+STIXSizOneSymReg.otf
+STIXSizThreeSymBol.otf
+STIXSizThreeSymReg.otf
+STIXSizTwoSymBol.otf
+STIXSizTwoSymReg.otf
+STIXVar.otf
+STIXVarBol.otf
+Sana.ttc
+Sathu.ttf
+Savoye LET.ttc
+Seravek.ttc
+Shree714.ttc
+Silom.ttf
+Sinhala MN.ttc
+Sinhala Sangam MN.ttc
+Skia.ttf
+SnellRoundhand.ttc
+Songti.ttc
+SukhumvitSet.ttc
+Tamil MN.ttc
+Tamil Sangam MN.ttc
+Telugu MN.ttc
+Telugu Sangam MN.ttc
+Thonburi.ttc
+Trattatello.ttf
+Waseem.ttc
+WawaSC-Regular.otf
+WawaTC-Regular.otf
+Webdings.ttf
+WeibeiSC-Bold.otf
+WeibeiTC-Bold.otf
+Wingdings 2.ttf
+Wingdings 3.ttf
+Wingdings.ttf
+Xingkai.ttc
+Yu Gothic Bold.otf
+Yu Gothic Medium.otf
+Yu Mincho Demibold.otf
+Yu Mincho Medium.otf
+Yuanti.ttc
+YuppySC-Regular.otf
+YuppyTC-Regular.otf
+Zapfino.ttf
+儷宋 Pro.ttf
+儷黑 Pro.ttf
+华文仿宋.ttf
+华文细黑.ttf
+华文黑体.ttf
+ヒラギノ明朝 Pro W3.otf
+ヒラギノ明朝 Pro W6.otf
+ヒラギノ明朝 ProN W3.otf
+ヒラギノ明朝 ProN W6.otf
+ヒラギノ角ゴ Pro W3.otf
+ヒラギノ丸ゴ Pro W4.otf
+ヒラギノ角ゴ Pro W6.otf
+ヒラギノ角ゴ ProN W3.otf
+ヒラギノ丸ゴ ProN W4.otf
+ヒラギノ角ゴ ProN W6.otf
+ヒラギノ角ゴ Std W8.otf
+ヒラギノ角ゴ StdN W8.otf
+END_OF_FONTS
+fonts = fonts.split( /$/ )
+
+puts "moving #{fonts.size} fonts"
+
+Dir.mkdir( uninstall_dir ) unless File.directory?( uninstall_dir )
+system_font_dirs.each do
+  puts "cd #{uninstall_dir}"
+  Dir.chdir uninstall_dir
+  fonts.each do |font|
+    font = font.delete("\n")
+    # puts `ls '#{font}'`
+    puts "mv '#{font}' #{uninstall_dir}/"
+    begin
+      File.rename font, uninstall_dir
+    rescue
+      puts "maybe you already removed #{font}?"
+    end
+  end
+end
