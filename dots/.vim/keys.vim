@@ -21,7 +21,7 @@ nmap :E   :e
 nmap <Leader>v    :e ~/.vimrc<CR>
 
 " fix some common typos i make
-nmap q    :q
+nmap q    :q<CR>
 nmap Q    :q
 nmap W    :w
 nmap :W   :w
