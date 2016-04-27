@@ -76,9 +76,13 @@ let g:startify_skiplist = [
   \ $HOME . '/.dotfiles/dots/.vim/plugged/.*/doc'
 \ ]
 
-map <Leader>S :Startify<CR>
+" auto-update
+let g:startify_update_oldfiles = 1
 
+map <silent> <Leader>S :Startify<CR>
+
+" edit file in new tab
 map <leader>ef :tabe <cfile><CR>
 
-" Crazy Macro That Makes Selected Text Title-Case
-map <silent> <leader>tc :s/\<\(\w\)\(\w*\)\>/\u\1\L\2/g<CR>:nohlsearch<CR>
+" Crazy Macro To Makes Selected Text Title-Case
+map <Silent> <Leader>Tc :S/\<\(\W\)\(\W*\)\>/\U\1\L\2/G<Cr>:Nohlsearch<Cr>

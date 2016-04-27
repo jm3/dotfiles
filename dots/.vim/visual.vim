@@ -1,3 +1,6 @@
+" highlight code
+syntax on
+
 " rotate color schemes with <F8>
 source ~/.vim/color-cycle.vim
 
@@ -34,8 +37,14 @@ let &t_ti = &t_ti . "\e[22;0t"
 let &t_te = "\e[23;0t" . &t_te
 
 if has("gui_running")
-  " set guifont    = Menlo:h18
-  " set guifont    = PT\ Mono:h18 " also good: Menlo:h18
+  " set any GUI / MacVim-specific stuff here
+
+  " hide toolbar
+  set guioptions-=T
+
+  " hide RHS scrollbars:
+  set guioptions-=r
+
 endif
 
 " else
@@ -141,7 +150,8 @@ endif
 
 " i now set the colorscheme upstream in the OS X terminal emulator (iTerm2) - YMMV
 " press F8 (fn-F8) to cycle through schemes and preview them: solarized moon etc
-" colorscheme dracula
+silent! colorscheme dracula
+set t_Co=256
 
 " highlight current line (but only in the active window)
 set cursorline
@@ -162,9 +172,9 @@ highlight! link markdownH1     texRefLabel
 "set foldminlines=2
 "set fillchars="vert:|,fold:."
 
-" reclaim some wasted vertical space from Goyo
-":let g:goyo_margin_top    = 0
-":let g:goyo_margin_bottom = 0
+" reclaim a little bit of vertical space from Goyo
+:let g:goyo_margin_top    = 2
+:let g:goyo_margin_bottom = 2
 
 " json plugin uses this to hide extraneous syntax 
 :set conceallevel=2
