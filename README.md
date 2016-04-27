@@ -91,6 +91,10 @@ rights reserved, all wrongs reversed, no punches pulled.*
 
 ### Hand-crafted, updated, and carefully tuned by [@jm3](http://www.jm3.net).
 
+#### Contributors:
+- [@skube](https://github.com/skube)
+- [see all contributors](https://github.com/jm3/dotfiles/graphs/contributors)
+
 [salad]: http://www.urbandictionary.com/define.php?term=angry%20fruit%20salad
 
 [supertab]:     https://github.com/ervandew/supertab
