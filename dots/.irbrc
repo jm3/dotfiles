@@ -1,5 +1,6 @@
 # load libs:
 require 'rubygems'
+require 'pp'
 
 print "ruby version: ", `/usr/bin/env ruby --version`
 
