@@ -5,6 +5,9 @@ Host github.com
 host github.com monkey.org
   strictHostKeyChecking yes
 
+host github.com
+  identityfile ~/.ssh/github
+
 host *.amazonaws.com *.jm3.net
   identityfile ~/.ssh/cloud.pem
   user ubuntu
