@@ -2,7 +2,7 @@
 " to update: ,p or source this file (:so %) then :PlugInstall
 call plug#begin('~/.vim/plugged')
 
-" note: single quotes only :)
+" " note: single quotes only :)
 Plug 'gabesoft/vim-ags'              " search with the silver-searcher (ag)
 Plug 'ervandew/supertab'             " <tab> to complete words in buffer
 Plug 'junegunn/fzf'                  " amazing fuzzy search. also enhances zsh
@@ -15,7 +15,7 @@ Plug 'tpope/vim-repeat'              " when i type . in command mode, repeat the
 Plug 'christoomey/vim-titlecase'     " :gt to title-case text
 Plug 'mbbill/undotree'               " visualize + manipulate undo history
 
-" CODING
+" " CODING
 Plug 'tmhedberg/matchit'             " % to match open/close <html> tags + if/else blocks, not just [] {} ()
 Plug 'tomtom/tcomment_vim'           " ,c to comment blocks in any language
 Plug 'tpope/vim-endwise'             " auto-complete simple code structures like if..end w/out being annoying
@@ -36,7 +36,7 @@ Plug 'junegunn/vim-emoji'            " ha ha fuck yes
 Plug 'junegunn/goyo.vim'             " minimalist editing
 Plug 'junegunn/limelight.vim'        " dim all paragraphs but current one
 
-" LANGUAGES + SYNTAXES
+" " LANGUAGES + SYNTAXES
 Plug 'leafo/moonscript-vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
