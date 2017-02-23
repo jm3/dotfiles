@@ -54,3 +54,9 @@ let MRU_Max_Entries = 100
 " move vim network housekeeping crud file
 let g:netrw_home="/tmp/"
 
+" i honestly don't recall why i added this
+set modelines=1
+set nocompatible 
+filetype plugin on
+set modeline 
+
