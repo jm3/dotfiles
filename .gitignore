@@ -1,4 +1,7 @@
-# don't version these
+# my local unversioned developer TODO list:
+/TODO.md
+
+# don't version these ephemeral, useless, or temporary files
 /dots/.*.profile
 /dots/.config/configstore/
 /dots/.config/fish/fish_history
@@ -20,11 +23,12 @@
 /dots/.vim/spell
 /dots/.vim/spell/*.spl
 /dots/.zsh/history.zsh
+
+# Sublime Text crap
 /osx/st2/Gist.sublime-settings
 /osx/st2/Global.sublime-settings
 /osx/st2/Package Control.last-run
 /osx/st2/Side Bar.sublime-settings
-
 Package Control.cache
 Package Control.last-run
 Package Control.system-ca-bundle
