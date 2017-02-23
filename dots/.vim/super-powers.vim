@@ -38,11 +38,11 @@ map <Leader>h !tidy -q --show-warnings no<CR><CR>
 map C 1GyG:1,$!pbcopy<CR>PGdd1G
 
 set viminfo=%,'100,/100,:999,@100,f0
-"           | |    |    |    |    + whether to store global marks
-"           | |    |    |    + input line history (what is this?)
+"           | |    |    |    |    + whether to store global marks (what's this?)
+"           | |    |    |    + lines of input line history saved
 "           | |    |    |
-"           | |    |    +command-line history saved
-"           | |    +search history saved
+"           | |    |    +lines of command-line history saved
+"           | |    + lines of search history saved
 "           | |
 "           | + save marks for N files (required to restore cursor/line pos)
 "           +save/restore buffer list (what is this?)
