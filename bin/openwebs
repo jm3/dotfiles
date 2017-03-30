@@ -15,30 +15,36 @@ require 'colorize'
 require 'fosl/parser'
 require 'socket'
 
+# print open web connections to terminal in color
 class ListOpenWebConnections
   port = ARGV[0] || 80
   lsof = FOSL::Parser.new
 
-  local_ip = Socket.respond_to?("ip_address_list") ?  Socket.ip_address_list[4].ip_address : Socket.gethostbyname("localhost")
+  ip = Socket.ip_address_list[4].ip_address
+  host = Socket.gethostbyname('localhost')
+  local_ip = Socket.respond_to?('ip_address_list') ? ip : host
   servers_seen = []
   output_buf   = []
 
-  lsof.lsof("-i :#{port}").each do |pid, process|
+  lsof.lsof("-i :#{port}").each do |_pid, process|
     process.files.each do |file|
-      server = file[:name].gsub(/:https?/, '').gsub( /#{local_ip}:/, '' ).gsub( /->/, " ").split[1] # server[0] is the output port
+      # server[0] is the output port
+      server = file[:name].gsub(/:https?/, '')
+                          .gsub(/#{local_ip}:/, '')
+                          .gsub(/->/, ' ').split[1]
 
       next if servers_seen.include?(server)
       servers_seen.push(server)
 
-      proto = file[:type].to_s.downcase
       output_buf.push(server)
     end
   end
 
-  sort_by_domain = lambda{|a,b| [a.split('.')[-2],a.split('.')[-1]].join('.') <=> [b.split('.')[-2],b.split('.')[-1]].join('.') }
-  output_buf.sort( &sort_by_domain ).uniq.each do |server|
-
-    if server.match( /^[0-9\.]*$/ ) or server.split('.').size == 2
+  sort_by_domain = lambda do |a, b|
+    [a.split('.')[-2], a.split('.')[-1]].join('.') <=> [b.split('.')[-2], b.split('.')[-1]].join('.')
+  end
+  output_buf.sort(&sort_by_domain).uniq.each do |server|
+    if server.match(/^[0-9\.]*$/) || server.split('.').size == 2
       # bare IP or domain name with only 2 segments
       server = server.red
     else
@@ -46,18 +52,17 @@ class ListOpenWebConnections
       name_bits = server.split('.')
       tld = name_bits.pop
       basename = name_bits.pop
-      basename = basename.gsub(/1e100/,'google')
+      basename = basename.gsub(/1e100/, 'google')
       tld = basename == 'google' ? 'com' : tld
       generally_useless_prefix = name_bits.shift
-      rest_of_name = name_bits[0..-1].join('.')
-      generally_useless_prefix = generally_useless_prefix + (rest_of_name.size > 0 ? '.' + rest_of_name.yellow : "")
+      rest = name_bits[0..-1].join('.')
+      generally_useless_prefix += (!rest.empty? ? '.' + rest.yellow : '""')
 
       server = [generally_useless_prefix, basename.red, tld.red].join('.')
     end
 
     puts server
   end
-
 end
 
 # Note that this isn't just cookies; this is *every* unsecured web
@@ -72,7 +77,7 @@ end
 
 # BACKSTORY:
 # In light of:
-#   * the latest NSA spying news [1] that firmly puts $GOOG (including Gmail 
+#   * the latest NSA spying news [1] that firmly puts $GOOG (including Gmail
 #     and the Chrome browser itself) into the "can not trust" category,
 #   * Vanessa's video [2] showing how many cookies a FB session creates, and
 #   * Viget's blog post [3] on viewing open net connections using lsof
@@ -80,7 +85,7 @@ end
 # I thought it might be interesting to have this, even if nothing
 # more than as a reminder of how much shit is being shoveled from
 # across the world into your computer every second.
-# 
+#
 # I implemented a few quick usability hacks:
 # * The important bits of domain names are highlighted in color.
 #   This should help you rapidly scan the list, skipping over irrelevant
