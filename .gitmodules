@@ -1,0 +1,3 @@
+[submodule "osx/terminal/dracula"]
+	path = osx/terminal/dracula
+	url = https://github.com/dracula/terminal.app.git

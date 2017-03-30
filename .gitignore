@@ -36,3 +36,6 @@ Package Control.system-ca-bundle
 /osx/st2/*.pyc
 /osx/st2/*.cache
 
+# git submodule
+/osx/terminal/dracula
+
