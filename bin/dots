@@ -12,38 +12,39 @@ require 'date'
 require 'getoptlong'
 
 opts = GetoptLong.new(
-  [ '--force',            '-f', GetoptLong::NO_ARGUMENT ],
-  [ '--uninstall',        '-u', GetoptLong::NO_ARGUMENT ],
-  [ '--no-personalize  ', '-n', GetoptLong::NO_ARGUMENT ]
+  ['--force',            '-f', GetoptLong::NO_ARGUMENT],
+  ['--uninstall',        '-u', GetoptLong::NO_ARGUMENT],
+  ['--no-personalize  ', '-n', GetoptLong::NO_ARGUMENT]
 )
 
 # defaults
 @cfg               = {}
-@cfg[:bootstrap]   = ($PROGRAM_NAME == "-") ? true : false
-@cfg[:home]        = "~"
-@cfg[:dots]        = "~/.dotfiles"
+@cfg[:bootstrap]   = $PROGRAM_NAME == '-' ? true : false
+@cfg[:home]        = '~'
+@cfg[:dots]        = '~/.dotfiles'
 @cfg[:personalize] = true
 @cfg[:os]          = (
   case RbConfig::CONFIG['host_os']
-    when /darwin|mac os/
-      :macosx
-    when /linux|solaris|bsd/
-      :unix
-    end
+  when /darwin|mac os/
+    :macosx
+  when /linux|solaris|bsd/
+    :unix
+  end
 )
-@cfg = @cfg.each{ |_,str| @cfg[_] = File.expand_path(str) if @cfg[_].class == String }
+@cfg = @cfg.each do |key, val|
+  @cfg[key] = File.expand_path(val) if @cfg[key].class == String
+end
 
-opts.each do |opt, arg|
+opts.each do |opt, _arg|
   case opt
-    when '--force'
-      @cfg[:force] = true
-    when '--no-personalize'
-      @cfg[:personalize] = false
-    when '--remove'
-      puts "uninstalling"
-      uninstall_dotfiles
-    else
-    end
+  when '--force'
+    @cfg[:force] = true
+  when '--no-personalize'
+    @cfg[:personalize] = false
+  when '--remove'
+    puts 'uninstalling'
+    uninstall_dotfiles
+  end
 end
 
 def main
@@ -60,10 +61,11 @@ def main
 end
 
 # quick backup utility
-def bup( file )
-  return unless File.file? file or File.directory? file
+def bup(file)
+  return unless File.file?(file) || File.directory?(file)
 
-  puts "Moving existing #{file} out of the way" unless file == ".ssh/config" # no output on ssh edge-case
+  # no output on ssh edge-case
+  puts "Moving existing #{file} out of the way" unless file == '.ssh/config'
   if File.file? "#{file}.old"
     FileUtils.rm_rf "/tmp/#{file}"
     return
@@ -72,17 +74,11 @@ def bup( file )
 end
 
 def clone_repo
-  # do we have git?
-  `which git`
-  git_missing = ($?.to_i == 256) ? true : false
-  if git_missing
-    puts "Yo dawg! Please install git first!"
-    exit
-  end
+  assert_git
 
-  if File.directory? File.expand_path("~/.dotfiles/.git")
+  if File.directory? File.expand_path('~/.dotfiles/.git')
     FileUtils.cd @cfg[:dots]
-    `git pull` unless ENV["USER"] == "jm3"
+    `git pull` unless ENV['USER'] == 'jm3'
   else
     FileUtils.cd @cfg[:home]
     puts 'Fetching most recent dotfiles'
@@ -90,30 +86,39 @@ def clone_repo
   end
 end
 
+def assert_git
+  `which git` # do we have git?
+  git_missing = $CHILD_STATUS.to_i == 256 ? true : false
+  return unless git_missing
+  puts 'Could not locate git(1). Is git installed?'
+  exit
+end
+
 def install_git_friendly
-  # is git-friendly installed?
+  git_friendly_url = 'https://raw.github.com/jamiew/git-friendly/master/install.sh'
   `which pull`
-  pull_missing = ($?.to_i == 256) ? true : false
+  pull_missing = $CHILD_STATUS.to_i == 256 ? true : false
   pull_path = `which pull`.chomp
 
-  if pull_missing or pull_path != '/usr/local/bin/pull'
-    if File.directory?('/usr/local') and File.writable?('/usr/local')
-      puts 'Installing git-friendly'
-      `curl -L https://raw.github.com/jamiew/git-friendly/master/install.sh | bash`
-    else
-      puts 'your system\'s /usr/local isn\'t writable by you; recommend you re-run this as sudo.'
-    end
+  return unless pull_missing || pull_path != '/usr/local/bin/pull'
+  if File.directory?('/usr/local') && File.writable?('/usr/local')
+    puts 'Installing git-friendly'
+    `curl -L #{git_friendly_url} | bash`
+  else
+    puts 'You do not have the ability to save files to /usr/local/.'
   end
 end
 
 def installable_dots
   breadcrumb = Dir.pwd
   FileUtils.cd "#{@cfg[:dots]}/dots"
-  dots = Dir["*"].concat Dir[".*"]
+  dots = Dir['*'].concat Dir['.*']
   FileUtils.cd breadcrumb
 
   # skip non-installable stuff
-  dots.select { |dot| !dot.match( /(\.$|\.git$|.git-vars.tmpl|.ssh_config|^osx$|\.DS_Store|\.swp)/)  }
+  dots.reject do |dot|
+    dot.match(/(\.$|\.git$|.git-vars.tmpl|.ssh_config|^osx$|\.DS_Store|\.swp)/)
+  end
 end
 
 def install_dotfiles
@@ -121,49 +126,61 @@ def install_dotfiles
   FileUtils.cd @cfg[:home]
 
   dots.each do |dot|
-    unless File.symlink?(dot) and File.readlink(dot) == ".dotfiles/dots/#{dot}"
-
-      # remove anything blocking us from installing the new configs
-      bup dot if( File.file?(dot) or File.directory?(dot)) and !File.symlink?(dot)
-      FileUtils.rm dot if File.symlink?(dot) and File.readlink(dot) != ".dotfiles/dots/#{dot}"
-
-      puts "Linking #{dot}"
-      FileUtils.symlink ".dotfiles/dots/#{dot}", dot
-    end
+    next if File.symlink?(dot) && File.readlink(dot) == ".dotfiles/dots/#{dot}"
+    symlink(dot)
   end
+  link_bin
+  setup_config
+end
 
-  # bin dir doesn't live inside dots; link it separately
-  unless File.symlink?("bin") and File.readlink("bin") == ".dotfiles/bin"
-    bup "bin" if File.directory?("bin")
-    FileUtils.rm "bin" if File.symlink?("bin") and File.readlink("bin") != ".dotfiles/bin"
-    FileUtils.symlink ".dotfiles/bin", "bin"
+def symlink(dot)
+  # remove anykey blocking us from installing the new configs
+  bup dot if (File.file?(dot) || File.directory?(dot)) && !File.symlink?(dot)
+  FileUtils.rm dot if File.symlink?(dot) &&
+                      File.readlink(dot) != '.dotfiles/dots/#{dot}'
+
+  puts "Linking #{dot}"
+  FileUtils.symlink ".dotfiles/dots/#{dot}", dot
+end
+
+# bin dir doesn't live inside dots; link it separately
+def link_bin
+  return if File.symlink?('bin') && File.readlink('bin') == '.dotfiles/bin'
+  bup 'bin' if File.directory?('bin')
+  if File.symlink?('bin') && File.readlink('bin') != '.dotfiles/bin'
+    FileUtils.rm 'bin'
   end
+  FileUtils.symlink '.dotfiles/bin', 'bin'
+end
 
+def setup_config
   # .ssh/config is another special case. the simple thing to do
   # would be to just version ~/.ssh/, but moving someone's .ssh
   # directory causes such a frightening series of errors that I'd
   # really rather not go there.
-  FileUtils.mkdir_p ".ssh" unless File.directory?(".ssh")
-  bup ".ssh/config"
-  FileUtils.cd ".ssh"
-  FileUtils.symlink( File.expand_path("~/.dotfiles/dots/.ssh_config"), "config") unless File.symlink?("config")
+  FileUtils.mkdir_p '.ssh' unless File.directory?('.ssh')
+  bup '.ssh/config'
+  FileUtils.cd '.ssh'
+  return if File.symlink?('config')
+
+  FileUtils.symlink(File.expand_path('~/.dotfiles/dots/.ssh_config'), 'config')
 end
 
 def uninstall_dotfiles
   FileUtils.cd @cfg[:home]
   installable_dots.each do |dot|
-    if File.symlink?(dot) and File.readlink(dot) == ".dotfiles/dots/#{dot}"
+    if File.symlink?(dot) && File.readlink(dot) == ".dotfiles/dots/#{dot}"
       puts "rm'ing #{dot}"
       FileUtils.rm dot
     end
   end
-  [".git-vars", ".zcompdump"].each do |unversioned_junk|
+  ['.git-vars', '.zcompdump'].each do |unversioned_junk|
     if File.file?(unversioned_junk)
       puts "rm'ing #{unversioned_junk}"
-      FileUtils.mv unversioned_junk, "/tmp/"
+      FileUtils.mv unversioned_junk, '/tmp/'
     end
   end
-  FileUtils.rm ".ssh/config" if File.symlink?(".ssh/config")
+  FileUtils.rm '.ssh/config' if File.symlink?('.ssh/config')
 end
 
 def personalize_git_env
@@ -176,35 +193,36 @@ def personalize_git_env
     return
   end
 
-  git_name    = ENV["GIT_AUTHOR_NAME"]
-  git_email   = ENV["GIT_AUTHOR_EMAIL"]
-  github_user = ENV["GITHUB_USER"] # prolly could just use $USER, but why presume?
+  git_name    = ENV['GIT_AUTHOR_NAME']
+  git_email   = ENV['GIT_AUTHOR_EMAIL']
+  # TODO: should this just use $USER?
+  github_user = ENV['GITHUB_USER']
 
-  return if git_name and git_email and github_user
+  return if git_name && git_email && github_user
 
   prompt =
-  %Q[
+    %(
 I'm going to set up your .dotfiles for git. We'll prompt you for
 a few quick things. No info will be sent anywhere; these are local
 variables stored in your dotfiles so that git knows who you are
 when it needs to work with your commits. Skip any prompt with <enter>
 if you don't want to specify it.
-  ]
+  )
   puts prompt
 
   unless git_name
-    print "Your full name: "
+    print 'Your full name: '
     git_name = gets
     git_name = git_name.chomp
   end
 
   unless git_email
-    print "Your email: "
+    print 'Your email: '
     git_email = gets.chomp
   end
 
   unless github_user
-    print "Your github username: "
+    print 'Your github username: '
     github_user = gets.chomp
   end
 
@@ -215,18 +233,18 @@ if you don't want to specify it.
   | sed "s/__GIT_EMAIL__/#{git_email}/" \
   | sed "s/__GITHUB_USER__/#{github_user}/" \
   > ~/.git-vars.tmp`
-  FileUtils.mv ".git-vars.tmp", ".git-vars"
+  FileUtils.mv '.git-vars.tmp', '.git-vars'
 
-  puts %Q[
+  puts %(
 If anything below looks out of place, just edit ~/.git-vars.
-Your changes won't conflict with anything in git.]
+Your changes won't conflict with anything in git.)
   puts `cat ~/.git-vars`
-  puts %Q[
+  puts %(
 
 All set!
 
 To finish, please run: source ~/.git-vars
-  ]
+  )
 end
 
 def setup_vim
@@ -241,97 +259,95 @@ end
 def install_osx_goodies
   return unless @cfg[:os] == :macosx
 
-  def install_goodies
-    setup_iterm
-    setup_sublime_text(2)
-    setup_sublime_text(3)
+  setup_iterm
+  setup_sublime_text(2)
+  setup_sublime_text(3)
+end
+
+def setup_iterm
+  return unless File.directory? '/Applications/iTerm.app'
+  plist     = 'com.googlecode.iterm2.plist'
+  iterm_cfg = "#{@cfg[:home]}/Library/Preferences/#{plist}"
+
+  FileUtils.cd "#{@cfg[:dots]}/osx/iterm"
+
+  `diff #{iterm_cfg} #{plist}`
+  response = $CHILD_STATUS
+
+  # if the installed iterm cfg is identical from what we have in
+  # the repo, we're up to date:
+  return if response && response.exitstatus.zero
+
+  bup(iterm_cfg) if File.file?(iterm_cfg)
+  FileUtils.rm_rf iterm_cfg
+
+  # get a clean copy from source
+  `git checkout #{plist}`
+
+  # iterm auto-converts the xml to apple's binary plist format on save
+  FileUtils.cp "#{@cfg[:dots]}/osx/iterm/#{plist}",
+               "#{@cfg[:dots]}/osx/iterm/#{plist}.orig"
+
+  puts 'Personalizing your iTerm preferences file'
+  `plutil -convert xml1 \
+    -o /dev/stdout #{plist}.orig \
+    | sed 's/jm3/#{ENV['USER']}/g' \
+    | plutil -convert binary1 \
+    -o #{@cfg[:dots]}/osx/iterm/#{plist} -`
+  FileUtils.rm_rf "#{@cfg[:dots]}/osx/iterm/#{plist}.orig"
+
+  puts 'Linking iTerm preferences'
+  # note that we do a HARD link; iTerm doesn't play nice with symlinks
+  `ln #{@cfg[:dots]}/osx/iterm/#{plist} #{iterm_cfg}`
+end
+
+def setup_sublime_text(version)
+  return unless version &&
+                File.directory?("/Applications/Sublime Text #{version}.app")
+
+  subl_settings_dir = File.expand_path(
+    "~/Library/Application Support/Sublime Text #{version}/Packages/"
+  )
+  FileUtils.mkdir_p subl_settings_dir unless File.directory? subl_settings_dir
+  FileUtils.cd subl_settings_dir
+  link_point = 'User'
+  return if File.symlink?(link_point) &&
+            File.readlink(link_point) == "#{@cfg[:dots]}/osx/st#{version}"
+
+  if File.directory? link_point
+    FileUtils.mv 'old-configs.tgz', '/tmp/' if File.file? 'old-configs.tgz'
+    puts 'Archiving old Sublime Text configs'
+    puts `tar cvz #{link_point} > old-configs.tgz`
   end
-
-  def setup_iterm
-    return unless File.directory? "/Applications/iTerm.app"
-    plist     = 'com.googlecode.iterm2.plist'
-    iterm_cfg = "#{@cfg[:home]}/Library/Preferences/#{plist}"
-
-    FileUtils.cd "#{@cfg[:dots]}/osx/iterm"
-
-    %x[diff #{iterm_cfg} #{plist}]
-    response = $?
-
-    # if the installed iterm cfg is identical from what we have in
-    # the repo, we're up to date:
-    return if response.exitstatus == 0
-
-    if File.file? iterm_cfg
-      bup iterm_cfg
-    end
-
-    FileUtils.rm_rf iterm_cfg
-
-    # get a clean copy from source
-    `git checkout #{plist}`
-
-    # iterm auto-converts the xml to apple's binary plist format on save
-    FileUtils.cp "#{@cfg[:dots]}/osx/iterm/#{plist}", "#{@cfg[:dots]}/osx/iterm/#{plist}.orig"
-
-    puts 'Personalizing your iTerm preferences file'
-    `plutil -convert xml1 -o /dev/stdout #{plist}.orig | sed 's/jm3/#{ENV["USER"]}/g' | plutil -convert binary1 -o #{@cfg[:dots]}/osx/iterm/#{plist} -`
-    FileUtils.rm_rf "#{@cfg[:dots]}/osx/iterm/#{plist}.orig"
-
-    puts 'Linking iTerm preferences'
-    # note that we do a HARD link; iTerm doesn't play nice with symlinks
-    `ln #{@cfg[:dots]}/osx/iterm/#{plist} #{iterm_cfg}`
-  end
-
-  def setup_sublime_text(version)
-    return unless version and
-      File.directory? "/Applications/Sublime Text #{version}.app"
-
-    subl_settings_dir = File.expand_path "~/Library/Application Support/Sublime Text #{version}/Packages/"
-    FileUtils.mkdir_p subl_settings_dir unless File.directory? subl_settings_dir
-    FileUtils.cd subl_settings_dir
-    link_point = "User"
-    return if File.symlink?(link_point) and File.readlink(link_point) == "#{@cfg[:dots]}/osx/st#{version}"
-
-    if File.directory? link_point
-      FileUtils.mv 'old-configs.tgz', '/tmp/' if File.file? 'old-configs.tgz'
-      puts "Archiving old Sublime Text configs"
-      puts `tar cvz #{link_point} > old-configs.tgz`
-    end
-    FileUtils.rm_rf link_point
-    puts "Linking Sublime Text configs"
-    FileUtils.symlink "#{@cfg[:dots]}/osx/st#{version}", link_point
-  end
-
-  install_goodies
-
+  FileUtils.rm_rf link_point
+  puts 'Linking Sublime Text configs'
+  FileUtils.symlink "#{@cfg[:dots]}/osx/st#{version}", link_point
 end
 
 def ensure_zsh
-  shell = ENV["SHELL"]
+  shell = ENV['SHELL']
   zsh_installed  = `which zsh`.chomp
   brew_installed = `which brew`.chomp
 
-  unless shell.match( /zsh/ )
-    puts "Your shell isn't Zsh which means you're missing some cool features."
+  return if shell =~ /zsh/
+  puts 'Your shell is not Zsh which means you are missing some cool features.'
 
-    unless zsh_installed.empty?
-      puts "To correct your shell settings, just run: chsh"
-      puts "and at the prompt, enter #{zsh_installed}"
+  if zsh_installed.empty?
+    puts 'Zsh is easy to install'
+    if brew_installed.empty?
+      puts 'The easiest way to install Zsh on a mac is Homebrew: http://brew.sh/'
     else
-      puts "Zsh is easy to install"
-      unless brew_installed.empty?
-        puts "Just run: brew install zsh"
-      else
-        puts "The easiest way to install Zsh on a mac is Homebrew: http://brew.sh/"
-      end
+      puts 'Just run: brew install zsh'
     end
+  else
+    puts 'To correct your shell settings, just run: chsh'
+    puts "and at the prompt, enter #{zsh_installed}"
   end
 end
 
 def display_instructions
-  if @cfg[:bootstrap]
-    puts 'Run this command to complete setup: "~/bin/dots" (no quotes)'
-  end
+  return unless @cfg[:bootstrap]
+  puts 'Run this command to complete setup: "~/bin/dots" (no quotes)'
 end
 
 main

@@ -47,3 +47,6 @@ function brew_history {
   open "https://github.com/Homebrew/homebrew/commits/master/Library/Formula/$1.rb"
 }
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

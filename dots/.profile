@@ -35,6 +35,7 @@ alias lynx="lynx -accept_all_cookies -cookie_file=$HOME/.cookies -cookie_save_fi
 alias mmv="noglob zmv -W"
 alias more="less"
 alias mvim="open -a MacVim.app"
+alias nr="npm run"
 alias p="vim $HOME/.profile"
 alias rubyweb="ruby -run -ehttpd . -p9292"
 alias shotgun="bundle exec shotgun -p 9292"
@@ -195,3 +196,8 @@ if [ $PWD = $HOME ]; then
   fi
 fi
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
