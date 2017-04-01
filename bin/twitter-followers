@@ -2,28 +2,26 @@
 
 # GET https://api.twitter.com/1/friends/ids.json?cursor=-1&screen_name=twitterapi
 
-require "twitter"
+require 'twitter'
 
 Twitter.configure do |config|
-  config.consumer_key       = ENV["CONSUMER_KEY"]
-  config.consumer_secret    = ENV["CONSUMER_SECRET"]
-  config.oauth_token        = ENV["OAUTH_TOKEN"]
-  config.oauth_token_secret = ENV["OAUTH_TOKEN_SECRET"]
+  config.consumer_key       = ENV['CONSUMER_KEY']
+  config.consumer_secret    = ENV['CONSUMER_SECRET']
+  config.oauth_token        = ENV['OAUTH_TOKEN']
+  config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
 end
 
-client = Twitter::Client.new
+ALLOWED_CHARS = %r{[^A-Za-z0-9_ #\@\$\.\-\/:]}
 
-allowed_chars = /[^A-Za-z0-9_ #\@\$\.\-\/:]/
-
-user = 63796828 # "@verified" user
+user = 63796828 # " twitter's "@verified" user account
 followers = []
 
 u = Twitter.user(user)
-slots = [:id, :description, :friends_count]
+slots = %i(id description friends_count)
 obj = {}
 
 slots.each do |field|
-  obj[field] = u[field].to_s.gsub(allowed_chars, "")
+  obj[field] = u[field].to_s.gsub(ALLOWED_CHARS, '')
   puts obj[field]
 end
 
