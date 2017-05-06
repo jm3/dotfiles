@@ -105,8 +105,8 @@ function tweet {
 
 # update gems
 upgems() { 
-  sudo gem update
-  sudo gem cleanup
+  gem update
+  gem cleanup
 }
 
 dumpgems() {
