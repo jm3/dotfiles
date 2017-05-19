@@ -130,7 +130,7 @@ br() {
   git branch --track ${branch} origin/${branch}
 }
 
-export DEFAULT_HOME=$HOME/Checkouts
+export DEFAULT_HOME=$HOME/Code
 export EDITOR=vim
 export HISTSIZE=4096
 export LANG=en_US.UTF-8 
@@ -154,7 +154,7 @@ then
   export HISTFILE=$HOME/.zsh/history.zsh
 fi
 
-export GOPATH=$HOME/Checkouts/go/
+export GOPATH=$HOME/Code/go/
 
 # default OS X path:    /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 # default Ubuntu path:  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -162,9 +162,9 @@ export GOPATH=$HOME/Checkouts/go/
 export PATH=\
 $HOME/bin:\
 $HOME/bin/dropbox:\
-$HOME/Checkouts/go/bin:\
+$HOME/Code/go/bin:\
 $HOME/.rvm/bin:\
-$HOME/Checkouts/go/bin:\
+$HOME/Code/go/bin:\
 /opt/java/Home/bin:\
 /usr/local/bin:\
 /usr/local/heroku/bin:\
@@ -178,7 +178,7 @@ $HOME/Checkouts/go/bin:\
 /sbin:\
 ./bin
 
-export GOPATH=$HOME/Checkouts/go
+export GOPATH=$HOME/Code/go
 
 if [ -d "/usr/local/lib/node" ]; then
   export NODE_PATH="/usr/local/lib/node"
