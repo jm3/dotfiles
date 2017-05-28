@@ -14,7 +14,8 @@ source ~/.vim/code.vim
 source ~/.vim/bad-speller.vim
 source ~/.vim/spacing.vim
 source ~/.vim/super-powers.vim
-silent! source ~/.vim/personal.vim
+" export DOTFILES_HOME="$USER/Desktop/dotfiles"
+silent! source ~/Desktop/dotfiles/personal.vim"
 
 set directory=~/.vim/backups//,~/.tmp/,~/tmp/,.tmp/
 set hidden         " allow free switching between buffers even w/unsaved changes
