@@ -1,13 +1,11 @@
-# my local unversioned developer TODO list:
-/TODO.md
-
-# don't version these ephemeral, useless, or temporary files
+# don't version these auto-generated, ephemeral, temporary, or user-specific files
 /dots/.*.profile
 /dots/.config/configstore/
 /dots/.config/fish/fish_history
 /dots/.config/fish/fishd.*
 /dots/.config/*
 /dots/.config/mkvtoolnix/
+/dots/.gitconfig-personal
 /dots/.git-vars
 /dots/.mutt/account.*
 /dots/.mutt/cache

@@ -1,3 +1,6 @@
+[include]
+  path = .gitconfig-personal ; store any personal credentials in here
+
 [alias]
   br    = branch
   ci    = commit -v
@@ -11,8 +14,6 @@
   up    = pull --rebase
   wup   = log -p origin..@{0}
 
-[achievement]
-  upload = true
 [branch]
   autosetuprebase = always
 [core]
@@ -22,11 +23,15 @@
   autocorrect = 1
 [rerere]
   enabled = 1
-
 [push]
   default = simple
 [credential]
 	helper = osxkeychain
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 
 [color]
   branch    = auto
@@ -49,6 +54,3 @@
 [pretty]
   old = %Cgreen%ad %C(white)%aN%C(yellow)%d%Creset %s %Cblue%h
   tight = %Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr %C(white)%an
-[user]
-	name = John Manoogian III
-	email = jm3@jm3.net
