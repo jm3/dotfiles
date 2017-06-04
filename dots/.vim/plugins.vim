@@ -2,7 +2,8 @@
 " to update: ,p or source this file (:so %) then :PlugInstall
 call plug#begin('~/.vim/plugged')
 
-" " note: single quotes only :)
+" NOTE: single quotes only, since " is a comment in vim :)
+" GENERAL EDITING
 Plug 'gabesoft/vim-ags'              " search with the silver-searcher (ag)
 Plug 'ervandew/supertab'             " <tab> to complete words in buffer
 Plug 'junegunn/fzf'                  " amazing fuzzy search. also enhances zsh
@@ -15,11 +16,12 @@ Plug 'tpope/vim-repeat'              " when i type . in command mode, repeat the
 Plug 'christoomey/vim-titlecase'     " :gt to title-case text
 Plug 'mbbill/undotree'               " visualize + manipulate undo history
 
-" " CODING
+" CODING
 Plug 'tmhedberg/matchit'             " % to match open/close <html> tags + if/else blocks, not just [] {} ()
 Plug 'tomtom/tcomment_vim'           " ,c to comment blocks in any language
 Plug 'tpope/vim-endwise'             " auto-complete simple code structures like if..end w/out being annoying
 Plug 'airblade/vim-gitgutter'        " show git diff status in sidebar
+Plug 'mattn/emmet-vim'               " magically expand HTML + CSS expressions
 
 " prettify css + js - note, this must be on one line :(
 Plug 'maksimr/vim-jsbeautify', { 'dir': '~/.vim/plugged/vim-jsbeautify', 'do': 'git submodule update --init --recursive' }
