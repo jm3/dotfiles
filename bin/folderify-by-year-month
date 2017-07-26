@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# add -%d to end of date spec to also folderify by day (why would you do this?)
+
+for x in *.jpg *gif *png; do
+  d=$(date -r "$x" +%Y-%m)
+  mkdir -p "$d"
+  mv -- "$x" "$d/"
+done
+
