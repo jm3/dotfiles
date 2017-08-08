@@ -3,7 +3,7 @@
 #
 # John Manoogian III * jm3 * 2013
 #
-# TODO: ST3 by default is named "Subl...xt", not "Subl...xt 3"; handle this
+# TODO: replace literal "jm3" with MAINTAINER or some such
 
 require 'fileutils'
 require 'open-uri'
