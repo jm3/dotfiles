@@ -21,8 +21,10 @@
 --ignore-dir=tmp
 --ignore-dir=plugged
 --ignore-dir=_site
+--ignore-dir=vim-jsbeautify
 
 --ignore-file=is:jquery.min.map
 --ignore-file=is:modernizr.js
 --ignore-file=is:ender.js
 --ignore-file=is:Gemfile.lock
+--ignore-file=is:history.zsh
