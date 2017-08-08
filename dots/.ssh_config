@@ -5,8 +5,8 @@ Host github.com
 host github.com monkey.org
   strictHostKeyChecking yes
 
-host github.com
-  identityfile ~/.ssh/github
+# host github.com
+#   identityfile ~/.ssh/github
 
 host *.amazonaws.com *.jm3.net
   identityfile ~/.ssh/cloud.pem
@@ -20,3 +20,12 @@ host *
   strictHostKeyChecking no
   tcpKeepAlive yes
 
+# Added by Kryptonite
+Host *
+	PKCS11Provider /usr/local/lib/kr-pkcs11.so
+	ProxyCommand /usr/local/bin/krssh %h %p
+	IdentityFile ~/.ssh/id_kryptonite
+	IdentityFile ~/.ssh/id_ed25519
+	IdentityFile ~/.ssh/id_rsa
+	IdentityFile ~/.ssh/id_ecdsa
+	IdentityFile ~/.ssh/id_dsa
