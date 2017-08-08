@@ -9,6 +9,7 @@ set spellfile=~/Desktop/dotfiles/vim-spell-dir/en.utf-8.add
 
 " vim uses a hokey index for its spelling file. rebuild the index on
 " load so any new words or corrects added outside of vim are available:
+" i fucking hate icloud sync.
 silent mkspell! ~/Desktop/dotfiles/vim-spell-dir/en.utf-8.add
 
 " i don't regularly capitalize, so don't flag lower-case words as typos
