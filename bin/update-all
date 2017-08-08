@@ -11,7 +11,7 @@ end
 require 'colorize'
 
 # if you keep your checkouts elsewhere, update this line:
-checkouts_dir = File.expand_path( '~/Checkouts/')
+checkouts_dir = File.expand_path( '~/Code/')
 
 # dumb logger
 def d(proj, mesg)
