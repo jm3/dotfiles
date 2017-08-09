@@ -1,9 +1,13 @@
 # full reference:
 # https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 
-# Metrics/MethodLength:
-#   CountComments: false  # count full line comments?
-#   Max: 12
+Metrics/MethodLength:
+  Max: 12
+  CountComments: false  # count full line comments?
 
-# Metrics/LineLength:
-#   Enabled: true
+Metrics/LineLength:
+  Enabled: true
+  Max: 85
+
+# Metrics/AbcSize:
+#   Max: 24

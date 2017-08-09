@@ -22,6 +22,7 @@
 --ignore-dir=vendor
 --ignore-dir=_site
 
+--ignore-file=is:computed_hashes.json
 --ignore-file=is:ender.js
 --ignore-file=is:Gemfile.lock
 --ignore-file=is:history.zsh

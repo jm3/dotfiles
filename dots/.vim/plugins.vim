@@ -23,6 +23,8 @@ Plug 'tpope/vim-endwise'             " auto-complete simple code structures like
 Plug 'airblade/vim-gitgutter'        " show git diff status in sidebar
 Plug 'mattn/emmet-vim'               " magically expand HTML + CSS expressions
 
+Plug 'vim-scripts/LargeFile'         " auto-optimize settings when editing large files
+
 " prettify css + js - note, this must be on one line :(
 Plug 'maksimr/vim-jsbeautify', { 'dir': '~/.vim/plugged/vim-jsbeautify', 'do': 'git submodule update --init --recursive' }
 
