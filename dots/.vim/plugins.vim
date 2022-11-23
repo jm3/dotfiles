@@ -45,6 +45,8 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'honza/dockerfile.vim'
 Plug 'fatih/vim-go'
 Plug 'digitaltoad/vim-pug'
+Plug 'rhysd/vim-gfm-syntax' " GitHub Flavored Markdown
+let g:markdown_fenced_languages = ['bash', 'ruby', 'json', 'sh']
 Plug 'pangloss/vim-javascript'
 Plug 'Shutnik/jshint2.vim'
 Plug 'elzr/vim-json'
