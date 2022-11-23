@@ -41,15 +41,15 @@ Plug 'junegunn/goyo.vim'             " minimalist editing
 Plug 'junegunn/limelight.vim'        " dim all paragraphs but current one
 
 " " LANGUAGES + SYNTAXES
-Plug 'elzr/vim-json'
-Plug 'honza/dockerfile.vim'
 Plug 'kchmck/vim-coffee-script'
+Plug 'honza/dockerfile.vim'
+Plug 'fatih/vim-go'
 Plug 'digitaltoad/vim-pug'
 Plug 'pangloss/vim-javascript'
 Plug 'Shutnik/jshint2.vim'
-Plug 'fatih/vim-go'
-Plug 'tpope/vim-haml'
+Plug 'elzr/vim-json'
 Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-haml'
 Plug 'tpope/vim-rails'
 
 " UNUSED
