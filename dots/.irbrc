@@ -21,12 +21,12 @@ print "ruby version: ", `/usr/bin/env ruby --version`
 #   Wirble.colorize
 # rescue
 # end
-
-# Easily print methods local to an object's class
-# same as .instance_methods(false)
-class Object
-  def local_methods
-    (instance_methods - Object.instance_methods).sort
-  end
-end
-
+#
+# # Easily print methods local to an object's class
+# # same as .instance_methods(false)
+# class Object
+#   def local_methods
+#     (instance_methods - Object.instance_methods).sort
+#   end
+# end
+#
