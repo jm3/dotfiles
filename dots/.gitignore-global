@@ -4,11 +4,13 @@
 *.swp
 *~
 .*.swo
+.vscode
 
 # Archives #
 ############
 *.dmg
 *.gz
+*.tgz
 *.iso
 *.rar
 *.tar
