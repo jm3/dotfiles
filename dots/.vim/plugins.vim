@@ -42,10 +42,10 @@ Plug 'junegunn/limelight.vim'        " dim all paragraphs but current one
 
 " " LANGUAGES + SYNTAXES
 Plug 'leafo/moonscript-vim'
-Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
 Plug 'honza/dockerfile.vim'
 Plug 'kchmck/vim-coffee-script'
+Plug 'digitaltoad/vim-pug'
 Plug 'pangloss/vim-javascript'
 Plug 'Shutnik/jshint2.vim'
 Plug 'fatih/vim-go'
