@@ -41,7 +41,6 @@ Plug 'junegunn/goyo.vim'             " minimalist editing
 Plug 'junegunn/limelight.vim'        " dim all paragraphs but current one
 
 " " LANGUAGES + SYNTAXES
-Plug 'leafo/moonscript-vim'
 Plug 'elzr/vim-json'
 Plug 'honza/dockerfile.vim'
 Plug 'kchmck/vim-coffee-script'
@@ -52,7 +51,6 @@ Plug 'fatih/vim-go'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
-Plug 'keith/swift.vim'
 
 " UNUSED
 " Plug 'tpope/vim-fugitive'    " git integration that i never use
