@@ -15,7 +15,9 @@
 --ignore-dir=bower_components
 --ignore-dir=build
 --ignore-dir=libs
+--ignore-dir=log
 --ignore-dir=plugged
+--ignore-dir=public
 --ignore-dir=staticcfg
 --ignore-dir=tmp
 --ignore-dir=tweets
