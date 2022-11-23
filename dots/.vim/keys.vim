@@ -65,8 +65,12 @@ set backspace=indent,eol,start
 map N :set number<CR>
 map M :set nonumber<CR>
 
-" set escape and OS X arrow keys
-set ek
+if has("gui_vimr")
+  " ugh this is for neonvim/macOS VimR
+else
+  " set escape and OS X arrow keys
+  set ek
+endif
 map [A k
 map [B j
 map [C l
