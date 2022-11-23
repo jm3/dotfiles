@@ -54,3 +54,7 @@
 [pretty]
   old = %Cgreen%ad %C(white)%aN%C(yellow)%d%Creset %s %Cblue%h
   tight = %Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr %C(white)%aN
+
+[url "git@github.com:"]
+  insteadOf = git://github.com/
+  insteadOf = https://github.com/
