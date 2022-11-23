@@ -7,6 +7,4 @@ gem: --no-rdoc --no-ri --bindir /usr/local/bin
 :verbose: true
 :bulk_threshold: 1000
 :sources: 
-- http://gems.rubyforge.org/
-- http://gems.github.com
-- http://gemcutter.org
+- https://rubygems.org
