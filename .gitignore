@@ -22,15 +22,6 @@
 /dots/.vim/spell/*.spl
 /dots/.zsh/history.zsh
 
-# Sublime Text crap
-/osx/st2/Gist.sublime-settings
-/osx/st2/Global.sublime-settings
-/osx/st2/Package Control.last-run
-/osx/st2/Side Bar.sublime-settings
-Package Control.cache
-Package Control.last-run
-Package Control.system-ca-bundle
-
 # ignore ssh dir; we only place a new config into into it without
 # touching existing keys
 /dots/.ssh
@@ -39,6 +30,8 @@ Package Control.system-ca-bundle
 /osx/st2/*.pyc
 /osx/st2/*.cache
 
+# git commit author metadata map
+.mailmap
+
 # git submodule
 /osx/terminal/dracula
-
