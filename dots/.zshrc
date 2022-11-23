@@ -21,7 +21,7 @@ source ~/.zsh/completion.zsh
 source ~/.zsh/load-host-specific-profiles.zsh
 ~/.zsh/load-ssh-keys.zsh
 source ~/.zsh/options.zsh
-# source ~/.zsh/ruby.zsh
+source ~/.zsh/ruby.zsh
 source ~/.zsh/password-gen.zsh
 
 # keyboard commands:
