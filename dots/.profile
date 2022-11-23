@@ -70,9 +70,6 @@ alias wup="git wup" # what will be pushed
 alias gphm="git push heroku master"
 alias recent="git diff HEAD@{5.minutes.ago}"
 
-# hub is a magical alias for git; https://github.com/github/hub
-eval "$(hub alias -s)"
-
 frep() {
   find=$1
   replace=$2
