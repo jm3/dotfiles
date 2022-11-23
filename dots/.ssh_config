@@ -22,9 +22,6 @@ host *
 
 # Added by Kryptonite
 Host *
-	PKCS11Provider /usr/local/lib/kr-pkcs11.so
-	ProxyCommand /usr/local/bin/krssh %h %p
-	IdentityFile ~/.ssh/id_kryptonite
 	IdentityFile ~/.ssh/id_ed25519
 	IdentityFile ~/.ssh/id_rsa
 	IdentityFile ~/.ssh/id_ecdsa
