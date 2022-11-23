@@ -9,7 +9,7 @@ Plug 'ervandew/supertab'             " <tab> to complete words in buffer
 Plug 'junegunn/fzf'                  " amazing fuzzy search. also enhances zsh
 Plug 'junegunn/vim-easy-align'       " <Enter> to align assignments, blocks, etc.
 Plug 'mhinz/vim-startify'            " awesome startup screen, uses my fortunes file
-Plug 'nelstrom/vim-markdown-folding' " zO + zC to open + close markdown outlines
+Plug 'mikeboiko/vim-markdown-folding' " zO + zC to open + close markdown outlines
 Plug 'scrooloose/nerdtree'           " file browser
 Plug 'vim-scripts/mru.vim'           " ,m to open 'Most-Recently Used' files (like :browse oldfiles)
 Plug 'tpope/vim-repeat'              " when i type . in command mode, repeat the *entire* last command
