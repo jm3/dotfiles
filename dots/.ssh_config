@@ -19,10 +19,3 @@ host *
   serverAliveInterval 15
   strictHostKeyChecking no
   tcpKeepAlive yes
-
-# Added by Kryptonite
-Host *
-	IdentityFile ~/.ssh/id_ed25519
-	IdentityFile ~/.ssh/id_rsa
-	IdentityFile ~/.ssh/id_ecdsa
-	IdentityFile ~/.ssh/id_dsa
