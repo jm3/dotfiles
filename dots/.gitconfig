@@ -53,4 +53,4 @@
   untracked = cyan
 [pretty]
   old = %Cgreen%ad %C(white)%aN%C(yellow)%d%Creset %s %Cblue%h
-  tight = %Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr %C(white)%an
+  tight = %Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr %C(white)%aN
