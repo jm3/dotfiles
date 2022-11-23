@@ -60,3 +60,9 @@ compctl -g '*(-/)' cd chdir dirs pushd
 # complete with active command names:
 compctl -c sudo type whence where man
 
+# git friendly, added 2022-11-22 <https://github.com/git-friendly/git-friendly#bonus-shell-completion>
+# FAILS with: _default:compcall:12: can only be called from completion function
+# fpath=($(brew --prefix)/share/zsh/functions $fpath)
+# autoload -Uz _git # && _git
+# compdef __git_branch_names branch
+
