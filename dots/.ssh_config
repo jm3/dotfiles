@@ -5,8 +5,9 @@ Host github.com
 host github.com monkey.org
   strictHostKeyChecking yes
 
-# host github.com
-#   identityfile ~/.ssh/github
+# use 1password's cool SSH key manager
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 host *.amazonaws.com *.jm3.net
   identityfile ~/.ssh/cloud.pem
