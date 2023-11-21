@@ -1,5 +1,6 @@
 # Editor temp files #
 ####################
+*.obsidian
 *.orig
 *.swp
 *~
