@@ -23,6 +23,8 @@
 --ignore-dir=tweets
 --ignore-dir=vendor
 --ignore-dir=_site
+--ignore-dir=docs/.obsidian/plugins/
+--ignore-dir=.jekyll-cache
 
 --ignore-file=is:computed_hashes.json
 --ignore-file=is:ender.js
@@ -30,3 +32,6 @@
 --ignore-file=is:history.zsh
 --ignore-file=is:jquery.min.map
 --ignore-file=is:modernizr.js
+--ignore-file=is:pinboard-*.json
+--ignore-file=is:workspace.json
+--ignore-file=is:_fonts.scss
