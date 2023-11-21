@@ -6,7 +6,9 @@ call plug#begin('~/.vim/plugged')
 " GENERAL EDITING
 Plug 'gabesoft/vim-ags'              " search with the silver-searcher (ag)
 Plug 'ervandew/supertab'             " <tab> to complete words in buffer
-Plug 'junegunn/fzf'                  " amazing fuzzy search. also enhances zsh
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " amazing fuzzy search.
+Plug 'junegunn/fzf.vim'
+
 Plug 'junegunn/vim-easy-align'       " <Enter> to align assignments, blocks, etc.
 Plug 'mhinz/vim-startify'            " awesome startup screen, uses my fortunes file
 Plug 'mikeboiko/vim-markdown-folding' " zO + zC to open + close markdown outlines
