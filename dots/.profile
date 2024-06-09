@@ -154,31 +154,19 @@ then
   export HISTFILE=$HOME/.zsh/history.zsh
 fi
 
-export GOPATH=$HOME/Code/go/
-
 # default OS X path:    /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 # default Ubuntu path:  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # search paths generic to ALL unices go here:
 export PATH=\
 $HOME/bin:\
-$HOME/bin/dropbox:\
-$HOME/Code/go/bin:\
-$HOME/.rvm/bin:\
-$HOME/Code/go/bin:\
-/opt/java/Home/bin:\
+/opt/homebrew/bin:\
 /usr/local/bin:\
-/usr/local/heroku/bin:\
-/usr/local/ec2/bin:\
-/usr/local/mysql/bin:\
 /usr/local/sbin:\
-/usr/local/share/npm/bin:\
 /usr/bin:\
 /bin:\
 /usr/sbin:\
 /sbin:\
 ./bin
-
-export GOPATH=$HOME/Code/go
 
 if [ -d "/usr/local/lib/node" ]; then
   export NODE_PATH="/usr/local/lib/node"
