@@ -51,7 +51,6 @@ fi
 
 export PATH=$PATH:\
 /usr/local/sbin:\
-/usr/local/share/npm/bin:\
 /usr/local/sbin:\
 /Users/$USER/bin:\
 /usr/local/bin:\
