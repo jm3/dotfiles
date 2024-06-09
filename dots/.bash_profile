@@ -60,6 +60,5 @@ export PATH=$PATH:\
 /sbin:\
 
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 source "$HOME/.docker/init-bash.sh" || true # Added by Docker Desktop
+echo export PATH=/opt/homebrew/bin:/Users/jm3/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:./bin:
