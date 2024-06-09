@@ -59,6 +59,4 @@ export PATH=$PATH:\
 /usr/sbin:\
 /sbin:\
 
-
-source "$HOME/.docker/init-bash.sh" || true # Added by Docker Desktop
 echo export PATH=/opt/homebrew/bin:/Users/jm3/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:./bin:
