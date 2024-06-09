@@ -65,12 +65,13 @@ set backspace=indent,eol,start
 map N :set number<CR>
 map M :set nonumber<CR>
 
-if has("gui_vimr")
-  " ugh this is for neonvim/macOS VimR
-else
+" exclude from VimR (NeoVim Gui on macOS)
+" more: https://neovim.io/doc/user/nvim.html#nvim-from-vim
+if !has('nvim')
   " set escape and OS X arrow keys
-  set ek
+  set esckeys
 endif
+
 map [A k
 map [B j
 map [C l
