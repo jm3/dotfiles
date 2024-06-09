@@ -57,7 +57,6 @@ let g:netrw_home="/tmp/"
 
 " i honestly don't recall why i added this
 set modelines=1
-set nocompatible 
 filetype plugin on
-set modeline 
+set modeline
 
