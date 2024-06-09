@@ -58,7 +58,6 @@ export PATH=$PATH:\
 /bin:\
 /usr/sbin:\
 /sbin:\
-/opt/X11/bin
 
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
