@@ -29,30 +29,15 @@ brew cask update
 
 gui="
 
-adium
-airfoil alfred
-bartender
 github
-google-chrome
-google-earth
-google-refine
-grabbox
 handbrake
-hipchat
 iterm2
-macscale
 macvim
 namechanger
 onepassword
-plex-home-theater
-rowmote-helper
-rstudio
-sabnzbd
 screenflow
-sequel-pro
 sizeup
 transmit
-virtualbox
 vlc
 
 "
