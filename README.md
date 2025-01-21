@@ -126,4 +126,3 @@ rights reserved, all wrongs reversed, no punches pulled.*
 [nocompatible]: http://vimdoc.sourceforge.net/htmldoc/options.html#'compatible'
 [smartcase]:    http://vimdoc.sourceforge.net/htmldoc/options.html#'smartcase'
 [wildmenu]:     http://vimdoc.sourceforge.net/htmldoc/options.html#'wildmenu'
-

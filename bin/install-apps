@@ -29,16 +29,47 @@ brew cask update
 
 gui="
 
+airbuddy
+alfred
+audio-hijack
+blender
+charles
+colorsnapper
+db-browser-for-sqlite
+dbeaver-community
+fission
+ghostty
+gifski
 github
+grandperspective
 handbrake
+hazeover
+hyper
+istat-menus
 iterm2
+kaleidoscope
+ledger-live
 macvim
+macwhisper
+monitorcontrol
 namechanger
+obsidian
+ollama
 onepassword
+postico
+raindropio
+raycast
+rectangle
+rotato
 screenflow
 sizeup
+sketch
+syntax-highlight
 transmit
+utc-menu-clock
+vitamin-r
 vlc
+xscope
 
 "
 
