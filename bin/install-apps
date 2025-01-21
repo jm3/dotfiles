@@ -6,16 +6,17 @@ brew update
 
 cli="
 
-ack
 dos2unix
 figlet
+gifski
 git
 gnupg
 openssl
 redis
+the_silver_searcher
 watch
 wget
-youtube-dl
+yt-dlp
 
 "
 
@@ -39,7 +40,6 @@ db-browser-for-sqlite
 dbeaver-community
 fission
 ghostty
-gifski
 github
 grandperspective
 handbrake
