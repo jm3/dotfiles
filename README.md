@@ -13,7 +13,7 @@ Paste this one liner into your terminal to install. Your existing
 dotfiles will be backed up safely and your new life of unix luxury
 will commence. Enjoy the jealous looks of your friends!
 
-### `curl -L http://proof.ly/gimme-dotfiles | ruby`
+### `curl -L https://link.jm3.net/gimme-dotfiles | ruby`
 
 ### Installation Screencast
 
