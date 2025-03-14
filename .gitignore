@@ -1,15 +1,9 @@
 # don't version these auto-generated, ephemeral, temporary, or user-specific files
 /dots/.*.profile
 /dots/.config/configstore/
-/dots/.config/fish/fish_history
-/dots/.config/fish/fishd.*
 /dots/.config/*
-/dots/.config/mkvtoolnix/
 /dots/.gitconfig-personal
 /dots/.git-vars
-/dots/.mutt/account.*
-/dots/.mutt/cache
-/dots/.mutt/certificates
 /dots/.rvm
 /dots/.vim/.netrwhist
 /dots/.vim/backups
@@ -25,10 +19,6 @@
 # ignore ssh dir; we only place a new config into into it without
 # touching existing keys
 /dots/.ssh
-
-# ignore compiled files
-/osx/st2/*.pyc
-/osx/st2/*.cache
 
 # git commit author metadata map
 .mailmap
