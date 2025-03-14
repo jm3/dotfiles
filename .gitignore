@@ -1,9 +1,9 @@
 # don't version these auto-generated, ephemeral, temporary, or user-specific files
 /dots/.*.profile
-/dots/.config/configstore/
 /dots/.config/*
-/dots/.gitconfig-personal
+/dots/.config/configstore/
 /dots/.git-vars
+/dots/.gitconfig-personal
 /dots/.rvm
 /dots/.vim/.netrwhist
 /dots/.vim/backups
@@ -15,6 +15,7 @@
 /dots/.vim/spell
 /dots/.vim/spell/*.spl
 /dots/.zsh/history.zsh
+dots/.ssh_config_personal
 
 # ignore ssh dir; we only place a new config into into it without
 # touching existing keys

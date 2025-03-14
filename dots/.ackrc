@@ -32,6 +32,6 @@
 --ignore-file=is:history.zsh
 --ignore-file=is:jquery.min.map
 --ignore-file=is:modernizr.js
---ignore-file=is:pinboard-*.json
 --ignore-file=is:workspace.json
 --ignore-file=is:_fonts.scss
+--ignore-file=is:package-lock.json

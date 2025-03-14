@@ -1,5 +1,5 @@
 --- 
-gem: --no-rdoc --no-ri --bindir /usr/local/bin
+gem: --no-document --bindir /usr/local/bin
 :benchmark: false
 :gemcutter_key: $GEMCUTTER_KEY
 :backtrace: false

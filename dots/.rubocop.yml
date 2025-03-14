@@ -5,9 +5,12 @@ Metrics/MethodLength:
   Max: 12
   CountComments: false  # count full line comments?
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: true
   Max: 85
+
+AllCops:
+  NewCops: enable
 
 # Metrics/AbcSize:
 #   Max: 24

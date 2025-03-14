@@ -28,7 +28,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 map f !} fmt -w 72<CR>
 
 " pretty-print a block of JSON; requires Python
-map <Leader>j ggVG!python -m json.tool<CR><CR>
+map <Leader>j ggVG!python3 -m json.tool<CR><CR>
 
 " pretty-print a block of HTML; requires HTML Tidy
 map <Leader>h !tidy -q --show-warnings no<CR><CR>

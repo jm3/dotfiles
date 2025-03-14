@@ -26,8 +26,7 @@ if [ -f ~/.ssh/known_hosts ]; then
 fi
 
 # add these literal hostnames explicitly
-h=140proof.com
-explicit_hosts=($h sayplusone.com)
+explicit_hosts=(jm3.net porkbun.com render.com ruby.org)
 
 # # expand these hostname templates into foo1, foo2, foo3, etc.
 # expando_host_templates=(webX.$h api1.$h neo4jX.$h graphiteX.$h pubapiX.$h)
@@ -53,18 +52,16 @@ compctl -k brew_cmds brew
 bundle_cmds=(exec install outdated package show update)
 compctl -k bundle_cmds -f bundle
 
+# not working yet
+# local_repos=(foo bar baz)
+# compctl -k local_repos -f git clone
+
 # only do directory things with directories:
 compctl -g '*(/)' rmdir dircmp
 compctl -g '*(-/)' cd chdir dirs pushd
 
 # complete with active command names:
 compctl -c sudo type whence where man
-
-# # git friendly, added 2022-11-22 <https://github.com/git-friendly/git-friendly#bonus-shell-completion>
-# # FAILS with: _default:compcall:12: can only be called from completion function
-# fpath=($(brew --prefix)/share/zsh/functions $fpath)
-# autoload -Uz _git && _git
-# compdef __git_branch_names branch
 
 autoload -Uz _git && _git
 compdef __git_branch_names branch

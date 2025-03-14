@@ -1,5 +1,6 @@
 # Editor temp files #
 ####################
+*.code-workspace
 *.obsidian
 *.orig
 *.swp
@@ -11,10 +12,10 @@
 ############
 *.dmg
 *.gz
-*.tgz
 *.iso
 *.rar
 *.tar
+*.tgz
 *.zip
 
 # Logs and databases #
@@ -23,6 +24,7 @@
 
 # OS generated files #
 ######################
+*alias
 .DS_Store
 .DS_Store?
 .Spotlight-V100
@@ -30,18 +32,18 @@
 ._*
 Icon?
 Thumbs.db
-*alias
 
 # regeneratable caches
+.Rhistory
 .sass-cache
 node_modules
-.Rhistory
 
 # binary jonks
 ######################
 *.aac
 *.mp3
 *.mp4
-*.psd
 *.numbers
+*.psd
 *.RData
+

@@ -1,0 +1,11 @@
+.git
+bookmarks.json
+cache
+dist
+log
+logs
+node_modules
+package-lock.json
+plugged
+pnpm-lock.yaml
+workspace.json

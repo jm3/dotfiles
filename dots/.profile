@@ -16,8 +16,6 @@ alias cut4="cut -f4 -d\ "
 alias cut5="cut -f5 -d\ "
 alias cut6="cut -f6 -d\ "
 alias dc="docker-compose"
-alias dcd="docker-compose -f docker-compose.dev.yml"
-alias dcs="docker-compose -f docker-compose.staging.yml"
 alias deps="gem list | awk \"{print $1}\" | xargs -n1 gem dependency"
 alias docker-ip='docker inspect --format "{{ .NetworkSettings.IPAddress }}" $(docker ps -q)'
 alias dots-dev="cd ~/.dotfiles/dots"
@@ -63,8 +61,10 @@ alias ga="git add"
 alias gra="git rebase --abort"
 alias grc="git rebase --continue"
 alias grs="git rebase --skip"
+alias real="git l --grep \"^[^hk: ]\""
 alias recent="git diff HEAD@{5.minutes.ago}"
 alias s="st"
+alias sha="git log | head -n1 | awk '{print \$2}'"
 alias sha="git log | head -n1 | awk '{print \$2}'"
 alias st="git status"
 alias up="git up"  # pull
@@ -103,7 +103,7 @@ function tweet {
 }
 
 # update gems
-upgems() { 
+upgems() {
   gem update
   gem cleanup
 }
@@ -129,10 +129,9 @@ br() {
   git branch --track ${branch} origin/${branch}
 }
 
-export DEFAULT_HOME=$HOME/Code/bright-moments
 export EDITOR=vim
 export HISTSIZE=4096
-export LANG=en_US.UTF-8 
+export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export SAVEHIST=2048
 export SVN_EDITOR=$EDITOR
@@ -159,6 +158,7 @@ fi
 export PATH=\
 $HOME/bin:\
 $HOME/.pyenv/shims:\
+/opt/homebrew/bin/:\
 /usr/local/bin:\
 /usr/local/sbin:\
 /usr/bin:\

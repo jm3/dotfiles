@@ -45,111 +45,10 @@ if has("gui_running")
   " hide RHS scrollbars:
   set guioptions-=r
 
+  colorscheme dracula
 endif
 
-" else
-"   " elaborate, emoji-rich status bar lifted shamelessly from junegunn's dotfiles
-"   set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
-"   silent! if emoji#available()
-"     let s:ft_emoji = map({
-"       \ 'c':          'baby_chick',
-"       \ 'clojure':    'lollipop',
-"       \ 'coffee':     'coffee',
-"       \ 'cpp':        'chicken',
-"       \ 'css':        'art',
-"       \ 'eruby':      'ring',
-"       \ 'gitcommit':  'soon',
-"       \ 'haml':       'hammer',
-"       \ 'help':       'angel',
-"       \ 'html':       'herb',
-"       \ 'java':       'older_man',
-"       \ 'javascript': 'monkey',
-"       \ 'make':       'seedling',
-"       \ 'markdown':   'book',
-"       \ 'perl':       'camel',
-"       \ 'python':     'snake',
-"       \ 'ruby':       'gem',
-"       \ 'scala':      'barber',
-"       \ 'sh':         'shell',
-"       \ 'slim':       'dancer',
-"       \ 'text':       'books',
-"       \ 'vim':        'poop',
-"       \ 'vim-plug':   'electric_plug',
-"       \ 'yaml':       'tongue'
-"     \ }, 'emoji#for(v:val)')
-"
-"     function! S_filetype()
-"       if empty(&filetype)
-"         return emoji#for('grey_question')
-"       else
-"         return get(s:ft_emoji, &filetype, '['.&filetype.']')
-"       endif
-"     endfunction
-"
-"     function! S_modified()
-"
-"       if &modified
-"         return emoji#for('kiss').' '
-"
-"       " locked files or non-editable buffers
-"       elseif !&modifiable
-"         return emoji#for('rotating_light').' '
-"       else
-"         return ''
-"       endif
-"     endfunction
-"
-"     function! S_fugitive()
-"       if !exists('g:loaded_fugitive')
-"         return ''
-"       endif
-"       let head = fugitive#head()
-"       if empty(head)
-"         return ''
-"       else
-"         return head == 'master' ? emoji#for('crown') : emoji#for('dango').'='.head
-"       endif
-"     endfunction
-"
-"     let s:moons = map(
-"     \ ['new_moon', 'waxing_crescent_moon', 'first_quarter_moon',
-"     \  'waxing_gibbous_moon', 'full_moon', 'waning_gibbous_moon',
-"     \  'last_quarter_moon', 'waning_crescent_moon', 'new_moon'], 'emoji#for(v:val)')
-"
-"     function! Moonbar()
-"       let width = len(s:moons)
-"       let [cur, max] = [line('.'), line('$')]
-"       let pos   = min([width * (cur - 1) / max([1, max - 1]), width - 1])
-"       let icon  = s:moons[pos]
-"       return repeat(' ', pos) . icon . repeat(' ', width - pos - 1)
-"     endfunction
-"
-"     hi def link User1 TablineFill
-"     let s:cherry = emoji#for('skull') " s/🌸 /💀 /g
-"     function! MyStatusLine()
-"       let mod = '%{S_modified()}'
-"       let ro  = "%{&readonly ? emoji#for('lock') . ' ' : ''}"
-"       let ft  = '%{S_filetype()}'
-"       let fug = ' %{S_fugitive()}'
-"       let sep = ' %= '
-"       let pos = ' %l,%c%V '
-"       let pct = ' %P '
-"
-"       return s:cherry.' [%n] %F %<'.mod.ro.ft.fug.sep.pos.
-"             \ '%1*%{Moonbar()}%*'.pct.s:cherry
-"     endfunction
-"
-"     " Note that the "%!" expression is evaluated in the context of the
-"     " current window and buffer, while %{} items are evaluated in the
-"     " context of the window that the statusline belongs to.
-"     set statusline=%!MyStatusLine()
-"     set completefunc=emoji#complete
-"   endif
-"
-" endif
-
-" i now set the colorscheme upstream in the OS X terminal emulator (iTerm2) - YMMV
-" press F8 (fn-F8) to cycle through schemes and preview them: solarized moon etc
+" preview colorschemes with fn-F8 or :Colors
 silent! colorscheme wildcherry " dracula
 set t_Co=256
 
@@ -176,5 +75,5 @@ highlight! link markdownH1     texRefLabel
 :let g:goyo_margin_top    = 2
 :let g:goyo_margin_bottom = 2
 
-" json plugin uses this to hide extraneous syntax 
+" json plugin uses this to hide extraneous syntax
 :set conceallevel=2
