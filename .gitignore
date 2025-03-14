@@ -15,7 +15,7 @@
 /dots/.vim/spell
 /dots/.vim/spell/*.spl
 /dots/.zsh/history.zsh
-dots/.ssh_config_personal
+/dots/.ssh_config_personal
 
 # ignore ssh dir; we only place a new config into into it without
 # touching existing keys
