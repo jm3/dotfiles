@@ -37,11 +37,12 @@ will commence. Enjoy the jealous looks of your friends!
 #### Vim Awesomeness
 * Accidentally edit a file that needs to be edited with sudo? just hit `\s`!
 * Align any code structure with [Tabular][tabular]
-* Highlight syntax for [jade][jade] templates, [coffeescript][coffeescript], javascript, haml, and markdown
+* Automatically lint (asynchronously) with ALE, using the [latest fork]([url](https://github.com/dense-analysis/ale))
+* Highlight syntax for css, docker, javascript, json, haml, markdown, pug, python, ruby, slim
 * To load/unload any plugin just add the plugin's url to [plugins.vim][plugins.vim] and re-run `dots`.
 * Manage vim plugins with ease + grace; plugins refreshed from git no more than once weekly
-* Navigate most recently used files with `:MRU`
-* Pretty-print minified (or otherwise ugly) HTML + JSON with `\h` or `\j`
+* Navigate most recently used files with [MRU]([url](https://github.com/vim-scripts/mru.vim)) (`,m`)
+* Pretty-print minified (or otherwise ugly) HTML + JSON with `,h` or `,j`
 * Small spell-check dictionary of some common developer terms
 * Save useful code snippets directly to Github Gists from Vim
 * Tab-complete anything you've typed once with [Supertab][supertab]
