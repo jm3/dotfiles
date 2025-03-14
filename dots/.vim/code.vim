@@ -26,3 +26,12 @@ let jshint2_read    = 1 " auto-hint on file OPEN (needs monkeypatch to work on J
 let jshint2_save    = 1 " auto-hint on file SAVE (needs)
 let jshint2_error   = 0 " hide the numeric error codes, e.g. trailing comma == 94; irrelevant)
 
+let g:ale_fixers = {
+\ 'javascript': ['eslint'],
+\ 'html': ['tidy-html5'],
+\ }
+
+let g:ale_fix_on_save = 1
+
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
