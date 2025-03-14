@@ -3,14 +3,17 @@ abbrev dbg // eslint-disable-next-linedebugger
 
 " LINTER SETUP (requires ale in plugins.vim; dense-analysis >>>> w0rp (RIP w0rp)
 " npm i -g eslint prettier eslint-config-prettier
+" npm i -g stylelint stylelint-order stylelint-color-format stylelint-no-unsupported-browser-features stylelint-config-tailwindcss # FML
 " brew install tidy-html5
 let g:ale_linters = {
 \ 'html': ['tidy'],
+\ 'css': ['stylelint'],
 \ 'javascript': ['eslint'],
 \ 'json': ['jq'],
 \ }
 
 let g:ale_fixers = {
+\ 'css': ['stylelint'],
 \ 'javascript': ['prettier', 'eslint'],
 \ 'html': ['tidy'],
 \ 'json': ['jq'],

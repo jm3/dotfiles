@@ -1,0 +1,37 @@
+{
+  "extends": [],
+  "plugins": [
+    "stylelint-color-format",
+    "stylelint-no-unsupported-browser-features"
+  ],
+  "rules": {
+    "color-format/format": {
+      "format": "hsl"
+    },
+    "block-no-empty": true,
+    "color-hex-length": "long",
+    "plugin/no-unsupported-browser-features": [
+      true,
+      {
+        "browsers": [
+          "> 1% in us",
+          "not dead"
+        ],
+        "ignore": [
+          "rem"
+        ]
+      }
+    ],
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
+      }
+    ]
+  }
+}
