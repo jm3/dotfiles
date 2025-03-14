@@ -12,7 +12,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \ 'javascript': ['prettier', 'eslint'],
-\ 'html': ['tidy-html5'],
+\ 'html': ['tidy'],
 \ 'json': ['jq'],
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ }
