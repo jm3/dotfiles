@@ -175,11 +175,6 @@ if [ -f "$HOME/.profile.local" ]; then
   source $HOME/.profile.local
 fi
 
-# added by Docker Desktop
-if [ -f "$HOME/.docker/init-zsh.sh" ]; then
-  source "$HOME/.docker/init-zsh.sh"
-fi
-
 # end general configs
 
 if [ $PWD = $HOME ]; then
