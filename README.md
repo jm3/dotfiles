@@ -46,7 +46,7 @@ will commence. Enjoy the jealous looks of your friends!
 * Small spell-check dictionary of some common developer terms
 * Save useful code snippets directly to Github Gists from Vim
 * Tab-complete anything you've typed once with [Supertab][supertab]
-* Three cool color schemes: [dracula](https://draculatheme.com/), *[solarized](https://github.com/altercation/solarized?tab=readme-ov-file#precision-colors-for-machines-and-people)*, and *[gummybears](https://github.com/dbb/vim-gummybears-colorscheme?tab=readme-ov-file#css)*
+* Several tasteful color schemes that are easy on the eyes: [Dracula](https://draculatheme.com/), *[Solarized](https://github.com/altercation/solarized?tab=readme-ov-file#precision-colors-for-machines-and-people)*, *[Gummybears](https://github.com/dbb/vim-gummybears-colorscheme?tab=readme-ov-file#css)*, *[Wild Cherry](https://github.com/sliminality/wild-cherry-vim)*
 * Options: [hidden][hidden],
 [hlsearch][hlsearch],
 [ignorecase][ignorecase],

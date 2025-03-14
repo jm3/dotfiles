@@ -32,6 +32,7 @@ Plug 'dracula/vim'
 Plug 'dbb/vim-gummybears-colorscheme'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/vim-tomorrow-theme', { 'dir': '~/.vim/plugged/vim-tomorrow-theme', 'do': 'rm colors/Tomorrow-Night-Blue.vim  colors/Tomorrow-Night.vim colors/Tomorrow.vim' }
+Plug 'sliminality/wild-cherry-vim'
 
 " MISC VISUAL STUFF
 Plug 'junegunn/goyo.vim'             " minimalist editing
