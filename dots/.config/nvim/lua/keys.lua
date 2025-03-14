@@ -12,11 +12,10 @@ map("c", "<C-k>", "<C-u>") -- ctrl-k to delete to beginning (as close as possibl
 
 -- File + buffer commands
 map("n", "<Leader>n", ":NERDTreeToggle<CR>")
-map("n", "<Leader>k", ":Bdelete<CR>") -- for bbye
 
 -- Auto-correct common mistakes
 map("n", ":E", ":e")
-map("n", "<Leader>v", ":e ~/.vimrc<CR>") -- adjust to ~/.config/nvim/init.lua if needed
+map("n", "<Leader>v", ":e ~/.config/nvim/init.lua<CR>") -- adjust to ~/.config/nvim/init.lua if needed
 
 map("n", "q", ":q<CR>")
 map("n", "Q", ":q")
