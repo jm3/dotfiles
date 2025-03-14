@@ -1,4 +1,4 @@
-" jm3@{monk3y.org, umich.edu, jm3.net, 140proof.com}
+" jm3@{monkey.org, umich.edu, jm3.net, organic.com, sigma6.com, 140proof.com}
 
 " enable special features that aren't in vi
 set nocompatible
@@ -14,8 +14,10 @@ source ~/.vim/code.vim
 source ~/.vim/bad-speller.vim
 source ~/.vim/spacing.vim
 source ~/.vim/super-powers.vim
-" export DOTFILES_HOME="$USER/Desktop/dotfiles"
-silent! source ~/icloud/Documents/Morlok-Modok/Geek/Dotfiles/personal.vim"
+
+" symlink this to a personal file for any customomizations + overrides
+" or private stuff you want:
+silent!  source ~/.vim/personal.vim 
 
 set directory=~/.vim/backups//,~/.tmp/,~/tmp/,.tmp/
 set hidden         " allow free switching between buffers even w/unsaved changes
