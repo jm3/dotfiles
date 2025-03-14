@@ -37,14 +37,12 @@ Plug 'chriskempson/vim-tomorrow-theme', { 'dir': '~/.vim/plugged/vim-tomorrow-th
 Plug 'junegunn/goyo.vim'             " minimalist editing
 Plug 'junegunn/limelight.vim'        " dim all paragraphs but current one
 
-
-" " LANGUAGES + SYNTAXES
+" LANGUAGES + SYNTAXES
 Plug 'dense-analysis/ale'   " async linting engine, no mo w0rp
 Plug 'honza/dockerfile.vim'
 Plug 'rhysd/vim-gfm-syntax' " GitHub Flavored Markdown
 let g:markdown_fenced_languages = ['bash', 'ruby', 'json', 'sh']
 Plug 'pangloss/vim-javascript'
-Plug 'Shutnik/jshint2.vim'
 Plug 'elzr/vim-json'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
