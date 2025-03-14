@@ -12,21 +12,27 @@
   st    = status
   undo  = reset --soft HEAD^
   up    = pull --rebase
-  wup   = log -p origin..@{0}
 
 [branch]
   autosetuprebase = always
+
 [core]
   quotepath    = false
   excludesfile = ~/.gitignore-global
+
 [help]
   autocorrect = 1
+
 [rerere]
   enabled = 1
+
 [push]
   default = simple
+  autoSetupRemote = true
+
 [credential]
 	helper = osxkeychain
+
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -51,6 +57,7 @@
   added     = yellow
   changed   = green
   untracked = cyan
+
 [pretty]
   old = %Cgreen%ad %C(white)%aN%C(yellow)%d%Creset %s %Cblue%h
   tight = %Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr %C(white)%aN
@@ -58,5 +65,6 @@
 [url "git@github.com:"]
   insteadOf = git://github.com/
   insteadOf = https://github.com/
+
 [init]
 	defaultBranch = main
