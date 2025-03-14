@@ -38,7 +38,7 @@ will commence. Enjoy the jealous looks of your friends!
 * Accidentally edit a file that needs to be edited with sudo? just hit `\s`!
 * Align any code structure with [Tabular][tabular]
 * Automatically lint (asynchronously) with ALE, using the [latest fork]([url](https://github.com/dense-analysis/ale))
-* Highlight syntax for css, docker, javascript, json, haml, markdown, pug, python, ruby, slim
+* Highlight syntax for css, docker, javascript, json, haml, lua, markdown, pug, python, ruby, slim
 * To load/unload any plugin just add the plugin's url to [plugins.vim][plugins.vim] and re-run `dots`.
 * Manage vim plugins with ease + grace; plugins refreshed from git no more than once weekly
 * Navigate most recently used files with [MRU]([url](https://github.com/vim-scripts/mru.vim)) (`,m`)
@@ -46,7 +46,7 @@ will commence. Enjoy the jealous looks of your friends!
 * Small spell-check dictionary of some common developer terms
 * Save useful code snippets directly to Github Gists from Vim
 * Tab-complete anything you've typed once with [Supertab][supertab]
-* Three cool color schemes: *solarized*, *gummybears*, and *vividchalk*
+* Three cool color schemes: [dracula](https://draculatheme.com/), *[solarized](https://github.com/altercation/solarized?tab=readme-ov-file#precision-colors-for-machines-and-people)*, and *[gummybears](https://github.com/dbb/vim-gummybears-colorscheme?tab=readme-ov-file#css)*
 * Options: [hidden][hidden],
 [hlsearch][hlsearch],
 [ignorecase][ignorecase],
