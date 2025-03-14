@@ -1,3 +1,6 @@
+" mwah ha ha
+abbrev dbg // eslint-disable-next-linedebugger
+
 " LINTER SETUP (requires ale in plugins.vim)
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
