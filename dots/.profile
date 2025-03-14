@@ -16,7 +16,8 @@ alias cut4="cut -f4 -d\ "
 alias cut5="cut -f5 -d\ "
 alias cut6="cut -f6 -d\ "
 alias dc="docker-compose"
-alias dd="cd ~/travel/`date +%Y`"
+alias dcd="docker-compose -f docker-compose.dev.yml"
+alias dcs="docker-compose -f docker-compose.staging.yml"
 alias deps="gem list | awk \"{print $1}\" | xargs -n1 gem dependency"
 alias docker-ip='docker inspect --format "{{ .NetworkSettings.IPAddress }}" $(docker ps -q)'
 alias dots-dev="cd ~/.dotfiles/dots"
@@ -37,8 +38,8 @@ alias more="less"
 alias mvim="open -a MacVim.app"
 alias nr="npm run"
 alias p="vim $HOME/.profile"
+alias python="python3"
 alias rubyweb="ruby -run -ehttpd . -p9292"
-alias shotgun="bundle exec shotgun -p 9292"
 alias sls="screen -ls"
 alias sz="source $HOME/.zshrc"
 alias u="pull"
@@ -55,20 +56,18 @@ if type "safe-rm" &> /dev/null; then
 fi
 
 # git shortcuts
-alias s="st"
 alias di="git diff"
-alias ga="git add"
-alias st="git status"
-alias up="git up"  # pull
 alias dic="git diff --cached"
 alias diw="git diw"
+alias ga="git add"
 alias gra="git rebase --abort"
 alias grc="git rebase --continue"
 alias grs="git rebase --skip"
-alias sha="git log | head -n1 | awk '{print \$2}'"
-alias wup="git wup" # what will be pushed
-alias gphm="git push heroku master"
 alias recent="git diff HEAD@{5.minutes.ago}"
+alias s="st"
+alias sha="git log | head -n1 | awk '{print \$2}'"
+alias st="git status"
+alias up="git up"  # pull
 
 frep() {
   find=$1
@@ -159,7 +158,7 @@ fi
 # search paths generic to ALL unices go here:
 export PATH=\
 $HOME/bin:\
-/opt/homebrew/bin:\
+$HOME/.pyenv/shims:\
 /usr/local/bin:\
 /usr/local/sbin:\
 /usr/bin:\
@@ -189,3 +188,4 @@ if [ $PWD = $HOME ]; then
   fi
 fi
 
+fpath=($(brew --prefix)/share/zsh/functions $fpath)
