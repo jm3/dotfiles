@@ -2,6 +2,9 @@
 /dots/.*.profile
 /dots/.config/*
 /dots/.config/configstore/
+!/dots/.config/nvim/
+/dots/.config/nvim/*/*/.git
+/dots/.config/nvim/lazy/
 /dots/.git-vars
 /dots/.gitconfig-personal
 /dots/.rvm
