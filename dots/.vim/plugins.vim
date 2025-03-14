@@ -18,7 +18,7 @@ Plug 'vim-scripts/mru.vim'           " ,m to open 'Most-Recently Used' files (li
 Plug 'vim-scripts/LargeFile'         " auto-optimize settings when editing large files
 
 " CODING
-Plug 'github/copilot.vim'            " GH Copilot LFG
+Plug 'github/copilot.vim'            " GH opilot LFG
 Plug 'tmhedberg/matchit'             " % to match open/close <html> tags + if/else blocks, not just [] {} ()
 Plug 'tomtom/tcomment_vim'           " gc to comment blocks in any language
 Plug 'tpope/vim-endwise'             " auto-complete simple code structures like if..end w/out being annoying
@@ -28,9 +28,9 @@ Plug 'mattn/emmet-vim'               " magically expand HTML + CSS expressions
 Plug 'maksimr/vim-jsbeautify', { 'dir': '~/.vim/plugged/vim-jsbeautify', 'do': 'git submodule update --init --recursive' }
 
 " COLOR SCHEMES
-Plug 'altercation/vim-colors-solarized'
 Plug 'dracula/vim'
-Plug 'junegunn/seoul256.vim', { 'dir': '~/.vim/plugged/seoul256.vim', 'do': 'rm colors/seoul256-light.vim' }
+Plug 'dbb/vim-gummybears-colorscheme'
+Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/vim-tomorrow-theme', { 'dir': '~/.vim/plugged/vim-tomorrow-theme', 'do': 'rm colors/Tomorrow-Night-Blue.vim  colors/Tomorrow-Night.vim colors/Tomorrow.vim' }
 
 " MISC VISUAL STUFF

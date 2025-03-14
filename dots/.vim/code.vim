@@ -2,19 +2,21 @@
 abbrev dbg // eslint-disable-next-linedebugger
 
 " LINTER SETUP (requires ale in plugins.vim)
+" npm i -g eslint prettier eslint-config-prettier
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
 \ 'json': ['jq'],
 \ }
 
+" brew install tidy-html5
 let g:ale_fixers = {
 \ 'javascript': ['prettier', 'eslint'],
 \ 'html': ['tidy-html5'],
 \ 'json': ['jq'],
 \ }
 
-let g:ale_javascript_prettier_use_global = 0
-let g:ale_javascript_eslint_use_global = 0
+" let g:ale_javascript_prettier_use_global = 0
+" let g:ale_javascript_eslint_use_global = 0
 
 let g:ale_fix_on_save = 1
 
