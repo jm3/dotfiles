@@ -15,12 +15,13 @@ Plug 'mikeboiko/vim-markdown-folding' " zO + zC to open + close markdown outline
 Plug 'scrooloose/nerdtree'           " file browser
 Plug 'vim-scripts/mru.vim'           " ,m to open 'Most-Recently Used' files (like :browse oldfiles)
 Plug 'tpope/vim-repeat'              " when i type . in command mode, repeat the *entire* last command
-Plug 'christoomey/vim-titlecase'     " :gt to title-case text
-Plug 'mbbill/undotree'               " visualize + manipulate undo history
+" Plug 'christoomey/vim-titlecase'     " :gt to title-case text
+" Plug 'mbbill/undotree'               " visualize + manipulate undo history
 
 " CODING
+Plug 'github/copilot.vim'            " GH Copilot LFG
 Plug 'tmhedberg/matchit'             " % to match open/close <html> tags + if/else blocks, not just [] {} ()
-Plug 'tomtom/tcomment_vim'           " ,c to comment blocks in any language
+Plug 'tomtom/tcomment_vim'           " gc to comment blocks in any language
 Plug 'tpope/vim-endwise'             " auto-complete simple code structures like if..end w/out being annoying
 Plug 'airblade/vim-gitgutter'        " show git diff status in sidebar
 Plug 'mattn/emmet-vim'               " magically expand HTML + CSS expressions
@@ -34,19 +35,17 @@ Plug 'maksimr/vim-jsbeautify', { 'dir': '~/.vim/plugged/vim-jsbeautify', 'do': '
 Plug 'altercation/vim-colors-solarized'
 Plug 'dracula/vim'
 Plug 'junegunn/seoul256.vim', { 'dir': '~/.vim/plugged/seoul256.vim', 'do': 'rm colors/seoul256-light.vim' }
-Plug 'tomasr/molokai'
+" Plug 'tomasr/molokai'
 Plug 'chriskempson/vim-tomorrow-theme', { 'dir': '~/.vim/plugged/vim-tomorrow-theme', 'do': 'rm colors/Tomorrow-Night-Blue.vim  colors/Tomorrow-Night.vim colors/Tomorrow.vim' }
 
 " MISC VISUAL STUFF
-Plug 'junegunn/vim-emoji'            " ha ha fuck yes
-Plug 'junegunn/goyo.vim'             " minimalist editing
+" Plug 'junegunn/vim-emoji'            " ha ha fuck yes
+" Plug 'junegunn/goyo.vim'             " minimalist editing
 Plug 'junegunn/limelight.vim'        " dim all paragraphs but current one
 
 " " LANGUAGES + SYNTAXES
-Plug 'kchmck/vim-coffee-script'
 Plug 'honza/dockerfile.vim'
 Plug 'fatih/vim-go'
-Plug 'digitaltoad/vim-pug'
 Plug 'rhysd/vim-gfm-syntax' " GitHub Flavored Markdown
 let g:markdown_fenced_languages = ['bash', 'ruby', 'json', 'sh']
 Plug 'pangloss/vim-javascript'
@@ -57,6 +56,8 @@ Plug 'tpope/vim-haml'
 Plug 'tpope/vim-rails'
 
 " UNUSED
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'digitaltoad/vim-pug'
 " Plug 'tpope/vim-fugitive'    " git integration that i never use
 " Plug 'moll/vim-bbye'         " close buffers gracefully - not sure if this works / does anything
 " Plug 'skammer/vim-css-color' " fuck this plugin, adds a 3 second delay on opening a MARKDOWN file?!?

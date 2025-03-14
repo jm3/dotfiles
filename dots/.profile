@@ -129,7 +129,7 @@ br() {
   git branch --track ${branch} origin/${branch}
 }
 
-export DEFAULT_HOME=$HOME/Code
+export DEFAULT_HOME=$HOME/Code/bright-moments
 export EDITOR=vim
 export HISTSIZE=4096
 export LANG=en_US.UTF-8 
@@ -171,8 +171,8 @@ if [ -d "/usr/local/lib/node" ]; then
   export NODE_PATH="/usr/local/lib/node"
 fi
 
-if [ -f "$HOME/profile.local" ]; then
-  source $HOME/profile.local
+if [ -f "$HOME/.profile.local" ]; then
+  source $HOME/.profile.local
 fi
 
 # added by Docker Desktop

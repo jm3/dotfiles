@@ -8,6 +8,8 @@
 
 # usage - just type: genpass
 
+echo "[paranoia] defining password gen shell functions"
+
 if [ ! -f ~/.diceware ]; then
   curl -L http://proof.ly/diceware-list > ~/.diceware
 fi
@@ -24,3 +26,4 @@ function genpass() {
   (for i in {1..5}; do grep $(diceroll) ~/.diceware; done)|cut -f2 | fmt
 }
 
+echo "[paranoia] complete!"

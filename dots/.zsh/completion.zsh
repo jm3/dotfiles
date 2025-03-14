@@ -27,22 +27,22 @@ fi
 
 # add these literal hostnames explicitly
 h=140proof.com
-explicit_hosts=($h 280.$h google.com)
+explicit_hosts=($h sayplusone.com)
 
-# expand these hostname templates into foo1, foo2, foo3, etc.
-expando_host_templates=(webX.$h api1.$h neo4jX.$h graphiteX.$h pubapiX.$h)
-for h in $expando_host_templates; do
-  echo $h | grep -q "X"
-  if [ $? -eq 0 ]; then
-    for n in 1 2 3; do
-      x=`echo $h | sed s/X/$n/`
-      expando_hosts+=($x)
-    done
-  fi
-done
+# # expand these hostname templates into foo1, foo2, foo3, etc.
+# expando_host_templates=(webX.$h api1.$h neo4jX.$h graphiteX.$h pubapiX.$h)
+# for h in $expando_host_templates; do
+#   echo $h | grep -q "X"
+#   if [ $? -eq 0 ]; then
+#     for n in 1 2 3; do
+#       x=`echo $h | sed s/X/$n/`
+#       expando_hosts+=($x)
+#     done
+#   fi
+# done
 
 # now make 'em all available to network commands like ping, ssh, etc.
-all_hosts=(`echo $ssh_hosts $explicit_hosts $expando_hosts`)
+all_hosts=(`echo $ssh_hosts $explicit_hosts`)
 zstyle ':completion:*' hosts $all_hosts
 
 # complete common homebrew commands
@@ -60,9 +60,11 @@ compctl -g '*(-/)' cd chdir dirs pushd
 # complete with active command names:
 compctl -c sudo type whence where man
 
-# git friendly, added 2022-11-22 <https://github.com/git-friendly/git-friendly#bonus-shell-completion>
-# FAILS with: _default:compcall:12: can only be called from completion function
+# # git friendly, added 2022-11-22 <https://github.com/git-friendly/git-friendly#bonus-shell-completion>
+# # FAILS with: _default:compcall:12: can only be called from completion function
 # fpath=($(brew --prefix)/share/zsh/functions $fpath)
-# autoload -Uz _git # && _git
+# autoload -Uz _git && _git
 # compdef __git_branch_names branch
 
+autoload -Uz _git && _git
+compdef __git_branch_names branch

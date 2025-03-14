@@ -1,6 +1,11 @@
 Host github.com
   user git
 
+Host norcal.local 100.101.48.27
+  user jm3
+  port 955
+  identityfile ~/.ssh/m1-air-2021-rsa
+
 # override default policy for connections that shouldn't be auto-trusted
 host github.com monkey.org
   strictHostKeyChecking yes

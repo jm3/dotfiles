@@ -1,2 +1,4 @@
-# prev. i used this to set up rvm or chruby, but now i'm on rbenv which
-# i don't think needs any setup
+# source /usr/local/share/chruby/chruby.sh
+# chruby 3.0.2
+
+eval "$(rbenv init - zsh)"
