@@ -1,4 +1,22 @@
-" stuff for programmers
+" LINTER SETUP (requires ale in plugins.vim)
+let g:ale_linters = {
+\ 'javascript': ['eslint'],
+\ 'json': ['jq'],
+\ }
+
+let g:ale_fixers = {
+\ 'javascript': ['prettier', 'eslint'],
+\ 'html': ['tidy-html5'],
+\ 'json': ['jq'],
+\ }
+
+let g:ale_javascript_prettier_use_global = 0
+let g:ale_javascript_eslint_use_global = 0
+
+let g:ale_fix_on_save = 1
+
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 
 " when i open files, vim should know from the file extension
 " what mode + syntax highlighting to use:
@@ -19,19 +37,3 @@ autocmd BufNewFile,BufRead .babelrc           set ft=javascript
 autocmd BufNewFile,BufRead Vagrantfile        set ft=ruby
 
 autocmd BufNewFile,BufRead *vim setlocal keywordprg=:help
-
-let jshint2_command = '/usr/local/bin/jshint' " js hinting
-let jshint2_confirm = 0 " don't warn about linting non-JS files (e.g. JSON)
-let jshint2_read    = 1 " auto-hint on file OPEN (needs monkeypatch to work on JSON)
-let jshint2_save    = 1 " auto-hint on file SAVE (needs)
-let jshint2_error   = 0 " hide the numeric error codes, e.g. trailing comma == 94; irrelevant)
-
-let g:ale_fixers = {
-\ 'javascript': ['eslint'],
-\ 'html': ['tidy-html5'],
-\ }
-
-let g:ale_fix_on_save = 1
-
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
