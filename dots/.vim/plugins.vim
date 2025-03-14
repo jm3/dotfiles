@@ -39,7 +39,7 @@ Plug 'junegunn/limelight.vim'        " dim all paragraphs but current one
 
 
 " " LANGUAGES + SYNTAXES
-Plug 'w0rp/ale' " async linting engine
+Plug 'dense-analysis/ale'   " async linting engine, no mo w0rp
 Plug 'honza/dockerfile.vim'
 Plug 'rhysd/vim-gfm-syntax' " GitHub Flavored Markdown
 let g:markdown_fenced_languages = ['bash', 'ruby', 'json', 'sh']
