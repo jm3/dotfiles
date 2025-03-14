@@ -12,6 +12,7 @@ gifski
 git
 gnupg
 openssl
+pyenv
 redis
 the_silver_searcher
 watch
@@ -77,4 +78,3 @@ for app in $gui
 do
   brew cask install $app
 done
-
