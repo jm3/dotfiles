@@ -48,10 +48,3 @@ function brew_history {
   open "https://github.com/Homebrew/homebrew/commits/master/Library/Formula/$1.rb"
 }
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source "$HOME/.docker/init-zsh.sh" || true # Added by Docker Desktop
-
-# per https://stackoverflow.com/questions/56738345/could-not-install-packages-due-to-an-environmenterror-could-not-find-a-suitable to make stable-diffusion STFU re: certs
-export REQUESTS_CA_BUNDLE="$HOME/.mac-ca-roots"
-
-test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
