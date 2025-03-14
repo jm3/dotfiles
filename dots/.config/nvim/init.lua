@@ -43,19 +43,7 @@ vim.g.mapleader = " " -- Sets leader to Spacebar
 -- ================================
 -- Load Plugins (after Bootstrap)
 -- ================================
-require("lazy").setup({
-  -- Example plugin: ollama.nvim
-  {
-    "nomnivore/ollama.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- Required
-    },
-    config = function()
-      require("ollama").setup()
-    end,
-  },
-  -- You can add more plugins here as needed
-})
+require("lazy").setup(require("plugins"))
 
 -- ================================
 -- Load Modular Config Files, all assumed to be .lua files
