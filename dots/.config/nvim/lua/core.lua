@@ -6,8 +6,8 @@ vim.opt.directory = { "~/.vim/backups/", "~/.tmp/", "~/tmp/", ".tmp/" }
 -- General Settings
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.clipboard = "unnamedplus" -- yank / copy to macOS system clipboard
-vim.g.mapleader = "," -- Sets leader key
+vim.opt.clipboard = "unnamedplus" -- Yank / copy to macOS system clipboard
+vim.g.mapleader = "," -- Prefix to multi key commands
 
 -- Buffer and editing behavior
 vim.opt.hidden = true
