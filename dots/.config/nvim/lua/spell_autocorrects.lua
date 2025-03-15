@@ -12,7 +12,12 @@ vim.cmd("silent mkspell! ~/iCloud/Dotfiles/vim-spell-dir/en.utf-8.add")
 vim.opt.spellcapcheck = ""
 
 -- Don't flag URLs as misspelled
-vim.cmd([[syn match UrlNoSpell "\w\+:\/\/[^[:space:]]\+" contains=@NoSpell]])
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    vim.fn.matchadd("UrlNoSpell", [[\w\+:\/\/\S\+]])
+  end,
+})
 
 -- (Optional, not working yet in original Vimscript)
 -- vim.cmd([[syn match ThousandsDollarAmountNoSpell "\$\d\+k" contains=@NoSpell]])
