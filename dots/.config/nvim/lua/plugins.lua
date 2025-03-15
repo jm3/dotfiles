@@ -41,7 +41,9 @@ return {
 
     -- the below setup, optimized fo rmy web-dev workflow, requires:
       -- npm i -g eslint prettier eslint-config-prettier
+      -- npm i -g stylelint stylelint-order stylelint-color-format stylelint-no-unsupported-browser-features stylelint-config-tailwindcss # FML
       -- brew install tidy-html5
+
     "dense-analysis/ale",
     config = function()
       vim.g.ale_enabled = 1
@@ -57,6 +59,7 @@ return {
       }
 
       vim.g.ale_fixers = {
+        css = { "stylelint" },
         javascript = { "prettier", "eslint" },
         html = { "tidy" },
         json = { "jq" },
