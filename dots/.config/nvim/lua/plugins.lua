@@ -21,8 +21,7 @@ return {
   { "mattn/emmet-vim" },                 -- emmet for html/css
   { "tpope/vim-endwise" },               -- auto "end"
   { "airblade/vim-gitgutter" },          -- git status in left-hand 'gutter'
-  { "nomnivore/ollama.nvim", dependencies = { "nvim-lua/plenary.nvim" }, config = function() require("ollama").setup() end },
-  { "tomtom/tcomment_vim" },             -- commenting
+  { "echasnovski/mini.comment" },        -- block comment toggle with gc
 
   -- COLOR SCHEMES
   { "dracula/vim" },
@@ -77,3 +76,5 @@ return {
   -- Example of adding post-install command if needed
   -- { "example/plugin", build = "make" },
 }
+
+-- { "nomnivore/ollama.nvim", dependencies = { "nvim-lua/plenary.nvim" }, config = function() require("ollama").setup() end },

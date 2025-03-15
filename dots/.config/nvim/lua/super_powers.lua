@@ -17,7 +17,7 @@ map("n", "-", 'o<Esc>24i-<Esc>')
 map("n", "=", 'o<Esc>24i=<Esc>')
 
 -- Comment out blocks (any language)
-map("n", "<Leader>c", "gcip<CR>")
+map("n", "<Leader>c", "gbap<CR>") -- using Comment.nvim
 
 -- Disable auto comment-next-line behavior
 vim.api.nvim_create_autocmd("FileType", {
@@ -40,6 +40,25 @@ map("n", "C", "1GyG:1,$!pbcopy<CR>PGdd1G")
 -- Viminfo configuration
 vim.opt.viminfo = "%,'100,/100,:999,@100,f0"
 
+-- restore cursor position for previously opened files
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*",
+  callback = function()
+    -- Skip git commit message buffers.
+    if vim.fn.expand("%"):match("COMMIT_EDITMSG") then
+      return
+    end
+    -- Get the stored cursor position from mark '"'.
+    local pos = vim.fn.getpos('\"')
+    local lnum = pos[2]
+    local col = pos[3] - 1  -- API expects 0-indexed column
+    local total_lines = vim.api.nvim_buf_line_count(0)
+    if lnum > 1 and lnum <= total_lines then
+      vim.api.nvim_win_set_cursor(0, { lnum, col })
+    end
+  end,
+})
+
 -- Restore cursor position (skip git commit messages)
 vim.api.nvim_create_autocmd("BufReadPost", {
   pattern = "*",
@@ -51,14 +70,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
--- Trigger listing
-map("n", "<Leader>d", ":!~/bin/unversioned/d<CR>")
-
 -- Commify list (space-separated to comma-separated)
 map("n", ",C", ":%s/ /,/g<CR>")
 
--- Copy current file path to clipboard
-map("n", "<Leader>r", ':let @" = expand("%")<CR>')
+-- Copy file path of current buffer to clipboard
+vim.keymap.set("n", "<Leader>r", function()
+  local filepath = vim.fn.expand("%:p")
+  vim.fn.setreg("+", filepath)
+  print("Copied: " .. filepath)
+end, { desc = "Copy current file path to clipboard" })
 
 -- Change directory to current file's directory
 map("n", "<Leader>g", ":cd %:p:h<CR>", { silent = true })
@@ -86,6 +106,3 @@ map("n", "<Leader>S", ":Startify<CR>", { silent = true })
 
 -- Edit file under cursor in new tab
 map("n", "<Leader>ef", ":tabe <cfile><CR>")
-
--- Title-case selected text (crazy macro)
-map("n", "<Leader>Tc", [[:S/\<$begin:math:text$\\W$end:math:text$$begin:math:text$\\W*$end:math:text$\>/\U\1\L\2/G<CR>:nohlsearch<CR>]], { silent = true })
