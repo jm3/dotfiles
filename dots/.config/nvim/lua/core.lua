@@ -3,6 +3,13 @@
 -- Backup directories (optional, if using swap/backup files)
 vim.opt.directory = { "~/.vim/backups//", "~/.tmp/", "~/tmp/", ".tmp/" }
 
+-- General Settings
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.clipboard = "unnamedplus" -- yank / copy to macOS system clipboard
+vim.opt.mouse = "a"
+vim.g.mapleader = "," -- Sets leader key
+
 -- Buffer and editing behavior
 vim.opt.hidden = true
 vim.opt.history = 10000
