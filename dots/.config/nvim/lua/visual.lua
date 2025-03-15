@@ -57,7 +57,7 @@ if vim.g.neovide or vim.fn.exists("g:GuiLoaded") == 1 then
   vim.opt.guifont = "FiraCode Nerd Font:h14"  -- Set a GUI font (change as needed)
 end
 
--- Optional: Limelight auto-toggle for markdown (commented out, as in Vim)
+-- Optional: Limelight auto-toggle for markdown
 -- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { pattern = "*.md", command = "Limelight" })
 -- vim.api.nvim_create_autocmd("BufLeave", { pattern = "*.md", command = "Limelight!" })
 -- vim.keymap.set("n", "<Leader>l", "<Plug>(Limelight!!)", { silent = true })

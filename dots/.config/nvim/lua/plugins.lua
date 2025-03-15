@@ -35,7 +35,37 @@ return {
   { "junegunn/limelight.vim" },
 
   -- LANGUAGES + SYNTAXES
-  { "dense-analysis/ale" },              -- async linter
+
+  {
+    -- async linter
+    "dense-analysis/ale",
+    config = function()
+      vim.g.ale_enabled = 1
+      vim.g.ale_fix_on_save = 1
+
+      vim.g.ale_sign_error = "❌"
+      vim.g.ale_sign_warning = "⚠️"
+
+      vim.g.ale_linters = {
+        html = { "tidy" },
+        javascript = { "eslint" },
+        json = { "jq" },
+      }
+
+      vim.g.ale_fixers = {
+        javascript = { "prettier", "eslint" },
+        html = { "tidy" },
+        json = { "jq" },
+        ["*"] = { "remove_trailing_lines", "trim_whitespace" },
+      }
+
+      vim.g.ale_pattern_options = {
+        [".*_mailer/*"] = { ale_enabled = 0 }
+      }
+
+      -- any other ALE-specific settings
+    end,
+  },
   { "honza/dockerfile.vim" },
   { "rhysd/vim-gfm-syntax" },
   { "pangloss/vim-javascript" },
