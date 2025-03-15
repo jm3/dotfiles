@@ -22,19 +22,20 @@ vim.opt.termguicolors = true -- terminal color support (modern equivalent of t_C
 -- Highlight current line
 vim.opt.cursorline = true
 
--- Diff colors (make diffs legible)
-vim.cmd([[
-  highlight! DiffAdded   term=none      ctermfg=4  ctermbg=0
-  highlight! DiffRemoved term=none      ctermfg=1  ctermbg=0
-  highlight! DiffText    term=reverse   ctermfg=1  ctermbg=3
-
-  highlight! link DiffAdd DiffAdded
-  highlight! link DiffDelete DiffRemoved
-
-  highlight! link markdownItalic htmlTagName
-  highlight! link markdownBold   Todo
-  highlight! link markdownH1     texRefLabel
-]])
+-- Borrow some more legible colors (make diffs more legible)
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*", -- Apply on any colorscheme load
+  callback = function()
+    vim.api.nvim_set_hl(0, 'DiffAdded', { fg = '#00afff', bg = 'none', bold = false })
+    vim.api.nvim_set_hl(0, 'DiffRemoved', { fg = '#ff005f', bg = 'none', bold = false })
+    vim.api.nvim_set_hl(0, 'DiffText', { fg = '#ff005f', bg = '#ffd700', reverse = true })
+    vim.api.nvim_set_hl(0, 'DiffAdd', { link = 'DiffAdded' })
+    vim.api.nvim_set_hl(0, 'DiffDelete', { link = 'DiffRemoved' })
+    vim.api.nvim_set_hl(0, "markdownItalic", { link = "htmlTagName" })
+    vim.api.nvim_set_hl(0, "markdownBold", { link = "Todo" })
+    vim.api.nvim_set_hl(0, "markdownH1", { link = "texRefLabel" })
+  end,
+})
 
 -- JSON conceal
 vim.opt.conceallevel = 2
