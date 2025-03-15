@@ -1,8 +1,7 @@
 " highlight code
 syntax on
 
-" rotate color schemes with <F8>
-source ~/.vim/color-cycle.vim
+" preview available color themes with :Colors
 
 " always indicate the current mode.
 set showmode
