@@ -1,3 +1,5 @@
+-- jm3 @ { monkey, sigma6, organic, zivity, 140proof, apple, etc } -- 🚀 ...
+
 -- install lazy.nvim plugin manager if not installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
