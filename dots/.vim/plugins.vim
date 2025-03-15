@@ -51,16 +51,11 @@ Plug 'leafgarland/typescript-vim'
 
 " Inactive Plugins
 " Plug 'moll/vim-bbye'             " close buffers gracefully - not sure if this works / does anything
-" Plug 'skammer/vim-css-color'     " lol no, this adds THREE-SECOND delay opening a markdown file foh
-" Plug 'kchmck/vim-coffee-script'  " not currently using CoffeeScript
-" Plug 'jparise/vim-graphql'       " GraphQL syntax
-" Plug 'junegunn/vim-emoji'        " seems to be no longer maintained
 " Plug 'tpope/vim-fugitive'        " git integration that i never use
 " Plug 'fatih/vim-go'              " not currently using Go
 " Plug 'tpope/vim-haml'
 " Plug 'maxmellon/vim-jsx-pretty'  " JS and JSX syntax
 " Plug 'tpope/vim-surround'    " cs"' to change surrounding quotes, ds" to delete surrounding quotes, etc.
-" Plug 'christoomey/vim-titlecase' " gz to title-case text
 " Plug 'mbbill/undotree'           " visualize + manipulate undo history
 
 call plug#end()
