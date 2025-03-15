@@ -39,10 +39,19 @@ return {
   {
     -- all hail ALE, the asynchronous linter
 
-    -- the below setup, optimized fo rmy web-dev workflow, requires:
-      -- npm i -g eslint prettier eslint-config-prettier
+    -- the below setup, optimized for my web-dev workflow, requires:
+
+      -- CSS:
       -- npm i -g stylelint stylelint-order stylelint-color-format stylelint-no-unsupported-browser-features stylelint-config-tailwindcss # FML
+
+      -- HTML:
       -- brew install tidy-html5
+
+      -- JS:
+      -- npm i -g eslint prettier eslint-config-prettier
+
+      -- ruby:
+      -- gem install rubocop rails_best_practices reek # standardrb
 
     "dense-analysis/ale",
     config = function()
@@ -51,18 +60,22 @@ return {
 
       vim.g.ale_sign_error = "❌"
       vim.g.ale_sign_warning = "⚠️"
+      -- vim.g.ale_ruby_rubocop_executable = "bundle" -- this didn't work well for me
 
       vim.g.ale_linters = {
+        css = { "stylelint" },
         html = { "tidy" },
         javascript = { "eslint" },
         json = { "jq" },
+        ruby = {"rails_best_practices", "rubocop"}, -- i don't approve of: standardrb
       }
 
       vim.g.ale_fixers = {
         css = { "stylelint" },
-        javascript = { "prettier", "eslint" },
         html = { "tidy" },
+        javascript = { "prettier", "eslint" },
         json = { "jq" },
+        ruby = {"rubocop" },
         ["*"] = { "remove_trailing_lines", "trim_whitespace" },
       }
 
