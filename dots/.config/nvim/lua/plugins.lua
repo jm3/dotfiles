@@ -35,8 +35,13 @@ return {
 
   -- LANGUAGES + SYNTAXES
 
+-- LINTER SETUP (requires ale in plugins.vim; dense-analysis >>>> w0rp (RIP w0rp)
   {
-    -- async linter
+    -- all hail ALE, the asynchronous linter
+
+    -- the below setup, optimized fo rmy web-dev workflow, requires:
+      -- npm i -g eslint prettier eslint-config-prettier
+      -- brew install tidy-html5
     "dense-analysis/ale",
     config = function()
       vim.g.ale_enabled = 1
