@@ -15,13 +15,8 @@ vim.opt.laststatus = 2
 -- Word wrapping at word boundaries
 vim.opt.linebreak = true
 
--- Set terminal title, restore on exit
-vim.opt.title = true
-vim.cmd([[let &t_ti = &t_ti . "\e[22;0t"]])
-vim.cmd([[let &t_te = "\e[23;0t" . &t_te]])
-
--- Set colorscheme with fallback
-vim.cmd("silent! colorscheme wildcherry") -- fallback if dracula unavailable
+-- jm3 fave colorscheme at the moment; alt: dracula
+vim.cmd("silent! colorscheme wildcherry")
 vim.opt.termguicolors = true -- terminal color support (modern equivalent of t_Co=256)
 
 -- Highlight current line
