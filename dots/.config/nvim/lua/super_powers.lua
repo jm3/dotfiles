@@ -25,11 +25,16 @@ map("n", "<Leader>j", "ggVG!python3 -m json.tool<CR><CR>")
 -- Pretty-print HTML block (HTML Tidy required)
 map("n", "<Leader>h", "!tidy -q --show-warnings no<CR><CR>")
 
--- Copy whole buffer to clipboard
-map("n", "C", "1GyG:1,$!pbcopy<CR>PGdd1G")
-
--- Viminfo configuration
-vim.opt.viminfo = "%,'100,/100,:999,@100,f0"
+-- history stuff
+-- %: Save/restore buffer list (list of open files).
+-- '100: Save marks for 100 files.
+-- /100: Save the last 100 search patterns.
+-- :999: Save 999 lines of command-line history.
+-- @100: Save contents of 100 input lines (typed at command line).
+-- f0: Don't save file marks (like '0-9 marks' used for jumping to files).
+--     We don't store file marks bc cursor restoration is handled via Lua
+--     autocmd, below
+vim.opt.shada = "%,'100,/100,:999,@100,f0"
 
 -- restore cursor position for previously opened files
 vim.api.nvim_create_autocmd("BufReadPost", {
