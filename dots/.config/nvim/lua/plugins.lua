@@ -16,12 +16,12 @@ return {
   { "wellle/targets.vim" },              -- text objects
 
   -- CODING
-  { "github/copilot.vim" },              -- copilot
+  { "github/copilot.vim" },              -- copilot AI - uses cloud
   { "tmhedberg/matchit" },               -- % to match tags
   { "mattn/emmet-vim" },                 -- emmet for html/css
   { "tpope/vim-endwise" },               -- auto "end"
-  { "airblade/vim-gitgutter" },          -- git status in left-hand 'gutter'
-  { "echasnovski/mini.comment" },        -- block comment toggle with gc
+  { "airblade/vim-gitgutter" },          -- git status in margin
+  { "tomtom/tcomment_vim" },             -- block comment toggle with ,c
 
   -- COLOR SCHEMES
   { "dracula/vim" },

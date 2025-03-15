@@ -60,7 +60,7 @@ end
 -- Optional: Limelight auto-toggle for markdown
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { pattern = "*.md", command = "Limelight" })
 vim.api.nvim_create_autocmd("BufLeave", { pattern = "*.md", command = "Limelight!" })
-vim.keymap.set("n", "<Leader>l", ":Limelight!!<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>L", ":Limelight!!<CR>", { silent = true })
 vim.g.limelight_conceal_ctermfg = 238 -- i forget what this is
 
 -- Folding options
