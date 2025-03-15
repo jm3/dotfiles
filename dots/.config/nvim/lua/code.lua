@@ -9,6 +9,11 @@ vim.g.loaded_python3_provider = 0
 -- Syntax highlighting based on file type
 vim.cmd("syntax enable")
 
+-- Toggle commenting a visually selected block (using tcomment_vim)
+vim.keymap.set("n", "<Leader>c", function()
+  vim.cmd('normal gcip')
+end, { desc = "Toggle comment block with tcomment", noremap = true })
+
 -- Set filetype based on file extension
 local filetype_cmds = {
   { pattern = "*.erb",       filetype = "html" },
