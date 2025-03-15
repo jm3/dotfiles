@@ -3,6 +3,7 @@
 /dots/.config/*
 /dots/.config/configstore/
 !/dots/.config/nvim/
+/dots/.config/nvim/personal.lua
 /dots/.config/nvim/*/*/.git
 /dots/.config/nvim/lazy/
 /dots/.git-vars
