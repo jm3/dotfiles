@@ -1,3 +1,7 @@
+" remove the ".disabled" in filename to load NEoVim but with the
+" VimScript (.vimrc + friends) configs not really recommended, but this is
+" how *i* started, so it might be useful for someone else
+
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
