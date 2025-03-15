@@ -2,12 +2,6 @@
 -- In insert mode, Ctrl-x s for suggestions
 -- In normal mode, z= for suggestions
 
--- Shared spelling file (stored in iCloud, synced)
-vim.opt.spellfile = "~/iCloud/Dotfiles/vim-spell-dir/en.utf-8.add"
-
--- Rebuild spelling file index on load to ensure sync issues are updated
-vim.cmd("silent mkspell! ~/iCloud/Dotfiles/vim-spell-dir/en.utf-8.add")
-
 -- Don't require capitalization for spelling
 vim.opt.spellcapcheck = ""
 
