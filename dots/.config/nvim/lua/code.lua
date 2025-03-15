@@ -9,16 +9,6 @@ vim.g.loaded_python3_provider = 0
 -- Syntax highlighting based on file type
 vim.cmd("syntax enable")
 
--- comment most languages, see plugins.lua
---[[ require('Comment').setup() ]]
-
-require('mini.comment').setup({
-  options = { ignore_blank_lines = true },
-  mappings = {
-    comment = 'gc', -- operator-pending mapping for toggling comments
-  },
-})
-
 -- Set filetype based on file extension
 local filetype_cmds = {
   { pattern = "*.erb",       filetype = "html" },
