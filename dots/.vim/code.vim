@@ -33,6 +33,7 @@ let g:ale_sign_warning = '⚠️'
 " don't lint rails mailer html template files; HTML mail doesn't follow the same DTD rules
 let g:ale_pattern_options = { '.*_mailer/*': {'ale_enabled': 0} }
 
+" thx: https://www.vimfromscratch.com/articles/vim-for-ruby-and-rails-in-2019
 function! LinterStatus() abort
   let l:counts = ale#statusline#Count(bufnr(''))
 
