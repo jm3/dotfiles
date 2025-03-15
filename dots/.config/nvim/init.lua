@@ -1,4 +1,4 @@
--- Bootstrap lazy.nvim (Plugin Manager) if not installed
+-- install lazy.nvim plugin manager if not installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
@@ -18,7 +18,7 @@ require("lazy").setup(require("plugins"))
 require("core")
 require("code")
 require("keys")
-pcall(require, "personal") -- Optional/personal, won't throw if missing
+pcall(require, "personal") -- onsert any personal configs here (optional)
 require("plugins")
 require("recent_files")
 require("spacing")
