@@ -6,17 +6,19 @@ abbrev dbg // eslint-disable-next-linedebugger
 " npm i -g stylelint stylelint-order stylelint-color-format stylelint-no-unsupported-browser-features stylelint-config-tailwindcss # FML
 " brew install tidy-html5
 let g:ale_linters = {
-\ 'html': ['tidy'],
 \ 'css': ['stylelint'],
+\ 'html': ['tidy'],
 \ 'javascript': ['eslint'],
 \ 'json': ['jq'],
+\ 'ruby': ['rubocop'],
 \ }
 
 let g:ale_fixers = {
 \ 'css': ['stylelint'],
-\ 'javascript': ['prettier', 'eslint'],
 \ 'html': ['tidy'],
+\ 'javascript': ['prettier', 'eslint'],
 \ 'json': ['jq'],
+\ 'ruby': ['rails_best_practices', 'rubocop'],
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ }
 
@@ -30,6 +32,25 @@ let g:ale_sign_warning = '⚠️'
 
 " don't lint rails mailer html template files; HTML mail doesn't follow the same DTD rules
 let g:ale_pattern_options = { '.*_mailer/*': {'ale_enabled': 0} }
+
+function! LinterStatus() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+
+  return l:counts.total == 0 ? '✨ all good ✨' : printf(
+        \   '🫣 %d Warnings %d Errors',
+        \   all_non_errors,
+        \   all_errors
+        \)
+endfunction
+
+set statusline=
+set statusline+=%m
+set statusline+=\ %f
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}
 
 " when i open files, vim should know from the file extension
 " what mode + syntax highlighting to use:
