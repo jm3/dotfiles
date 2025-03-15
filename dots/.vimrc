@@ -11,13 +11,13 @@ source ~/.vim/plugins.vim
 source ~/.vim/keys.vim
 source ~/.vim/visual.vim
 source ~/.vim/code.vim
-source ~/.vim/bad-speller.vim
+source ~/.vim/spell-autocorrects.vim
 source ~/.vim/spacing.vim
 source ~/.vim/super-powers.vim
 
 " symlink this to a personal file for any customomizations + overrides
 " or private stuff you want:
-silent!  source ~/.vim/personal.vim 
+silent!  source ~/.vim/personal.vim
 
 set directory=~/.vim/backups//,~/.tmp/,~/tmp/,.tmp/
 set hidden         " allow free switching between buffers even w/unsaved changes
@@ -61,4 +61,3 @@ let g:netrw_home="/tmp/"
 set modeline
 set modelines=2
 filetype plugin on
-
