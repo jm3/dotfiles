@@ -1,6 +1,6 @@
 # Dotfiles, by [@jm3](http://twitter.com/jm3)
 
-### My setup for ruby / js / vim / css / zsh hacking, and possibly yours.
+### My setup for ruby / js / neovim + vim / css / zsh hacking, and possibly yours.
 
 ![](https://github.com/jm3/dotfiles/raw/master/prompt.gif)
 
@@ -34,7 +34,9 @@ will commence. Enjoy the jealous looks of your friends!
 `dic` (diff "cached", aka diff the staging area), `l` (log)
 * Visually pleasing color scheme; eliminate "[angry fruit salad][salad]"
 
-#### Vim Awesomeness
+#### (Neo)Vim Awesomeness
+* vimscript accrued + polished over years of working alongside vim geniuses in web dev + systems / dev.ops
+* all configs rewritten in 2025 in idiomatic neovim lua
 * Search speedily with Jungunn's excellent [fzf.vim](https://github.com/junegunn/fzf.vim)
 * Align any code structure with [easy-align](https://github.com/junegunn/vim-easy-align)
 * Automatically lint (asynchronously) with ALE, using the [latest fork]([url](https://github.com/dense-analysis/ale))
