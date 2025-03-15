@@ -15,6 +15,8 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 require("lazy").setup(require("plugins"))
 
+-- put cursor on any line below and press gF (buffer local shortcut)
+-- to open one of the Lua config files below
 require("core")
 require("code")
 require("keys")
@@ -24,3 +26,4 @@ require("spacing")
 require("spell_autocorrects")
 require("super_powers")
 require("visual")
+require("config_utils")
