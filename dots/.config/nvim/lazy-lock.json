@@ -1,5 +1,4 @@
 {
-  "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "LargeFile": { "branch": "master", "commit": "3941a37b2b0288524300348a39521a46539bf9f6" },
   "ale": { "branch": "master", "commit": "1c91102112ac5addbdbf178268c61a2ead64fb2a" },
   "copilot.vim": { "branch": "release", "commit": "5015939f131627a6a332c9e3ecad9a7cb4c2e549" },
@@ -11,6 +10,7 @@
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "limelight.vim": { "branch": "master", "commit": "0c8cc7f503a775c505dc9c67f1f5041ab4d5f1fd" },
   "matchit": { "branch": "master", "commit": "060d9d8aa381d6a650b649d38c992b59db3ed1a3" },
+  "mini.comment": { "branch": "main", "commit": "264b8a63edd5a9a41d5361a1d52c13131c3c51a2" },
   "mru.vim": { "branch": "master", "commit": "9f25db66393a6467fae0ac04ae6565e8471023c3" },
   "nerdtree": { "branch": "master", "commit": "9b465acb2745beb988eff3c1e4aa75f349738230" },
   "supertab": { "branch": "main", "commit": "8c638fe17b470f4a27554cdf8e641bafa5e2a7a4" },
