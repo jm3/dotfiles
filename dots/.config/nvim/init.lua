@@ -31,25 +31,15 @@ end
 
 vim.opt.runtimepath:prepend(lazypath)
 
--- ================================
--- General Neovim Options & Leader
--- ================================
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
 vim.g.mapleader = "," -- Sets leader to Spacebar
 
--- ================================
--- Load Plugins (after Bootstrap)
--- ================================
 require("lazy").setup(require("plugins"))
 
--- ================================
--- Load Modular Config Files, all assumed to be .lua files
--- ================================
 require("core")
-
 require("code")
 require("keys")
 pcall(require, "personal") -- Optional/personal, won't throw if missing
