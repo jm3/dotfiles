@@ -17,7 +17,7 @@ vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 10
 
 -- Command-line completion
-vim.opt.wildchar = "<Tab>"
+vim.opt.wildchar = 9 -- Tab key
 vim.opt.wildmenu = true
 vim.opt.wildmode = { "list", "longest" }
 vim.opt.wildignore = {
