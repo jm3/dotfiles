@@ -49,10 +49,12 @@ vim.g.goyo_margin_top = 2
 vim.g.goyo_margin_bottom = 2
 
 -- GUI (VimR/MacVim) specific settings
-if vim.fn.has("gui_running") == 1 then
-  vim.opt.guioptions:remove("T") -- Hide toolbar
-  vim.opt.guioptions:remove("r") -- Hide right scrollbars
+if vim.g.neovide or vim.fn.exists("g:GuiLoaded") == 1 then
   vim.cmd("colorscheme dracula") -- GUI-specific colorscheme
+
+  -- VimR-specific settings (alternative to guioptions)
+  vim.opt.linespace = 2  -- Adjust line spacing (optional)
+  vim.opt.guifont = "FiraCode Nerd Font:h14"  -- Set a GUI font (change as needed)
 end
 
 -- Optional: Limelight auto-toggle for markdown (commented out, as in Vim)
