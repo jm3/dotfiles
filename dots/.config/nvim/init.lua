@@ -38,7 +38,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
-vim.g.mapleader = " " -- Sets leader to Spacebar
+vim.g.mapleader = "," -- Sets leader to Spacebar
 
 -- ================================
 -- Load Plugins (after Bootstrap)
@@ -54,16 +54,8 @@ require("code")
 require("keys")
 pcall(require, "personal") -- Optional/personal, won't throw if missing
 require("plugins")
-require("preview_schemes")
 require("recent_files")
 require("spacing")
 require("spell_autocorrects")
 require("super_powers")
 require("visual")
-
--- ================================
--- Example Plugin Keymap (Optional)
--- ================================
-vim.keymap.set("v", "<leader>oo", function()
-  require("ollama").ask()
-end, { desc = "Ask Ollama (visual selection)" })
