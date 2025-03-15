@@ -1,8 +1,6 @@
 " highlight code
 syntax on
 
-" preview color schemes with :Colors (provided by fzf)
-
 " always indicate the current mode.
 set showmode
 
@@ -47,7 +45,7 @@ if has("gui_running")
   colorscheme dracula
 endif
 
-" preview colorschemes with fn-F8 or :Colors
+" preview color schemes with :Colors (provided by fzf)
 silent! colorscheme wildcherry " dracula
 set t_Co=256
 
