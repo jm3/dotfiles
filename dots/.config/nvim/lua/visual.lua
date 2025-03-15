@@ -58,11 +58,11 @@ if vim.g.neovide or vim.fn.exists("g:GuiLoaded") == 1 then
 end
 
 -- Optional: Limelight auto-toggle for markdown
--- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { pattern = "*.md", command = "Limelight" })
--- vim.api.nvim_create_autocmd("BufLeave", { pattern = "*.md", command = "Limelight!" })
--- vim.keymap.set("n", "<Leader>l", "<Plug>(Limelight!!)", { silent = true })
--- vim.g.limelight_conceal_ctermfg = 238 -- Uncomment if needed
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { pattern = "*.md", command = "Limelight" })
+vim.api.nvim_create_autocmd("BufLeave", { pattern = "*.md", command = "Limelight!" })
+vim.keymap.set("n", "<Leader>l", ":Limelight!!<CR>", { silent = true })
+vim.g.limelight_conceal_ctermfg = 238 -- i forget what this is
 
--- Folding options (commented, as in Vim)
--- vim.opt.foldminlines = 2
--- vim.opt.fillchars = { vert = "|", fold = "." }
+-- Folding options
+vim.opt.foldminlines = 2 -- don't fold if <=2 lines, incl 1st e.g header
+vim.opt.fillchars = { vert = "|", fold = "="}
