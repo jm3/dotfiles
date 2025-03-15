@@ -4,7 +4,7 @@
   "copilot.vim": { "branch": "release", "commit": "5015939f131627a6a332c9e3ecad9a7cb4c2e549" },
   "dockerfile.vim": { "branch": "master", "commit": "b8c574928e503c0e94ad06647cff28b7c566af29" },
   "emmet-vim": { "branch": "master", "commit": "6c511a8d7d2863066f32e25543e2bb99d505172c" },
-  "fzf": { "branch": "master", "commit": "4298c0b1eb31b7563eb608e3fbf4069488ada08d" },
+  "fzf": { "branch": "master", "commit": "f92f9f137a7a222465892f30776db48a7ecc8ad9" },
   "fzf.vim": { "branch": "master", "commit": "245eaf8e50fe440729056ce8d4e7e2bb5b1ff9c9" },
   "goyo.vim": { "branch": "master", "commit": "fa0263d456dd43f5926484d1c4c7022dfcb21ba9" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
