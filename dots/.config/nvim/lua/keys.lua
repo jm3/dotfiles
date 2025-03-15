@@ -9,7 +9,7 @@ map("i", "jj", "<Esc>")
 -- Command-line mode tweaks
 map("c", "<C-a>", "<C-b>") -- ctrl-a should be beginning of line
 map("c", "<C-k>", "<C-u>") -- ctrl-k to delete to beginning (as close as possible)
-
+--
 -- File + buffer commands
 map("n", "<Leader>n", ":NERDTreeToggle<CR>")
 
@@ -17,6 +17,7 @@ map("n", "<Leader>n", ":NERDTreeToggle<CR>")
 map("n", ":E", ":e")
 map("n", "<Leader>v", ":e ~/.config/nvim/init.lua<CR>") -- adjust to ~/.config/nvim/init.lua if needed
 
+-- catch typos when fat-fingering the shift key
 map("n", "q", ":q<CR>")
 map("n", "Q", ":q")
 map("n", "W", ":w")
@@ -49,9 +50,22 @@ map("", "<BS>", "<<", { noremap = true })
 -- Allow backspacing freely
 vim.opt.backspace = { "indent", "eol", "start" }
 
--- Toggle line numbers
-map("", "N", ":set number<CR>")
-map("", "M", ":set nonumber<CR>")
+-- Toggle relative numbers
+vim.keymap.set("n", "<leader>rn", function()
+  vim.opt.relativenumber = not vim.opt.relativenumber:get()
+end, { desc = "Toggle Relative Numbers" })
+
+-- Turn ON line numbers (absolute only)
+vim.keymap.set("n", "N", function()
+  vim.opt.number = true
+  vim.opt.relativenumber = false
+end, { desc = "Enable line numbers" })
+
+-- Turn OFF all line numbers
+vim.keymap.set("n", "M", function()
+  vim.opt.number = false
+  vim.opt.relativenumber = false
+end, { desc = "Disable line numbers" })
 
 -- Arrow key remaps (OSX quirks / VimR handling)
 if not vim.fn.has("nvim") then
@@ -94,9 +108,9 @@ map("n", "<Leader>gT", "<Plug>TitlecaseLine")
 -- map("n", "[", "{")
 -- map("n", "]", "}")
 
--- Disabled spell/number toggles (optional to re-enable)
--- map("", "s", ":set nospell<CR>")
--- map("", "S", ":set spell<CR>")
+-- spell/number toggle
+map("", "s", ":set nospell<CR>")
+map("", "S", ":set spell<CR>")
 
 -- Commented-out CSS block navigation (future):
 -- map("n", "<Leader>s", "[<CR><CR>!}sort<CR>v}:s/:\\([^ ]\\)/: \\1/<CR>")
