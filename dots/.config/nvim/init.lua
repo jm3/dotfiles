@@ -48,6 +48,8 @@ require("lazy").setup(require("plugins"))
 -- ================================
 -- Load Modular Config Files, all assumed to be .lua files
 -- ================================
+require("core")
+
 require("code")
 require("keys")
 pcall(require, "personal") -- Optional/personal, won't throw if missing
