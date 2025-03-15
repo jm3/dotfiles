@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 map("n", ",C", ":%s/ /,/g<CR>")
 
 -- Copy file path of current buffer to clipboard
-vim.keymap.set("n", "<Leader>r", function()
+vim.keymap.set("n", "<Leader>p", function()
   local filepath = vim.fn.expand("%:p")
   vim.fn.setreg("+", filepath)
   print("Copied: " .. filepath)
