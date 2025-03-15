@@ -37,31 +37,21 @@ map("n", "<Leader>h", "!tidy -q --show-warnings no<CR><CR>")
 vim.opt.shada = "%,'100,/100,:999,@100,f0"
 
 -- restore cursor position for previously opened files
+-- we forgo this if the file is the magical git commit buffer, which is
+-- different for each commit, and so saving position doesn't make sense
 vim.api.nvim_create_autocmd("BufReadPost", {
   pattern = "*",
   callback = function()
-    -- Skip git commit message buffers.
-    if vim.fn.expand("%"):match("COMMIT_EDITMSG") then
+    -- Skip git commit messages
+    if vim.fn.expand("%:t") == "COMMIT_EDITMSG" then
       return
     end
-    -- Get the stored cursor position from mark '"'.
-    local pos = vim.fn.getpos('\"')
-    local lnum = pos[2]
-    local col = pos[3] - 1  -- API expects 0-indexed column
+    -- Restore cursor position if valid
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local lnum, col = mark[1], mark[2]
     local total_lines = vim.api.nvim_buf_line_count(0)
-    if lnum > 1 and lnum <= total_lines then
+    if lnum >= 1 and lnum <= total_lines then
       vim.api.nvim_win_set_cursor(0, { lnum, col })
-    end
-  end,
-})
-
--- Restore cursor position (skip git commit messages)
-vim.api.nvim_create_autocmd("BufReadPost", {
-  pattern = "*",
-  callback = function()
-    if not vim.fn.expand("%"):match("COMMIT_EDITMSG") and
-       vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
-      vim.cmd('normal! g`"')
     end
   end,
 })
