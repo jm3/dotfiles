@@ -7,23 +7,17 @@ local map = vim.keymap.set
 map("n", "<Leader>s", "!}sort -f<CR>")
 
 -- Make line an HTML list item
-map("n", "L", "^i<li><Esc>$a</li><Esc>")
+map("n", "l", "^i<li><Esc>$a</li><Esc>")
 
--- Make line a HTML link
-map("n", "<Leader>a", '0i<a href="<Esc>$a"></a><Esc>hhhi')
+-- Insert an HTML link with cursor in the URL
+map("n", "<Leader>a", '0i<a href=""><Esc>$i</a><Esc>hhhhi', { desc = "Insert <a> tag", noremap = true })
 
 -- Insert row of '=' or '-'
 map("n", "-", 'o<Esc>24i-<Esc>')
 map("n", "=", 'o<Esc>24i=<Esc>')
 
--- Comment out blocks (any language)
-map("n", "<Leader>c", "gbap<CR>") -- using Comment.nvim
-
--- Disable auto comment-next-line behavior
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*",
-  command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
-})
+-- Toggle commenting a visually selected block
+map("n", "<Leader>c", "gcip") -- using tcomment_vim
 
 -- Re-wrap current block
 map("n", "f", "!} fmt -w 72<CR>")
@@ -81,6 +75,12 @@ vim.keymap.set("n", "<Leader>r", function()
 end, { desc = "Copy current file path to clipboard" })
 
 -- Change directory to current file's directory
+vim.keymap.set("n", "<Leader>g", function()
+  local dir = vim.fn.expand("%:p:h")
+  vim.cmd("cd " .. dir)
+  print("Changed dir: " .. dir)
+end, { desc = "Change to current file's directory", silent = true })
+
 map("n", "<Leader>g", ":cd %:p:h<CR>", { silent = true })
 
 -- Startify custom header (display a fortune)
