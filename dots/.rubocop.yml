@@ -12,5 +12,8 @@ Layout/LineLength:
 AllCops:
   NewCops: enable
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 # Metrics/AbcSize:
 #   Max: 24
