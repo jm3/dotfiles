@@ -5,7 +5,7 @@ return {
   { "gabesoft/vim-ags" },                -- silver-searcher (ag)
   { "junegunn/vim-easy-align" },         -- alignment
   { "junegunn/fzf" },                    -- core fuzzy finder
-  { "junegunn/fzf.vim" },                -- fzf recipes
+  { "junegunn/fzf.vim" },                -- fzf recipes: https://github.com/junegunn/fzf.vim?tab=readme-ov-file#commands
   { "mikeboiko/vim-markdown-folding" },  -- markdown folding
   { "scrooloose/nerdtree" },             -- file browser
   { "tpope/vim-repeat" },                -- repeat last command
