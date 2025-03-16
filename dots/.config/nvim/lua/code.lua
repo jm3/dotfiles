@@ -14,6 +14,27 @@ vim.keymap.set("n", "<Leader>c", function()
   vim.cmd('normal gcip')
 end, { desc = "Toggle comment block with tcomment", noremap = true })
 
+-- ALE lint/error status in bottom statusline
+-- adapted from: https://www.vimfromscratch.com/articles/vim-for-ruby-and-rails-in-2019
+_G.linter_status = function()
+  local counts = vim.fn["ale#statusline#Count"](vim.api.nvim_get_current_buf())
+
+  local all_errors = counts.error + counts.style_error
+  local all_non_errors = counts.total - all_errors
+
+  if counts.total == 0 then
+    return "✨ all good ✨"
+  else
+    return string.format("🫣 %d Warnings %d Errors", all_non_errors, all_errors)
+  end
+end
+
+vim.opt.statusline = table.concat({
+  "%m",      -- Modified flag
+  " %f",     -- File path
+  "%=",      -- Right-align following
+  "%{v:lua.linter_status()}" -- Call Lua function dynamically
+})
 -- Set filetype based on file extension
 local filetype_cmds = {
   { pattern = "*.erb",       filetype = "html" },
