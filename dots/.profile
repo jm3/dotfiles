@@ -160,6 +160,7 @@ export PATH=\
 $HOME/bin:\
 $HOME/.pyenv/shims:\
 /opt/homebrew/bin/:\
+/opt/homebrew/sbin:\
 /usr/local/bin:\
 /usr/local/sbin:\
 /usr/bin:\
