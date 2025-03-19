@@ -5,6 +5,7 @@
 require("lazy_bootstrap").setup()
 require("lazy").setup(require("plugins"))
 
+-- require("plugins") - -included only for easy access to plugin configs via gF :)
 require("core")
 require("code")
 require("keys")

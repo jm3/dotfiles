@@ -41,17 +41,13 @@ return {
 
     -- the below setup, optimized for my web-dev workflow, requires:
 
-      -- CSS:
-      -- npm i -g stylelint stylelint-order stylelint-color-format stylelint-no-unsupported-browser-features stylelint-config-tailwindcss # FML
+      -- CSS: npm i -g stylelint stylelint-order stylelint-color-format stylelint-no-unsupported-browser-features stylelint-config-tailwindcss # FML
 
-      -- HTML:
-      -- brew install tidy-html5
+      -- HTML: brew install tidy-html5
 
-      -- JS:
-      -- npm i -g eslint prettier eslint-config-prettier
+      -- JS: npm i -g eslint prettier eslint-config-prettier
 
-      -- ruby:
-      -- gem install rubocop rails_best_practices reek # standardrb
+      -- ruby: gem install rubocop rails_best_practices reek # standardrb
 
     "dense-analysis/ale",
     config = function()
