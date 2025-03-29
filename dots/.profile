@@ -47,7 +47,6 @@ alias vf="cd"
 alias vi="vim"
 alias vim="nvim"
 alias web="rubyweb"
-alias x="cd ~/xfer/"
 alias z="vim $HOME/.zshrc"
 
 if type "safe-rm" &> /dev/null; then
