@@ -64,6 +64,7 @@ return {
         javascript = { "eslint" },
         json = { "jq" },
         ruby = {"rails_best_practices", "rubocop"}, -- i don't approve of: standardrb
+        vue = { "eslint" },
       }
 
       vim.g.ale_fixers = {
@@ -72,6 +73,7 @@ return {
         javascript = { "prettier", "eslint" },
         json = { "jq" },
         ruby = {"rubocop" },
+        vue = { "prettier", "eslint" },
         ["*"] = { "remove_trailing_lines", "trim_whitespace" },
       }
 
