@@ -1,12 +1,10 @@
 # Editor temp files #
 ####################
-*.code-workspace
 *.obsidian
 *.orig
 *.swp
 *~
 .*.swo
-.vscode
 
 # Archives #
 ############
@@ -34,6 +32,7 @@ Icon?
 Thumbs.db
 
 # regeneratable caches
+.eslintcache
 .Rhistory
 .sass-cache
 node_modules
@@ -46,4 +45,3 @@ node_modules
 *.numbers
 *.psd
 *.RData
-
