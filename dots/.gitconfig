@@ -1,6 +1,9 @@
 [include]
   path = .gitconfig-personal ; store any personal credentials in here
 
+[init]
+	defaultBranch = main
+
 [alias]
   br    = branch
   ci    = commit -v
@@ -19,6 +22,7 @@
 [core]
   quotepath    = false
   excludesfile = ~/.gitignore-global
+	editor = nvim
 
 [help]
   autocorrect = 1
@@ -65,6 +69,3 @@
 [url "git@github.com:"]
   insteadOf = git://github.com/
   insteadOf = https://github.com/
-
-[init]
-	defaultBranch = main
