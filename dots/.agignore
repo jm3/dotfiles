@@ -8,4 +8,5 @@ node_modules
 package-lock.json
 plugged
 pnpm-lock.yaml
+seeds.sql
 workspace.json
