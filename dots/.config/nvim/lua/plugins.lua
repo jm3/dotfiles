@@ -1,4 +1,5 @@
 -- lua/plugins.lua
+-- lazy.nvim plugin manager
 return {
 
   -- GENERAL EDITING
@@ -78,7 +79,7 @@ return {
       }
 
       vim.g.ale_pattern_options = {
-        [".*_mailer/*"] = { ale_enabled = 0 }
+        [".*_email.html.erb"] = { ale_enabled = 0 }
       }
 
       -- any other ALE-specific settings
