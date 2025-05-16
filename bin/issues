@@ -1,0 +1,29 @@
+#!/bin/sh
+# pretty print issues with count + url
+GH=/opt/homebrew/bin/gh
+
+$GH issue list --limit 100 --json number,title,createdAt,url |
+jq -r '
+  def pad(s; n): s + (" " * (n - (s | length)));
+  def blue(s): "\u001b[34m" + s + "\u001b[0m";
+  def green(s): "\u001b[32m" + s + "\u001b[0m";
+  def gray(s): "\u001b[90m" + s + "\u001b[0m";
+  def strip_https(s): (s | tostring) | sub("^https://"; "");
+
+  def fmt_row(ord; id; title; date; url):
+    "\(pad((ord|tostring); 3))  \(blue(pad((id|tostring);5)))  \(pad(title;60))  \(green(date))  \(strip_https(url))";
+  def fmt_header(ord; id; title; date; url):
+    gray(pad(ord;3) + "  " + pad(id;5) + "  " + pad(title;60) + "  " + pad(date;9) + "  " + url);
+
+  fmt_header("#"; "ID"; "TITLE"; "CREATED"; "URL"),
+  (
+    to_entries[] |
+    fmt_row(
+      (.key + 1);
+      .value.number;
+      .value.title[:60];
+      (.value.createdAt | fromdate | strftime("%b %e"));
+      .value.url
+    )
+  )
+'
