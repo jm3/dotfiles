@@ -15,6 +15,7 @@ source ~/.profile
 
 # source git profile variables
 source ~/.git-vars
+rm -f /Users/jm3/.rbenv/shims/gh
 
 source ~/.zsh/awesome-jm3-prompt.zsh
 source ~/.zsh/completion.zsh
@@ -40,7 +41,7 @@ export WORDCHARS=${WORDCHARS//\/}
 alias ls="ls -FG"
 
 function mcdir {
-  mkdir $1        
+  mkdir $1
   cd $1
 }
 
