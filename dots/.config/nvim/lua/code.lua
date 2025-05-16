@@ -37,6 +37,7 @@ vim.opt.statusline = table.concat({
 })
 -- Set filetype based on file extension
 local filetype_cmds = {
+  { pattern = ".pryrc",      filetype = "ruby" },
   { pattern = "*.erb",       filetype = "html" },
   { pattern = "*.fish",      filetype = "sh" },
   { pattern = "*.jade",      filetype = "pug" },
