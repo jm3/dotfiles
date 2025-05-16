@@ -121,17 +121,6 @@ turl(){
 }
 alias check="turl -s https://check.torproject.org/ | egrep \"Sorry|Congratulations\""
 
-br() {
-  if [ -z $1 ]; then
-    echo STDERR "Usage: $0 [branchname]"
-    exit 1
-  fi
-
-  branch=$1
-  git push origin origin:refs/heads/${branch}
-  git fetch
-  git branch --track ${branch} origin/${branch}
-}
 
 export EDITOR=vim
 export HISTSIZE=4096
