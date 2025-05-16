@@ -17,7 +17,7 @@ map("n", "-", 'o<Esc>24i-<Esc>')
 map("n", "=", 'o<Esc>24i=<Esc>')
 
 -- Re-wrap current block
-map("n", "f", "!} fmt -w 72<CR>")
+map("n", "<Leader>f", "!} fmt -w 72<CR>")
 
 -- Pretty-print JSON block (Python required)
 map("n", "<Leader>j", "ggVG!python3 -m json.tool<CR><CR>")
