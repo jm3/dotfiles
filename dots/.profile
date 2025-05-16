@@ -59,6 +59,8 @@ alias di="git diff"
 alias dic="git diff --cached"
 alias diw="git diw"
 alias ga="git add"
+# fzf git branch selector
+alias gcb="git branch | fzf --preview 'git diff --stat --color=always {-1}' | cut -c 3- | xargs git checkout"
 alias gra="git rebase --abort"
 alias grc="git rebase --continue"
 alias grs="git rebase --skip"
