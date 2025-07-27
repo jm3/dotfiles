@@ -63,5 +63,4 @@ compctl -g '*(-/)' cd chdir dirs pushd
 # complete with active command names:
 compctl -c sudo type whence where man
 
-autoload -Uz _git && _git
-compdef __git_branch_names branch
+autoload -Uz _git
