@@ -59,6 +59,9 @@ return {
       vim.g.ale_sign_warning = "⚠️"
       -- vim.g.ale_ruby_rubocop_executable = "bundle" -- this didn't work well for me
 
+      vim.g.ale_javascript_prettier_options = "--config-precedence file-override"
+      vim.g.ale_vue_prettier_options = "--config-precedence file-override"
+
       vim.g.ale_linters = {
         css = { "stylelint" },
         html = { "tidy" },
