@@ -13,15 +13,13 @@ awesome_jm3_prompt() {
     cwd="%{$fg[cyan]%}%B%3c%(#.#.)%b"
 
     git_info() {
-      is_git_dirty() {
-        git status --porcelain | egrep "\sM|\sD|\?\?" &> /dev/null
-      }
-      branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //' `
-      if [ ! -z "${branch}" ];
-      then
-        is_git_dirty
-        if [ $? -eq 0 ];
-        then
+      # Only check git status if we're in a git repo
+      git rev-parse --is-inside-work-tree &>/dev/null || return
+
+      branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+      if [ -n "${branch}" ]; then
+        # Quick check for dirty status
+        if ! git diff-index --quiet HEAD -- 2>/dev/null; then
           git_filth=" %{$fg[yellow]%}✗%{$reset_color%}"
         fi
         git_branch=" (%{$fg[red]%}${branch}%{$reset_color%})"
