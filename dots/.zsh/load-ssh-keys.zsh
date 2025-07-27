@@ -7,7 +7,7 @@ else
     eval `ssh-agent -s` > /dev/null
 fi
 
-keys_to_add=`find ~/.ssh -name \*pem -o -name \*sa`
+keys_to_add=$(find ~/.ssh -name "*pem" -o -name "*sa" 2>/dev/null)
 for key in $keys_to_add
 do
   ssh-add $key &> /dev/null
