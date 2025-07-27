@@ -20,7 +20,7 @@ rm -f /Users/jm3/.rbenv/shims/gh
 source ~/.zsh/awesome-jm3-prompt.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/load-host-specific-profiles.zsh
-~/.zsh/load-ssh-keys.zsh
+source ~/.zsh/load-ssh-keys.zsh
 source ~/.zsh/options.zsh
 source ~/.zsh/ruby.zsh
 source ~/.zsh/python.zsh
@@ -46,12 +46,20 @@ function mcdir {
 }
 
 function brew_history {
-  open "https://github.com/Homebrew/homebrew/commits/master/Library/Formula/$1.rb"
+  open "https://github.com/Homebrew/homebrew-core/commits/master/Formula/$1.rb"
 }
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# redunant, i think:
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source <(fzf --zsh)
 
 # git friendly completion attempt
 fpath=($(brew --prefix)/share/zsh/functions $fpath)
-autoload -Uz _git && _git
-compdef __git_branch_names branch
+autoload -Uz _git
+
+# Custom completion for git-friendly branch command
+_branch() {
+  local -a branches
+  branches=(${(f)"$(git branch --format='%(refname:short)' 2>/dev/null)"})
+  _describe 'branches' branches
+}
+compdef _branch branch
