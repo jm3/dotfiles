@@ -10,5 +10,8 @@
 
 # Added by `rbenv init` (2024)
 # currently in rbenv mode
-eval "$(rbenv init - zsh)"
+# eval "$(rbenv init - zsh)"
+#
+# supposedly faster
+# Skip rehashing (faster startup, manual `rbenv rehash` needed after installing gems)
 eval "$(rbenv init - --no-rehash zsh)"
