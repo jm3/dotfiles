@@ -8,3 +8,8 @@ export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/zlib/include"
 
 # For pkg-config to find zlib you may need to set:
 export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+
+# Add pipx/pip user installs to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+unset REQUESTS_CA_BUNDLE
