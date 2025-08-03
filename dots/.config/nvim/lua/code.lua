@@ -62,3 +62,42 @@ for _, entry in ipairs(filetype_cmds) do
     command = cmd,
   })
 end
+
+-- make sure we can find files in src/ and its subdirectories (e.g. for gf)
+vim.opt.path:append("src/**")
+vim.opt.suffixesadd:append({".js", ".vue", ".ts"})
+vim.opt.includeexpr = "v:lua.resolve_import_path(v:fname)"
+
+function _G.resolve_import_path(path)
+  -- Debug: show original path
+  vim.api.nvim_echo({{"Original path: " .. path, "Normal"}}, false, {})
+
+  -- Handle @ alias transformation
+  if string.match(path, "^@/") then
+    path = string.gsub(path, "^@/", "")
+    vim.api.nvim_echo({{"After @ strip: " .. path, "Normal"}}, false, {})
+  end
+
+  -- Find git root by traversing up
+  local current_dir = vim.fn.expand('%:p:h')
+  local git_root = nil
+
+  while current_dir ~= '/' do
+    if vim.fn.isdirectory(current_dir .. '/.git') == 1 then
+      git_root = current_dir
+      break
+    end
+    current_dir = vim.fn.fnamemodify(current_dir, ':h')
+  end
+
+  if git_root then
+    local src_dir = "web-client/src"
+    local resolved = git_root .. "/" .. src_dir .. path
+    vim.api.nvim_echo({{"Resolved to: " .. resolved, "Normal"}}, false, {})
+    return resolved
+  else
+    vim.api.nvim_echo({{"No git root found", "ErrorMsg"}}, false, {})
+  end
+
+  return path
+end
