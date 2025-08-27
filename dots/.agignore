@@ -10,3 +10,4 @@ plugged
 pnpm-lock.yaml
 seeds.sql
 workspace.json
+posts.json
