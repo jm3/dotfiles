@@ -23,6 +23,8 @@
 /dots/.zsh/history.zsh
 /dots/.ssh_config_personal
 
+/.claude/
+
 # ignore ssh dir; we only place a new config into into it without
 # touching existing keys
 /dots/.ssh
