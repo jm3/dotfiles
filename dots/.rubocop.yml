@@ -15,5 +15,8 @@ AllCops:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Lint/UselessAssignment:
+  Enabled: false
+
 # Metrics/AbcSize:
 #   Max: 24
