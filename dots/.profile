@@ -20,6 +20,8 @@ alias deps="gem list | awk \"{print $1}\" | xargs -n1 gem dependency"
 alias docker-ip='docker inspect --format "{{ .NetworkSettings.IPAddress }}" $(docker ps -q)'
 alias dots-dev="cd ~/.dotfiles/dots"
 alias frank="gshuf -n 1 ~/.frank | tr '[:lower:]' '[:upper:]'" # gshuf is part of the gnu coreutils pkg : brew install coreutils
+
+alias ffmake='ffmpeg -hide_banner -loglevel warning -y -stats -framerate 30 -i ./frame-%04d.png -c:v libx264 -preset veryslow -crf 10 -pix_fmt yuv420p'
 alias gh="/opt/homebrew/bin/gh"
 alias ip="ifconfig | grep inet | grep -v inet6"
 alias json="python -m json.tool"
