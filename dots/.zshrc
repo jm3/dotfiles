@@ -40,6 +40,23 @@ export WORDCHARS=${WORDCHARS//\/}
 # override bash-friendly alias in .profile with zsh-specific color opts
 alias ls="ls -FG"
 
+# ty tim tickel
+mdig() {
+  local d="$1"
+  if [ -z "$d" ]; then
+    echo "usage: mdig domain"
+    return 1
+  fi
+
+  dig +noall +answer \
+    "$d" SOA \
+    "$d" NS \
+    "$d" TXT \
+    "$d" MX \
+    "$d" A \
+    "$d" AAAA
+}
+
 function mcdir {
   mkdir $1
   cd $1
