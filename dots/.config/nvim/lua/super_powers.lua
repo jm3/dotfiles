@@ -73,11 +73,36 @@ vim.keymap.set("n", "<Leader>g", function()
   print("Changed dir: " .. dir)
 end, { desc = "Change to current file's directory", silent = true })
 
--- Startify custom header (with recent files + a quote)
-vim.g.startify_custom_header = vim.fn.map(
-  vim.fn.split(vim.fn.system("fortune /Users/jm3/.dotfiles/fortunes"), "\n"),
-  '"   " .. v:val'
-)
+-- Startify custom header: pick a random fortune from the dotfiles fortunes file
+-- Uses pure Lua so fortune(1) doesn't need to be installed
+local function random_fortune()
+  local path = vim.fn.expand("~/.dotfiles/fortunes")
+  local f = io.open(path, "r")
+  if not f then return { "   (no fortunes file found)" } end
+
+  local fortunes, current = {}, {}
+  for line in f:lines() do
+    if line == "%" then
+      if #current > 0 then
+        table.insert(fortunes, table.concat(current, "\n"))
+        current = {}
+      end
+    else
+      table.insert(current, line)
+    end
+  end
+  if #current > 0 then table.insert(fortunes, table.concat(current, "\n")) end
+  f:close()
+
+  if #fortunes == 0 then return { "   (no fortunes found)" } end
+  math.randomseed(os.time())
+  local lines = {}
+  for _, line in ipairs(vim.split(fortunes[math.random(#fortunes)], "\n")) do
+    table.insert(lines, "   " .. line)
+  end
+  return lines
+end
+vim.g.startify_custom_header = random_fortune()
 table.insert(vim.g.startify_custom_header, "")
 table.insert(vim.g.startify_custom_header, "")
 

@@ -67,7 +67,7 @@
   tight = %Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cr %C(white)%aN
 
 [url "git@github.com:"]
-  insteadOf = git://github.com/
-  insteadOf = https://github.com/
+  pushInsteadOf = git://github.com/
+  pushInsteadOf = https://github.com/
 [pull]
 	rebase = true

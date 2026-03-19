@@ -48,7 +48,9 @@ alias up="pull"
 alias v="vim"
 alias vf="cd"
 alias vi="vim"
-alias vim="nvim"
+if command -v nvim &>/dev/null; then
+  alias vim="nvim"
+fi
 alias web="rubyweb"
 alias z="vim $HOME/.zshrc"
 
@@ -180,4 +182,6 @@ if [ $PWD = $HOME ]; then
   fi
 fi
 
-fpath=($(brew --prefix)/share/zsh/functions $fpath)
+if command -v brew &>/dev/null; then
+  fpath=($(brew --prefix)/share/zsh/functions $fpath)
+fi

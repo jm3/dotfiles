@@ -67,10 +67,12 @@ function brew_history {
 }
 # redunant, i think:
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source <(fzf --zsh)
+command -v fzf &>/dev/null && source <(fzf --zsh)
 
 # git friendly completion attempt
-fpath=($(brew --prefix)/share/zsh/functions $fpath)
+if command -v brew &>/dev/null; then
+  fpath=($(brew --prefix)/share/zsh/functions $fpath)
+fi
 autoload -Uz _git
 
 # Custom completion for git-friendly branch command

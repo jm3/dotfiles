@@ -1,7 +1,9 @@
 # brew install pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+if command -v pyenv &>/dev/null; then
+  eval "$(pyenv init - zsh)"
+fi
 
 export LDFLAGS="$LDFLAGS -L/usr/local/opt/zlib/lib"
 export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/zlib/include"

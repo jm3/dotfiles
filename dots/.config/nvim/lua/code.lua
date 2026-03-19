@@ -17,7 +17,9 @@ end, { desc = "Toggle comment block with tcomment", noremap = true })
 -- ALE lint/error status in bottom statusline
 -- adapted from: https://www.vimfromscratch.com/articles/vim-for-ruby-and-rails-in-2019
 _G.linter_status = function()
-  local counts = vim.fn["ale#statusline#Count"](vim.api.nvim_get_current_buf())
+  -- ALE may not be loaded yet (e.g. before Lazy installs plugins)
+  local ok, counts = pcall(vim.fn["ale#statusline#Count"], vim.api.nvim_get_current_buf())
+  if not ok or type(counts) ~= "table" then return "" end
 
   local all_errors = counts.error + counts.style_error
   local all_non_errors = counts.total - all_errors

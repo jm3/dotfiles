@@ -3,7 +3,14 @@
 -- put cursor on any line below and press gF (buffer local shortcut)
 -- to open one of the Lua config files below
 require("lazy_bootstrap").setup()
-require("lazy").setup(require("plugins")) -- ~/.config/nvim/lua/plugins.lua
+
+-- lazy.nvim may not be available on first launch before the bootstrap clone completes
+local lazy_ok, lazy = pcall(require, "lazy")
+if lazy_ok then
+  lazy.setup(require("plugins")) -- ~/.config/nvim/lua/plugins.lua
+else
+  vim.notify("lazy.nvim not found — plugins disabled. Quit and reopen nvim to auto-install, or check that git is available.", vim.log.levels.WARN)
+end
 
 -- require("plugins") - -included only for easy access to plugin configs via gF :)
 require("core")
