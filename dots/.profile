@@ -144,10 +144,9 @@ if type "source-highlight" &> /dev/null; then
   export LESS=' -R -X -F '
 fi
 
-if [ "$SHELL" = "/bin/zsh" -o "$SHELL" = "/usr/local/bin/zsh" ];
-then
-  export HISTFILE=$HOME/.zsh/history.zsh
-fi
+case "$SHELL" in
+  */zsh) export HISTFILE=$HOME/.zsh/history.zsh ;;
+esac
 
 # default OS X path:    /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 # default Ubuntu path:  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
