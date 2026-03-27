@@ -22,7 +22,6 @@ alias dots-dev="cd ~/.dotfiles/dots"
 alias frank="gshuf -n 1 ~/.frank | tr '[:lower:]' '[:upper:]'" # gshuf is part of the gnu coreutils pkg : brew install coreutils
 
 alias ffmake='ffmpeg -hide_banner -loglevel warning -y -stats -framerate 30 -i ./frame-%04d.png -c:v libx264 -preset veryslow -crf 10 -pix_fmt yuv420p'
-alias gh="/opt/homebrew/bin/gh"
 alias ip="ifconfig | grep inet | grep -v inet6"
 alias json="python -m json.tool"
 alias killall="killall -9 -m -v"
@@ -182,5 +181,6 @@ if [ $PWD = $HOME ]; then
 fi
 
 if command -v brew &>/dev/null; then
+  alias gh="/opt/homebrew/bin/gh"
   fpath=($(brew --prefix)/share/zsh/functions $fpath)
 fi
