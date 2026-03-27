@@ -27,7 +27,9 @@ awesome_jm3_prompt() {
       fi
     }
 
-    echo -n "${arrow} ${cwd}$( git_info) > "
+    user="%{$fg[cyan]%}%n%{$reset_color%}"
+    host="%{$fg[magenta]%}%m%{$reset_color%}"
+    echo -n "${arrow} ${user} @ ${host} ${cwd}$( git_info) > "
   fi
 }
 
