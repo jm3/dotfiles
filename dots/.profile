@@ -18,6 +18,8 @@ alias cut6="cut -f6 -d\ "
 alias dc="docker-compose"
 alias deps="gem list | awk \"{print $1}\" | xargs -n1 gem dependency"
 alias docker-ip='docker inspect --format "{{ .NetworkSettings.IPAddress }}" $(docker ps -q)'
+alias dls='docker container ls --format "table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"'
+alias dps='dls'
 alias dots-dev="cd ~/.dotfiles/dots"
 alias frank="gshuf -n 1 ~/.frank | tr '[:lower:]' '[:upper:]'" # gshuf is part of the gnu coreutils pkg : brew install coreutils
 
