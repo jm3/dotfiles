@@ -15,7 +15,7 @@ source ~/.profile
 
 # source git profile variables
 source ~/.git-vars
-rm -f /Users/jm3/.rbenv/shims/gh
+rm -f $HOME/.rbenv/shims/gh
 
 source ~/.zsh/awesome-jm3-prompt.zsh
 source ~/.zsh/completion.zsh
@@ -98,3 +98,23 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=($HOME/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# peon-ping quick controls
+alias peon="bash $HOME/.claude/hooks/peon-ping/peon.sh"
+[ -f $HOME/.claude/hooks/peon-ping/completions.bash ] && source $HOME/.claude/hooks/peon-ping/completions.bash
