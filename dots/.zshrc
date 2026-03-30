@@ -120,6 +120,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 alias peon="bash $HOME/.claude/hooks/peon-ping/peon.sh"
 [ -f $HOME/.claude/hooks/peon-ping/completions.bash ] && source $HOME/.claude/hooks/peon-ping/completions.bash
 
-if [ -f "$HOME/.iterm2_shell_integration.zsh" ]; then
-  source ~/.iterm2_shell_integration.zsh
-fi
+[ -f "$HOME/.iterm2_shell_integration.zsh" ] && source ~/.iterm2_shell_integration.zsh
