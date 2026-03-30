@@ -24,6 +24,7 @@ source ~/.zsh/load-ssh-keys.zsh
 source ~/.zsh/options.zsh
 source ~/.zsh/ruby.zsh
 source ~/.zsh/python.zsh
+source ~/.zsh/title.zsh # iterm 2 title integration
 # source ~/.zsh/password-gen.zsh
 
 # keyboard commands:
@@ -118,3 +119,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # peon-ping quick controls
 alias peon="bash $HOME/.claude/hooks/peon-ping/peon.sh"
 [ -f $HOME/.claude/hooks/peon-ping/completions.bash ] && source $HOME/.claude/hooks/peon-ping/completions.bash
+
+if [ -f "$HOME/.iterm2_shell_integration.zsh" ]; then
+  source ~/.iterm2_shell_integration.zsh
+fi
