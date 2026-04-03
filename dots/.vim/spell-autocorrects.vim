@@ -7,11 +7,11 @@
 
 " shared spelling file so that spelling corrections made anywhere are
 " saved forever. the format is just a list of words.
-set spellfile=~/.vim/en.utf-8.add
+set spellfile=~/.config/nvim/spell/en.utf-8.add
 
 " vim uses a hokey index for its spelling file. rebuild the index on
 " load so any new words or corrects added outside of vim are available:
-silent mkspell! ~/.vim/en.utf-8.add
+silent mkspell!  ~/.config/nvim/spell/en.utf-8.add
 
 " i don't regularly capitalize, so don't flag lower-case words as typos
 set spellcapcheck=
