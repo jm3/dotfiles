@@ -1,5 +1,6 @@
 .git
 bookmarks.json
+bundle
 cache
 dist
 log
@@ -8,6 +9,9 @@ node_modules
 package-lock.json
 plugged
 pnpm-lock.yaml
+posts.json
+ruby-lsp
+ruby-lsp-check
+ruby-lsp-launcher
 seeds.sql
 workspace.json
-posts.json
