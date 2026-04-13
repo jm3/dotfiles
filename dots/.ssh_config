@@ -4,17 +4,9 @@ Host github.com
   user git
   strictHostKeyChecking yes
 
-# use 1password's cool SSH key manager
-Host *
-  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-
-# TCPKeepAlive yes
-# ServerAliveInterval 30
-
-# # general policy
-# host *
-#   forwardAgent yes
-#   serverAliveCountMax 5
-#   serverAliveInterval 15
-#   strictHostKeyChecking no
-#   tcpKeepAlive yes
+# general policy
+host *
+  forwardAgent yes
+  serverAliveCountMax 5
+  serverAliveInterval 15
+  tcpKeepAlive yes
