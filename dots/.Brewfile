@@ -1,5 +1,5 @@
-tap 'homebrew/cask'
 tap 'homebrew/brewdler'
+tap 'homebrew/cask'
 tap 'neovim/neovim'
 tap 'vectordotdev/brew'
 
