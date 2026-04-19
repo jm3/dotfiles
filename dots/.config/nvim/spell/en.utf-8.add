@@ -22,6 +22,8 @@ Homebridge
 HomeKit
 homelab
 hypervisor
+iCloud
+Immich
 infographic
 initializer
 IPv6
@@ -38,6 +40,8 @@ NAS
 nav
 NFS
 observability
+osxphotos
+performant
 Porkbun
 POSIX
 Postgres
@@ -47,6 +51,7 @@ proxied
 Redis
 Restic
 roadmap
+rsync
 runbook
 scalable
 Sitemap
