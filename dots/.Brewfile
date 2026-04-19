@@ -1,6 +1,7 @@
 tap 'homebrew/cask'
 tap 'homebrew/brewdler'
 tap 'neovim/neovim'
+tap 'vectordotdev/brew'
 
 brew 'ack'
 brew 'ansible'
