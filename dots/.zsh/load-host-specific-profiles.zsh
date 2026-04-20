@@ -1,7 +1,7 @@
 # OS-level customizations
-if [ $(uname -s) = 'Darwin' ]; then
+if [[ $(uname -s) = 'Darwin' ]]; then
   source ~/.profile-osx
-elif [ $(uname -s) = 'Linux' -a -f /etc/lsb-release -a $(grep -c Ubuntu /etc/lsb-release) -ne 0 ] ; then
+elif [[ $(uname -s) = 'Linux' ]]; then
   source ~/.profile-ubuntu
 fi
 
