@@ -1,6 +1,6 @@
 #!/bin/sh
 # pretty print issues with count + url
-GH=/opt/homebrew/bin/gh
+GH=`which gh`
 
 $GH issue list --limit 100 --json number,title,createdAt,url |
 jq -r '
