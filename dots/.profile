@@ -122,8 +122,9 @@ dumpgems() {
 turl(){
   curl --socks5-hostname localhost:9050 $@ ;
 }
-alias check="turl -s https://check.torproject.org/ | egrep \"Sorry|Congratulations\""
 
+
+alias check="turl -s https://check.torproject.org/ | egrep \"Sorry|Congratulations\""
 
 export EDITOR=vim
 export HISTSIZE=4096
