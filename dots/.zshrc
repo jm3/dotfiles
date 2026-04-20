@@ -67,8 +67,7 @@ function brew_history {
   open "https://github.com/Homebrew/homebrew-core/commits/master/Formula/$1.rb"
 }
 # redunant, i think:
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-command -v fzf &>/dev/null && source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # git friendly completion attempt
 if command -v brew &>/dev/null; then
