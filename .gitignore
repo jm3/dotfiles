@@ -10,6 +10,7 @@
 /dots/.config/nvim/lazy-lock.json
 /dots/.git-vars
 /dots/.gitconfig-personal
+/dots/.restic.env
 /dots/.rvm
 /dots/.vim/.netrwhist
 /dots/.vim/backups
