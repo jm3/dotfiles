@@ -22,6 +22,7 @@
 /dots/.vim/spell
 /dots/.vim/spell/*.spl
 /dots/.zsh/history.zsh
+/dots/.zsh/personal.zsh
 /dots/.ssh_config_personal
 
 /.claude/
