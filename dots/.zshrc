@@ -26,6 +26,9 @@ source ~/.zsh/ruby.zsh
 source ~/.zsh/python.zsh
 source ~/.zsh/title.zsh # iterm 2 title integration
 
+# optional
+[ -f "$HOME/.zsh/personal.zsh" ] && source ~/.zsh/personal.zsh
+
 # keyboard commands:
 bindkey -e   # use emacs keybindings
 bindkey "^R" history-incremental-search-backward
