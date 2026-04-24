@@ -25,7 +25,6 @@ source ~/.zsh/options.zsh
 source ~/.zsh/ruby.zsh
 source ~/.zsh/python.zsh
 source ~/.zsh/title.zsh # iterm 2 title integration
-# source ~/.zsh/password-gen.zsh
 
 # keyboard commands:
 bindkey -e   # use emacs keybindings
@@ -37,9 +36,6 @@ bindkey "[3~" delete-char   # allow reverse deletes
 
 # allow slashes to delimit words
 export WORDCHARS=${WORDCHARS//\/}
-
-# # override bash-friendly alias in .profile with zsh-specific color opts
-# alias ls="ls -oF"
 
 # ty tim tickel
 mdig() {
