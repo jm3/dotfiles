@@ -152,6 +152,7 @@ esac
 # default Ubuntu path:  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # search paths generic to ALL unices go here:
 export PATH=\
+$HOME/go/bin:\
 $HOME/bin:\
 $HOME/.pyenv/shims:\
 $HOME/.local/bin:\
