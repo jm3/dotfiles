@@ -10,6 +10,7 @@ if [ "`uname`" = "Darwin" ]; then
   alias be="bundle exec"
   alias eject="sudo diskutil umount"
   alias htop="htop -u $USER --sort-key PERCENT_CPU"
+  alias ls="ls -hFG" # overridden here bc -G on ubuntu hides the groups column; on macOS it adds color
 
   # magical hfs+ friendly, finder metadata-preserving version of rsync
   # install proper OS X/HFS+ rsync with:
