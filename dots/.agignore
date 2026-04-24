@@ -1,8 +1,8 @@
-.git
 bookmarks.json
 bundle
 cache
 dist
+.git
 log
 logs
 node_modules
