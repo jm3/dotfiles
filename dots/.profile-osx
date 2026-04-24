@@ -12,7 +12,7 @@ if [ "`uname`" = "Darwin" ]; then
   alias db="mysql -u $USER -p"
   alias eject="sudo diskutil umount"
   alias htop="htop -u $USER --sort-key PERCENT_CPU"
-  alias ls="ls -FG"
+  alias ls="ls -ohF"
   alias mou="/Applications/Mou.app/Contents/MacOS/Mou"
   alias pine="alpine -f "{imap.gmail.com/novalidate-cert/ssl/user=$USER@140proof.com}" -i"
   alias truecrypt="/Applications/TrueCrypt.app/Contents/MacOS/TrueCrypt"

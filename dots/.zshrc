@@ -38,8 +38,8 @@ bindkey "[3~" delete-char   # allow reverse deletes
 # allow slashes to delimit words
 export WORDCHARS=${WORDCHARS//\/}
 
-# override bash-friendly alias in .profile with zsh-specific color opts
-alias ls="ls -FG"
+# # override bash-friendly alias in .profile with zsh-specific color opts
+# alias ls="ls -oF"
 
 # ty tim tickel
 mdig() {
