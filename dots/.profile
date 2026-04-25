@@ -154,6 +154,7 @@ esac
 # search paths generic to ALL unices go here:
 export PATH=\
 $HOME/go/bin:\
+$HOME/.pdtm/go/bin:\
 $HOME/bin:\
 $HOME/.pyenv/shims:\
 $HOME/.local/bin:\
