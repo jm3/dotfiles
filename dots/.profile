@@ -152,8 +152,11 @@ esac
 # default OS X path:    /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 # default Ubuntu path:  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # search paths generic to ALL unices go here:
+export GOPATH=/opt/go
 export PATH=\
+/opt/go:\
 $HOME/go/bin:\
+$GOPATH/bin:\
 $HOME/.pdtm/go/bin:\
 $HOME/bin:\
 $HOME/.pyenv/shims:\
