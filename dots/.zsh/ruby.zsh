@@ -14,6 +14,13 @@
 #
 # supposedly faster
 # Skip rehashing (faster startup, manual `rbenv rehash` needed after installing gems)
-if command -v rbenv &>/dev/null; then
-  eval "$(rbenv init - --no-rehash zsh)"
+# add shims to PATH directly so ruby/gem/bundle work without running rbenv init
+export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+
+if [[ -d "$HOME/.rbenv" ]]; then
+  rbenv() {
+    unfunction rbenv
+    eval "$(command rbenv init - --no-rehash zsh)"
+    rbenv "$@"
+  }
 fi

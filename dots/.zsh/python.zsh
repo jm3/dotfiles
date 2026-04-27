@@ -1,8 +1,14 @@
 # brew install pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv &>/dev/null; then
-  eval "$(pyenv init - zsh)"
+
+# shims already in PATH via .profile; only init shell integration on first use
+if [[ -d $PYENV_ROOT ]]; then
+  pyenv() {
+    unfunction pyenv
+    eval "$(command pyenv init - zsh)"
+    pyenv "$@"
+  }
 fi
 
 export LDFLAGS="$LDFLAGS -L/opt/homebrew/opt/zlib/lib"

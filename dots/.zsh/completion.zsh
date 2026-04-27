@@ -5,8 +5,15 @@
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/jm3/.zsh/completion.zsh'
 
+# fpath additions must come before compinit
+[ -d "$HOME/.docker/completions" ] && fpath=($HOME/.docker/completions $fpath)
+
 autoload -Uz compinit
-compinit
+if [[ $(date +'%j') == $(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null) ]]; then
+  compinit -C  # use cached dump, skip security scan
+else
+  compinit     # regenerate dump once per day
+fi
 # End of lines added by compinstall
 
 # complete active screens:

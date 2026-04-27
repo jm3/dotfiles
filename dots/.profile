@@ -187,14 +187,21 @@ if [ $PWD = $HOME ]; then
   fi
 fi
 
-if command -v brew &>/dev/null; then
+if [[ -d /opt/homebrew ]]; then
   alias gh="/opt/homebrew/bin/gh"
-  fpath=($(brew --prefix)/share/zsh/functions $fpath)
+  fpath=(/opt/homebrew/share/zsh/functions $fpath)
+elif [[ -d /usr/local/Homebrew ]]; then
+  alias gh="/usr/local/bin/gh"
+  fpath=(/usr/local/share/zsh/functions $fpath)
 fi
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm() {
+  unfunction nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+  nvm "$@"
+}
 
 if [ -f "$HOME/.restic.env" ]; then
   source ~/.restic.env
