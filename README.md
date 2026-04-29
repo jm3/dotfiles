@@ -5,7 +5,7 @@
 ![](https://github.com/jm3/dotfiles/raw/master/prompt.gif)
 
 ### Design Goals
-Dotfiles should be able to be installed on a new mac or ubuntu
+Dotfiles should easily installable (one-liner) on a new mac or linux
 server install; NO additional dependencies should be required.
 
 ### One Line Install
