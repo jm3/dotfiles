@@ -87,11 +87,11 @@ will commence. Enjoy the jealous looks of your friends!
 * Pleasing default colors + fonts
 
 #### Mac Awesomeness
-* Bonus configs + solarized color theme included for *Sublime Text 2* + *iTerm 2*
+* Bonus configs + color themes for *Ghostty* && *iTerm 2*
 
 *No warranty given, express or implied. Have fun and stay safe.
-Copycenter license: think xerox machine; give it to everyone. All
-rights reserved, all wrongs reversed, no punches pulled.*
+Copycenter license: think xerox machine; give it to everyone.
+All rights reserved, all wrongs reversed, no punches pulled.*
 
 ### Hand-crafted, updated, and carefully tuned by [@jm3](http://www.jm3.net).
 
