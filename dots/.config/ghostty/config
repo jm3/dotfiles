@@ -1,0 +1,38 @@
+copy-on-select = clipboard
+font-family = Spot Mono
+font-size = 16
+font-thicken = true
+
+# catppuccin-macchiato
+# catppuccin-mocha
+# DjangoRebornAgain
+# cyberpunk
+# DoomOne
+
+theme = dracula
+# Konsolas
+# Laser
+# Lavandula
+# Rouge 2
+# Scarlet Protocol
+# WildCherry
+# Royal
+# zenwritten_dark
+
+# DRAMATIC DARK
+# Django
+# Sakura
+
+# CHILL / LOW CONTRAST / SUBTLE
+# catppuccin-frappe
+# Doom Peacock
+# Later This Evening
+# Ryuuko
+# zenbones_dark
+# zenburned
+
+background-opacity = 0.95
+background-blur-radius = 20
+macos-non-native-fullscreen = visible-menu
+
+shell-integration = zsh
