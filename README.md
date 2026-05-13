@@ -1,17 +1,17 @@
 # Dotfiles, by [@jm3](http://twitter.com/jm3)
 
-### My setup for ruby / js / neovim + vim / css / zsh hacking, and possibly yours.
+### My terminal / shell setup (and possibly yours).
 
 ![](https://github.com/jm3/dotfiles/raw/master/prompt.gif)
 
 ### Design Goals
 Dotfiles should easily installable (one-liner) on a new mac or linux
-server install; NO additional dependencies should be required.
+server install; minimal dependencies required.
 
 ### One Line Install
 Paste this one liner into your terminal to install. Your existing
-dotfiles will be backed up safely and your new life of unix luxury
-will commence. Enjoy the jealous looks of your friends!
+dotfiles will be backed up and your new life of unix luxury
+will commence. Enjoy the jealous looks of your friends.
 
 ### `curl -L https://link.jm3.net/gimme-dotfiles | ruby`
 
@@ -20,9 +20,9 @@ will commence. Enjoy the jealous looks of your friends!
 [![screencast](http://public.jm3.net.s3.amazonaws.com/github-embeds/dotfiles-youtube-embed.jpg)](https://www.youtube.com/watch?v=J5zt9JfGI8I&hl=en&hd=1)
 
 ### Featured Awesomeness
-* Modular design; add/remove features at will. Down with 500-line config files!
-* Zero gems required for operation (no rake, no thor, etc)
-* Install with one line of code and you're off to the races
+* Modular, multi-file setup; add/remove features at will without editing huge complex files.
+* Zero ruby gems required (no rake, no thor, etc)
+* Install with one line of code
 * Re-run `dots` at any time to retrieve recent changes + plugin updates
 
 #### Git Awesomeness
