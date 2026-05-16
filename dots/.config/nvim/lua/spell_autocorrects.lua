@@ -48,3 +48,18 @@ vim.cmd [[
   iabbrev hte the
   iabbrev yuo you
 ]]
+
+-- K on any word opens its definition in a scratch split (via local dictd)
+if vim.fn.executable("dict") == 1 then
+  vim.keymap.set("n", "K", function()
+    local word = vim.fn.expand("<cword>")
+    vim.cmd("new")
+    vim.cmd("setlocal buftype=nofile bufhidden=wipe noswapfile")
+    vim.fn.jobstart({ "dict", word }, {
+      stdout_buffered = true,
+      on_stdout = function(_, data)
+        if data then vim.api.nvim_buf_set_lines(0, 0, -1, false, data) end
+      end,
+    })
+  end, { desc = "Dictionary lookup" })
+end
