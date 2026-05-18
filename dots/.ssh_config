@@ -7,6 +7,7 @@ Host github.com
 # general policy
 host *
   forwardAgent yes
+  hashKnownHosts no
   serverAliveCountMax 5
   serverAliveInterval 15
   tcpKeepAlive yes
