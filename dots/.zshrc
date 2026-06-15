@@ -11,6 +11,7 @@
 autoload zmv
 
 source ~/.profile
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 source ~/.git-vars
 rm -f $HOME/.rbenv/shims/gh
 
