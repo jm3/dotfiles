@@ -71,3 +71,7 @@
 
 [pull]
 	rebase = true
+
+# https://git-scm.com/docs/git-credential-store
+[credential]
+	helper = store
