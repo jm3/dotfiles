@@ -131,13 +131,13 @@ alias check="turl -s https://check.torproject.org/ | egrep \"Sorry|Congratulatio
 
 export EDITOR=vim
 export HISTSIZE=4096
+export HOMEBREW_CASK_OPTS="--caskroom=/usr/local/Caskroom"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export SAVEHIST=2048
 export SVN_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export WWW_HOME=http://duckduckgo.com
-export HOMEBREW_CASK_OPTS="--caskroom=/usr/local/Caskroom"
 
 # requires https://www.gnu.org/software/src-highlite/;
 # {apt-get | brew} install source-highlight
