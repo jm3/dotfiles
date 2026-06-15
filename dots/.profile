@@ -122,13 +122,6 @@ dumpgems() {
   gem list | egrep -v "bundler|rake" | cut1 | xargs -n1 gem uninstall
 }
 
-turl(){
-  curl --socks5-hostname localhost:9050 $@ ;
-}
-
-
-alias check="turl -s https://check.torproject.org/ | egrep \"Sorry|Congratulations\""
-
 export EDITOR=vim
 export HISTSIZE=4096
 export HOMEBREW_CASK_OPTS="--caskroom=/usr/local/Caskroom"
