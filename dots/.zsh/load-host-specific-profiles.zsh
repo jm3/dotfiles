@@ -7,9 +7,11 @@ fi
 
 # create configs specific to your different machines by naming them
 # .my_host.profile, and they'll be sourced automatically here after
-# the OS-level configs, above
-box=$(hostname | sed s/\.local// | sed s/\.dyndns\.org//)
+# the OS-level configs, above.
+#
+# (this is the right place to store local overrides on a host-specific basis)
+box=$(hostname | sed s/\.local//)
+
 if [ -f ~/.$box.profile ]; then
   source ~/.$box.profile
-fi 
-
+fi
