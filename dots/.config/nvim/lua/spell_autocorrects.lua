@@ -36,16 +36,17 @@ vim.cmd [[
   iabbrev buig bug
   iabbrev flase false
   iabbrev frmo from
+  iabbrev hte the
   iabbrev jsut just
   iabbrev manogoian manoogian
   iabbrev nad and
   iabbrev ot to
   iabbrev pate paste
   iabbrev prolly probably
+  iabbrev stringer stinger
   iabbrev teamplate template
-  iabbrev tempalte template
   iabbrev teh the
-  iabbrev hte the
+  iabbrev tempalte template
   iabbrev yuo you
 ]]
 
