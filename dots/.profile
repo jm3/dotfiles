@@ -201,3 +201,8 @@ nvm() {
 if [ -f "$HOME/.restic.env" ]; then
   source ~/.restic.env
 fi
+
+# Added by LM Studio CLI tool (lms)
+if [ -f "$HOME/.lmstudio/bin" ]; then
+  export PATH="$PATH:$HOME/.lmstudio/bin"
+fi
