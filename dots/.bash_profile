@@ -58,5 +58,3 @@ export PATH=$PATH:\
 /bin:\
 /usr/sbin:\
 /sbin:\
-
-echo export PATH=/opt/homebrew/bin:/Users/jm3/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:./bin:
