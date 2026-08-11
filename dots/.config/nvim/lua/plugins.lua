@@ -9,6 +9,14 @@ return {
   { "junegunn/fzf.vim" },                -- fzf recipes: https://github.com/junegunn/fzf.vim?tab=readme-ov-file#commands
   { "mikeboiko/vim-markdown-folding" },  -- markdown folding
   { "scrooloose/nerdtree" },             -- file browser
+  {
+    "nvim-tree/nvim-web-devicons",       -- Nerd Font file-type icons (requires a Nerd Font in your terminal)
+    config = function() require("nvim-web-devicons").setup() end,
+  },
+  {
+    "tiagofumo/vim-nerdtree-syntax-highlight", -- feeds nvim-web-devicons into NERDTree
+    dependencies = { "scrooloose/nerdtree", "nvim-tree/nvim-web-devicons" },
+  },
   { "tpope/vim-repeat" },                -- repeat last command
   { "vim-scripts/LargeFile" },           -- optimize large files
   { "mhinz/vim-startify" },              -- start screen
@@ -18,6 +26,28 @@ return {
 
   -- CODING
   { "github/copilot.vim" },              -- copilot AI - uses cloud
+  { "williamboman/mason.nvim" },         -- installs LSP servers for you
+  { "williamboman/mason-lspconfig.nvim", dependencies = { "williamboman/mason.nvim" } },
+  {
+    "saghen/blink.cmp", version = "1.*", -- completion menu UI
+    opts = {
+      keymap = { preset = "default" }, -- <C-y> accept, <C-n>/<C-p> or arrows to select
+      completion = {
+        documentation = { auto_show = true },
+        -- default menu draw (with kind_icon) now that a Nerd Font is installed
+      },
+      -- default sources included "buffer", which suggests any word already
+      -- typed in the current buffer -- that's what was popping a menu after
+      -- every word in plaintext/commit messages/etc. with no LSP to scope
+      -- it. lsp/path/snippets only fire where they're actually relevant.
+      sources = { default = { "lsp", "path", "snippets" } },
+    },
+  },
+  {
+    "neovim/nvim-lspconfig",             -- real, type-aware TS/Vue completion (see lua/lsp.lua)
+    dependencies = { "williamboman/mason-lspconfig.nvim", "saghen/blink.cmp" },
+    config = function() require("lsp").setup() end,
+  },
   { "tmhedberg/matchit" },               -- % to match tags
   { "mattn/emmet-vim" },                 -- emmet for html/css
   { "tpope/vim-endwise" },               -- auto "end"
@@ -61,13 +91,19 @@ return {
 
       vim.g.ale_javascript_prettier_options = "--config-precedence file-override"
       vim.g.ale_vue_prettier_options = "--config-precedence file-override"
+      vim.g.ale_typescript_prettier_options = "--config-precedence file-override"
 
+      -- typescript pinned to eslint explicitly (matching javascript/vue below) so
+      -- ALE doesn't auto-detect and spawn its own bundled "deno" LSP linter just
+      -- because the deno binary happens to be on PATH -- that duplicated vtsls
+      -- (see lua/lsp.lua) on every plain .ts file.
       vim.g.ale_linters = {
         css = { "stylelint" },
         html = { "tidy" },
         javascript = { "eslint" },
         json = { "jq" },
         ruby = {"rails_best_practices", "rubocop"}, -- i don't approve of: standardrb
+        typescript = { "eslint" },
         vue = { "eslint" },
       }
 
@@ -77,6 +113,7 @@ return {
         javascript = { "prettier", "eslint" },
         json = { "jq" },
         ruby = {"rubocop" },
+        typescript = { "prettier", "eslint" },
         vue = { "prettier", "eslint" },
         ["*"] = { "remove_trailing_lines", "trim_whitespace" },
       }

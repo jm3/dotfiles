@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(brew info *)",
+      "Bash(brew install *)",
+      "Bash(brew search *)",
+      "Bash(claude mcp *)",
+      "Bash(docker mcp *)",
+      "Bash(echo \"---exit: $?\")",
+      "Bash(echo \"exit: $?\")",
+      "Bash(gh issue *)",
+      "Bash(gitea-mcp-server --help)",
+      "Bash(npm info *)",
+      "Bash(npm search *)",
+      "Bash(tea issue *)",
+      "Bash(tea login *)",
+      "Bash(tea repos *)",
+      "mcp__gitea__get_me",
+      "mcp__gitea__issue_read",
+      "mcp__gitea__list_issues",
+      "mcp__gitea__list_my_repos",
+      "Skill(update-config)"
+    ]
+  }
+}
