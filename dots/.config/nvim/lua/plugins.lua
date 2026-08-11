@@ -21,7 +21,6 @@ return {
   { "vim-scripts/LargeFile" },           -- optimize large files
   { "mhinz/vim-startify" },              -- start screen
   { "vim-scripts/mru.vim" },             -- most-recent files
-  { "ervandew/supertab" },               -- <tab> for completion
   { "wellle/targets.vim" },              -- text objects
 
   -- CODING
