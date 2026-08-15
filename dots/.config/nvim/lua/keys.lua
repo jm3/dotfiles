@@ -1,3 +1,8 @@
+-- Reminders
+-- gd: go to definition
+-- control-o: jump back to previous location
+-- control-i: jump forward to next location
+
 -- Leader key
 vim.g.mapleader = ","
 
