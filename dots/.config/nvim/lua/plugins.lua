@@ -86,7 +86,17 @@ return {
 
       vim.g.ale_sign_error = "❌"
       vim.g.ale_sign_warning = "⚠️"
-      -- vim.g.ale_ruby_rubocop_executable = "bundle" -- this didn't work well for me
+      -- For Dockerized Rails projects with no host-side `bundle install`,
+      -- ALE shells rubocop into the project's own container via a generic
+      -- wrapper (~/.dotfiles/bin/docker-rubocop) instead of a host-installed
+      -- gem. That's what actually resolves each project's pinned
+      -- Gemfile.lock version -- no host gem to hand-sync per project.
+      -- Requires that project's containers already be running
+      -- (`docker compose up -d`). Falls back to the plain host `rubocop`
+      -- gem for any file with no docker-compose.yml above it (ad hoc
+      -- scripts, ~/bin utilities, etc.), so linting/fixing still works
+      -- outside a Dockerized project. (2026-08)
+      vim.g.ale_ruby_rubocop_executable = "docker-rubocop"
 
       vim.g.ale_javascript_prettier_options = "--config-precedence file-override"
       vim.g.ale_vue_prettier_options = "--config-precedence file-override"

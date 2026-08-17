@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+# ALE `ruby_rubocop_executable` for Dockerized Rails projects with no
+# host-side `bundle install`, falling back to the host rubocop gem for any
+# .rb file that isn't under such a project (or whose containers aren't up)
+# -- so ad hoc scripts and ~/bin utilities still get linted/fixed normally.
+#
+# Given the --stdin <path> ALE passes: walks up from that file to find the
+# nearest docker-compose.yml, asks `docker compose config` which service
+# bind-mounts a directory covering that file, and execs rubocop inside that
+# service's container so the container's Gemfile.lock-resolved rubocop
+# answers -- with no host gem to hand-sync per project. Falls back to the
+# host `rubocop` (rbenv shim) whenever no such project/service is found, so
+# ALE never goes silent instead of reporting real offenses.
+
+target=""
+prev=""
+for arg in "$@"; do
+  if [[ "$prev" == "--stdin" ]]; then
+    target="$arg"
+  fi
+  prev="$arg"
+done
+
+fallback() {
+  exec rubocop "$@"
+}
+
+[[ -n "$target" ]] || fallback "$@"
+
+dir=$(dirname "$target")
+compose_file=""
+while [[ "$dir" != "/" ]]; do
+  for name in docker-compose.yml compose.yml docker-compose.yaml compose.yaml; do
+    if [[ -f "$dir/$name" ]]; then
+      compose_file="$dir/$name"
+      break 2
+    fi
+  done
+  dir=$(dirname "$dir")
+done
+
+[[ -n "$compose_file" ]] || fallback "$@"
+
+resolved=$(docker compose -f "$compose_file" config --format json 2>/dev/null) || fallback "$@"
+
+service=""
+host_prefix=""
+container_prefix=""
+while IFS=$'\t' read -r svc source target_path; do
+  case "$target" in
+    "$source"*)
+      service="$svc"
+      host_prefix="$source"
+      container_prefix="$target_path"
+      ;;
+  esac
+done < <(jq -r '
+  .services | to_entries[] | .key as $svc |
+  (.value.volumes // [])[] | select(.type == "bind") |
+  [$svc, .source, .target] | @tsv
+' <<< "$resolved" 2>/dev/null)
+
+[[ -n "$service" ]] || fallback "$@"
+
+args=()
+for arg in "$@"; do
+  if [[ "$arg" == "$host_prefix"* ]]; then
+    args+=("${container_prefix}${arg#"$host_prefix"}")
+  else
+    args+=("$arg")
+  fi
+done
+
+exec docker compose -f "$compose_file" exec -T "$service" bundle exec rubocop "${args[@]}"
